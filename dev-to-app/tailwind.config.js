@@ -14,6 +14,17 @@ module.exports = {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
+        screens: {
+            '2xl': {'min': '1399.98px'},
+
+            'xl': {'min': '1199.98px'},
+
+            'lg': {'min': '991.98px'},
+
+            'md': {'min': '767.98px'},
+
+            'sm': {'max': '575.98px'},
+        }
     },
 
     plugins: [require('@tailwindcss/forms')],
