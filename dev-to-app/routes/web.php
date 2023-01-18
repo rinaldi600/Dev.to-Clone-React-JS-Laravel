@@ -19,6 +19,10 @@ Route::get('/', function () {
     return Inertia::render('Home/Home');
 });
 
+Route::get('/search', function () {
+    return 'WORK';
+});
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
