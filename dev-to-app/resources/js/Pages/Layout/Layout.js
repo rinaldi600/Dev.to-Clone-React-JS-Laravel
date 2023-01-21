@@ -1,18 +1,27 @@
-import React, {Fragment} from "react";
+import React, {Fragment, lazy, Suspense} from "react";
 import {Link} from "@inertiajs/inertia-react";
 import ButtonLogInSignUp from "@/Pages/Layout/Button-LogIn-And-SignUp/ButtonLogInSignUp";
+import { useSelector, useDispatch } from 'react-redux'
+import {show} from "@/features/Navbar/NavbarSlice";
+import MobileNavbar from "@/Pages/Layout/Mobile-Navbar/Mobile-Navbar";
+
+const mobileNavbar = lazy(() => import('./Mobile-Navbar/Mobile-Navbar'));
 
 function Layout({children}) {
 
+    const navbar = useSelector(state => state.navbar.value);
+    const dispatch = useDispatch();
+
+
     const showMobileNavbar = () => {
-        console.log('WORK')
+        console.log(navbar)
     };
 
     return (
         <Fragment>
             <div className={`h-[56px] font-['Segoe_UI'] bg-white shadow-[0_1px_2px_0px_rgba(60,64,67,0.3),0px_1px_3px_1px_rgba(60,64,67,0.15)]`}>
                 <div className={'max-w-[1280px] h-full mx-auto'}>
-                    <div className={'w-full flex items-center justify-between h-full bg-yellow-400'}>
+                    <div className={'w-full flex items-center justify-between h-full'}>
 
                         {/*Right Side Navbar*/}
                         <div className={'flex lg:justify-start justify-between w-full lg:w-max gap-4'}>
@@ -59,6 +68,9 @@ function Layout({children}) {
                     </div>
                 </div>
             </div>
+            <Suspense fallback={<h1>Still Loading…</h1>}>
+                <MobileNavbar/>
+            </Suspense>
             {children}
         </Fragment>
     )
