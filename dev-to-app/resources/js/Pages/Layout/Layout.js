@@ -1,20 +1,17 @@
 import React, {Fragment, lazy, Suspense} from "react";
 import {Link} from "@inertiajs/inertia-react";
 import ButtonLogInSignUp from "@/Pages/Layout/Button-LogIn-And-SignUp/ButtonLogInSignUp";
-import { useSelector, useDispatch } from 'react-redux'
+import {useDispatch } from 'react-redux'
 import {show} from "@/features/Navbar/NavbarSlice";
-import MobileNavbar from "@/Pages/Layout/Mobile-Navbar/Mobile-Navbar";
 
-const mobileNavbar = lazy(() => import('./Mobile-Navbar/Mobile-Navbar'));
+const MobileNavbarLazy = lazy(() => import('./Mobile-Navbar/Mobile-Navbar'));
 
 function Layout({children}) {
 
-    const navbar = useSelector(state => state.navbar.value);
     const dispatch = useDispatch();
 
-
     const showMobileNavbar = () => {
-        console.log(navbar)
+        dispatch(show());
     };
 
     return (
@@ -69,9 +66,14 @@ function Layout({children}) {
                 </div>
             </div>
             <Suspense fallback={<h1>Still Loading…</h1>}>
-                <MobileNavbar/>
+                <MobileNavbarLazy/>
             </Suspense>
-            {children}
+            <div>
+                {children}
+            </div>
+            <div className={'min-h-[233px] bg-[#E5E5E5]'}>
+
+            </div>
         </Fragment>
     )
 }
