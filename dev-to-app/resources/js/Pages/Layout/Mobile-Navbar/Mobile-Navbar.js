@@ -1,9 +1,10 @@
 import ButtonLogInSignUp from "@/Pages/Layout/Button-LogIn-And-SignUp/ButtonLogInSignUp";
+import Category from "@/Pages/Layout/Category/Category";
 
 function MobileNavbar() {
     return (
-        <div className={"absolute font-['Segoe_UI'] inset-0 bg-[#848484]/75 md:hidden overflow-y-scroll"}>
-            <div className={'max-w-[282.2px] bg-white h-full'}>
+        <div className={"absolute font-['Segoe_UI'] inset-0 bg-[#848484]/75 md:hidden overflow-hidden"}>
+            <div className={'max-w-[282.2px] bg-white h-full overflow-y-scroll'}>
                 <div className={'min-h-[56px] p-2 flex items-center justify-between'}>
                     <h1 className={'font-bold text-lg'}>DEV Community 👩‍💻👨‍💻</h1>
                     <div className={'w-[40px] h-[40px] hover:bg-[#EBECFC] flex rounded-lg cursor-pointer justify-center items-center'}>
@@ -25,6 +26,9 @@ function MobileNavbar() {
                             <ButtonLogInSignUp/>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <Category/>
                 </div>
             </div>
         </div>
