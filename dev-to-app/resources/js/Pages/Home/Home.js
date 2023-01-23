@@ -3,6 +3,8 @@ import Layout from "@/Pages/Layout/Layout";
 import CardLoginAndSignUp from "@/Pages/Layout/CardLoginAndSignUp/CardLoginAndSignUp";
 import Category from "@/Pages/Layout/Category/Category";
 import Tags from "@/Pages/Home/Tags/Tags";
+import Listings from "@/Pages/Home/Listings/Listings";
+import TagsHome from "@/Pages/Home/TagsHome/TagsHome";
 
 function Home() {
     return (
@@ -18,8 +20,9 @@ function Home() {
                 <div className={'w-[650.662px] min-h-max bg-orange-400'}>
 
                 </div>
-                <div className={'hidden lg:block w-[325.337px] min-h-max bg-sky-400'}>
-
+                <div className={'hidden lg:block w-[325.337px] min-h-max'}>
+                    <Listings/>
+                    <TagsHome/>
                 </div>
             </div>
         </div>
