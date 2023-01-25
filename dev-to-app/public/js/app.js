@@ -5323,7 +5323,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_Home_Tags_Tags__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Pages/Home/Tags/Tags */ "./resources/js/Pages/Home/Tags/Tags.js");
 /* harmony import */ var _Pages_Home_Listings_Listings__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Pages/Home/Listings/Listings */ "./resources/js/Pages/Home/Listings/Listings.js");
 /* harmony import */ var _Pages_Home_TagsHome_TagsHome__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Pages/Home/TagsHome/TagsHome */ "./resources/js/Pages/Home/TagsHome/TagsHome.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Pages_Home_Trendings_Trendings__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Pages/Home/Trendings/Trendings */ "./resources/js/Pages/Home/Trendings/Trendings.js");
+/* harmony import */ var _Pages_Home_RecentlyQueried_Recentlys__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @/Pages/Home/RecentlyQueried/Recentlys */ "./resources/js/Pages/Home/RecentlyQueried/Recentlys.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
@@ -5334,27 +5338,27 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Home() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
     className: "font-['Segoe_UI'] bg-[#F5F5F5] w-full",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       className: 'max-w-[1280px] pt-3 mx-auto justify-center flex gap-3',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: 'hidden min-h-max md:block w-[267.2px]',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: 'w-full bg-[#FAFAFA] p-2 rounded-lg shadow-[0_1px_4px_rgba(0,0,0,0.16)]',
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Pages_Layout_CardLoginAndSignUp_CardLoginAndSignUp__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Pages_Layout_Category_Category__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Pages_Home_Tags_Tags__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Pages_Layout_CardLoginAndSignUp_CardLoginAndSignUp__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Pages_Layout_Category_Category__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Pages_Home_Tags_Tags__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: 'w-[650.662px] min-h-max bg-orange-400'
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
         className: 'hidden lg:block w-[325.337px] min-h-max',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Pages_Home_Listings_Listings__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Pages_Home_TagsHome_TagsHome__WEBPACK_IMPORTED_MODULE_6__["default"], {})]
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Pages_Home_Listings_Listings__WEBPACK_IMPORTED_MODULE_5__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Pages_Home_TagsHome_TagsHome__WEBPACK_IMPORTED_MODULE_6__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Pages_Home_Trendings_Trendings__WEBPACK_IMPORTED_MODULE_7__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Pages_Home_RecentlyQueried_Recentlys__WEBPACK_IMPORTED_MODULE_8__["default"], {})]
       })]
     })
   });
 }
 Home.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     children: page,
     title: "Welcome"
   });
@@ -5468,6 +5472,82 @@ function Listings() {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Home/RecentlyQueried/Recently/Recently.js":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Pages/Home/RecentlyQueried/Recently/Recently.js ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Recently(_ref) {
+  var text = _ref.text,
+    href = _ref.href;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: 'min-h-max hover:bg-white font-[Segoe_UI] p-3 mt-3 flex items-center',
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      className: 'text-[#404040] hover:text-[#616AC4]',
+      href: href,
+      children: text
+    })
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Recently);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Home/RecentlyQueried/Recentlys.js":
+/*!**************************************************************!*\
+  !*** ./resources/js/Pages/Home/RecentlyQueried/Recentlys.js ***!
+  \**************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Pages_Home_RecentlyQueried_Recently_Recently__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Home/RecentlyQueried/Recently/Recently */ "./resources/js/Pages/Home/RecentlyQueried/Recently/Recently.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function Recentlys() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: 'mt-3 min-h-max border-b-2 border-[#CCCCCC]',
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
+      className: 'font-bold text-sm text-[#171717] font-[Consolas]',
+      children: "recently queried"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Home_RecentlyQueried_Recently_Recently__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      text: 'JavaScript Shift',
+      href: '/'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Home_RecentlyQueried_Recently_Recently__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      text: 'Prototypical Inheritance',
+      href: '/'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Home_RecentlyQueried_Recently_Recently__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      text: 'Learn Python for Free',
+      href: '/'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Home_RecentlyQueried_Recently_Recently__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      text: 'Vscode Vim',
+      href: '/'
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Recentlys);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Home/TagsHome/TagHome/TagHome.js":
 /*!*************************************************************!*\
   !*** ./resources/js/Pages/Home/TagsHome/TagHome/TagHome.js ***!
@@ -5519,22 +5599,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Pages_Home_TagsHome_TagHome_TagHome__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Home/TagsHome/TagHome/TagHome */ "./resources/js/Pages/Home/TagsHome/TagHome/TagHome.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
 
 function TagsHome() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     className: 'w-[325.377px] mt-3 min-h-max bg-[#FAFAFA] shadow-[0px_1px_4px_rgba(0,0,0,0.16)] rounded-lg overflow-hidden',
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: 'h-[54.8px] border-b border-[#EAEAEA] flex justify-between p-2 items-center',
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
-        className: 'text-xl font-bold',
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+        className: 'text-xl font-bold hover:text-[#2F71CB]',
+        href: '/',
         children: "#Discuss"
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Home_TagsHome_TagHome_TagHome__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Pages_Home_TagsHome_TagHome_TagHome__WEBPACK_IMPORTED_MODULE_1__["default"], {
       text: 'What was your win this week?',
+      href: '/',
+      commentCount: '16'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Pages_Home_TagsHome_TagHome_TagHome__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      text: 'My 3 Apprenticeship Patterns for 2023',
       href: '/',
       commentCount: '16'
     })]
@@ -5657,6 +5744,82 @@ function Tags() {
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Tags);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Home/Trendings/Trending/Trending.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/Pages/Home/Trendings/Trending/Trending.js ***!
+  \****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Trending(_ref) {
+  var text = _ref.text,
+    href = _ref.href;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: 'min-h-max hover:bg-white font-[Segoe_UI] p-3 mt-3 flex items-center',
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      className: 'text-[#404040] hover:text-[#616AC4]',
+      href: href,
+      children: text
+    })
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Trending);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Home/Trendings/Trendings.js":
+/*!********************************************************!*\
+  !*** ./resources/js/Pages/Home/Trendings/Trendings.js ***!
+  \********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Pages_Home_Trendings_Trending_Trending__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Home/Trendings/Trending/Trending */ "./resources/js/Pages/Home/Trendings/Trending/Trending.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function Trendings() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: 'mt-3 min-h-max border-b-2 border-[#CCCCCC]',
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
+      className: 'font-bold text-sm text-[#171717] font-[Consolas]',
+      children: "trending guides/resources"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Home_Trendings_Trending_Trending__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      href: '/',
+      text: 'Ultimate ChatGPT Resource Guide - ChatGPT Tutorial'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Home_Trendings_Trending_Trending__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      href: '/',
+      text: 'Master Notifications With ChatGPT, React and NodeJS 🧨'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Home_Trendings_Trending_Trending__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      href: '/',
+      text: 'JavaScript Frameworks - Heading into 2023'
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Home_Trendings_Trending_Trending__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      href: '/',
+      text: 'The Difference Between ChatGPT and GPT-3'
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Trendings);
 
 /***/ }),
 
@@ -6518,7 +6681,125 @@ function Layout(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       children: children
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      className: 'min-h-[233px] bg-[#E5E5E5]'
+      className: "min-h-[233px] font-['Segoe_UI'] flex justify-center items-center bg-[#E5E5E5]",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: "",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+          className: 'flex gap-2 justify-center',
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+            className: 'text-sm font-medium text-[#3B49DF] hover:underline hover:decoration-solid',
+            href: '/',
+            children: "DEV Community \uD83D\uDC69\u200D\uD83D\uDCBB\uD83D\uDC68\u200D\uD83D\uDCBB "
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
+            className: 'text-sm text-[#404040]',
+            children: [" \u2014 ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("span", {
+              children: "A constructive and inclusive social network for software developers. With you every step of your journey."
+            })]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: 'w-[75%] mx-auto mt-3',
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("ul", {
+            className: 'marker:text-[#575757] flex flex-wrap mx-auto gap-2 justify-center items-center list-disc list-inside',
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "Home"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "Listings"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "Podcasts"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "Videos"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "Tags"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "FAQ"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "Forem Shop"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "Sponsors"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "About"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "About"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "Contact"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "Guides"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "Software comparisons"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "Code of Product"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "Privacy Policy"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("li", {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                className: 'text-sm text-[#3B49DF] hover:underline hover:decoration-solid',
+                href: '/',
+                children: "Term of use"
+              })
+            })]
+          })
+        })]
+      })
     })]
   });
 }
@@ -64002,6 +64283,10 @@ var map = {
 	"./Home/Listings/List/List.js": "./resources/js/Pages/Home/Listings/List/List.js",
 	"./Home/Listings/Listings": "./resources/js/Pages/Home/Listings/Listings.js",
 	"./Home/Listings/Listings.js": "./resources/js/Pages/Home/Listings/Listings.js",
+	"./Home/RecentlyQueried/Recently/Recently": "./resources/js/Pages/Home/RecentlyQueried/Recently/Recently.js",
+	"./Home/RecentlyQueried/Recently/Recently.js": "./resources/js/Pages/Home/RecentlyQueried/Recently/Recently.js",
+	"./Home/RecentlyQueried/Recentlys": "./resources/js/Pages/Home/RecentlyQueried/Recentlys.js",
+	"./Home/RecentlyQueried/Recentlys.js": "./resources/js/Pages/Home/RecentlyQueried/Recentlys.js",
 	"./Home/Tags/Tag/Tag": "./resources/js/Pages/Home/Tags/Tag/Tag.js",
 	"./Home/Tags/Tag/Tag.js": "./resources/js/Pages/Home/Tags/Tag/Tag.js",
 	"./Home/Tags/Tags": "./resources/js/Pages/Home/Tags/Tags.js",
@@ -64010,6 +64295,10 @@ var map = {
 	"./Home/TagsHome/TagHome/TagHome.js": "./resources/js/Pages/Home/TagsHome/TagHome/TagHome.js",
 	"./Home/TagsHome/TagsHome": "./resources/js/Pages/Home/TagsHome/TagsHome.js",
 	"./Home/TagsHome/TagsHome.js": "./resources/js/Pages/Home/TagsHome/TagsHome.js",
+	"./Home/Trendings/Trending/Trending": "./resources/js/Pages/Home/Trendings/Trending/Trending.js",
+	"./Home/Trendings/Trending/Trending.js": "./resources/js/Pages/Home/Trendings/Trending/Trending.js",
+	"./Home/Trendings/Trendings": "./resources/js/Pages/Home/Trendings/Trendings.js",
+	"./Home/Trendings/Trendings.js": "./resources/js/Pages/Home/Trendings/Trendings.js",
 	"./Layout/Button-LogIn-And-SignUp/ButtonLogInSignUp": "./resources/js/Pages/Layout/Button-LogIn-And-SignUp/ButtonLogInSignUp.js",
 	"./Layout/Button-LogIn-And-SignUp/ButtonLogInSignUp.js": "./resources/js/Pages/Layout/Button-LogIn-And-SignUp/ButtonLogInSignUp.js",
 	"./Layout/CardLoginAndSignUp/CardLoginAndSignUp": "./resources/js/Pages/Layout/CardLoginAndSignUp/CardLoginAndSignUp.js",

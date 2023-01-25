@@ -5,6 +5,8 @@ import Category from "@/Pages/Layout/Category/Category";
 import Tags from "@/Pages/Home/Tags/Tags";
 import Listings from "@/Pages/Home/Listings/Listings";
 import TagsHome from "@/Pages/Home/TagsHome/TagsHome";
+import Trendings from "@/Pages/Home/Trendings/Trendings";
+import Recentlys from "@/Pages/Home/RecentlyQueried/Recentlys";
 
 function Home() {
     return (
@@ -23,6 +25,8 @@ function Home() {
                 <div className={'hidden lg:block w-[325.337px] min-h-max'}>
                     <Listings/>
                     <TagsHome/>
+                    <Trendings/>
+                    <Recentlys/>
                 </div>
             </div>
         </div>

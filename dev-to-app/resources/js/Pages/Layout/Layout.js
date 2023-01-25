@@ -71,8 +71,74 @@ function Layout({children}) {
             <div>
                 {children}
             </div>
-            <div className={'min-h-[233px] bg-[#E5E5E5]'}>
-
+            <div className={"min-h-[233px] font-['Segoe_UI'] flex justify-center items-center bg-[#E5E5E5]"}>
+                <div className={""}>
+                    <div className={'flex gap-2 justify-center'}>
+                        <Link className={'text-sm font-medium text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >DEV Community 👩‍💻👨‍💻 </Link>
+                        <p className={'text-sm text-[#404040]'}> — <span>A constructive and inclusive social network
+                            for software developers. With you every step of your journey.</span></p>
+                    </div>
+                    <div className={'w-[75%] mx-auto mt-3'}>
+                        <ul className={'marker:text-[#575757] flex flex-wrap mx-auto gap-2 justify-center items-center list-disc list-inside'}>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >Home</Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >Listings</Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >Podcasts</Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >Videos</Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >Tags</Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >FAQ</Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >Forem Shop</Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >Sponsors</Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >About</Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >About</Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >Contact</Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >Guides</Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >
+                                    Software comparisons
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >
+                                    Code of Product
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >
+                                    Privacy Policy
+                                </Link>
+                            </li>
+                            <li>
+                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >
+                                    Term of use
+                                </Link>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </Fragment>
     )
