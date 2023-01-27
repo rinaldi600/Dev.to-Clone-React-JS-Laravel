@@ -7,6 +7,7 @@ import Listings from "@/Pages/Home/Listings/Listings";
 import TagsHome from "@/Pages/Home/TagsHome/TagsHome";
 import Trendings from "@/Pages/Home/Trendings/Trendings";
 import Recentlys from "@/Pages/Home/RecentlyQueried/Recentlys";
+import Contents from "@/Pages/Home/Contents/Contents";
 
 function Home() {
     return (
@@ -19,8 +20,8 @@ function Home() {
                     <Category/>
                     <Tags/>
                 </div>
-                <div className={'w-[650.662px] min-h-max bg-orange-400'}>
-
+                <div className={'w-[650.662px] min-h-max'}>
+                    <Contents/>
                 </div>
                 <div className={'hidden lg:block w-[325.337px] min-h-max'}>
                     <Listings/>

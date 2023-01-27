@@ -71,18 +71,16 @@ function Layout({children}) {
             <div>
                 {children}
             </div>
-            <div className={"min-h-[233px] font-['Segoe_UI'] flex justify-center items-center bg-[#E5E5E5]"}>
+            <div className={"min-h-[233px] p-2 font-['Segoe_UI'] flex justify-center items-center bg-[#E5E5E5]"}>
                 <div className={""}>
                     <div className={'flex gap-2 justify-center'}>
                         <Link className={'text-sm font-medium text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >DEV Community 👩‍💻👨‍💻 </Link>
                         <p className={'text-sm text-[#404040]'}> — <span>A constructive and inclusive social network
                             for software developers. With you every step of your journey.</span></p>
                     </div>
-                    <div className={'w-[75%] mx-auto mt-3'}>
-                        <ul className={'marker:text-[#575757] flex flex-wrap mx-auto gap-2 justify-center items-center list-disc list-inside'}>
-                            <li>
-                                <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >Home</Link>
-                            </li>
+                    <div className={'w-[75%] mx-auto mt-2'}>
+                        <ul className={'marker:text-[#575757] flex flex-wrap mx-auto gap-1 justify-center items-center list-disc list-inside'}>
+                            <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >Home</Link>
                             <li>
                                 <Link className={'text-sm text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >Listings</Link>
                             </li>
@@ -137,6 +135,15 @@ function Layout({children}) {
                                 </Link>
                             </li>
                         </ul>
+                    </div>
+                    <div className={'w-[44%] mx-auto font-[Segoe_UI] mt-3 text-[#404040] text-center text-sm'}>
+                        <p>
+                            Built on <Link href={'/'} className={'text-[#5662E0]'}>Forem</Link> -
+                            the <Link href={'/'} className={'text-[#5662E0]'}>open source</Link> software that powers
+                            <Link href={'/'} className={'text-[#5662E0]'}> DEV</Link> and other inclusive communities.
+                            Made with love and <Link href={'/'} className={'text-[#5662E0]'}>Ruby on Rails. </Link>
+                            DEV Community 👩‍💻👨‍💻
+                        </p>
                     </div>
                 </div>
             </div>
