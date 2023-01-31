@@ -23,6 +23,8 @@ Route::get('/search', function () {
     return 'WORK';
 });
 
+Route::get('/enter', [\App\Http\Controllers\UserController::class, 'index']);
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

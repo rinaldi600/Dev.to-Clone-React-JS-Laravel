@@ -7293,6 +7293,111 @@ function SocialMedia(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/LoginSignUp/LayoutSignAndCreate.js":
+/*!***************************************************************!*\
+  !*** ./resources/js/Pages/LoginSignUp/LayoutSignAndCreate.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function LayoutCreateAndCreate(_ref) {
+  var children = _ref.children;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "min-h-[787.3px] font-['Segoe_UI'] flex items-center bg-[#F5F5F5]",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: 'w-full',
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: 'max-w-[640px] p-12 shadow-[0_1px_3px_0px_rgba(0,0,0,0.02),0_0_0_1px_rgba(27,31,35,0.15)] rounded-lg mx-auto min-h-[755.3px] bg-white',
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: 'w-full',
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+            className: 'sm:text-center text-3xl font-bold break-words',
+            children: "Welcome to DEV Community \uD83D\uDC69\u200D\uD83D\uDCBB\uD83D\uDC68\u200D\uD83D\uDCBB"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+            className: 'sm:text-center text-[#404040] text-base',
+            children: "DEV Community \uD83D\uDC69\u200D\uD83D\uDCBB\uD83D\uDC68\u200D\uD83D\uDCBB is a community of 1,001,084 amazing developers"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
+            className: 'w-full bg-[#000000] font-medium flex flex-wrap items-center justify-center text-base mt-3 rounded-lg bg-red-300 min-h-[48px]',
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "24",
+              height: "24",
+              viewBox: "0 0 24 24",
+              role: "img",
+              "aria-hidden": "true",
+              className: "crayons-icon inline fill-white",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
+                d: "M11.752 6.657c.828 0 1.867-.56 2.486-1.307.56-.677.969-1.623.969-2.568 0-.129-.012-.257-.036-.362-.922.035-2.03.618-2.696 1.4-.525.596-1.004 1.53-1.004 2.487 0 .14.024.28.035.326.059.012.152.024.245.024zM8.834 20.78c1.132 0 1.634-.759 3.046-.759 1.436 0 1.75.736 3.011.736 1.238 0 2.066-1.144 2.848-2.265.876-1.284 1.238-2.544 1.261-2.603-.082-.023-2.451-.992-2.451-3.711 0-2.358 1.867-3.42 1.972-3.502-1.237-1.774-3.116-1.82-3.63-1.82-1.389 0-2.52.84-3.233.84-.77 0-1.786-.794-2.988-.794-2.288 0-4.61 1.89-4.61 5.462 0 2.218.863 4.564 1.925 6.082.91 1.284 1.705 2.334 2.849 2.334z"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+              className: 'inline break-words text-white',
+              children: "Continue with Apple"
+            })]
+          })]
+        }), children]
+      })
+    })
+  });
+}
+LayoutCreateAndCreate.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    children: page,
+    title: "Welcome"
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LayoutCreateAndCreate);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/LoginSignUp/SignIn/SignIn.js":
+/*!*********************************************************!*\
+  !*** ./resources/js/Pages/LoginSignUp/SignIn/SignIn.js ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Pages_LoginSignUp_LayoutSignAndCreate__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/LoginSignUp/LayoutSignAndCreate */ "./resources/js/Pages/LoginSignUp/LayoutSignAndCreate.js");
+/* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function SignIn() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+      children: "SIGN"
+    })
+  });
+}
+SignIn.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
+    title: 'Sign',
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Pages_LoginSignUp_LayoutSignAndCreate__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      children: page
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SignIn);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Welcome.js":
 /*!***************************************!*\
   !*** ./resources/js/Pages/Welcome.js ***!
@@ -64680,6 +64785,10 @@ var map = {
 	"./Layout/Mobile-Navbar/Mobile-Navbar.js": "./resources/js/Pages/Layout/Mobile-Navbar/Mobile-Navbar.js",
 	"./Layout/SocialMedia/SocialMedia": "./resources/js/Pages/Layout/SocialMedia/SocialMedia.js",
 	"./Layout/SocialMedia/SocialMedia.js": "./resources/js/Pages/Layout/SocialMedia/SocialMedia.js",
+	"./LoginSignUp/LayoutSignAndCreate": "./resources/js/Pages/LoginSignUp/LayoutSignAndCreate.js",
+	"./LoginSignUp/LayoutSignAndCreate.js": "./resources/js/Pages/LoginSignUp/LayoutSignAndCreate.js",
+	"./LoginSignUp/SignIn/SignIn": "./resources/js/Pages/LoginSignUp/SignIn/SignIn.js",
+	"./LoginSignUp/SignIn/SignIn.js": "./resources/js/Pages/LoginSignUp/SignIn/SignIn.js",
 	"./Welcome": "./resources/js/Pages/Welcome.js",
 	"./Welcome.js": "./resources/js/Pages/Welcome.js"
 };
