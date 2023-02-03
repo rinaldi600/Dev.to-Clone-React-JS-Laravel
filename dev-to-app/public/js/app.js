@@ -7430,10 +7430,10 @@ function LayoutCreateAndCreate(_ref) {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: 'w-full',
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-            className: 'sm:text-center text-3xl font-bold break-words',
+            className: 'text-center text-3xl font-bold break-words',
             children: "Welcome to DEV Community \uD83D\uDC69\u200D\uD83D\uDCBB\uD83D\uDC68\u200D\uD83D\uDCBB"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
-            className: 'sm:text-center text-[#404040] text-base',
+            className: 'text-center text-[#404040] text-base',
             children: "DEV Community \uD83D\uDC69\u200D\uD83D\uDCBB\uD83D\uDC68\u200D\uD83D\uDCBB is a community of 1,001,084 amazing developers"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: 'mt-6',
@@ -7473,11 +7473,54 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function SignIn() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-      children: "SIGN"
-    })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    className: "mt-8 font-['Segoe_UI']",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+      htmlFor: "email",
+      className: 'text-base font-medium text-[#171717]',
+      children: "Email"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: 'max-w-[544px] min-h-[38.6px] rounded-lg mt-2',
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        name: 'email',
+        id: 'email',
+        type: "text",
+        className: 'w-full h-full rounded-lg border border-[#D4D4D4]'
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: 'mt-3',
+      children: " "
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+      htmlFor: "email",
+      className: 'text-base font-medium text-[#171717]',
+      children: "Password"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: 'max-w-[544px] min-h-[38.6px] rounded-lg mt-2',
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        name: 'email',
+        id: 'email',
+        type: "text",
+        className: 'w-full h-full rounded-lg border border-[#D4D4D4]'
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: 'w-[143.275px] min-h-[24px] rounded-lg hover:bg-[#F5F5F5] mt-3 flex items-center justify-center gap-2 p-0.5 flex-wrap',
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+        type: "checkbox",
+        name: 'check',
+        className: 'checked:bg-[#3B49DF] ring-0 checked:border-none focus:outline-none focus:ring-0 w-[18px] h-[18px] rounded-md border border-[#D4D4D4]'
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        className: 'text-base text-[#171717]',
+        children: "Remember Me"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+      className: 'w-full bg-[#3B49DF] hover:bg-[#2F3AB2] gap-2 font-medium flex flex-wrap items-center justify-center text-base mt-2 rounded-lg min-h-[48px]',
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+        className: 'inline break-words text-white',
+        children: "Continue"
+      })
+    })]
   });
 }
 SignIn.layout = function (page) {
