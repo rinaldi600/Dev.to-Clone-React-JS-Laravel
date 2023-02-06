@@ -16,13 +16,16 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Home/Home');
+    return Inertia::render('Home/Home', [
+        'title' => 'DEV Community 👩‍💻👨‍💻'
+    ]);
 });
 
 Route::get('/search', function () {
     return 'WORK';
 });
 
+Route::get('/enter?state=new-user', [\App\Http\Controllers\UserController::class, 'signUpView']);
 Route::get('/enter', [\App\Http\Controllers\UserController::class, 'index']);
 
 Route::get('/dashboard', function () {

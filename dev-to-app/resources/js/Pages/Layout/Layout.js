@@ -34,6 +34,7 @@ function Layout({children}) {
                                     <img className={'w-full h-full'} src="https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" alt=""/>
                                 </Link>
                             </div>
+
                             <div>
                                 <div className={'h-[40px] m-0 lg:relative lg:w-[420px] lg:block flex items-center w-max overflow-hidden'}>
                                     <input type="text" className={'w-[100%] focus:border-2 lg:block hidden border-[#A3A3A3] h-full focus:z-50 border-transparent rounded-lg focus:border-[#3B49DF] focus:ring-0'} placeholder={'Search...'}/>
@@ -53,12 +54,18 @@ function Layout({children}) {
                                     </button>
                                 </div>
                             </div>
+
                         </div>
 
                         {/*Left Side Navbar*/}
                         <div className={''}>
                             <div className={'lg:block hidden'}>
-                                <ButtonLogInSignUp/>
+                                <div className={'flex'}>
+                                    <div className={'w-[40px] h-[40px] rounded-full overflow-hidden'}>
+
+                                    </div>
+                                </div>
+                                {/*<ButtonLogInSignUp/>*/}
                             </div>
                         </div>
 
