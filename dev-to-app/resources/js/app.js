@@ -7,10 +7,10 @@ import { InertiaProgress } from '@inertiajs/progress';
 import store from './store'
 import { Provider } from 'react-redux'
 
-const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+const appName = window.document.getElementsByTagName('title')[0]?.innerText || '';
 
 createInertiaApp({
-    title: (title) => `${title} - ${appName}`,
+    title: (title) => `${title}`,
     resolve: (name) => require(`./Pages/${name}`),
     setup({ el, App, props }) {
         return render(
