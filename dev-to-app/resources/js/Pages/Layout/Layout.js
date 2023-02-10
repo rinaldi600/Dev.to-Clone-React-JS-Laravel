@@ -5,6 +5,7 @@ import {useDispatch } from 'react-redux'
 import {show} from "@/features/Navbar/NavbarSlice";
 import BgProfile from '../../../img/aiony-haust-3TLl_97HNJo-unsplash.jpg';
 import DetailUser from "@/Pages/Layout/DetailUser/DetailUser";
+import ProfileNavigation from "@/Pages/Layout/ProfileNavigation/ProfileNavigation";
 
 const MobileNavbarLazy = lazy(() => import('./Mobile-Navbar/Mobile-Navbar'));
 
@@ -62,22 +63,15 @@ function Layout({children}) {
                         {/*Left Side Navbar*/}
                         <div className={''}>
                             <div className={'lg:block hidden'}>
-                                {/*<ButtonLogInSignUp/>*/}
+                                <ButtonLogInSignUp/>
                             </div>
                             <div className={'relative'}>
-                                <DetailUser/>
+                                {/*<DetailUser/>*/}
                             </div>
                         </div>
 
-                        <div className={'absolute top-[100%] p-2 shadow-[0px_4px_12px_rgba(0,0,0,0.1)] right-0 bg-white w-full md:w-[250px] rounded-lg h-[100px]'}>
-                            <Link className={'flex flex-col p-2 w-full rounded-lg hover:bg-[#EBECFC]'} href={'/profile'}>
-                                <span className={'text-base text-[#404040] font-medium'}>Rinaldi Hendrawan</span>
-                                <small className={'text-sm text-[#707070]'}>@rinaldi600</small>
-                            </Link>
-                            <div className={'bg-[#D6D6D7] w-full h-[1px] mt-1.5'}>
-
-                            </div>
-                        </div>
+                        {/*  Profile Navigation  */}
+                        <ProfileNavigation/>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,21 @@
 import {Link} from "@inertiajs/inertia-react";
 import BgProfile from "../../../../img/aiony-haust-3TLl_97HNJo-unsplash.jpg";
+import { useSelector, useDispatch } from 'react-redux'
+import { show, close } from '../../../features/NavigationForUser/NavigationForUserSlice';
 import React from "react";
 
 function DetailUser() {
+    const navigationForUser = useSelector(state => state.navigationForUser.value);
+    const dispatch = useDispatch();
+
+    const test = () => {
+        if (navigationForUser) {
+            dispatch(close())
+        } else {
+            dispatch(show());
+        }
+    };
+
     return (
         <div className={'flex gap-2 items-center'}>
 
@@ -19,8 +32,8 @@ function DetailUser() {
                 </svg>
             </Link>
 
-            <div className={'w-[40px] h-[40px] rounded-full overflow-hidden bg-red-300 cursor-pointer'}>
-                <img src={BgProfile} className={'w-full h-full'} alt="Profile Picture"/>
+            <div onClick={test} className={'w-[40px] h-[40px] hover:bg-[#EBECFC] rounded-full flex items-center justify-center overflow-hidden cursor-pointer'}>
+                <img src={BgProfile} className={'w-[32px] h-[32px] rounded-full'} alt="Profile Picture"/>
             </div>
         </div>
     )
