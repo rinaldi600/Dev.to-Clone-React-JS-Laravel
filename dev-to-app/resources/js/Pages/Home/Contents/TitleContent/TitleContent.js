@@ -4,9 +4,6 @@ import Comment from "@/Pages/Home/Contents/Comment/Comment";
 import React, {Fragment, useEffect} from "react";
 
 function TitleContent({slug = '', text, commentCount, detailUserCreate = {}}) {
-    useEffect(() => {
-        console.log(detailUserCreate);
-    });
     return (
         <Fragment>
             <div className={'flex gap-2 items-center'}>

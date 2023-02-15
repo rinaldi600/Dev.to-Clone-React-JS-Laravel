@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, Suspense} from "react";
 import {Link} from "@inertiajs/inertia-react";
-import FirstContent from "@/Pages/Home/Contents/FirstContent/FirstContent";
-import NextContent from "@/Pages/Home/Contents/NextContent/NextContent";
 import axios from "axios";
+
+const NextContent = React.lazy(() => import('@/Pages/Home/Contents/NextContent/NextContent'));
+const FirstContent = React.lazy(() => import('@/Pages/Home/Contents/FirstContent/FirstContent'));
 
 function Contents() {
     const [randomPeople, setRandomPeople] = useState([]);
@@ -32,11 +33,15 @@ function Contents() {
             </div>
 
             <div className={'mt-2 w-full p-2'}>
-                <FirstContent detailUserCreate={randomPeople.length >= 1 ? randomPeople[0] : {}} text={'20 Killer JavaScript One-Liners That’ll Save You Hours of Coding 🤯🔥'}/>
+                <Suspense fallback={<div>Loading</div>}>
+                    <FirstContent detailUserCreate={randomPeople.length >= 1 ? randomPeople[0] : {}} text={'20 Killer JavaScript One-Liners That’ll Save You Hours of Coding 🤯🔥'}/>
+                </Suspense>
                 {
                     randomPeople.length >= 1 ?
                         randomPeople.slice(1, randomPeople.length-1).map((people) => (
-                            <NextContent detailUserCreate={people} text={'Defect life cycle in API testing ⚙'}/>
+                            <Suspense fallback={<div>Loading</div>}>
+                                <NextContent detailUserCreate={people} text={'Defect life cycle in API testing ⚙'}/>
+                            </Suspense>
                         ))
                         : <h1>Loading</h1>
                 }
