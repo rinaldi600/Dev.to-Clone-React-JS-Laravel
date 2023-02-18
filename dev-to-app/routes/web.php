@@ -27,6 +27,7 @@ Route::get('/search', function () {
 
 Route::get('/enter?state=new-user', [\App\Http\Controllers\UserController::class, 'signUpView']);
 Route::get('/enter', [\App\Http\Controllers\UserController::class, 'index']);
+Route::post('/new_user', [\App\Http\Controllers\UserController::class, 'newUser']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

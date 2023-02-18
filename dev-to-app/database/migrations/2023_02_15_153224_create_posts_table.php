@@ -16,14 +16,14 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('id_post')->unique();
-            $table->string('cover');
+            $table->string('cover')->default('');
             $table->string('title');
             $table->string('slug')->unique();
             $table->text('content');
-            $table->string('tag_1');
-            $table->string('tag_2');
-            $table->string('tag_3');
-            $table->string('tag_4');
+            $table->string('tag_1')->default('');
+            $table->string('tag_2')->default('');
+            $table->string('tag_3')->default('');
+            $table->string('tag_4')->default('');
             $table->string('id_user');
             $table->timestamps();
             $table->softDeletes($column = 'deleted_at', $precision = 0);
