@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use DateTime;
+use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -32,11 +34,18 @@ class UserController extends Controller
     public function newUser(Request $request) {
         $validator = Validator::make($request->all(), [
             'name' => 'required|regex:/^[\pL\s\-]+$/u',
-            'email' => 'required|email:rfc,dns',
+            'username' => 'required|string|regex:/^\w*$/|max:255|unique:users,username',
+            'email' => 'required|email:rfc,dns|unique:users,email',
             'password' => 'required|string|min:8',
         ],[
             'name.required' => 'Wajib Diisi',
             'name.regex' => 'Nama tidak valid',
+
+            'username.required' => 'Wajib Diisi',
+            'username.regex' => 'Username tidak valid',
+            'username.string' => 'Username tidak valid',
+            'username.max' => 'Maksimal 25 karakter',
+            'username.unique' => 'Username sudah ada',
 
             'email.required' => 'Wajib Diisi',
             'email.email' => 'Email tidak valid',
@@ -47,11 +56,21 @@ class UserController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->with('message', 'TEST');
+            return redirect()->back()->withErrors($validator)->with('message', true);
         }
 
+        $nowDate = date('m/d/Y H:i:s', time());
+
+        $user = User::create([
+            'id_user' => 'USER - ' . $nowDate . ' - ' .strtotime($nowDate),
+            'name' => $request->input('name'),
+            'username' => $request->input('username'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+        ]);
+
         return response()->json([
-            'res' => $request->input(),
+            'res' => 'success',
         ]);
     }
 }

@@ -7757,9 +7757,10 @@ __webpack_require__.r(__webpack_exports__);
 
 function SignUp(_ref) {
   var title = _ref.title;
-  var check = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props;
+  var flash = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.flash;
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.useForm)({
       name: '',
+      username: '',
       email: '',
       password: ''
     }),
@@ -7772,7 +7773,7 @@ function SignUp(_ref) {
     post('/new_user');
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    console.log(check);
+    console.log(flash);
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Head, {
@@ -7810,7 +7811,40 @@ function SignUp(_ref) {
             className: "mt-2 text-xs text-green-600 dark:text-green-400",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "font-medium",
-              children: data.name !== '' && !('name' in errors) ? 'Well done!' : ''
+              children: flash !== null && flash !== void 0 && flash.message && data.name !== '' && !('name' in errors) ? 'Well done!' : ''
+            })
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          className: 'mt-3',
+          children: " "
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
+          htmlFor: "username",
+          className: 'text-base font-medium text-[#171717]',
+          children: "Username"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: 'max-w-[544px] min-h-[38.6px] rounded-lg mt-2',
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+            required: true,
+            onChange: function onChange(e) {
+              return setData('username', e.target.value);
+            },
+            name: 'username',
+            id: 'username',
+            type: "text",
+            className: 'w-full h-full rounded-lg border border-[#D4D4D4]'
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+            id: "filled_error_help",
+            className: "mt-2 text-xs text-red-600 dark:text-red-400",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "font-medium",
+              children: errors === null || errors === void 0 ? void 0 : errors.username
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+            id: "filled_success_help",
+            className: "mt-2 text-xs text-green-600 dark:text-green-400",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "font-medium",
+              children: flash !== null && flash !== void 0 && flash.message && data.username !== '' && !('username' in errors) ? 'Well done!' : ''
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -7843,7 +7877,7 @@ function SignUp(_ref) {
             className: "mt-2 text-xs text-green-600 dark:text-green-400",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "font-medium",
-              children: data.email !== '' && !('email' in errors) ? 'Well done!' : ''
+              children: flash !== null && flash !== void 0 && flash.message && data.email !== '' && !('email' in errors) ? 'Well done!' : ''
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -7876,7 +7910,7 @@ function SignUp(_ref) {
             className: "mt-2 text-xs text-green-600 dark:text-green-400",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
               className: "font-medium",
-              children: data.password !== '' && !('password' in errors) ? 'Well done!' : ''
+              children: flash !== null && flash !== void 0 && flash.message && data.password !== '' && !('password' in errors) ? 'Well done!' : ''
             })
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("button", {
