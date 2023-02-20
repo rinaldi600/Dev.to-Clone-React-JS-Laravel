@@ -1,14 +1,16 @@
-import React, {useEffect} from "react";
+import React, {useEffect, lazy, Suspense} from "react";
 import Layout from "@/Pages/Layout/Layout";
 import LayoutCreateAndCreate from "@/Pages/LoginSignUp/LayoutSignAndCreate";
 import {Head, Link} from "@inertiajs/inertia-react";
 import { useForm } from "@inertiajs/inertia-react";
 import { usePage } from "@inertiajs/inertia-react";
 
+const SuccessCreateUser = lazy(() => import('../SuccessCreateUser/SuccessCreateUser'));
+
 function SignUp({title}) {
 
     const { flash } = usePage().props;
-    const { data, setData, post, errors } = useForm({
+    const { data, setData, post, errors, processing } = useForm({
         name : '',
         username : '',
         email: '',
@@ -21,7 +23,7 @@ function SignUp({title}) {
     };
 
     useEffect(() => {
-       console.log(flash);
+        console.log(flash);
     });
 
     return (
@@ -30,6 +32,14 @@ function SignUp({title}) {
                 <title>{title}</title>
             </Head>
             <div className={"mt-8 font-['Segoe_UI']"}>
+                {
+                    flash?.success ?
+                        <Suspense fallback={<div>Loading</div>}>
+                            <SuccessCreateUser/>
+                        </Suspense>
+                        :
+                        ''
+                }
 
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="name" className={'text-base font-medium text-[#171717]'}>Nama Lengkap</label>
@@ -74,7 +84,7 @@ function SignUp({title}) {
                             className="font-medium">{flash?.message && data.password !== '' && !('password' in errors) ? 'Well done!' : ''}</span></p>
                     </div>
 
-                    <button type={'submit'} className={'w-full bg-[#3B49DF] hover:bg-[#2F3AB2] gap-2 font-medium flex flex-wrap items-center justify-center text-base mt-2 rounded-lg min-h-[48px]'}>
+                    <button disabled={processing} type={'submit'} className={'w-full bg-[#3B49DF] hover:bg-[#2F3AB2] gap-2 font-medium flex flex-wrap items-center justify-center text-base mt-2 rounded-lg min-h-[48px]'}>
                         <span className={'inline break-words text-white'}>Create Account</span>
                     </button>
                 </form>

@@ -49,6 +49,7 @@ class UserController extends Controller
 
             'email.required' => 'Wajib Diisi',
             'email.email' => 'Email tidak valid',
+            'email.unique' => 'Email sudah ada',
 
             'password.required' => 'Wajib Diisi',
             'password.string' => 'Password tidak valid',
@@ -69,8 +70,27 @@ class UserController extends Controller
             'password' => Hash::make($request->input('password')),
         ]);
 
+        return redirect()->back()->with('success', true);
+    }
+
+    public function handleLogin(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email:rfc,dns',
+            'password' => 'required|string|min:8',
+        ],[
+            'email.required' => 'Wajib Diisi',
+            'email.email' => 'Email tidak valid',
+
+            'password.required' => 'Wajib Diisi',
+            'password.string' => 'Password tidak valid',
+            'password.min' => 'Password minimal 8 karakter',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->with('message', true);
+        }
         return response()->json([
-            'res' => 'success',
+           'WORK' => $request->input()
         ]);
     }
 }
