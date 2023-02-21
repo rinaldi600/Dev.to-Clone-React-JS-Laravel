@@ -30,6 +30,10 @@ function SignIn({title}) {
                     <label htmlFor="email" className={'text-base font-medium text-[#171717]'}>Email</label>
                     <div className={'max-w-[544px] min-h-[38.6px] rounded-lg mt-2'}>
                         <input onChange={e => setData('email', e.target.value)} required={true} name={'email'} id={'email'} type="email" className={'w-full h-full rounded-lg border border-[#D4D4D4]'}/>
+                        <p id="filled_error_help" className="mt-2 text-xs text-red-600 dark:text-red-400"><span
+                            className="font-medium">{errors?.email}</span></p>
+                        <p id="filled_success_help" className="mt-2 text-xs text-green-600 dark:text-green-400"><span
+                            className="font-medium">{flash?.message && data.email !== '' && !('email' in errors) ? 'Well done!' : ''}</span></p>
                     </div>
 
                     <div className={'mt-3'}> </div>
@@ -37,6 +41,10 @@ function SignIn({title}) {
                     <label htmlFor="password" className={'text-base font-medium text-[#171717]'}>Password</label>
                     <div className={'max-w-[544px] min-h-[38.6px] rounded-lg mt-2'}>
                         <input onChange={e => setData('password', e.target.value)} required={true} name={'password'} id={'password'} type="password" className={'w-full h-full rounded-lg border border-[#D4D4D4]'}/>
+                        <p id="filled_error_help" className="mt-2 text-xs text-red-600 dark:text-red-400"><span
+                            className="font-medium">{errors?.password}</span></p>
+                        <p id="filled_success_help" className="mt-2 text-xs text-green-600 dark:text-green-400"><span
+                            className="font-medium">{flash?.message && data.password !== '' && !('password' in errors) ? 'Well done!' : ''}</span></p>
                     </div>
 
                     <div className={'w-[143.275px] min-h-[24px] rounded-lg hover:bg-[#F5F5F5] mt-3 flex items-center justify-center gap-2 p-0.5 flex-wrap'}>

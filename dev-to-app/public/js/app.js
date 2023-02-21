@@ -7687,9 +7687,9 @@ function SignIn(_ref) {
           htmlFor: "email",
           className: 'text-base font-medium text-[#171717]',
           children: "Email"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: 'max-w-[544px] min-h-[38.6px] rounded-lg mt-2',
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             onChange: function onChange(e) {
               return setData('email', e.target.value);
             },
@@ -7698,7 +7698,21 @@ function SignIn(_ref) {
             id: 'email',
             type: "email",
             className: 'w-full h-full rounded-lg border border-[#D4D4D4]'
-          })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+            id: "filled_error_help",
+            className: "mt-2 text-xs text-red-600 dark:text-red-400",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "font-medium",
+              children: errors === null || errors === void 0 ? void 0 : errors.email
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+            id: "filled_success_help",
+            className: "mt-2 text-xs text-green-600 dark:text-green-400",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "font-medium",
+              children: flash !== null && flash !== void 0 && flash.message && data.email !== '' && !('email' in errors) ? 'Well done!' : ''
+            })
+          })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: 'mt-3',
           children: " "
@@ -7706,9 +7720,9 @@ function SignIn(_ref) {
           htmlFor: "password",
           className: 'text-base font-medium text-[#171717]',
           children: "Password"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: 'max-w-[544px] min-h-[38.6px] rounded-lg mt-2',
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {
             onChange: function onChange(e) {
               return setData('password', e.target.value);
             },
@@ -7717,7 +7731,21 @@ function SignIn(_ref) {
             id: 'password',
             type: "password",
             className: 'w-full h-full rounded-lg border border-[#D4D4D4]'
-          })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+            id: "filled_error_help",
+            className: "mt-2 text-xs text-red-600 dark:text-red-400",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "font-medium",
+              children: errors === null || errors === void 0 ? void 0 : errors.password
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+            id: "filled_success_help",
+            className: "mt-2 text-xs text-green-600 dark:text-green-400",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "font-medium",
+              children: flash !== null && flash !== void 0 && flash.message && data.password !== '' && !('password' in errors) ? 'Well done!' : ''
+            })
+          })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: 'w-[143.275px] min-h-[24px] rounded-lg hover:bg-[#F5F5F5] mt-3 flex items-center justify-center gap-2 p-0.5 flex-wrap',
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("input", {

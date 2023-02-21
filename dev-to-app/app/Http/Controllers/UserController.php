@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\User;
-use DateTime;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
@@ -75,7 +74,12 @@ class UserController extends Controller
 
     public function handleLogin(Request $request) {
         $validator = Validator::make($request->all(), [
-            'email' => 'required|email:rfc,dns',
+            'email' => ['required','email:rfc,dns', function ($value, $attribute ,$fail) {
+                $checkEmail = User::where('email', '=' , $attribute)->first();
+                if ( !(array) $checkEmail) {
+                    $fail($attribute . ' tidak ditemukan');
+                }
+            }],
             'password' => 'required|string|min:8',
         ],[
             'email.required' => 'Wajib Diisi',
@@ -88,9 +92,23 @@ class UserController extends Controller
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->with('message', true);
+        } else {
+            $data = [
+                'email' => $request->input('email'),
+                'password' => $request->input('password')
+            ];
+            if (Auth::attempt([
+                'email' => $request->input('email'),
+                'password' => $request->input('password')
+            ])) {
+                $request->session()->regenerate();
+
+                return redirect()->to('/');
+            } else {
+                return response()->json([
+                    'res' => Auth::attempt($data)
+                ]);
+            }
         }
-        return response()->json([
-           'WORK' => $request->input()
-        ]);
     }
 }

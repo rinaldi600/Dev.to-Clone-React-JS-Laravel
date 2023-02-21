@@ -7,9 +7,10 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends  Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, SoftDeletes;
 
@@ -26,4 +27,21 @@ class User extends Authenticatable
      * @var array
      */
     protected $guarded = ['id'];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+        'password',
+    ];
+
+    public function setPasswordAttribute($value)
+    {
+        if( Hash::needsRehash($value) ) {
+            $value = Hash::make($value);
+        }
+        $this->attributes['password'] = $value;
+    }
 }
