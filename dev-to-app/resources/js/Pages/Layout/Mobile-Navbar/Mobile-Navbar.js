@@ -1,4 +1,3 @@
-import ButtonLogInSignUp from "@/Pages/Layout/Button-LogIn-And-SignUp/ButtonLogInSignUp";
 import Category from "@/Pages/Layout/Category/Category";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
@@ -33,7 +32,7 @@ function MobileNavbar() {
     };
 
     return (
-        <div className={`absolute ${navbar ? '' : 'hidden'} font-['Segoe_UI'] inset-0 bg-[#848484]/75 md:hidden overflow-hidden`}>
+        <div className={`fixed ${navbar ? 'z-50 ' : 'hidden'} font-['Segoe_UI'] inset-0 bg-[#848484]/75 md:hidden fixed overflow-hidden`}>
             <div className={'max-w-[282.2px] bg-white h-full overflow-y-scroll'}>
                 <div className={'min-h-[56px] p-2 flex items-center justify-between'}>
                     <h1 className={'font-bold text-lg'}>DEV Community 👩‍💻👨‍💻</h1>

@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,9 +16,12 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Home/Home', [
-        'title' => 'DEV Community 👩‍💻👨‍💻'
-    ]);
+    $data = [
+        'title' => 'DEV Community 👩‍💻👨‍💻',
+        'userAuth' => Auth::check(),
+        'detailUserAuth' => Auth::user(),
+    ];
+    return Inertia::render('Home/Home', $data);
 });
 
 Route::get('/search', function () {
@@ -29,6 +32,7 @@ Route::get('/enter?state=new-user', [\App\Http\Controllers\UserController::class
 Route::get('/enter', [\App\Http\Controllers\UserController::class, 'index']);
 Route::post('/new_user', [\App\Http\Controllers\UserController::class, 'newUser']);
 Route::post('/login_user', [\App\Http\Controllers\UserController::class, 'handleLogin']);
+Route::get('/signout_confirm', [\App\Http\Controllers\UserController::class, 'handleLogOut']);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

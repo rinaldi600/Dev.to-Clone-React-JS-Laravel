@@ -1,32 +1,41 @@
-import React, {Fragment, lazy, Suspense} from "react";
+import React, {Fragment, lazy, Suspense, useEffect, useState} from "react";
 import {Link} from "@inertiajs/inertia-react";
 import ButtonLogInSignUp from "@/Pages/Layout/Button-LogIn-And-SignUp/ButtonLogInSignUp";
-import {useDispatch } from 'react-redux'
+import {useDispatch, useSelector} from 'react-redux'
 import {show} from "@/features/Navbar/NavbarSlice";
-import BgProfile from '../../../img/aiony-haust-3TLl_97HNJo-unsplash.jpg';
-import DetailUser from "@/Pages/Layout/DetailUser/DetailUser";
 import ProfileNavigation from "@/Pages/Layout/ProfileNavigation/ProfileNavigation";
+import DetailUser from "@/Pages/Layout/DetailUser/DetailUser";
 
 const MobileNavbarLazy = lazy(() => import('./Mobile-Navbar/Mobile-Navbar'));
 
 function Layout({children}) {
 
     const dispatch = useDispatch();
+    const navbar = useSelector(state => state.navbar.value);
+    const [detailUserAuth, setDetailUserAuth] = useState({});
 
     const showMobileNavbar = () => {
         dispatch(show());
     };
 
+    useEffect(() => {
+        if (sessionStorage.getItem('detailUserAuth') !== '') {
+            setDetailUserAuth(JSON.parse(sessionStorage.getItem('detailUserAuth')));
+        }
+    },[]);
+
+    console.log(detailUserAuth);
+
     return (
         <Fragment>
-            <div className={`h-[56px] font-['Segoe_UI'] bg-white shadow-[0_1px_2px_0px_rgba(60,64,67,0.3),0px_1px_3px_1px_rgba(60,64,67,0.15)]`}>
+            <div className={`${navbar ? 'overflow-hidden fixed' : ''} h-[56px] font-['Segoe_UI'] bg-white shadow-[0_1px_2px_0px_rgba(60,64,67,0.3),0px_1px_3px_1px_rgba(60,64,67,0.15)]`}>
                 <div className={'max-w-[1280px] h-full mx-auto'}>
                     <div className={'w-full flex items-center relative justify-between h-full'}>
 
                         {/*Right Side Navbar*/}
                         <div className={'flex lg:justify-start justify-between w-full lg:w-max gap-4'}>
                             <div className={'flex items-center gap-2'}>
-                                <div onClick={showMobileNavbar} className={'lg:hidden cursor-pointer hover:bg-[#EBECFC] rounded-lg w-[40px] h-[40px] flex items-center justify-center'}>
+                                <div onClick={showMobileNavbar} className={'md:hidden cursor-pointer hover:bg-[#EBECFC] rounded-lg w-[40px] h-[40px] flex items-center justify-center'}>
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                          stroke-width="1.5" stroke="currentColor" className="w-[24px] hover:text-[#5D66C4] h-[24px]">
                                         <path stroke-linecap="round" stroke-linejoin="round"
@@ -63,10 +72,10 @@ function Layout({children}) {
                         {/*Left Side Navbar*/}
                         <div className={''}>
                             <div className={'lg:block hidden'}>
-                                <ButtonLogInSignUp/>
+                                {/*<ButtonLogInSignUp/>*/}
                             </div>
                             <div className={'relative'}>
-                                {/*<DetailUser/>*/}
+                                <DetailUser/>
                             </div>
                         </div>
 
@@ -78,10 +87,10 @@ function Layout({children}) {
             <Suspense fallback={<h1>Still Loading…</h1>}>
                 <MobileNavbarLazy/>
             </Suspense>
-            <div>
+            <div className={`${navbar ? 'overflow-hidden' : ''}`}>
                 {children}
             </div>
-            <div className={"min-h-[233px] p-2 font-['Segoe_UI'] flex justify-center items-center bg-[#E5E5E5]"}>
+            <div className={`${navbar ? 'hidden overflow-hidden' : 'min-h-[233px]'} p-2 font-['Segoe_UI'] flex justify-center items-center bg-[#E5E5E5]`}>
                 <div className={""}>
                     <div className={'flex gap-2 justify-center'}>
                         <Link className={'text-sm font-medium text-[#3B49DF] hover:underline hover:decoration-solid'} href={'/'} >DEV Community 👩‍💻👨‍💻 </Link>

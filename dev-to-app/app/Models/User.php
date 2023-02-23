@@ -35,6 +35,8 @@ class User extends  Authenticatable
      */
     protected $hidden = [
         'password',
+        'id',
+        'id_user'
     ];
 
     public function setPasswordAttribute($value)

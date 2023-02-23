@@ -111,4 +111,8 @@ class UserController extends Controller
             }
         }
     }
+
+    public function handleLogOut() {
+        return Inertia::render('LoginSignUp/LogOut/LogOut');
+    }
 }
