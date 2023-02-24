@@ -46,4 +46,8 @@ class User extends  Authenticatable
         }
         $this->attributes['password'] = $value;
     }
+
+    public function rememberMe() {
+        return $this->belongsTo(Remember_Me::class, 'id_user', 'id_user');
+    }
 }

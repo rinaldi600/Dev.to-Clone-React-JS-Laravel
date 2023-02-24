@@ -41,6 +41,7 @@ class HandleInertiaRequests extends Middleware
             'flash' => [
                 'message' => session('message'),
                 'success' => session('success'),
+                'wrong_password' => session('wrong_password')
             ],
             'ziggy' => function () {
                 return (new Ziggy)->toArray();

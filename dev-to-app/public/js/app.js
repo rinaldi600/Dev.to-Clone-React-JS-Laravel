@@ -7834,6 +7834,13 @@ function SignIn(_ref) {
               children: errors === null || errors === void 0 ? void 0 : errors.password
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+            id: "filled_error_help",
+            className: "mt-2 text-xs text-red-600 dark:text-red-400",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
+              className: "font-medium",
+              children: flash === null || flash === void 0 ? void 0 : flash.wrong_password
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
             id: "filled_success_help",
             className: "mt-2 text-xs text-green-600 dark:text-green-400",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {

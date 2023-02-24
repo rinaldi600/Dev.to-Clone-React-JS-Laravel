@@ -2,12 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Remember_Me;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
@@ -93,17 +96,31 @@ class UserController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->with('message', true);
         } else {
-            if (Auth::attempt([
+
+            $data = [
                 'email' => $request->input('email'),
                 'password' => $request->input('password')
-            ])) {
-                $request->session()->regenerate();
+            ];
 
+            if (Auth::attempt($data)) {
+                if ($request->input('remember_me')) {
+
+                    $detailUser = User::where('email', '=', $request->input('email'))->first();
+                    $idUser = $detailUser['id_user'];
+                    $usernameHash = Crypt::encryptString($detailUser['username']);
+                    $sessionId = Session::getId();
+
+                    Remember_Me::create([
+                        'session_id' => $sessionId,
+                        'id_user' => $idUser,
+                        'hash' => $usernameHash,
+                    ]);
+                }
+
+                $request->session()->regenerate();
                 return redirect()->to('/');
             } else {
-                return response()->json([
-                    'res' => 'Password Salah'
-                ]);
+                return redirect()->back()->with('wrong_password','Password Salah');
             }
         }
     }

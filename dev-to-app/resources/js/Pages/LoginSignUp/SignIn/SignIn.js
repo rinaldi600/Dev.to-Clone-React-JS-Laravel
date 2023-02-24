@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import LayoutCreateAndCreate from "@/Pages/LoginSignUp/LayoutSignAndCreate";
 import Layout from "@/Pages/Layout/Layout";
 import {Head, Link} from "@inertiajs/inertia-react";
@@ -43,6 +43,8 @@ function SignIn({title}) {
                         <input onChange={e => setData('password', e.target.value)} required={true} name={'password'} id={'password'} type="password" className={'w-full h-full rounded-lg border border-[#D4D4D4]'}/>
                         <p id="filled_error_help" className="mt-2 text-xs text-red-600 dark:text-red-400"><span
                             className="font-medium">{errors?.password}</span></p>
+                        <p id="filled_error_help" className="mt-2 text-xs text-red-600 dark:text-red-400"><span
+                            className="font-medium">{flash?.wrong_password}</span></p>
                         <p id="filled_success_help" className="mt-2 text-xs text-green-600 dark:text-green-400"><span
                             className="font-medium">{flash?.message && data.password !== '' && !('password' in errors) ? 'Well done!' : ''}</span></p>
                     </div>
