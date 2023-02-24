@@ -2,14 +2,14 @@ import {Link} from "@inertiajs/inertia-react";
 import React from "react";
 import {useSelector} from "react-redux";
 
-function ProfileNavigation() {
+function ProfileNavigation({dataUser}) {
     const navigationForUser = useSelector(state => state.navigationForUser.value);
 
     return (
         <div className={`${navigationForUser ? 'block' : 'hidden'} absolute top-[100%] p-2 shadow-[0px_4px_12px_rgba(0,0,0,0.1)] right-0 bg-white w-full md:w-[250px] rounded-lg min-h-[100px]`}>
             <Link className={'flex flex-col p-2 w-full rounded-lg hover:bg-[#EBECFC]'} href={'/profile'}>
-                <span className={'text-base text-[#404040] font-medium'}>Rinaldi Hendrawan</span>
-                <small className={'text-sm text-[#707070]'}>@rinaldi600</small>
+                <span className={'text-base text-[#404040] font-medium'}>{dataUser?.name}</span>
+                <small className={'text-sm text-[#707070]'}>{dataUser?.username}</small>
             </Link>
             <div className={'bg-[#D6D6D7] w-full h-[1px] mt-1.5'}>
 
@@ -32,9 +32,11 @@ function ProfileNavigation() {
 
             </div>
             <div className={'pt-2 mt-1.5'}> </div>
-            <Link href={'/signout_confirm'} className={'p-2 w-full rounded-lg hover:text-[#2F3AB2] hover:underline hover:decoration-[1.5px] hover:bg-[#EBECFC]'}>
-                Sign Out
-            </Link>
+            <div className={'w-full grid'}>
+                <Link href={'/signout_confirm'} className={'p-2 w-full rounded-lg hover:text-[#2F3AB2] hover:underline hover:decoration-[1.5px] hover:bg-[#EBECFC]'}>
+                    Sign Out
+                </Link>
+            </div>
             <div className={'pb-2'}> </div>
         </div>
     )

@@ -18,8 +18,6 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     $data = [
         'title' => 'DEV Community 👩‍💻👨‍💻',
-        'userAuth' => Auth::check(),
-        'detailUserAuth' => Auth::user(),
     ];
     return Inertia::render('Home/Home', $data);
 });

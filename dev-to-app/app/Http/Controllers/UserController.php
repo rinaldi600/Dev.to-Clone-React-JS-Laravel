@@ -93,10 +93,6 @@ class UserController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->with('message', true);
         } else {
-            $data = [
-                'email' => $request->input('email'),
-                'password' => $request->input('password')
-            ];
             if (Auth::attempt([
                 'email' => $request->input('email'),
                 'password' => $request->input('password')
@@ -106,7 +102,7 @@ class UserController extends Controller
                 return redirect()->to('/');
             } else {
                 return response()->json([
-                    'res' => Auth::attempt($data)
+                    'res' => 'Password Salah'
                 ]);
             }
         }

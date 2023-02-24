@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import Layout from "@/Pages/Layout/Layout";
 import CardLoginAndSignUp from "@/Pages/Layout/CardLoginAndSignUp/CardLoginAndSignUp";
 import Category from "@/Pages/Layout/Category/Category";
@@ -11,15 +11,9 @@ import Contents from "@/Pages/Home/Contents/Contents";
 import {Head} from "@inertiajs/inertia-react";
 import {useSelector} from "react-redux";
 
-function Home({title, userAuth, detailUserAuth}) {
+function Home({title}) {
 
     const navbar = useSelector(state => state.navbar.value);
-
-    useEffect(() => {
-        if (userAuth) {
-            sessionStorage.setItem('detailUserAuth', JSON.stringify(detailUserAuth));
-        }
-    });
 
     return (
         <>

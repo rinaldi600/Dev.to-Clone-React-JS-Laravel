@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { show, close } from '../../../features/NavigationForUser/NavigationForUserSlice';
 import React from "react";
 
-function DetailUser() {
+function DetailUser({dataUser}) {
     const navigationForUser = useSelector(state => state.navigationForUser.value);
     const dispatch = useDispatch();
 
@@ -33,7 +33,7 @@ function DetailUser() {
             </Link>
 
             <div onClick={test} className={'w-[40px] h-[40px] hover:bg-[#EBECFC] rounded-full flex items-center justify-center overflow-hidden cursor-pointer'}>
-                <img src={BgProfile} className={'w-[32px] h-[32px] rounded-full'} alt="Profile Picture"/>
+                <img src={ dataUser?.profile_image !== '' ? dataUser?.profile_image : BgProfile } className={'w-[32px] h-[32px] rounded-full'} alt="Profile Picture"/>
             </div>
         </div>
     )

@@ -1,5 +1,5 @@
-import React, {Fragment, lazy, Suspense, useEffect, useMemo, useState} from "react";
-import {Link} from "@inertiajs/inertia-react";
+import React, {Fragment, lazy, Suspense} from "react";
+import {Link, usePage} from "@inertiajs/inertia-react";
 import ButtonLogInSignUp from "@/Pages/Layout/Button-LogIn-And-SignUp/ButtonLogInSignUp";
 import {useDispatch, useSelector} from 'react-redux'
 import {show} from "@/features/Navbar/NavbarSlice";
@@ -12,23 +12,11 @@ function Layout({children}) {
 
     const dispatch = useDispatch();
     const navbar = useSelector(state => state.navbar.value);
-    const [detailUserAuth, setDetailUserAuth] = useState({});
-    const person = useMemo(
-        () => ({ name: "Rue", age: 17 }),
-        [] //no dependencies so the value doesn't change
-    );
+    const { auth } = usePage().props;
 
     const showMobileNavbar = () => {
         dispatch(show());
     };
-
-    useEffect(() => {
-        if (sessionStorage.getItem('detailUserAuth') !== '') {
-            setDetailUserAuth(JSON.parse(sessionStorage.getItem('detailUserAuth')));
-        }
-    });
-
-    console.log(detailUserAuth);
 
     return (
         <Fragment>
@@ -76,9 +64,9 @@ function Layout({children}) {
                         {/*Left Side Navbar*/}
                         <div>
                             {
-                                detailUserAuth?.name ?
+                                auth?.user?.name ?
                                     <div className={'relative'}>
-                                        <DetailUser/>
+                                        <DetailUser dataUser={auth?.user}/>
                                     </div>
                                     :
                                     <div className={'lg:block hidden'}>
@@ -88,7 +76,7 @@ function Layout({children}) {
                         </div>
 
                         {/*  Profile Navigation  */}
-                        <ProfileNavigation/>
+                        <ProfileNavigation dataUser={auth?.user}/>
                     </div>
                 </div>
             </div>
