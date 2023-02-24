@@ -1,4 +1,4 @@
-import React, {Fragment, lazy, Suspense, useEffect, useState} from "react";
+import React, {Fragment, lazy, Suspense, useEffect, useMemo, useState} from "react";
 import {Link} from "@inertiajs/inertia-react";
 import ButtonLogInSignUp from "@/Pages/Layout/Button-LogIn-And-SignUp/ButtonLogInSignUp";
 import {useDispatch, useSelector} from 'react-redux'
@@ -13,6 +13,10 @@ function Layout({children}) {
     const dispatch = useDispatch();
     const navbar = useSelector(state => state.navbar.value);
     const [detailUserAuth, setDetailUserAuth] = useState({});
+    const person = useMemo(
+        () => ({ name: "Rue", age: 17 }),
+        [] //no dependencies so the value doesn't change
+    );
 
     const showMobileNavbar = () => {
         dispatch(show());
@@ -22,7 +26,7 @@ function Layout({children}) {
         if (sessionStorage.getItem('detailUserAuth') !== '') {
             setDetailUserAuth(JSON.parse(sessionStorage.getItem('detailUserAuth')));
         }
-    },[]);
+    });
 
     console.log(detailUserAuth);
 
@@ -70,13 +74,17 @@ function Layout({children}) {
                         </div>
 
                         {/*Left Side Navbar*/}
-                        <div className={''}>
-                            <div className={'lg:block hidden'}>
-                                {/*<ButtonLogInSignUp/>*/}
-                            </div>
-                            <div className={'relative'}>
-                                <DetailUser/>
-                            </div>
+                        <div>
+                            {
+                                detailUserAuth?.name ?
+                                    <div className={'relative'}>
+                                        <DetailUser/>
+                                    </div>
+                                    :
+                                    <div className={'lg:block hidden'}>
+                                        <ButtonLogInSignUp/>
+                                    </div>
+                            }
                         </div>
 
                         {/*  Profile Navigation  */}

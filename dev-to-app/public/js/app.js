@@ -7045,6 +7045,14 @@ function Layout(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     detailUserAuth = _useState2[0],
     setDetailUserAuth = _useState2[1];
+  var person = (0,react__WEBPACK_IMPORTED_MODULE_0__.useMemo)(function () {
+    return {
+      name: "Rue",
+      age: 17
+    };
+  }, [] //no dependencies so the value doesn't change
+  );
+
   var showMobileNavbar = function showMobileNavbar() {
     dispatch((0,_features_Navbar_NavbarSlice__WEBPACK_IMPORTED_MODULE_4__.show)());
   };
@@ -7052,7 +7060,7 @@ function Layout(_ref) {
     if (sessionStorage.getItem('detailUserAuth') !== '') {
       setDetailUserAuth(JSON.parse(sessionStorage.getItem('detailUserAuth')));
     }
-  }, []);
+  });
   console.log(detailUserAuth);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
@@ -7131,14 +7139,14 @@ function Layout(_ref) {
                 })]
               })
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: '',
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              className: 'lg:block hidden'
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            children: detailUserAuth !== null && detailUserAuth !== void 0 && detailUserAuth.name ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
               className: 'relative',
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Pages_Layout_DetailUser_DetailUser__WEBPACK_IMPORTED_MODULE_6__["default"], {})
-            })]
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              className: 'lg:block hidden',
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Pages_Layout_Button_LogIn_And_SignUp_ButtonLogInSignUp__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+            })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Pages_Layout_ProfileNavigation_ProfileNavigation__WEBPACK_IMPORTED_MODULE_5__["default"], {})]
         })
       })
@@ -7677,16 +7685,64 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Layout_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+/* harmony import */ var _features_NavigationForUser_NavigationForUserSlice__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../../features/NavigationForUser/NavigationForUserSlice */ "./resources/js/features/NavigationForUser/NavigationForUserSlice.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
 
 
 function LogOut() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h1", {
-      children: "WORK"
-    })
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.useForm)(),
+    post = _useForm.post;
+  var navigationForUser = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useSelector)(function (state) {
+    return state.navigationForUser.value;
+  });
+  var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useDispatch)();
+  var submit = function submit(e) {
+    e.preventDefault();
+    sessionStorage.clear();
+    post('/logout_user');
+    if (navigationForUser) {
+      dispatch((0,_features_NavigationForUser_NavigationForUserSlice__WEBPACK_IMPORTED_MODULE_4__.close)());
+    }
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
+      title: "Confirm Signout - DEV Community"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      className: "font-['Segoe_UI'] min-h-screen bg-[#F5F5F5] flex items-center justify-center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+        className: 'w-full',
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
+          className: 'text-2xl text-center break-words font-bold',
+          children: "Are you sure you want to sign out?"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+          className: 'flex mt-3 justify-center',
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("form", {
+            onSubmit: submit,
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
+              className: 'hover:bg-[#2F3AB2] w-[130.6px] h-[48px] rounded-md text-white font-medium text-center bg-[#3B49DF]',
+              children: "Yes, sign out"
+            })
+          })
+        })]
+      })
+    })]
   });
 }
+LogOut.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Layout_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    children: page,
+    title: "Confirm Signout - DEV Community"
+  });
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LogOut);
 
 /***/ }),

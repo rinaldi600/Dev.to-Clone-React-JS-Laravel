@@ -115,4 +115,16 @@ class UserController extends Controller
     public function handleLogOut() {
         return Inertia::render('LoginSignUp/LogOut/LogOut');
     }
+
+    public function LogOutUser(Request $request) {
+
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect()->to('/');
+
+    }
 }
