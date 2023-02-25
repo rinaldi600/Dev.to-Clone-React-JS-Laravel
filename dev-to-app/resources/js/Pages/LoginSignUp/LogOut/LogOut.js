@@ -1,4 +1,4 @@
-import React, {Fragment} from "react";
+import React, {Fragment, useEffect} from "react";
 import Layout from '../../Layout/Layout';
 import {Head} from "@inertiajs/inertia-react";
 import { useForm } from "@inertiajs/inertia-react";
@@ -7,17 +7,21 @@ import { close } from '../../../features/NavigationForUser/NavigationForUserSlic
 
 function LogOut() {
 
-    const { post } = useForm();
+    const rememberMe = localStorage.hasOwnProperty('remember_me') ? JSON.parse(localStorage.getItem('remember_me')) : '';
+    const { post, data } = useForm({
+        session_id : rememberMe?.session_id,
+        hash : rememberMe?.hash
+    });
     const navigationForUser = useSelector(state => state.navigationForUser.value);
     const dispatch = useDispatch();
 
     const submit = (e) => {
         e.preventDefault();
-        sessionStorage.clear();
         post('/logout_user');
         if (navigationForUser) {
             dispatch(close());
         }
+        localStorage.clear();
     };
 
     return (

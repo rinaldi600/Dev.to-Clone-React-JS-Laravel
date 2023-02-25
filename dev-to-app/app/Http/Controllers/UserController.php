@@ -131,6 +131,10 @@ class UserController extends Controller
 
     public function LogOutUser(Request $request) {
 
+        $sessionID = $request->input('session_id');
+
+        Remember_Me::where('session_id', '=', $sessionID)->delete();
+
         Auth::logout();
 
         $request->session()->invalidate();

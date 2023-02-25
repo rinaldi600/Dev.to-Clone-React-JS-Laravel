@@ -5692,9 +5692,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Home(_ref) {
-  var title = _ref.title;
+  var title = _ref.title,
+    isRememberMe = _ref.isRememberMe;
   var navbar = (0,react_redux__WEBPACK_IMPORTED_MODULE_11__.useSelector)(function (state) {
     return state.navbar.value;
+  });
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (isRememberMe.hasOwnProperty('session_id') && isRememberMe.hasOwnProperty('hash')) {
+      localStorage.setItem('remember_me', JSON.stringify(isRememberMe));
+    }
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_10__.Head, {
@@ -7031,6 +7037,9 @@ function Layout(_ref) {
     return state.navbar.value;
   });
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.auth;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log("TESTTTTT");
+  });
   var showMobileNavbar = function showMobileNavbar() {
     dispatch((0,_features_Navbar_NavbarSlice__WEBPACK_IMPORTED_MODULE_4__.show)());
   };
@@ -7679,19 +7688,24 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function LogOut() {
-  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.useForm)(),
-    post = _useForm.post;
+  var rememberMe = localStorage.hasOwnProperty('remember_me') ? JSON.parse(localStorage.getItem('remember_me')) : '';
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.useForm)({
+      session_id: rememberMe === null || rememberMe === void 0 ? void 0 : rememberMe.session_id,
+      hash: rememberMe === null || rememberMe === void 0 ? void 0 : rememberMe.hash
+    }),
+    post = _useForm.post,
+    data = _useForm.data;
   var navigationForUser = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useSelector)(function (state) {
     return state.navigationForUser.value;
   });
   var dispatch = (0,react_redux__WEBPACK_IMPORTED_MODULE_3__.useDispatch)();
   var submit = function submit(e) {
     e.preventDefault();
-    sessionStorage.clear();
     post('/logout_user');
     if (navigationForUser) {
       dispatch((0,_features_NavigationForUser_NavigationForUserSlice__WEBPACK_IMPORTED_MODULE_4__.close)());
     }
+    localStorage.clear();
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {

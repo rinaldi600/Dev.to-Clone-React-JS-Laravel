@@ -1,4 +1,4 @@
-import React, {Fragment, lazy, Suspense} from "react";
+import React, {Fragment, lazy, Suspense, useEffect} from "react";
 import {Link, usePage} from "@inertiajs/inertia-react";
 import ButtonLogInSignUp from "@/Pages/Layout/Button-LogIn-And-SignUp/ButtonLogInSignUp";
 import {useDispatch, useSelector} from 'react-redux'
@@ -14,6 +14,9 @@ function Layout({children}) {
     const navbar = useSelector(state => state.navbar.value);
     const { auth } = usePage().props;
 
+    useEffect(() => {
+       console.log("TESTTTTT");
+    });
     const showMobileNavbar = () => {
         dispatch(show());
     };

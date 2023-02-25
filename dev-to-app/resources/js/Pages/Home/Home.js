@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import Layout from "@/Pages/Layout/Layout";
 import CardLoginAndSignUp from "@/Pages/Layout/CardLoginAndSignUp/CardLoginAndSignUp";
 import Category from "@/Pages/Layout/Category/Category";
@@ -11,9 +11,15 @@ import Contents from "@/Pages/Home/Contents/Contents";
 import {Head} from "@inertiajs/inertia-react";
 import {useSelector} from "react-redux";
 
-function Home({title}) {
+function Home({title, isRememberMe}) {
 
     const navbar = useSelector(state => state.navbar.value);
+
+    useEffect(() => {
+       if (isRememberMe.hasOwnProperty('session_id') && isRememberMe.hasOwnProperty('hash')) {
+            localStorage.setItem('remember_me', JSON.stringify(isRememberMe));
+       }
+    });
 
     return (
         <>

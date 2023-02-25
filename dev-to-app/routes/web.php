@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Remember_Me;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', function () {
     $data = [
         'title' => 'DEV Community 👩‍💻👨‍💻',
+        'isRememberMe' => Auth::check() ? Remember_Me::where('id_user','=', Auth::user()['id_user'])->first() : '',
     ];
     return Inertia::render('Home/Home', $data);
 });
