@@ -16,8 +16,10 @@ function Home({title, isRememberMe}) {
     const navbar = useSelector(state => state.navbar.value);
 
     useEffect(() => {
-       if (isRememberMe.hasOwnProperty('session_id') && isRememberMe.hasOwnProperty('hash')) {
-            localStorage.setItem('remember_me', JSON.stringify(isRememberMe));
+       if (isRememberMe !== null) {
+           if (isRememberMe.hasOwnProperty('session_id') && isRememberMe.hasOwnProperty('hash')) {
+               localStorage.setItem('remember_me', JSON.stringify(isRememberMe));
+           }
        }
     });
 

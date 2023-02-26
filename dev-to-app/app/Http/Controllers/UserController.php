@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Crypt;
+use Illuminate\Contracts\Encryption\DecryptException;
 
 class UserController extends Controller
 {
@@ -107,7 +108,7 @@ class UserController extends Controller
 
                     $detailUser = User::where('email', '=', $request->input('email'))->first();
                     $idUser = $detailUser['id_user'];
-                    $usernameHash = Crypt::encryptString($detailUser['username']);
+                    $usernameHash = Hash::make($detailUser['username']);
                     $sessionId = Session::getId();
 
                     Remember_Me::create([
@@ -142,6 +143,40 @@ class UserController extends Controller
         $request->session()->regenerateToken();
 
         return redirect()->to('/');
+
+    }
+
+    public function rememberMeUser(Request $request) {
+        $sessionID = $request->input('session_id');
+        $hash = $request->input('hash');
+
+        $detailRememberMe = Remember_Me::with('users')
+            ->where('session_id', '=' ,$sessionID)->first()->users;
+
+        if (Hash::check($detailRememberMe[0]['username'],$hash)) {
+            return response()->json([
+               'res' => $detailRememberMe
+            ]);
+        } else {
+            return response()->json([
+                'res' => 'FAILS'
+            ]);
+        }
+//        try {
+//            if ($decrypted === $detailRememberMe[0]['username']) {
+//                return response()->json([
+//                    'res' =>  $detailRememberMe,
+//                ]);
+//            } else {
+//                return response()->json([
+//                    'res' =>  'KEY INVALID',
+//                ]);
+//            }
+//        } catch (DecryptException $e) {
+//            return response()->json([
+//                'res' =>  'ERROR',
+//            ]);
+//        }
 
     }
 }

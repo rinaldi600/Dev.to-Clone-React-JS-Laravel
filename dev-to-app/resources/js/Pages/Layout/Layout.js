@@ -1,5 +1,5 @@
 import React, {Fragment, lazy, Suspense, useEffect} from "react";
-import {Link, usePage} from "@inertiajs/inertia-react";
+import {Link, usePage, useForm} from "@inertiajs/inertia-react";
 import ButtonLogInSignUp from "@/Pages/Layout/Button-LogIn-And-SignUp/ButtonLogInSignUp";
 import {useDispatch, useSelector} from 'react-redux'
 import {show} from "@/features/Navbar/NavbarSlice";
@@ -13,9 +13,23 @@ function Layout({children}) {
     const dispatch = useDispatch();
     const navbar = useSelector(state => state.navbar.value);
     const { auth } = usePage().props;
+    const { data, post, transform} = useForm({
+        session_id : '',
+        hash : '',
+        remember: false,
+    });
 
     useEffect(() => {
-       console.log("TESTTTTT");
+       if (auth?.user === null && localStorage.getItem('remember_me')) {
+           const rememberMe = JSON.parse(localStorage.getItem('remember_me'));
+           transform((data) => ({
+               ...data,
+               session_id : rememberMe?.session_id,
+               // hash : rememberMe?.hash,
+               hash : '1234'
+           }));
+           post('/remember_me_user')
+       }
     });
     const showMobileNavbar = () => {
         dispatch(show());

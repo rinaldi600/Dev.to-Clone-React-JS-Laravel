@@ -5698,8 +5698,10 @@ function Home(_ref) {
     return state.navbar.value;
   });
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    if (isRememberMe.hasOwnProperty('session_id') && isRememberMe.hasOwnProperty('hash')) {
-      localStorage.setItem('remember_me', JSON.stringify(isRememberMe));
+    if (isRememberMe !== null) {
+      if (isRememberMe.hasOwnProperty('session_id') && isRememberMe.hasOwnProperty('hash')) {
+        localStorage.setItem('remember_me', JSON.stringify(isRememberMe));
+      }
     }
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.Fragment, {
@@ -7017,6 +7019,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_Layout_ProfileNavigation_ProfileNavigation__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Pages/Layout/ProfileNavigation/ProfileNavigation */ "./resources/js/Pages/Layout/ProfileNavigation/ProfileNavigation.js");
 /* harmony import */ var _Pages_Layout_DetailUser_DetailUser__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Pages/Layout/DetailUser/DetailUser */ "./resources/js/Pages/Layout/DetailUser/DetailUser.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
 
 
 
@@ -7037,8 +7045,26 @@ function Layout(_ref) {
     return state.navbar.value;
   });
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.auth;
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
+      session_id: '',
+      hash: '',
+      remember: false
+    }),
+    data = _useForm.data,
+    post = _useForm.post,
+    transform = _useForm.transform;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    console.log("TESTTTTT");
+    if ((auth === null || auth === void 0 ? void 0 : auth.user) === null && localStorage.getItem('remember_me')) {
+      var rememberMe = JSON.parse(localStorage.getItem('remember_me'));
+      transform(function (data) {
+        return _objectSpread(_objectSpread({}, data), {}, {
+          session_id: rememberMe === null || rememberMe === void 0 ? void 0 : rememberMe.session_id,
+          // hash : rememberMe?.hash,
+          hash: '1234'
+        });
+      });
+      post('/remember_me_user');
+    }
   });
   var showMobileNavbar = function showMobileNavbar() {
     dispatch((0,_features_Navbar_NavbarSlice__WEBPACK_IMPORTED_MODULE_4__.show)());

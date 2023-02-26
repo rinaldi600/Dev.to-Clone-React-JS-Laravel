@@ -33,6 +33,7 @@ Route::get('/enter', [\App\Http\Controllers\UserController::class, 'index']);
 Route::post('/new_user', [\App\Http\Controllers\UserController::class, 'newUser']);
 Route::post('/login_user', [\App\Http\Controllers\UserController::class, 'handleLogin']);
 Route::post('/logout_user', [\App\Http\Controllers\UserController::class, 'LogOutUser']);
+Route::post('/remember_me_user', [\App\Http\Controllers\UserController::class, 'rememberMeUser']);
 Route::get('/signout_confirm', [\App\Http\Controllers\UserController::class, 'handleLogOut']);
 
 Route::get('/dashboard', function () {

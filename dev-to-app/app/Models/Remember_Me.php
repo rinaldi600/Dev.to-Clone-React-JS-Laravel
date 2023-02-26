@@ -24,11 +24,6 @@ class Remember_Me extends Model
      */
     protected $guarded = ['id'];
 
-    /**
-     * The attributes that should be hidden for arrays.
-     *
-     * @var array
-     */
     protected $hidden = ['id','id_user', 'created_at', 'updated_at', 'deleted_at'];
 
     public function users() {
