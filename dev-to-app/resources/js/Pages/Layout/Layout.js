@@ -25,8 +25,7 @@ function Layout({children}) {
            transform((data) => ({
                ...data,
                session_id : rememberMe?.session_id,
-               // hash : rememberMe?.hash,
-               hash : '1234'
+               hash : rememberMe?.hash,
            }));
            post('/remember_me_user')
        }
@@ -37,7 +36,7 @@ function Layout({children}) {
 
     return (
         <Fragment>
-            <div className={`${navbar ? 'overflow-hidden fixed' : ''} h-[56px] font-['Segoe_UI'] bg-white shadow-[0_1px_2px_0px_rgba(60,64,67,0.3),0px_1px_3px_1px_rgba(60,64,67,0.15)]`}>
+            <div className={`${navbar ? 'overflow-hidden fixed w-full' : ''} h-[56px] font-['Segoe_UI'] bg-white shadow-[0_1px_2px_0px_rgba(60,64,67,0.3),0px_1px_3px_1px_rgba(60,64,67,0.15)]`}>
                 <div className={'max-w-[1280px] h-full mx-auto'}>
                     <div className={'w-full flex items-center relative justify-between h-full'}>
 

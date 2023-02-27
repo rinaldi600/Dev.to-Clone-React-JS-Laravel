@@ -5691,12 +5691,14 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function Home(_ref) {
   var title = _ref.title,
     isRememberMe = _ref.isRememberMe;
   var navbar = (0,react_redux__WEBPACK_IMPORTED_MODULE_11__.useSelector)(function (state) {
     return state.navbar.value;
   });
+  var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_10__.usePage)().props.auth;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     if (isRememberMe !== null) {
       if (isRememberMe.hasOwnProperty('session_id') && isRememberMe.hasOwnProperty('hash')) {
@@ -5710,12 +5712,12 @@ function Home(_ref) {
         children: title
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
-      className: "font-['Segoe_UI'] bg-[#F5F5F5] w-full",
+      className: "font-['Segoe_UI'] bg-[#F5F5F5] w-full p-2",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
         className: 'max-w-[1280px] pt-3 mx-auto justify-center flex gap-3',
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
           className: 'hidden min-h-max md:block w-[267.2px]',
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+          children: [auth !== null && auth !== void 0 && auth.user ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
             className: 'w-full bg-[#FAFAFA] p-2 rounded-lg shadow-[0_1px_4px_rgba(0,0,0,0.16)]',
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Pages_Layout_CardLoginAndSignUp_CardLoginAndSignUp__WEBPACK_IMPORTED_MODULE_2__["default"], {})
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Pages_Layout_Category_Category__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Pages_Home_Tags_Tags__WEBPACK_IMPORTED_MODULE_4__["default"], {})]
@@ -7059,8 +7061,7 @@ function Layout(_ref) {
       transform(function (data) {
         return _objectSpread(_objectSpread({}, data), {}, {
           session_id: rememberMe === null || rememberMe === void 0 ? void 0 : rememberMe.session_id,
-          // hash : rememberMe?.hash,
-          hash: '1234'
+          hash: rememberMe === null || rememberMe === void 0 ? void 0 : rememberMe.hash
         });
       });
       post('/remember_me_user');
@@ -7071,7 +7072,7 @@ function Layout(_ref) {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-      className: "".concat(navbar ? 'overflow-hidden fixed' : '', " h-[56px] font-['Segoe_UI'] bg-white shadow-[0_1px_2px_0px_rgba(60,64,67,0.3),0px_1px_3px_1px_rgba(60,64,67,0.15)]"),
+      className: "".concat(navbar ? 'overflow-hidden fixed w-full' : '', " h-[56px] font-['Segoe_UI'] bg-white shadow-[0_1px_2px_0px_rgba(60,64,67,0.3),0px_1px_3px_1px_rgba(60,64,67,0.15)]"),
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: 'max-w-[1280px] h-full mx-auto',
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
@@ -7331,13 +7332,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _features_Navbar_NavbarSlice__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/features/Navbar/NavbarSlice */ "./resources/js/features/Navbar/NavbarSlice.js");
 /* harmony import */ var _Pages_Layout_CardLoginAndSignUp_CardLoginAndSignUp__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Pages/Layout/CardLoginAndSignUp/CardLoginAndSignUp */ "./resources/js/Pages/Layout/CardLoginAndSignUp/CardLoginAndSignUp.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -7354,6 +7357,7 @@ function MobileNavbar() {
   var navbar = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (state) {
     return state.navbar.value;
   });
+  var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_5__.usePage)().props.auth;
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     window.addEventListener('resize', function (e) {
       setWidth(window.innerWidth);
@@ -7372,41 +7376,41 @@ function MobileNavbar() {
   var closeMobileNavbar = function closeMobileNavbar() {
     dispatch((0,_features_Navbar_NavbarSlice__WEBPACK_IMPORTED_MODULE_3__.close)());
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
     className: "fixed ".concat(navbar ? 'z-50 ' : 'hidden', " font-['Segoe_UI'] inset-0 bg-[#848484]/75 md:hidden fixed overflow-hidden"),
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
       className: 'max-w-[282.2px] bg-white h-full overflow-y-scroll',
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
         className: 'min-h-[56px] p-2 flex items-center justify-between',
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("h1", {
           className: 'font-bold text-lg',
           children: "DEV Community \uD83D\uDC69\u200D\uD83D\uDCBB\uD83D\uDC68\u200D\uD83D\uDCBB"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           onClick: closeMobileNavbar,
           className: 'w-[40px] h-[40px] hover:bg-[#EBECFC] flex rounded-lg cursor-pointer justify-center items-center',
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("svg", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("svg", {
             xmlns: "http://www.w3.org/2000/svg",
             fill: "none",
             viewBox: "0 0 24 24",
             "stroke-width": "1.5",
             stroke: "currentColor",
             className: "w-[24px] hover:text-[#2F3AB2] h-[24px]",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("path", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("path", {
               "stroke-linecap": "round",
               "stroke-linejoin": "round",
               d: "M6 18L18 6M6 6l12 12"
             })
           })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: 'min-h-max flex items-center justify-center',
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+        children: auth !== null && auth !== void 0 && auth.user ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
           className: 'w-[267.2px] min-h-max bg-[#FAFAFA] p-2 rounded-lg shadow-[0_1px_4px_rgba(0,0,0,0.16)]',
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Pages_Layout_CardLoginAndSignUp_CardLoginAndSignUp__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Pages_Layout_CardLoginAndSignUp_CardLoginAndSignUp__WEBPACK_IMPORTED_MODULE_4__["default"], {})
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
         className: 'mt-3',
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Pages_Layout_Category_Category__WEBPACK_IMPORTED_MODULE_0__["default"], {})
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_Pages_Layout_Category_Category__WEBPACK_IMPORTED_MODULE_0__["default"], {})
       })]
     })
   });
@@ -7444,7 +7448,7 @@ function ProfileNavigation(_ref) {
     className: "".concat(navigationForUser ? 'block' : 'hidden', " absolute top-[100%] p-2 shadow-[0px_4px_12px_rgba(0,0,0,0.1)] right-0 bg-white w-full md:w-[250px] rounded-lg min-h-[100px]"),
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
       className: 'flex flex-col p-2 w-full rounded-lg hover:bg-[#EBECFC]',
-      href: '/profile',
+      href: "/".concat(dataUser === null || dataUser === void 0 ? void 0 : dataUser.username),
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
         className: 'text-base text-[#404040] font-medium',
         children: dataUser === null || dataUser === void 0 ? void 0 : dataUser.name
@@ -8211,6 +8215,52 @@ function SuccessCreateUser() {
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SuccessCreateUser);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Profile/profileUser.js":
+/*!***************************************************!*\
+  !*** ./resources/js/Pages/Profile/profileUser.js ***!
+  \***************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+function ProfileUser(_ref) {
+  var user = _ref.user;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log(user);
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
+      title: "".concat(user === null || user === void 0 ? void 0 : user.name, " - DEV Community")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "font-['Segoe_UI']",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+        children: "WORK"
+      })
+    })]
+  });
+}
+ProfileUser.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    children: page,
+    title: "Welcome"
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProfileUser);
 
 /***/ }),
 
@@ -65676,6 +65726,8 @@ var map = {
 	"./LoginSignUp/SignUp/SignUp.js": "./resources/js/Pages/LoginSignUp/SignUp/SignUp.js",
 	"./LoginSignUp/SuccessCreateUser/SuccessCreateUser": "./resources/js/Pages/LoginSignUp/SuccessCreateUser/SuccessCreateUser.js",
 	"./LoginSignUp/SuccessCreateUser/SuccessCreateUser.js": "./resources/js/Pages/LoginSignUp/SuccessCreateUser/SuccessCreateUser.js",
+	"./Profile/profileUser": "./resources/js/Pages/Profile/profileUser.js",
+	"./Profile/profileUser.js": "./resources/js/Pages/Profile/profileUser.js",
 	"./Welcome": "./resources/js/Pages/Welcome.js",
 	"./Welcome.js": "./resources/js/Pages/Welcome.js"
 };

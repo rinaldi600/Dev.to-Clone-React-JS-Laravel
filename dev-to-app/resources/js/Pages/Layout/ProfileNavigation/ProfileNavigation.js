@@ -7,7 +7,7 @@ function ProfileNavigation({dataUser}) {
 
     return (
         <div className={`${navigationForUser ? 'block' : 'hidden'} absolute top-[100%] p-2 shadow-[0px_4px_12px_rgba(0,0,0,0.1)] right-0 bg-white w-full md:w-[250px] rounded-lg min-h-[100px]`}>
-            <Link className={'flex flex-col p-2 w-full rounded-lg hover:bg-[#EBECFC]'} href={'/profile'}>
+            <Link className={'flex flex-col p-2 w-full rounded-lg hover:bg-[#EBECFC]'} href={`/${dataUser?.username}`}>
                 <span className={'text-base text-[#404040] font-medium'}>{dataUser?.name}</span>
                 <small className={'text-sm text-[#707070]'}>{dataUser?.username}</small>
             </Link>

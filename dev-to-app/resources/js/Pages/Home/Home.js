@@ -10,10 +10,12 @@ import Recentlys from "@/Pages/Home/RecentlyQueried/Recentlys";
 import Contents from "@/Pages/Home/Contents/Contents";
 import {Head} from "@inertiajs/inertia-react";
 import {useSelector} from "react-redux";
+import {usePage} from "@inertiajs/inertia-react";
 
 function Home({title, isRememberMe}) {
 
     const navbar = useSelector(state => state.navbar.value);
+    const { auth } = usePage().props;
 
     useEffect(() => {
        if (isRememberMe !== null) {
@@ -28,12 +30,17 @@ function Home({title, isRememberMe}) {
             <Head >
                 <title>{title}</title>
             </Head>
-            <div className={`font-['Segoe_UI'] bg-[#F5F5F5] w-full`}>
+            <div className={`font-['Segoe_UI'] bg-[#F5F5F5] w-full p-2`}>
                 <div className={'max-w-[1280px] pt-3 mx-auto justify-center flex gap-3'}>
                     <div className={'hidden min-h-max md:block w-[267.2px]'}>
-                        <div className={'w-full bg-[#FAFAFA] p-2 rounded-lg shadow-[0_1px_4px_rgba(0,0,0,0.16)]'}>
-                            <CardLoginAndSignUp/>
-                        </div>
+                        {
+                            auth?.user ?
+                                ''
+                                :
+                                <div className={'w-full bg-[#FAFAFA] p-2 rounded-lg shadow-[0_1px_4px_rgba(0,0,0,0.16)]'}>
+                                    <CardLoginAndSignUp/>
+                                </div>
+                        }
                         <Category/>
                         <Tags/>
                     </div>

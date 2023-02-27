@@ -10,8 +10,6 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Support\Facades\Crypt;
-use Illuminate\Contracts\Encryption\DecryptException;
 
 class UserController extends Controller
 {
@@ -154,29 +152,17 @@ class UserController extends Controller
             ->where('session_id', '=' ,$sessionID)->first()->users;
 
         if (Hash::check($detailRememberMe[0]['username'],$hash)) {
-            return response()->json([
-               'res' => $detailRememberMe
-            ]);
+            Auth::login(User::where('username','=',$detailRememberMe[0]['username'])->first());
+            $request->session()->regenerate();
+            return redirect()->to('/');
         } else {
-            return response()->json([
-                'res' => 'FAILS'
-            ]);
+            return redirect()->to('/');
         }
-//        try {
-//            if ($decrypted === $detailRememberMe[0]['username']) {
-//                return response()->json([
-//                    'res' =>  $detailRememberMe,
-//                ]);
-//            } else {
-//                return response()->json([
-//                    'res' =>  'KEY INVALID',
-//                ]);
-//            }
-//        } catch (DecryptException $e) {
-//            return response()->json([
-//                'res' =>  'ERROR',
-//            ]);
-//        }
+    }
 
+    public function profileUser(User $user) {
+        return Inertia::render('Profile/profileUser', [
+            'user' => $user
+        ]);
     }
 }

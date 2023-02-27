@@ -3,12 +3,14 @@ import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
 import { close } from "@/features/Navbar/NavbarSlice";
 import CardLoginAndSignUp from "@/Pages/Layout/CardLoginAndSignUp/CardLoginAndSignUp";
+import {usePage} from "@inertiajs/inertia-react";
 
 function MobileNavbar() {
 
     const [width, setWidth] = useState(0);
     const dispatch = useDispatch();
     const navbar = useSelector(state => state.navbar.value);
+    const { auth } = usePage().props;
 
     useEffect(() => {
         window.addEventListener('resize', (e) => {
@@ -44,9 +46,14 @@ function MobileNavbar() {
                     </div>
                 </div>
                 <div className={'min-h-max flex items-center justify-center'}>
-                    <div className={'w-[267.2px] min-h-max bg-[#FAFAFA] p-2 rounded-lg shadow-[0_1px_4px_rgba(0,0,0,0.16)]'}>
-                        <CardLoginAndSignUp/>
-                    </div>
+                    {
+                        auth?.user ?
+                            ''
+                            :
+                            <div className={'w-[267.2px] min-h-max bg-[#FAFAFA] p-2 rounded-lg shadow-[0_1px_4px_rgba(0,0,0,0.16)]'}>
+                                <CardLoginAndSignUp/>
+                            </div>
+                    }
                 </div>
                 <div className={'mt-3'}>
                     <Category/>
