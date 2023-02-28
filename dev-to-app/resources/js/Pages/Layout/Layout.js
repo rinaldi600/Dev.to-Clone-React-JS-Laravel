@@ -30,6 +30,7 @@ function Layout({children}) {
            post('/remember_me_user')
        }
     });
+
     const showMobileNavbar = () => {
         dispatch(show());
     };
