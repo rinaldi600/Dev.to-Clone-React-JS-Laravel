@@ -8225,6 +8225,44 @@ function SuccessCreateUser() {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Profile/Organization/Organization.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/Pages/Profile/Organization/Organization.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Organization(_ref) {
+  var urlBanner = _ref.urlBanner,
+    nameOrganization = _ref.nameOrganization;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: 'h-[64px] cursor-pointer hover:bg-white flex items-center p-2 gap-2 w-full border-b border-[#F5F5F5]',
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+      className: 'w-[32px] h-[32px] ',
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+        className: 'w-full h-full',
+        src: urlBanner,
+        alt: "Organization"
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+      className: 'text-base font-medium text-[#404040]',
+      children: nameOrganization
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Organization);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Profile/profileUser.js":
 /*!***************************************************!*\
   !*** ./resources/js/Pages/Profile/profileUser.js ***!
@@ -8247,6 +8285,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var Organization = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./Organization/Organization */ "./resources/js/Pages/Profile/Organization/Organization.js"));
+});
 function ProfileUser(_ref) {
   var user = _ref.user;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
@@ -8294,7 +8335,39 @@ function ProfileUser(_ref) {
           })]
         })]
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-        className: 'min-h-[300px] bg-red-300'
+        className: 'min-h-[300px] w-full flex justify-center',
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: 'w-[992px] flex sm:flex-wrap gap-4 justify-center',
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: 'min-h-[100px] lg:w-[35%] w-full',
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: 'min-h-[240px] overflow-hidden bg-[#FAFAFA] rounded-lg shadow-[0_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]',
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: 'h-[48px] p-2 border-b border-[#F5F5F5]',
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+                  className: 'font-bold text-base text-[#242424]',
+                  children: "Organizations"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+                fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  children: "Loading..."
+                }),
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Organization, {
+                  nameOrganization: 'The Dev Team',
+                  urlBanner: 'https://res.cloudinary.com/practicaldev/image/fetch/s--mbsgKaXh--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/1/0213bbaa-d5a1-4d25-9e7a-10c30b455af0.png'
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Organization, {
+                  nameOrganization: 'Byte Sized',
+                  urlBanner: 'https://res.cloudinary.com/practicaldev/image/fetch/s--cBsLILBj--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/865/652f7998-32a8-4fd9-85ca-dd697d2a9ee9.png'
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(Organization, {
+                  nameOrganization: 'CodeNewBie',
+                  urlBanner: 'https://res.cloudinary.com/practicaldev/image/fetch/s--qt_66fM4--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/2167/a575e4d1-42a8-471a-ab8a-a9240b002aa8.png'
+                })]
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: 'min-h-[400px] lg:w-[65%] w-full bg-green-400'
+          })]
+        })
       })]
     })]
   });
@@ -65771,6 +65844,8 @@ var map = {
 	"./LoginSignUp/SignUp/SignUp.js": "./resources/js/Pages/LoginSignUp/SignUp/SignUp.js",
 	"./LoginSignUp/SuccessCreateUser/SuccessCreateUser": "./resources/js/Pages/LoginSignUp/SuccessCreateUser/SuccessCreateUser.js",
 	"./LoginSignUp/SuccessCreateUser/SuccessCreateUser.js": "./resources/js/Pages/LoginSignUp/SuccessCreateUser/SuccessCreateUser.js",
+	"./Profile/Organization/Organization": "./resources/js/Pages/Profile/Organization/Organization.js",
+	"./Profile/Organization/Organization.js": "./resources/js/Pages/Profile/Organization/Organization.js",
 	"./Profile/profileUser": "./resources/js/Pages/Profile/profileUser.js",
 	"./Profile/profileUser.js": "./resources/js/Pages/Profile/profileUser.js",
 	"./Welcome": "./resources/js/Pages/Welcome.js",
