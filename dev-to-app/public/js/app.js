@@ -5518,6 +5518,9 @@ function NextContent(_ref) {
   var text = _ref.text,
     _ref$detailUserCreate = _ref.detailUserCreate,
     detailUserCreate = _ref$detailUserCreate === void 0 ? {} : _ref$detailUserCreate;
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    console.log('WORK');
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
     className: 'sm:pr-3 sm:pl-3 pr-9 pl-9 pt-7 pb-2 mt-2 bg-white min-h-[197.1px] rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]',
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Home_Contents_TitleContent_TitleContent__WEBPACK_IMPORTED_MODULE_0__["default"], {
@@ -8288,6 +8291,9 @@ __webpack_require__.r(__webpack_exports__);
 var Organization = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./Organization/Organization */ "./resources/js/Pages/Profile/Organization/Organization.js"));
 });
+var NextContent = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../Home/Contents/NextContent/NextContent */ "./resources/js/Pages/Home/Contents/NextContent/NextContent.js"));
+});
 function ProfileUser(_ref) {
   var user = _ref.user;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
@@ -8338,9 +8344,9 @@ function ProfileUser(_ref) {
         className: 'min-h-[300px] w-full flex justify-center',
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: 'w-[992px] flex sm:flex-wrap gap-4 justify-center',
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: 'min-h-[100px] lg:w-[35%] w-full',
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: 'min-h-[100px] mt-2 lg:w-[35%] w-full',
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
               className: 'min-h-[240px] overflow-hidden bg-[#FAFAFA] rounded-lg shadow-[0_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]',
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
                 className: 'h-[48px] p-2 border-b border-[#F5F5F5]',
@@ -8363,9 +8369,114 @@ function ProfileUser(_ref) {
                   urlBanner: 'https://res.cloudinary.com/practicaldev/image/fetch/s--qt_66fM4--/c_fill,f_auto,fl_progressive,h_90,q_auto,w_90/https://dev-to-uploads.s3.amazonaws.com/uploads/organization/profile_image/2167/a575e4d1-42a8-471a-ab8a-a9240b002aa8.png'
                 })]
               })]
-            })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: 'min-h-[104px] p-2 mt-3 overflow-hidden bg-[#FAFAFA] rounded-lg shadow-[0_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]',
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: 'h-[48px] flex items-center border-b border-[#F5F5F5]',
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+                  className: 'font-bold text-base text-[#242424]',
+                  children: "Skills/Languages"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                className: 'min-h-[56px] flex items-center',
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                  children: "JavaScript, HTML, CSS"
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: 'min-h-max flex flex-col gap-4 p-2 mt-3 overflow-hidden bg-[#FAFAFA] rounded-lg shadow-[0_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]',
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: 'flex items-center gap-4',
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("svg", {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "24",
+                  height: "24",
+                  viewBox: "0 0 24 24",
+                  className: "text-[#404040] fill-[#404040]",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("title", {
+                    id: "akwcqsnyaop4ru3pd39igrap9fimsyaa",
+                    children: "Post"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                    d: "M19 22H5a3 3 0 01-3-3V3a1 1 0 011-1h14a1 1 0 011 1v12h4v4a3 3 0 01-3 3zm-1-5v2a1 1 0 002 0v-2h-2zm-2 3V4H4v15a1 1 0 001 1h11zM6 7h8v2H6V7zm0 4h8v2H6v-2zm0 4h5v2H6v-2z"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                  className: 'text-[#404040] text-base',
+                  children: "1291 posts published"
+                })]
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+                className: 'flex items-center gap-4',
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("svg", {
+                  xmlns: "http://www.w3.org/2000/svg",
+                  width: "24",
+                  height: "24",
+                  viewBox: "0 0 24 24",
+                  role: "img",
+                  "aria-labelledby": "afqz9iugctvwv6h9nev346y5xzkp921s",
+                  className: "text-[#404040] fill-[#404040]",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("title", {
+                    id: "afqz9iugctvwv6h9nev346y5xzkp921s",
+                    children: "Comment"
+                  }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+                    d: "M10 3h4a8 8 0 010 16v3.5c-5-2-12-5-12-11.5a8 8 0 018-8zm2 14h2a6 6 0 000-12h-4a6 6 0 00-6 6c0 3.61 2.462 5.966 8 8.48V17z"
+                  })]
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                  className: 'text-[#404040] text-base',
+                  children: "9220 comments written"
+                })]
+              })]
+            })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: 'min-h-[400px] lg:w-[65%] w-full bg-green-400'
+            className: 'min-h-[400px] lg:w-[65%] w-full mb-3',
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+              fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                children: "Loading..."
+              }),
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NextContent, {
+                detailUserCreate: {
+                  name: {
+                    first: 'Rinaldi',
+                    last: 'Hendrawan'
+                  },
+                  picture: {
+                    medium: 'https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
+                  }
+                },
+                text: 'Daily Routine of a Texan Software Developer'
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NextContent, {
+                detailUserCreate: {
+                  name: {
+                    first: 'Rinaldi',
+                    last: 'Hendrawan'
+                  },
+                  picture: {
+                    medium: 'https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
+                  }
+                },
+                text: 'Daily Routine of a Texan Software Developer'
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NextContent, {
+                detailUserCreate: {
+                  name: {
+                    first: 'Rinaldi',
+                    last: 'Hendrawan'
+                  },
+                  picture: {
+                    medium: 'https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
+                  }
+                },
+                text: 'Daily Routine of a Texan Software Developer'
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NextContent, {
+                detailUserCreate: {
+                  name: {
+                    first: 'Rinaldi',
+                    last: 'Hendrawan'
+                  },
+                  picture: {
+                    medium: 'https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
+                  }
+                },
+                text: 'Daily Routine of a Texan Software Developer'
+              })]
+            })
           })]
         })
       })]

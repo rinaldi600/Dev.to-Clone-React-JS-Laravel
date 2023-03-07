@@ -1,7 +1,7 @@
 import {Link} from "@inertiajs/inertia-react";
 import TagContent from "@/Pages/Home/Contents/TagContent/TagContent";
 import Comment from "@/Pages/Home/Contents/Comment/Comment";
-import React, {Fragment, useEffect} from "react";
+import React, {Fragment} from "react";
 
 function TitleContent({slug = '', text, commentCount, detailUserCreate = {}}) {
     return (
