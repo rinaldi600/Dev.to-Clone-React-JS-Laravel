@@ -165,4 +165,8 @@ class UserController extends Controller
             'user' => $user,
         ]);
     }
+
+    public function settingProfileView() {
+        return Inertia::render('Profile/Setting/Setting');
+    }
 }

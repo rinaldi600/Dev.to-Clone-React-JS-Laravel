@@ -7455,7 +7455,7 @@ function ProfileNavigation(_ref) {
     onClick: function onClick() {
       return dispatch((0,_features_NavigationForUser_NavigationForUserSlice__WEBPACK_IMPORTED_MODULE_3__.close)());
     },
-    className: "".concat(navigationForUser ? 'block' : 'hidden', " absolute top-[100%] p-2 shadow-[0px_4px_12px_rgba(0,0,0,0.1)] right-0 bg-white w-full md:w-[250px] rounded-lg min-h-[100px]"),
+    className: "".concat(navigationForUser ? 'block' : 'hidden', " absolute z-[50] top-[100%] p-2 shadow-[0px_4px_12px_rgba(0,0,0,0.1)] right-0 bg-white w-full md:w-[250px] rounded-lg min-h-[100px]"),
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
       className: 'flex flex-col p-2 w-full rounded-lg hover:bg-[#EBECFC]',
       href: "/".concat(dataUser === null || dataUser === void 0 ? void 0 : dataUser.username),
@@ -7483,7 +7483,7 @@ function ProfileNavigation(_ref) {
         className: 'p-2 w-full rounded-lg hover:text-[#2F3AB2] hover:underline hover:decoration-[1.5px] hover:bg-[#EBECFC]',
         children: "Reading list"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
-        href: '/settings',
+        href: '/settings/profile',
         className: 'p-2 w-full rounded-lg hover:text-[#2F3AB2] hover:underline hover:decoration-[1.5px] hover:bg-[#EBECFC]',
         children: "Settings"
       })]
@@ -8263,6 +8263,69 @@ function Organization(_ref) {
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Organization);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Profile/Setting/Setting.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/Pages/Profile/Setting/Setting.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+function Setting() {
+  var _auth$user, _auth$user2;
+  var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.auth;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log(auth);
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
+      title: "Settings - DEV Community"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: "font-['Segoe_UI'] min-h-screen flex bg-[#F5F5F5]",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: 'w-[1024px] mx-auto',
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h1", {
+          className: 'pt-7 text-3xl text-[#090909] font-bold',
+          children: ["Settings for ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+            className: 'text-[#3B49DF]',
+            href: "/".concat(auth === null || auth === void 0 ? void 0 : (_auth$user = auth.user) === null || _auth$user === void 0 ? void 0 : _auth$user.username),
+            children: ["@", auth === null || auth === void 0 ? void 0 : (_auth$user2 = auth.user) === null || _auth$user2 === void 0 ? void 0 : _auth$user2.username]
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: 'flex flex-wrap bg-red-300 min-h-[300px] mt-5',
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: 'sm:w-full w-[30%] min-h-[100px] bg-green-500'
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: 'sm:w-full w-[70%] min-h-[300px] bg-yellow-400'
+          })]
+        })]
+      })
+    })]
+  });
+}
+Setting.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    children: page,
+    title: "Settings - DEV Community"
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Setting);
 
 /***/ }),
 
@@ -65957,6 +66020,8 @@ var map = {
 	"./LoginSignUp/SuccessCreateUser/SuccessCreateUser.js": "./resources/js/Pages/LoginSignUp/SuccessCreateUser/SuccessCreateUser.js",
 	"./Profile/Organization/Organization": "./resources/js/Pages/Profile/Organization/Organization.js",
 	"./Profile/Organization/Organization.js": "./resources/js/Pages/Profile/Organization/Organization.js",
+	"./Profile/Setting/Setting": "./resources/js/Pages/Profile/Setting/Setting.js",
+	"./Profile/Setting/Setting.js": "./resources/js/Pages/Profile/Setting/Setting.js",
 	"./Profile/profileUser": "./resources/js/Pages/Profile/profileUser.js",
 	"./Profile/profileUser.js": "./resources/js/Pages/Profile/profileUser.js",
 	"./Welcome": "./resources/js/Pages/Welcome.js",

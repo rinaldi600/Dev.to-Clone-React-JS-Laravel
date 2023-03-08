@@ -35,6 +35,7 @@ Route::post('/login_user', [\App\Http\Controllers\UserController::class, 'handle
 Route::post('/logout_user', [\App\Http\Controllers\UserController::class, 'LogOutUser'])->middleware('isValidLogin');
 Route::post('/remember_me_user', [\App\Http\Controllers\UserController::class, 'rememberMeUser']);
 Route::get('/signout_confirm', [\App\Http\Controllers\UserController::class, 'handleLogOut'])->middleware('isValidLogin');
+Route::get('/settings/profile', [\App\Http\Controllers\UserController::class, 'settingProfileView'])->middleware('isValidLogin');
 Route::get('/{user:username}', [\App\Http\Controllers\UserController::class, 'profileUser'])->middleware('isValidLogin');
 
 Route::get('/dashboard', function () {

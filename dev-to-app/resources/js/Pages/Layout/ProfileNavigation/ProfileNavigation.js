@@ -10,7 +10,7 @@ function ProfileNavigation({dataUser}) {
     const dispatch = useDispatch();
 
     return (
-        <div onClick={() => dispatch(close())} className={`${navigationForUser ? 'block' : 'hidden'} absolute top-[100%] p-2 shadow-[0px_4px_12px_rgba(0,0,0,0.1)] right-0 bg-white w-full md:w-[250px] rounded-lg min-h-[100px]`}>
+        <div onClick={() => dispatch(close())} className={`${navigationForUser ? 'block' : 'hidden'} absolute z-[50] top-[100%] p-2 shadow-[0px_4px_12px_rgba(0,0,0,0.1)] right-0 bg-white w-full md:w-[250px] rounded-lg min-h-[100px]`}>
             <Link className={'flex flex-col p-2 w-full rounded-lg hover:bg-[#EBECFC]'} href={`/${dataUser?.username}`}>
                 <span className={'text-base text-[#404040] font-medium'}>{dataUser?.name}</span>
                 <small className={'text-sm text-[#707070]'}>{dataUser?.username}</small>
@@ -28,7 +28,7 @@ function ProfileNavigation({dataUser}) {
                 <Link href={'/readinglist'} className={'p-2 w-full rounded-lg hover:text-[#2F3AB2] hover:underline hover:decoration-[1.5px] hover:bg-[#EBECFC]'}>
                     Reading list
                 </Link>
-                <Link href={'/settings'} className={'p-2 w-full rounded-lg hover:text-[#2F3AB2] hover:underline hover:decoration-[1.5px] hover:bg-[#EBECFC]'}>
+                <Link href={'/settings/profile'} className={'p-2 w-full rounded-lg hover:text-[#2F3AB2] hover:underline hover:decoration-[1.5px] hover:bg-[#EBECFC]'}>
                     Settings
                 </Link>
             </div>
