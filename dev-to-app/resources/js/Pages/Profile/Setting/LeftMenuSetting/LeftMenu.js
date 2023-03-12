@@ -1,8 +1,9 @@
 import React from "react";
 
-function LeftMenu() {
+function LeftMenu({widthWindow, modalShow}) {
+
     return (
-        <ul className={'text-[#404040]'}>
+        <ul className={`text-[#404040] ${modalShow || widthWindow >= 991 ? '' : 'hidden'}`}>
             <li className={'cursor-pointer flex gap-1 p-2 flex hover:bg-[#E2E3F3] rounded-lg'}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
                      stroke-width="1.5" stroke="currentColor" className="w-6 h-6 fill-[#FFCC4D]">

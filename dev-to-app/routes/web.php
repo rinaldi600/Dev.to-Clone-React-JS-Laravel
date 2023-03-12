@@ -28,15 +28,21 @@ Route::get('/search', function () {
     return 'WORK';
 });
 
-Route::get('/enter?state=new-user', [\App\Http\Controllers\UserController::class, 'signUpView'])->middleware('validLogin');
-Route::get('/enter', [\App\Http\Controllers\UserController::class, 'index'])->middleware('validLogin');
 Route::post('/new_user', [\App\Http\Controllers\UserController::class, 'newUser']);
 Route::post('/login_user', [\App\Http\Controllers\UserController::class, 'handleLogin']);
-Route::post('/logout_user', [\App\Http\Controllers\UserController::class, 'LogOutUser'])->middleware('isValidLogin');
 Route::post('/remember_me_user', [\App\Http\Controllers\UserController::class, 'rememberMeUser']);
-Route::get('/signout_confirm', [\App\Http\Controllers\UserController::class, 'handleLogOut'])->middleware('isValidLogin');
-Route::get('/settings/profile', [\App\Http\Controllers\UserController::class, 'settingProfileView'])->middleware('isValidLogin');
-Route::get('/{user:username}', [\App\Http\Controllers\UserController::class, 'profileUser'])->middleware('isValidLogin');
+
+Route::middleware('validLogin')->group(function () {
+    Route::get('/enter?state=new-user', [\App\Http\Controllers\UserController::class, 'signUpView']);
+    Route::get('/enter', [\App\Http\Controllers\UserController::class, 'index']);
+});
+
+Route::middleware('isValidLogin')->group(function () {
+    Route::post('/logout_user', [\App\Http\Controllers\UserController::class, 'LogOutUser']);
+    Route::get('/signout_confirm', [\App\Http\Controllers\UserController::class, 'handleLogOut']);
+    Route::get('/settings/profile', [\App\Http\Controllers\UserController::class, 'settingProfileView']);
+    Route::get('/{user:username}', [\App\Http\Controllers\UserController::class, 'profileUser']);
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
