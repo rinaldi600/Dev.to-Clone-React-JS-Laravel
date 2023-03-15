@@ -2,6 +2,7 @@ import React, {Fragment, useEffect, Suspense, useState} from "react";
 import Layout from "@/Pages/Layout/Layout";
 import {Head, Link} from "@inertiajs/inertia-react";
 import {usePage} from "@inertiajs/inertia-react";
+import UserSetting from "@/Pages/Profile/UserSetting/UserSetting";
 
 const LeftMenu = React.lazy(() => import('@/Pages/Profile/Setting/LeftMenuSetting/LeftMenu'));
 
@@ -52,9 +53,10 @@ function Setting() {
                         </div>
                         <div className={'w-full p-2 lg:w-[80%] min-h-[300px]'}>
                             <div className={'w-full flex flex-col flex-wrap justify-center pl-7 gap-2 bg-white min-h-[144px] rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]'}>
-                                <button className={'w-[239px] min-h-[40px] bg-[#0A3E4A] font-medium text-white rounded-lg'}>Connect Forem Account</button>
-                                <button className={'w-[239px] min-h-[40px] bg-[#1DA1F2] font-medium text-white rounded-lg'}>Connect Twitter Account</button>
+                                <button className={'w-[90%] md:w-[239px] min-h-[40px] bg-[#0A3E4A] font-medium text-white rounded-lg'}>Connect Forem Account</button>
+                                <button className={'w-[90%] md:w-[239px] min-h-[40px] bg-[#1DA1F2] font-medium text-white rounded-lg'}>Connect Twitter Account</button>
                             </div>
+                            <UserSetting/>
                         </div>
                     </div>
                 </div>
