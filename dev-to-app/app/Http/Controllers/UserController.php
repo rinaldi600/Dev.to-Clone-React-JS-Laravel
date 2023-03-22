@@ -191,6 +191,7 @@ class UserController extends Controller
             'username' => ['required', 'string', 'regex:/^\w*$/', 'max:25', $checkUsername],
             'bio' => ['max:255'],
             'profile_image' => $checkImage,
+            'education' => ['nullable', 'regex:/^[\w\s]+$/', 'min:8' ,'max:255'],
         ], [
             'name.required' => 'Wajib Diisi',
             'name.regex' => 'Nama tidak valid',
@@ -210,16 +211,31 @@ class UserController extends Controller
             'profile_image.image' => 'File harus gambar',
             'profile_image.mimes' => 'File harus jpg atau png',
             'profile_image.max' => 'File maksimal 512KB',
+
+            'education.regex' => 'Education tidak valid',
+            'education.min' => 'Minimal 8 karakter',
+            'education.max' => 'Maksimal 255 karakter',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()->withInput()->withErrors($validator);
         } else {
-            $moveFile = Storage::disk('public')->put('profile/', $request->file('profile_image'));
-            return response()->json([
-                'test' => $request->input(),
-                'file' => Storage::url($moveFile),
+
+            $fileUpload = $request->hasFile('profile_image') ? Storage::disk('public')->put('profile/', $request->file('profile_image')) : '';
+
+            $user = User::where()->update([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'username' => $request->input('username'),
+                'profile_image' => $fileUpload === '' ? '' : Storage::url($fileUpload),
+                'bio' => $request->input('bio'),
+                'education' => $request->input('education'),
             ]);
+
+            return response()->json([
+                'test' => 'WORK',
+            ]);
+
         }
     }
 }

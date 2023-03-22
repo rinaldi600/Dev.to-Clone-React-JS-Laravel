@@ -10,12 +10,13 @@ function UserSetting() {
         username : auth?.user?.username,
         bio : auth?.user?.bio,
         profile_image : null,
+        education : auth?.user?.education,
         old_username : auth?.user?.username,
         old_email : auth?.user?.email
     });
 
     useEffect(() => {
-
+        console.log(auth);
     });
 
     const submit = (e) => {
@@ -25,7 +26,7 @@ function UserSetting() {
 
     return (
         <form onSubmit={submit} encType={'multipart/form-data'}>
-            <div className={'mt-3 w-full pl-7 pt-5 gap-2 bg-white min-h-[144px] rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]'}>
+            <div className={'mt-3 w-full pl-7 pt-5 bg-white min-h-[144px] rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]'}>
                 <h1 className={'font-bold text-2xl'}>User</h1>
                 <div className={'mt-7 w-[90%] md:w-[688px] pb-3'}>
                     <div>
@@ -103,6 +104,22 @@ function UserSetting() {
                                 ''
                         }
                     </div>
+                </div>
+            </div>
+
+            <div className={'mt-7 w-full pl-7 pt-1 bg-white min-h-[130px] p-2 rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]'}>
+                <div className={'mt-5'}>
+                    <label htmlFor="education" className="block mb-2 text-base font-medium text-[#171717] dark:text-white">Education</label>
+                    <input type="text" id="education" onChange={(e) => setData('education', e.target.value)}
+                        className="bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-[90%] p-2.5"
+                        placeholder="Where did you go to school?" value={data?.education}/>
+                        {
+                            errors?.hasOwnProperty('education') ?
+                                <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                                <span className="font-medium">Oh, Error!</span> {errors.education}.</p>
+                                :
+                                ''
+                        }
                 </div>
             </div>
 

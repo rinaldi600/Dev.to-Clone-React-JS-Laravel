@@ -8616,7 +8616,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function UserSetting() {
-  var _auth$user, _auth$user2, _auth$user3, _auth$user4, _auth$user5, _auth$user6;
+  var _auth$user, _auth$user2, _auth$user3, _auth$user4, _auth$user5, _auth$user6, _auth$user7;
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.auth;
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
       name: auth === null || auth === void 0 ? void 0 : (_auth$user = auth.user) === null || _auth$user === void 0 ? void 0 : _auth$user.name,
@@ -8624,15 +8624,18 @@ function UserSetting() {
       username: auth === null || auth === void 0 ? void 0 : (_auth$user3 = auth.user) === null || _auth$user3 === void 0 ? void 0 : _auth$user3.username,
       bio: auth === null || auth === void 0 ? void 0 : (_auth$user4 = auth.user) === null || _auth$user4 === void 0 ? void 0 : _auth$user4.bio,
       profile_image: null,
-      old_username: auth === null || auth === void 0 ? void 0 : (_auth$user5 = auth.user) === null || _auth$user5 === void 0 ? void 0 : _auth$user5.username,
-      old_email: auth === null || auth === void 0 ? void 0 : (_auth$user6 = auth.user) === null || _auth$user6 === void 0 ? void 0 : _auth$user6.email
+      education: auth === null || auth === void 0 ? void 0 : (_auth$user5 = auth.user) === null || _auth$user5 === void 0 ? void 0 : _auth$user5.education,
+      old_username: auth === null || auth === void 0 ? void 0 : (_auth$user6 = auth.user) === null || _auth$user6 === void 0 ? void 0 : _auth$user6.username,
+      old_email: auth === null || auth === void 0 ? void 0 : (_auth$user7 = auth.user) === null || _auth$user7 === void 0 ? void 0 : _auth$user7.email
     }),
     data = _useForm.data,
     setData = _useForm.setData,
     post = _useForm.post,
     processing = _useForm.processing,
     errors = _useForm.errors;
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log(auth);
+  });
   var submit = function submit(e) {
     e.preventDefault();
     post('/settings_value_user');
@@ -8641,7 +8644,7 @@ function UserSetting() {
     onSubmit: submit,
     encType: 'multipart/form-data',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-      className: 'mt-3 w-full pl-7 pt-5 gap-2 bg-white min-h-[144px] rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]',
+      className: 'mt-3 w-full pl-7 pt-5 bg-white min-h-[144px] rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]',
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
         className: 'font-bold text-2xl',
         children: "User"
@@ -8770,6 +8773,31 @@ function UserSetting() {
           }) : '']
         })]
       })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      className: 'mt-7 w-full pl-7 pt-1 bg-white min-h-[130px] p-2 rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]',
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: 'mt-5',
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+          htmlFor: "education",
+          className: "block mb-2 text-base font-medium text-[#171717] dark:text-white",
+          children: "Education"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("input", {
+          type: "text",
+          id: "education",
+          onChange: function onChange(e) {
+            return setData('education', e.target.value);
+          },
+          className: "bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-[90%] p-2.5",
+          placeholder: "Where did you go to school?",
+          value: data === null || data === void 0 ? void 0 : data.education
+        }), errors !== null && errors !== void 0 && errors.hasOwnProperty('education') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+          className: "mt-2 text-sm text-red-600 dark:text-red-500",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+            className: "font-medium",
+            children: "Oh, Error!"
+          }), " ", errors.education, "."]
+        }) : '']
+      })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: 'w-full flex flex-wrap justify-center mt-7 gap-2 bg-white min-h-[88px] rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]',
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
