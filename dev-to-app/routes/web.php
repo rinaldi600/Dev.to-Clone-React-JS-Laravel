@@ -39,6 +39,7 @@ Route::middleware('validLogin')->group(function () {
 
 Route::middleware('isValidLogin')->group(function () {
     Route::post('/logout_user', [\App\Http\Controllers\UserController::class, 'LogOutUser']);
+    Route::post('/settings_value_user', [\App\Http\Controllers\UserController::class, 'settingsValueUser']);
     Route::get('/signout_confirm', [\App\Http\Controllers\UserController::class, 'handleLogOut']);
     Route::get('/settings/profile', [\App\Http\Controllers\UserController::class, 'settingProfileView']);
     Route::get('/{user:username}', [\App\Http\Controllers\UserController::class, 'profileUser']);

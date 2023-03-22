@@ -777,6 +777,12 @@ select {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.mt-11 {
+  margin-top: 2.75rem;
+}
+.mt-9 {
+  margin-top: 2.25rem;
+}
 .block {
   display: block;
 }
@@ -946,6 +952,9 @@ select {
 .min-h-\[40px\] {
   min-height: 40px;
 }
+.min-h-\[88px\] {
+  min-height: 88px;
+}
 .min-h-\[32px\] {
   min-height: 32px;
 }
@@ -960,9 +969,6 @@ select {
 }
 .min-h-\[81px\] {
   min-height: 81px;
-}
-.min-h-\[88px\] {
-  min-height: 88px;
 }
 .w-5 {
   width: 1.25rem;
@@ -1067,18 +1073,12 @@ select {
 .w-\[90\%\] {
   width: 90%;
 }
-.w-fit {
-  width: -moz-fit-content;
-  width: fit-content;
-}
 .w-\[48px\] {
   width: 48px;
 }
-.w-\[80\%\] {
-  width: 80%;
-}
-.w-\[99\%\] {
-  width: 99%;
+.w-fit {
+  width: -moz-fit-content;
+  width: fit-content;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -1242,6 +1242,9 @@ select {
 .border {
   border-width: 1px;
 }
+.border-2 {
+  border-width: 2px;
+}
 .border-t {
   border-top-width: 1px;
 }
@@ -1315,6 +1318,10 @@ select {
 .border-\[\#B4B4B4\] {
   --tw-border-opacity: 1;
   border-color: rgb(180 180 180 / var(--tw-border-opacity));
+}
+.border-black {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -1394,17 +1401,13 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
 }
-.bg-yellow-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
-}
-.bg-red-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-}
 .bg-yellow-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(253 224 71 / var(--tw-bg-opacity));
+}
+.bg-yellow-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 .fill-current {
   fill: currentColor;
@@ -1969,6 +1972,9 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(226 227 243 / var(--tw-bg-opacity));
 }
+.hover\:bg-\[\#\#2F3AB2\]:hover {
+  background-color: ##2F3AB2;
+}
 .hover\:fill-\[\#2F3AB2\]:hover {
   fill: #2F3AB2;
 }
@@ -2198,6 +2204,11 @@ select {
   .dark\:text-green-400 {
     --tw-text-opacity: 1;
     color: rgb(74 222 128 / var(--tw-text-opacity));
+  }
+
+  .dark\:text-red-500 {
+    --tw-text-opacity: 1;
+    color: rgb(239 68 68 / var(--tw-text-opacity));
   }
 
   .dark\:placeholder-gray-400::-moz-placeholder {

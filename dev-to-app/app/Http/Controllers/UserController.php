@@ -10,6 +10,7 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -35,7 +36,7 @@ class UserController extends Controller
     public function newUser(Request $request) {
         $validator = Validator::make($request->all(), [
             'name' => 'required|regex:/^[\pL\s\-]+$/u',
-            'username' => 'required|string|regex:/^\w*$/|max:255|unique:users,username',
+            'username' => 'required|string|regex:/^\w*$/|max:25|unique:users,username',
             'email' => 'required|email:rfc,dns|unique:users,email',
             'password' => 'required|string|min:8',
         ],[
@@ -168,5 +169,57 @@ class UserController extends Controller
 
     public function settingProfileView() {
         return Inertia::render('Profile/Setting/Setting');
+    }
+
+    public function settingsValueUser(Request $request) {
+
+        $checkEmail = $request->input('email') === $request->input('old_email') ?
+            ''
+        :
+            'unique:users,email';
+
+        $checkUsername = $request->input('username') === $request->input('old_username') ?
+            ''
+        :
+            'unique:users,username';
+
+        $checkImage = $request->hasFile('profile_image') ? 'image|mimes:jpg,png|max:512' : '';
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|regex:/^[\pL\s\-]+$/u',
+            'email' => ['required','email:rfc,dns', $checkEmail],
+            'username' => ['required', 'string', 'regex:/^\w*$/', 'max:25', $checkUsername],
+            'bio' => ['max:255'],
+            'profile_image' => $checkImage,
+        ], [
+            'name.required' => 'Wajib Diisi',
+            'name.regex' => 'Nama tidak valid',
+
+            'email.required' => 'Wajib Diisi',
+            'email.email' => 'Email tidak valid',
+            'email.unique' => 'Email sudah ada',
+
+            'username.required' => 'Wajib Diisi',
+            'username.regex' => 'Username tidak valid',
+            'username.string' => 'Username tidak valid',
+            'username.max' => 'Maksimal 25 karakter',
+            'username.unique' => 'Username sudah ada',
+
+            'bio.max' => 'Maksimal 1000 karakter',
+
+            'profile_image.image' => 'File harus gambar',
+            'profile_image.mimes' => 'File harus jpg atau png',
+            'profile_image.max' => 'File maksimal 512KB',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withInput()->withErrors($validator);
+        } else {
+            $moveFile = Storage::disk('public')->put('profile/', $request->file('profile_image'));
+            return response()->json([
+                'test' => $request->input(),
+                'file' => Storage::url($moveFile),
+            ]);
+        }
     }
 }
