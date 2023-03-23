@@ -45,29 +45,25 @@ function UserSetting() {
                     </div>
                     <div className={'mt-5'}>
                         <label htmlFor="email" className="block mb-2 text-base font-medium text-[#171717] dark:text-white">Email</label>
-                        <input type="email" id="email" onChange={(e) => setData('email', e.target.value)}
-                               className="bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5"
-                               placeholder="john.doe@example.com" value={data?.email}/>
-                               {
-                                errors?.hasOwnProperty('email') ?
-                                    <p className="mt-2 text-sm text-red-600 dark:text-red-500">
-                                    <span className="font-medium">Oh, Error!</span> {errors.email}.</p>
-                                    :
-                                    ''
-                               }
+                        <input type="email" id="email" onChange={(e) => setData('email', e.target.value)} className="bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5" placeholder="john.doe@example.com" value={data?.email}/>
+                        {
+                        errors?.hasOwnProperty('email') ?
+                            <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                            <span className="font-medium">Oh, Error!</span> {errors.email}.</p>
+                            :
+                            ''
+                        }
                     </div>
                     <div className={'mt-5'}>
                         <label htmlFor="username" className="block mb-2 text-base font-medium text-[#171717] dark:text-white">Username</label>
-                        <input type="text" id="username" onChange={(e) => setData('username', e.target.value)}
-                               className="bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5"
-                               placeholder="johndoe" value={data?.username}/>
-                                {
-                                errors?.hasOwnProperty('username') ?
-                                    <p className="mt-2 text-sm text-red-600 dark:text-red-500">
-                                    <span className="font-medium">Oh, Error!</span> {errors.username}.</p>
-                                    :
-                                    ''
-                               }
+                        <input type="text" id="username" onChange={(e) => setData('username', e.target.value)} className="bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5" placeholder="johndoe" value={data?.username}/>
+                        {
+                        errors?.hasOwnProperty('username') ?
+                            <p className="mt-2 text-sm text-red-600 dark:text-red-500">
+                            <span className="font-medium">Oh, Error!</span> {errors.username}.</p>
+                            :
+                            ''
+                        }
                     </div>
                     <div className={'mt-5'}>
                         <label htmlFor="profile_image" className="block mb-2 text-base font-medium text-[#171717] dark:text-white">Profile Image</label>
@@ -97,7 +93,7 @@ function UserSetting() {
                     <div className={'mt-5'}>
                         <label htmlFor="bio" className="block mb-2 text-base font-medium text-[#171717] dark:text-white">Your
                             Bio</label>
-                        <textarea onChange={(e) => setData('bio', e.target.value)} id="bio" rows="4" value={data?.bio}
+                        <textarea maxLength={1000} onChange={(e) => setData('bio', e.target.value)} id="bio" rows="4" value={data?.bio}
                                   className="block p-2.5 w-full text-base text-[#171717] rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="A short bio..."/>
                         {
                             errors?.hasOwnProperty('bio') ?

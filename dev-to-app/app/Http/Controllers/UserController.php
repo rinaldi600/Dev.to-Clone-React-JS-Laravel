@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
@@ -223,36 +224,44 @@ class UserController extends Controller
 
             $idUser = User::where('email', $request->input('old_email'))->first();
 
+            $filePath = explode('/', $idUser['profile_image']);
+
             if ($request->hasFile('profile_image') && $idUser['profile_image'] !== '') {
-                return response()->json([
-                    'result' => Storage::disk('public')->delete('/storage/profile//1.jpg')
-                ]);
+                if (Storage::disk('public')->exists($filePath[2] . '/' . $filePath[4])) {
+                    Storage::disk('public')->delete($filePath[2] . '/' . $filePath[4]);
+                }
             }
 
-            // $fileUpload = $request->hasFile('profile_image') ? Storage::disk('public')->put('profile/', $request->file('profile_image')) : '';
+            $fileUpload = $request->hasFile('profile_image') ? Storage::disk('public')->put('profile/', $request->file('profile_image')) : '';
 
-            // User::where('id_user', $idUser->makeVisible(['id_user'])['id_user'])->update([
-            //     'name' => $request->input('name'),
-            //     'email' => $request->input('email'),
-            //     'username' => $request->input('username'),
-            //     'profile_image' => $fileUpload === '' ? '' : Storage::url($fileUpload),
-            //     'bio' => $request->input('bio'),
-            //     'education' => $request->input('education'),
-            // ]);
+            User::where('id_user', $idUser->makeVisible(['id_user'])['id_user'])->update([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'username' => $request->input('username'),
+                'profile_image' => $fileUpload === '' ? $idUser['profile_image'] : Storage::url($fileUpload),
+                'bio' => $request->input('bio') === '' ? $idUser['bio'] : $request->input('bio'),
+                'education' => $request->input('education'),
+            ]);
 
-            // if (($request->input('email') !== $request->input('old_email')) || ($request->input('username') !== $request->input('old_username')) ) {
+            if (($request->input('email') !== $request->input('old_email')) || ($request->input('username') !== $request->input('old_username')) ) {
 
-            //     Auth::logout();
+                Auth::logout();
 
-            //     $request->session()->invalidate();
+                $request->session()->invalidate();
 
-            //     $request->session()->regenerateToken();
+                $request->session()->regenerateToken();
 
-            //     return redirect()->to('/enter')->with('try_login', 'Silahkan coba login kembali');
+                $checkRememberMe = Remember_Me::where('id_user', $idUser['id_user'])->orderBy('created_at', 'desc')->first();
 
-            // }
+                if ($checkRememberMe !== null) {
+                    $checkRememberMe->delete();
+                }
 
-            // return redirect()->back();
+                return redirect()->to('/enter')->with('try_login', 'Silahkan coba login kembali');
+
+            }
+
+            return redirect()->back();
         }
     }
 }

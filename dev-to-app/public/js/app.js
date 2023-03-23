@@ -7824,7 +7824,9 @@ function SignIn(_ref) {
     post('/login_user');
   }
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    console.log(flash);
+    if (flash !== null && flash !== void 0 && flash.try_login) {
+      localStorage.clear();
+    }
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Head, {
@@ -8780,6 +8782,7 @@ function UserSetting() {
             className: "block mb-2 text-base font-medium text-[#171717] dark:text-white",
             children: "Your Bio"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("textarea", {
+            maxLength: 1000,
             onChange: function onChange(e) {
               return setData('bio', e.target.value);
             },

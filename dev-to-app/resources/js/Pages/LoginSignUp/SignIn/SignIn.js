@@ -20,7 +20,9 @@ function SignIn({title}) {
     }
 
     useEffect(() => {
-        console.log(flash);
+        if (flash?.try_login) {
+            localStorage.clear();
+        }
     });
 
     return (
