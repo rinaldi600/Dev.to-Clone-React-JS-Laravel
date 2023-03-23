@@ -75,7 +75,10 @@ function UserSetting() {
                             <div className={'w-[48px] h-[48px] border border-black overflow-hidden rounded-full'}>
                                 <img className="w-full h-full" src={
                                     data.profile_image === null ?
-                                    UndefinedImage : URL.createObjectURL(data.profile_image)
+                                    (auth?.user?.profile_image === '' ?
+                                        UndefinedImage :
+                                        auth?.user?.profile_image
+                                    ) : URL.createObjectURL(data.profile_image)
                                     } alt="Photo Profile" />
                             </div>
                             <div className={'h-[64px] p-2 rounded-lg w-[90%] grid items-center bg-[#FAFAFA]'}>

@@ -7823,6 +7823,9 @@ function SignIn(_ref) {
     e.preventDefault();
     post('/login_user');
   }
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log(flash);
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Head, {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("title", {
@@ -7830,7 +7833,28 @@ function SignIn(_ref) {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "mt-8 font-['Segoe_UI']",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
+      children: [flash !== null && flash !== void 0 && flash.try_login ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        id: "toast-simple",
+        "class": "flex mx-auto items-center w-full max-w-fit p-4 space-x-4 text-gray-500 bg-white divide-x divide-gray-200 rounded-lg shadow",
+        role: "alert",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
+          "aria-hidden": "true",
+          "class": "w-5 h-5 text-blue-600 dark:text-blue-500",
+          focusable: "false",
+          "data-prefix": "fas",
+          "data-icon": "paper-plane",
+          role: "img",
+          xmlns: "http://www.w3.org/2000/svg",
+          viewBox: "0 0 512 512",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
+            fill: "currentColor",
+            d: "M511.6 36.86l-64 415.1c-1.5 9.734-7.375 18.22-15.97 23.05c-4.844 2.719-10.27 4.097-15.68 4.097c-4.188 0-8.319-.8154-12.29-2.472l-122.6-51.1l-50.86 76.29C226.3 508.5 219.8 512 212.8 512C201.3 512 192 502.7 192 491.2v-96.18c0-7.115 2.372-14.03 6.742-19.64L416 96l-293.7 264.3L19.69 317.5C8.438 312.8 .8125 302.2 .0625 289.1s5.469-23.72 16.06-29.77l448-255.1c10.69-6.109 23.88-5.547 34 1.406S513.5 24.72 511.6 36.86z"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          "class": "pl-4 text-sm font-normal",
+          children: "Silahkan login kembali"
+        })]
+      }) : '', /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("form", {
         onSubmit: submit,
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("label", {
           htmlFor: "email",
@@ -8616,7 +8640,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function UserSetting() {
-  var _auth$user, _auth$user2, _auth$user3, _auth$user4, _auth$user5, _auth$user6, _auth$user7;
+  var _auth$user, _auth$user2, _auth$user3, _auth$user4, _auth$user5, _auth$user6, _auth$user7, _auth$user8, _auth$user9;
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.auth;
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
       name: auth === null || auth === void 0 ? void 0 : (_auth$user = auth.user) === null || _auth$user === void 0 ? void 0 : _auth$user.name,
@@ -8727,7 +8751,7 @@ function UserSetting() {
               className: 'w-[48px] h-[48px] border border-black overflow-hidden rounded-full',
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
                 className: "w-full h-full",
-                src: data.profile_image === null ? _img_undefined_png__WEBPACK_IMPORTED_MODULE_2__["default"] : URL.createObjectURL(data.profile_image),
+                src: data.profile_image === null ? (auth === null || auth === void 0 ? void 0 : (_auth$user8 = auth.user) === null || _auth$user8 === void 0 ? void 0 : _auth$user8.profile_image) === '' ? _img_undefined_png__WEBPACK_IMPORTED_MODULE_2__["default"] : auth === null || auth === void 0 ? void 0 : (_auth$user9 = auth.user) === null || _auth$user9 === void 0 ? void 0 : _auth$user9.profile_image : URL.createObjectURL(data.profile_image),
                 alt: "Photo Profile"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -8859,7 +8883,7 @@ function ProfileUser(_ref) {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: 'bg-[#15202A] p-2 w-[120px] h-[120px] rounded-full overflow-hidden absolute top-[10px] left-[50%] translate-y-[-50%] translate-x-[-50%]',
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
-              src: _img_aiony_haust_3TLl_97HNJo_unsplash_jpg__WEBPACK_IMPORTED_MODULE_3__["default"],
+              src: (user === null || user === void 0 ? void 0 : user.profile_image) === '' ? _img_aiony_haust_3TLl_97HNJo_unsplash_jpg__WEBPACK_IMPORTED_MODULE_3__["default"] : user === null || user === void 0 ? void 0 : user.profile_image,
               className: 'w-full h-full rounded-full',
               alt: "Picture Profile"
             })
@@ -8878,7 +8902,7 @@ function ProfileUser(_ref) {
                 children: "A Canadian software developer who thinks he\u2019s funny."
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-              className: 'mx-auto w-full mx-auto mt-3',
+              className: 'mx-auto w-full mt-3',
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
                 className: 'font-medium text-center text-[#717171]',
                 children: "Education"

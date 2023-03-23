@@ -18,6 +18,7 @@ function LayoutCreateAndCreate({children}) {
                             <div className={'mt-6'}>
                                 <AuthLogintype/>
                             </div>
+
                         </div>
                         {children}
                     </div>

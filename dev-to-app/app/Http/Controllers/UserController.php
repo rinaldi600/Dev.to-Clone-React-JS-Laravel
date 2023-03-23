@@ -221,21 +221,38 @@ class UserController extends Controller
             return redirect()->back()->withInput()->withErrors($validator);
         } else {
 
-            $fileUpload = $request->hasFile('profile_image') ? Storage::disk('public')->put('profile/', $request->file('profile_image')) : '';
+            $idUser = User::where('email', $request->input('old_email'))->first();
 
-            $user = User::where()->update([
-                'name' => $request->input('name'),
-                'email' => $request->input('email'),
-                'username' => $request->input('username'),
-                'profile_image' => $fileUpload === '' ? '' : Storage::url($fileUpload),
-                'bio' => $request->input('bio'),
-                'education' => $request->input('education'),
-            ]);
+            if ($request->hasFile('profile_image') && $idUser['profile_image'] !== '') {
+                return response()->json([
+                    'result' => Storage::disk('public')->delete('/storage/profile//1.jpg')
+                ]);
+            }
 
-            return response()->json([
-                'test' => 'WORK',
-            ]);
+            // $fileUpload = $request->hasFile('profile_image') ? Storage::disk('public')->put('profile/', $request->file('profile_image')) : '';
 
+            // User::where('id_user', $idUser->makeVisible(['id_user'])['id_user'])->update([
+            //     'name' => $request->input('name'),
+            //     'email' => $request->input('email'),
+            //     'username' => $request->input('username'),
+            //     'profile_image' => $fileUpload === '' ? '' : Storage::url($fileUpload),
+            //     'bio' => $request->input('bio'),
+            //     'education' => $request->input('education'),
+            // ]);
+
+            // if (($request->input('email') !== $request->input('old_email')) || ($request->input('username') !== $request->input('old_username')) ) {
+
+            //     Auth::logout();
+
+            //     $request->session()->invalidate();
+
+            //     $request->session()->regenerateToken();
+
+            //     return redirect()->to('/enter')->with('try_login', 'Silahkan coba login kembali');
+
+            // }
+
+            // return redirect()->back();
         }
     }
 }
