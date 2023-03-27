@@ -2,11 +2,10 @@ import React, {Fragment, useEffect, Suspense, useState} from "react";
 import Layout from "@/Pages/Layout/Layout";
 import {Head, Link} from "@inertiajs/inertia-react";
 import {usePage} from "@inertiajs/inertia-react";
-import UserSetting from "@/Pages/Profile/UserSetting/UserSetting";
 
 const LeftMenu = React.lazy(() => import('@/Pages/Profile/Setting/LeftMenuSetting/LeftMenu'));
 
-function Setting() {
+function Setting({children}) {
     const { auth } = usePage().props;
     const [leftNavbar, showLeftNavbar] = useState(false);
     const [widthWindow, setWidthWindow] = useState(window.innerWidth);
@@ -56,7 +55,9 @@ function Setting() {
                                 <button className={'w-[90%] md:w-[239px] min-h-[40px] bg-[#0A3E4A] font-medium text-white rounded-lg'}>Connect Forem Account</button>
                                 <button className={'w-[90%] md:w-[239px] min-h-[40px] bg-[#1DA1F2] font-medium text-white rounded-lg'}>Connect Twitter Account</button>
                             </div>
-                            <UserSetting/>
+                            <div>
+                                {children}
+                            </div>
                         </div>
                     </div>
                 </div>

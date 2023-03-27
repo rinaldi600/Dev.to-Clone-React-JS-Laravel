@@ -1,16 +1,19 @@
 import React from "react";
+import { Link } from "@inertiajs/inertia-react";
 
 function LeftMenu({widthWindow, modalShow}) {
 
     return (
         <ul className={`text-[#404040] ${modalShow || widthWindow >= 991 ? '' : 'hidden'}`}>
             <li className={'cursor-pointer flex gap-1 p-2 flex hover:bg-[#E2E3F3] rounded-lg'}>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
-                     stroke-width="1.5" stroke="currentColor" className="w-6 h-6 fill-[#FFCC4D]">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                          d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"/>
-                </svg>
-                Profile
+                <Link href="/settings/profile" className="flex gap-1">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" className="w-6 h-6 fill-[#FFCC4D]">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"/>
+                    </svg>
+                    Profile
+                </Link>
             </li>
             <li className={'cursor-pointer p-2 gap-1 hover:bg-[#E2E3F3] rounded-lg flex'}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -42,15 +45,17 @@ function LeftMenu({widthWindow, modalShow}) {
                 Notifications
             </li>
             <li className={'cursor-pointer p-2 flex gap-1 hover:bg-[#E2E3F3] rounded-lg'}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                     fill="none" role="img" aria-labelledby="a1p0lr53ffz39oi1j7s3rs3tfpsm47gi"
-                     className="crayons-icon crayons-icon--default"><title
-                    id="a1p0lr53ffz39oi1j7s3rs3tfpsm47gi">Account</title>
-                    <path
-                        d="M14.728 9.999a9.75 9.75 0 00-1.6 1.345c-.07-2.358-.637-5.408-3.762-6.901-.618-3.364-7.83-1.655-7.183-1.329 1.285.65 1.97 2.305 2.796 3.175 1.474 1.552 3.113 1.647 3.928.433 1.927 1.252 2.054 3.627 1.995 6.166-.006.28-.013.542-.013.78v7.776c0 .614 2.223.614 2.223 0v-6.383c.3-.53 1.179-1.947 2.46-2.941.881.774 2.301.527 3.59-.83.829-.871 1.275-2.525 2.56-3.176.68-.342-7.11-2.218-6.993 1.885"
-                        fill="#77B255"></path>
-                </svg>
-                Account
+                <Link className="flex gap-1" href='/settings/account'>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" role="img" aria-labelledby="a1p0lr53ffz39oi1j7s3rs3tfpsm47gi"
+                        className="crayons-icon crayons-icon--default"><title
+                        id="a1p0lr53ffz39oi1j7s3rs3tfpsm47gi">Account</title>
+                        <path
+                            d="M14.728 9.999a9.75 9.75 0 00-1.6 1.345c-.07-2.358-.637-5.408-3.762-6.901-.618-3.364-7.83-1.655-7.183-1.329 1.285.65 1.97 2.305 2.796 3.175 1.474 1.552 3.113 1.647 3.928.433 1.927 1.252 2.054 3.627 1.995 6.166-.006.28-.013.542-.013.78v7.776c0 .614 2.223.614 2.223 0v-6.383c.3-.53 1.179-1.947 2.46-2.941.881.774 2.301.527 3.59-.83.829-.871 1.275-2.525 2.56-3.176.68-.342-7.11-2.218-6.993 1.885"
+                            fill="#77B255"></path>
+                    </svg>
+                    Account
+                </Link>
             </li>
             <li className={'cursor-pointer p-2 flex gap-1 hover:bg-[#E2E3F3] rounded-lg'}>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"

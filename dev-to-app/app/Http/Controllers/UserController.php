@@ -169,7 +169,7 @@ class UserController extends Controller
     }
 
     public function settingProfileView() {
-        return Inertia::render('Profile/Setting/Setting');
+        return Inertia::render('Profile/UserSetting/UserSetting');
     }
 
     public function settingsValueUser(Request $request) {
@@ -263,5 +263,9 @@ class UserController extends Controller
 
             return redirect()->back();
         }
+    }
+
+    public function settingAccountView() {
+        return Inertia::render('Profile/UserSetting/PasswordSetting');
     }
 }
