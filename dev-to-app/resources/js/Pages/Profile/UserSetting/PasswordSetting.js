@@ -8,19 +8,17 @@ function PasswordSetting() {
 
     const { auth } = usePage().props
     const { data, setData, post, processing, errors } = useForm({
-        email: '',
+        current_password: '',
         password: '',
-        remember: false,
+        confirm_password: '',
     })
 
     useEffect(() => {
-        console.log(auth);
+        console.log(errors);
     })
-
     const submit = (e) => {
         e.preventDefault();
-        console.log("WORK");
-        // post('/settings_value_user');
+        post('/set_new_password');
     };
 
     return (
@@ -33,21 +31,29 @@ function PasswordSetting() {
                     <div>
                         <label htmlFor="current_password" className="block mb-2 text-base font-medium text-[#171717] dark:text-white">Current Password</label>
                         <input type="password" id="current_password"
-                            className="bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5" name="current_password"/>
+                            className="bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5" name="current_password" onChange={e => setData('current_password', e.target.value)}/>
+                        {
+                            errors?.hasOwnProperty('current_password') ?
+                            <p id="filled_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">Oh, Error!</span> {errors.current_password}.</p>
+                            :
+                            ''
+                        }
                     </div>
                 </div>
                 <div className={'mt-2 w-[90%] md:w-[688px] pb-3'}>
                     <div>
                         <label htmlFor="password" className="block mb-2 text-base font-medium text-[#171717] dark:text-white">Password</label>
                         <input type="password" id="password"
-                            className="bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5" name="password"/>
+                            className="bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5" name="password" onChange={e => setData('password', e.target.value)}/>
+                        <p id="filled_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">Oh, snapp!</span> Some error message.</p>
                     </div>
                 </div>
                 <div className={'mt-2 w-[90%] md:w-[688px] pb-3'}>
                     <div>
                         <label htmlFor="confirm_password" className="block mb-2 text-base font-medium text-[#171717] dark:text-white">Confirm Password</label>
                         <input type="password" id="confirm_password"
-                            className="bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5" name="confirm_password"/>
+                            className="bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5" name="confirm_password" onChange={e => setData('confirm_password', e.target.value)}/>
+                        <p id="filled_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">Oh, snapp!</span> Some error message.</p>
                     </div>
                 </div>
                 <div className={'w-full mt-7 gap-2 bg-white min-h-[88px]'}>

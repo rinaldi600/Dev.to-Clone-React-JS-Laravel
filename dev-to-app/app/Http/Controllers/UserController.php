@@ -268,4 +268,25 @@ class UserController extends Controller
     public function settingAccountView() {
         return Inertia::render('Profile/UserSetting/PasswordSetting');
     }
+
+    public function setNewPassword(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'current_password' => ['required', function($attribute, $value, $fail) use ($request) {
+                $passwordUser = Auth::user()->makeVisible(['password'])['password'];
+                if ( !Hash::check($value, $passwordUser) ) {
+                    $fail('Password saat ini salah');
+                }
+            }],
+        ], [
+            'current_password.required' => 'Wajib diisi'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        } else {
+            return response()->json([
+                'res' => Auth::user()->makeVisible(['password'])['password']
+            ]);
+        }
+    }
 }

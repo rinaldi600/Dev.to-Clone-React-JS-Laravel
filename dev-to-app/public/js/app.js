@@ -8658,9 +8658,9 @@ function PasswordSetting() {
   var _auth$user;
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.usePage)().props.auth;
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.useForm)({
-      email: '',
+      current_password: '',
       password: '',
-      remember: false
+      confirm_password: ''
     }),
     data = _useForm.data,
     setData = _useForm.setData,
@@ -8668,14 +8668,12 @@ function PasswordSetting() {
     processing = _useForm.processing,
     errors = _useForm.errors;
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
-    console.log(auth);
+    console.log(errors);
   });
   var submit = function submit(e) {
     e.preventDefault();
-    console.log("WORK");
-    // post('/settings_value_user');
+    post('/set_new_password');
   };
-
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("form", {
     onSubmit: submit,
     encType: 'multipart/form-data',
@@ -8702,8 +8700,18 @@ function PasswordSetting() {
             type: "password",
             id: "current_password",
             className: "bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5",
-            name: "current_password"
-          })]
+            name: "current_password",
+            onChange: function onChange(e) {
+              return setData('current_password', e.target.value);
+            }
+          }), errors !== null && errors !== void 0 && errors.hasOwnProperty('current_password') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+            id: "filled_error_help",
+            "class": "mt-2 text-xs text-red-600 dark:text-red-400",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              "class": "font-medium",
+              children: "Oh, Error!"
+            }), " ", errors.current_password, "."]
+          }) : '']
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
         className: 'mt-2 w-[90%] md:w-[688px] pb-3',
@@ -8716,7 +8724,17 @@ function PasswordSetting() {
             type: "password",
             id: "password",
             className: "bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5",
-            name: "password"
+            name: "password",
+            onChange: function onChange(e) {
+              return setData('password', e.target.value);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+            id: "filled_error_help",
+            "class": "mt-2 text-xs text-red-600 dark:text-red-400",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              "class": "font-medium",
+              children: "Oh, snapp!"
+            }), " Some error message."]
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
@@ -8730,7 +8748,17 @@ function PasswordSetting() {
             type: "password",
             id: "confirm_password",
             className: "bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5",
-            name: "confirm_password"
+            name: "confirm_password",
+            onChange: function onChange(e) {
+              return setData('confirm_password', e.target.value);
+            }
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("p", {
+            id: "filled_error_help",
+            "class": "mt-2 text-xs text-red-600 dark:text-red-400",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+              "class": "font-medium",
+              children: "Oh, snapp!"
+            }), " Some error message."]
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
