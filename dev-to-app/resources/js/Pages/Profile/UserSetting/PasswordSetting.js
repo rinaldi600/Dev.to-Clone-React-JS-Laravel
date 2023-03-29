@@ -2,7 +2,6 @@ import Setting from "../Setting/Setting";
 import { useForm } from "@inertiajs/inertia-react";
 import { Link } from "@inertiajs/inertia-react";
 import { usePage } from "@inertiajs/inertia-react";
-import { useEffect } from "react";
 
 function PasswordSetting() {
 
@@ -13,9 +12,6 @@ function PasswordSetting() {
         confirm_password: '',
     })
 
-    useEffect(() => {
-        console.log(errors);
-    })
     const submit = (e) => {
         e.preventDefault();
         post('/set_new_password');
@@ -45,7 +41,12 @@ function PasswordSetting() {
                         <label htmlFor="password" className="block mb-2 text-base font-medium text-[#171717] dark:text-white">Password</label>
                         <input type="password" id="password"
                             className="bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5" name="password" onChange={e => setData('password', e.target.value)}/>
-                        <p id="filled_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">Oh, snapp!</span> Some error message.</p>
+                        {
+                            errors?.hasOwnProperty('password') ?
+                            <p id="filled_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">Oh, Error!</span> {errors.password}.</p>
+                            :
+                            ''
+                        }
                     </div>
                 </div>
                 <div className={'mt-2 w-[90%] md:w-[688px] pb-3'}>
@@ -53,7 +54,12 @@ function PasswordSetting() {
                         <label htmlFor="confirm_password" className="block mb-2 text-base font-medium text-[#171717] dark:text-white">Confirm Password</label>
                         <input type="password" id="confirm_password"
                             className="bg-gray-50 border border-gray-300 text-[#171717] text-base rounded-lg focus:ring-[#3B49DF] focus:border-blue-500 block w-full p-2.5" name="confirm_password" onChange={e => setData('confirm_password', e.target.value)}/>
-                        <p id="filled_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">Oh, snapp!</span> Some error message.</p>
+                        {
+                            errors?.hasOwnProperty('confirm_password') ?
+                            <p id="filled_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">Oh, Error!</span> {errors.confirm_password}.</p>
+                            :
+                            ''
+                        }
                     </div>
                 </div>
                 <div className={'w-full mt-7 gap-2 bg-white min-h-[88px]'}>

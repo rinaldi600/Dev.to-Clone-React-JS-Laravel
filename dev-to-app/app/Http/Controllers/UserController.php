@@ -277,16 +277,37 @@ class UserController extends Controller
                     $fail('Password saat ini salah');
                 }
             }],
+            'password' => ['required'],
+            'confirm_password' => ['required', 'same:password'],
         ], [
-            'current_password.required' => 'Wajib diisi'
+            'current_password.required' => 'Wajib diisi',
+            'password.required' => 'Wajib diisi',
+            'confirm_password.required' => 'Wajib diisi',
+            'confirm_password.same' => 'Confirm password harus sama',
         ]);
 
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator);
         } else {
-            return response()->json([
-                'res' => Auth::user()->makeVisible(['password'])['password']
+            $hashNewPassword = Hash::make($request->input('confirm_password'));
+
+            User::where('id', Auth::user()['id'])->update([
+                'password' => $hashNewPassword,
             ]);
+
+            $checkRememberMe = Remember_Me::where('id_user', Auth::user()['id_user'])->orderBy('created_at', 'desc')->first();
+
+            if ($checkRememberMe !== null) {
+                $checkRememberMe->delete();
+            }
+
+            Auth::logout();
+
+            $request->session()->invalidate();
+
+            $request->session()->regenerateToken();
+
+            return redirect()->to('/enter')->with('try_login', 'Silahkan coba login kembali');
         }
     }
 }
