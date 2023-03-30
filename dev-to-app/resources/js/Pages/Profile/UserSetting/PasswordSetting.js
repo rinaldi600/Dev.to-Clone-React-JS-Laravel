@@ -2,6 +2,7 @@ import Setting from "../Setting/Setting";
 import { useForm } from "@inertiajs/inertia-react";
 import { Link } from "@inertiajs/inertia-react";
 import { usePage } from "@inertiajs/inertia-react";
+import Layout from "@/Pages/Layout/Layout";
 
 function PasswordSetting() {
 
@@ -74,6 +75,10 @@ function PasswordSetting() {
     )
 }
 
-PasswordSetting.layout = page => <Setting children={page} title="Settings - DEV Community" />
+PasswordSetting.layout = page => (
+    <Layout title="Settings - DEV Community">
+        <Setting children={page} />
+    </Layout>
+)
 
 export default PasswordSetting;

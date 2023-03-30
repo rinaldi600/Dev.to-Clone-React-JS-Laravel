@@ -1,7 +1,7 @@
 import React, {Fragment, useEffect, Suspense, useState} from "react";
-import Layout from "@/Pages/Layout/Layout";
 import {Head, Link} from "@inertiajs/inertia-react";
 import {usePage} from "@inertiajs/inertia-react";
+import Layout from "@/Pages/Layout/Layout";
 
 const LeftMenu = React.lazy(() => import('@/Pages/Profile/Setting/LeftMenuSetting/LeftMenu'));
 
@@ -66,6 +66,5 @@ function Setting({children}) {
     )
 }
 
-Setting.layout = page => <Layout children={page} title="Settings - DEV Community" />;
-
+Setting.layout = page => <Layout children={page} title="Welcome" />
 export default Setting;

@@ -2,6 +2,7 @@ import React, {useEffect} from "react";
 import {useForm, usePage} from "@inertiajs/inertia-react";
 import UndefinedImage from '../../../../img/undefined.png';
 import Setting from "../Setting/Setting";
+import Layout from "@/Pages/Layout/Layout";
 
 function UserSetting() {
     const { auth } = usePage().props;
@@ -134,6 +135,9 @@ function UserSetting() {
     )
 }
 
-UserSetting.layout = page => <Setting children={page} title="Settings - DEV Community" />
-
+UserSetting.layout = page => (
+    <Layout title="Settings - DEV Community">
+        <Setting children={page} />
+    </Layout>
+)
 export default UserSetting;

@@ -271,19 +271,24 @@ class UserController extends Controller
 
     public function setNewPassword(Request $request) {
         $validator = Validator::make($request->all(), [
-            'current_password' => ['required', function($attribute, $value, $fail) use ($request) {
+            'current_password' => ['required', 'min:8', 'string', function($attribute, $value, $fail) use ($request) {
                 $passwordUser = Auth::user()->makeVisible(['password'])['password'];
                 if ( !Hash::check($value, $passwordUser) ) {
                     $fail('Password saat ini salah');
                 }
             }],
-            'password' => ['required'],
-            'confirm_password' => ['required', 'same:password'],
+            'password' => ['required', 'string' ,'min:8'],
+            'confirm_password' => ['required', 'same:password', 'string', 'min:8'],
         ], [
             'current_password.required' => 'Wajib diisi',
+            'current_password.min' => 'Min 8 karakter',
+
             'password.required' => 'Wajib diisi',
+            'password.min' => 'Min 8 karakter',
+
             'confirm_password.required' => 'Wajib diisi',
             'confirm_password.same' => 'Confirm password harus sama',
+            'confirm_password.min' => 'Min 8 karakter',
         ]);
 
         if ($validator->fails()) {
@@ -309,5 +314,12 @@ class UserController extends Controller
 
             return redirect()->to('/enter')->with('try_login', 'Silahkan coba login kembali');
         }
+    }
+
+    public function notifications() {
+        // return response()->json([
+        //     'res' => 'WORK'
+        // ]);
+        return Inertia::render('Profile/Notifications/NotificationsUser');
     }
 }
