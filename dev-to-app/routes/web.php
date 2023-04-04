@@ -44,7 +44,10 @@ Route::middleware('isValidLogin')->group(function () {
     Route::get('/signout_confirm', [\App\Http\Controllers\UserController::class, 'handleLogOut']);
     Route::get('/settings/profile', [\App\Http\Controllers\UserController::class, 'settingProfileView']);
     Route::get('/settings/account', [\App\Http\Controllers\UserController::class, 'settingAccountView']);
-    Route::get('/notifications', [\App\Http\Controllers\UserController::class, 'notifications']);
+    Route::prefix('notifications')->group(function () {
+        Route::get('/', [\App\Http\Controllers\UserController::class, 'notifications']);
+    });
+    // Route::get('/notifications', [\App\Http\Controllers\UserController::class, 'notifications']);
     Route::get('/{user:username}', [\App\Http\Controllers\UserController::class, 'profileUser']);
 });
 
