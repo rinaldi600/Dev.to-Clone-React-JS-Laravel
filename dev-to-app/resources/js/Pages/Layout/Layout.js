@@ -5,6 +5,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import {show} from "@/features/Navbar/NavbarSlice";
 import ProfileNavigation from "@/Pages/Layout/ProfileNavigation/ProfileNavigation";
 import DetailUser from "@/Pages/Layout/DetailUser/DetailUser";
+import { close } from "@/features/NavigationForUser/NavigationForUserSlice";
 
 const MobileNavbarLazy = lazy(() => import('./Mobile-Navbar/Mobile-Navbar'));
 
@@ -12,6 +13,7 @@ function Layout({children}) {
 
     const dispatch = useDispatch();
     const navbar = useSelector(state => state.navbar.value);
+    const navbarForUser = useSelector(state => state.navigationForUser.value);
     const { auth } = usePage().props;
     const { data, post, transform} = useForm({
         session_id : '',
@@ -20,6 +22,12 @@ function Layout({children}) {
     });
 
     useEffect(() => {
+        // window.addEventListener('load', () => {
+        //     if (navbarForUser) {
+        //         dispatch(close());
+        //     }
+        // })
+
        if (auth?.user === null && localStorage.getItem('remember_me')) {
            const rememberMe = JSON.parse(localStorage.getItem('remember_me'));
            transform((data) => ({
@@ -35,9 +43,14 @@ function Layout({children}) {
         dispatch(show());
     };
 
+    const closeProfileNavigation = () => {
+        if (navbarForUser) {
+            dispatch(close())
+        }
+    }
     return (
         <Fragment>
-            <div className={`${navbar ? 'overflow-hidden fixed w-full' : ''} h-[56px] font-['Segoe_UI'] bg-white shadow-[0_1px_2px_0px_rgba(60,64,67,0.3),0px_1px_3px_1px_rgba(60,64,67,0.15)]`}>
+            <div onClick={closeProfileNavigation} className={`${navbar ? 'overflow-hidden fixed w-full' : ''} h-[56px] font-['Segoe_UI'] bg-white shadow-[0_1px_2px_0px_rgba(60,64,67,0.3),0px_1px_3px_1px_rgba(60,64,67,0.15)]`}>
                 <div className={'max-w-[1280px] h-full mx-auto'}>
                     <div className={'w-full flex items-center relative justify-between h-full'}>
 
