@@ -1,9 +1,14 @@
-import Layout from "@/Pages/Layout/Layout";
 import { Head } from "@inertiajs/inertia-react";
 import { Link } from "@inertiajs/inertia-react";
+import { useEffect } from "react";
 
-function NotificationsUser() {
-    const styleLink = "p-2 hover:bg-[#E2E3F3] h-fit rounded-lg hover:text-[#2F3ABC] text-[#404040] text-base hover:font-medium"
+function NotificationsUser({children, url}) {
+    const styleLink = `p-2 hover:bg-[#E2E3F3] ${url !== '' ? (url === window.location.href ? 'bg-white' : '') : ''} cursor-pointer h-fit rounded-lg hover:text-[#2F3ABC] text-[#404040] text-base hover:font-medium`
+
+    useEffect(() => {
+        console.log(url);
+    });
+
     return (
         <>
             <Head title="Notifications - DEV Community" />
@@ -14,18 +19,18 @@ function NotificationsUser() {
                         <div className="md:w-[25%] md:block flex justify-center font-['Segoe_UI'] w-full h-fit">
                             <ul className="flex md:block">
                                 <li className={styleLink}>
-                                    <Link href="/notifications">All</Link>
+                                    <Link className="w-full inline-block" href="/notifications">All</Link>
                                 </li>
                                 <li className={styleLink}>
-                                    <Link href="/notifications/comments">Comments</Link>
+                                    <Link className="w-full inline-block" href="/notifications/comments">Comments</Link>
                                 </li>
                                 <li className={styleLink}>
-                                    <Link href="/notifications/posts">Posts</Link>
+                                    <Link className="w-full inline-block" href="/notifications/posts">Posts</Link>
                                 </li>
                             </ul>
                         </div>
-                        <div className="md:w-[75%] w-full bg-green-300 h-fit">
-                            <h1>WORK</h1>
+                        <div className="pl-4 md:w-[75%] w-full h-fit">
+                            {children}
                         </div>
                     </div>
                 </div>
@@ -33,11 +38,5 @@ function NotificationsUser() {
         </>
     )
 }
-
-NotificationsUser.layout = page => (
-    <Layout>
-        <NotificationsUser children={page}/>
-    </Layout>
-);
 
 export default NotificationsUser;

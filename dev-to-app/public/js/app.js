@@ -8271,6 +8271,87 @@ function SuccessCreateUser() {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Profile/Notifications/All/All.js":
+/*!*************************************************************!*\
+  !*** ./resources/js/Pages/Profile/Notifications/All/All.js ***!
+  \*************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
+/* harmony import */ var _NotificationsUser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationsUser */ "./resources/js/Pages/Profile/Notifications/NotificationsUser.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+var urlPassing = '';
+function All(_ref) {
+  var url = _ref.url;
+  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
+    urlPassing = url;
+    // console.log(window.location.href);
+    // console.log(url);
+  });
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+      children: "All"
+    })
+  });
+}
+All.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_NotificationsUser__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      url: urlPassing,
+      children: page
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (All);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Profile/Notifications/Comments/Comments.js":
+/*!***********************************************************************!*\
+  !*** ./resources/js/Pages/Profile/Notifications/Comments/Comments.js ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
+/* harmony import */ var _NotificationsUser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationsUser */ "./resources/js/Pages/Profile/Notifications/NotificationsUser.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Comments() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+      children: "Comments"
+    })
+  });
+}
+Comments.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_NotificationsUser__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      children: page
+    })
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Comments);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Profile/Notifications/NotificationsUser.js":
 /*!***********************************************************************!*\
   !*** ./resources/js/Pages/Profile/Notifications/NotificationsUser.js ***!
@@ -8282,8 +8363,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -8291,10 +8372,15 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function NotificationsUser() {
-  var styleLink = "p-2 hover:bg-[#E2E3F3] h-fit rounded-lg hover:text-[#2F3ABC] text-[#404040] text-base hover:font-medium";
+function NotificationsUser(_ref) {
+  var children = _ref.children,
+    url = _ref.url;
+  var styleLink = "p-2 hover:bg-[#E2E3F3] ".concat(url !== '' ? url === window.location.href ? 'bg-white' : '' : '', " cursor-pointer h-fit rounded-lg hover:text-[#2F3ABC] text-[#404040] text-base hover:font-medium");
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    console.log(url);
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Head, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
       title: "Notifications - DEV Community"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "min-h-screen pt-7 bg-[#F5F5F5] font-['Segoe_UI']",
@@ -8311,43 +8397,72 @@ function NotificationsUser() {
               className: "flex md:block",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                 className: styleLink,
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+                  className: "w-full inline-block",
                   href: "/notifications",
                   children: "All"
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                 className: styleLink,
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+                  className: "w-full inline-block",
                   href: "/notifications/comments",
                   children: "Comments"
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("li", {
                 className: styleLink,
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+                  className: "w-full inline-block",
                   href: "/notifications/posts",
                   children: "Posts"
                 })
               })]
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            className: "md:w-[75%] w-full bg-green-300 h-fit",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-              children: "WORK"
-            })
+            className: "pl-4 md:w-[75%] w-full h-fit",
+            children: children
           })]
         })]
       })
     })]
   });
 }
-NotificationsUser.layout = function (page) {
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NotificationsUser);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Profile/Notifications/Posts/Posts.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/Pages/Profile/Notifications/Posts/Posts.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
+/* harmony import */ var _NotificationsUser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationsUser */ "./resources/js/Pages/Profile/Notifications/NotificationsUser.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Posts() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+      children: "Posts"
+    })
+  });
+}
+Posts.layout = function (page) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(NotificationsUser, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_NotificationsUser__WEBPACK_IMPORTED_MODULE_1__["default"], {
       children: page
     })
   });
 };
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NotificationsUser);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Posts);
 
 /***/ }),
 
@@ -66818,8 +66933,14 @@ var map = {
 	"./LoginSignUp/SignUp/SignUp.js": "./resources/js/Pages/LoginSignUp/SignUp/SignUp.js",
 	"./LoginSignUp/SuccessCreateUser/SuccessCreateUser": "./resources/js/Pages/LoginSignUp/SuccessCreateUser/SuccessCreateUser.js",
 	"./LoginSignUp/SuccessCreateUser/SuccessCreateUser.js": "./resources/js/Pages/LoginSignUp/SuccessCreateUser/SuccessCreateUser.js",
+	"./Profile/Notifications/All/All": "./resources/js/Pages/Profile/Notifications/All/All.js",
+	"./Profile/Notifications/All/All.js": "./resources/js/Pages/Profile/Notifications/All/All.js",
+	"./Profile/Notifications/Comments/Comments": "./resources/js/Pages/Profile/Notifications/Comments/Comments.js",
+	"./Profile/Notifications/Comments/Comments.js": "./resources/js/Pages/Profile/Notifications/Comments/Comments.js",
 	"./Profile/Notifications/NotificationsUser": "./resources/js/Pages/Profile/Notifications/NotificationsUser.js",
 	"./Profile/Notifications/NotificationsUser.js": "./resources/js/Pages/Profile/Notifications/NotificationsUser.js",
+	"./Profile/Notifications/Posts/Posts": "./resources/js/Pages/Profile/Notifications/Posts/Posts.js",
+	"./Profile/Notifications/Posts/Posts.js": "./resources/js/Pages/Profile/Notifications/Posts/Posts.js",
 	"./Profile/Organization/Organization": "./resources/js/Pages/Profile/Organization/Organization.js",
 	"./Profile/Organization/Organization.js": "./resources/js/Pages/Profile/Organization/Organization.js",
 	"./Profile/Setting/LeftMenuSetting/LeftMenu": "./resources/js/Pages/Profile/Setting/LeftMenuSetting/LeftMenu.js",

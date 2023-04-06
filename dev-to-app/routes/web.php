@@ -46,8 +46,10 @@ Route::middleware('isValidLogin')->group(function () {
     Route::get('/settings/account', [\App\Http\Controllers\UserController::class, 'settingAccountView']);
     Route::prefix('notifications')->group(function () {
         Route::get('/', [\App\Http\Controllers\UserController::class, 'notifications']);
+        Route::get('/comments', [\App\Http\Controllers\UserController::class, 'notificationsComment']);
+        Route::get('/posts', [\App\Http\Controllers\UserController::class, 'notificationsPost']);
     });
-    // Route::get('/notifications', [\App\Http\Controllers\UserController::class, 'notifications']);
+
     Route::get('/{user:username}', [\App\Http\Controllers\UserController::class, 'profileUser']);
 });
 

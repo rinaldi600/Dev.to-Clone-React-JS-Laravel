@@ -317,9 +317,20 @@ class UserController extends Controller
     }
 
     public function notifications() {
-        // return response()->json([
-        //     'res' => 'WORK'
-        // ]);
-        return Inertia::render('Profile/Notifications/NotificationsUser');
+        return Inertia::render('Profile/Notifications/All/All', [
+            'url' => url()->current()
+        ]);
+    }
+
+    public function notificationsComment() {
+        return Inertia::render('Profile/Notifications/Comments/Comments', [
+            'url' => url()->current()
+        ]);
+    }
+
+    public function notificationsPost() {
+        return Inertia::render('Profile/Notifications/Posts/Posts', [
+            'url' => url()->current()
+        ]);
     }
 }
