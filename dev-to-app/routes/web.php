@@ -49,7 +49,8 @@ Route::middleware('isValidLogin')->group(function () {
         Route::get('/comments', [\App\Http\Controllers\UserController::class, 'notificationsComment']);
         Route::get('/posts', [\App\Http\Controllers\UserController::class, 'notificationsPost']);
     });
-
+    Route::get('/new', [\App\Http\Controllers\UserController::class, 'new']);
+    Route::post('/get_data_post', [\App\Http\Controllers\UserController::class, 'getDataPost']);
     Route::get('/{user:username}', [\App\Http\Controllers\UserController::class, 'profileUser']);
 });
 

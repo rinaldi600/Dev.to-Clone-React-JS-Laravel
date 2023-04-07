@@ -317,20 +317,22 @@ class UserController extends Controller
     }
 
     public function notifications() {
-        return Inertia::render('Profile/Notifications/All/All', [
-            'url' => url()->current()
-        ]);
+        return Inertia::render('Profile/Notifications/All/All');
     }
 
     public function notificationsComment() {
-        return Inertia::render('Profile/Notifications/Comments/Comments', [
-            'url' => url()->current()
-        ]);
+        return Inertia::render('Profile/Notifications/Comments/Comments');
     }
 
     public function notificationsPost() {
-        return Inertia::render('Profile/Notifications/Posts/Posts', [
-            'url' => url()->current()
-        ]);
+        return Inertia::render('Profile/Notifications/Posts/Posts');
+    }
+
+    public function new() {
+        return Inertia::render('NewPost/NewPost');
+    }
+
+    public function getDataPost(Request $request) {
+        dd($request->input());
     }
 }

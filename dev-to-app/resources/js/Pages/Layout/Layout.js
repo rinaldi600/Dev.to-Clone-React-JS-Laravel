@@ -22,12 +22,6 @@ function Layout({children}) {
     });
 
     useEffect(() => {
-        // window.addEventListener('load', () => {
-        //     if (navbarForUser) {
-        //         dispatch(close());
-        //     }
-        // })
-
        if (auth?.user === null && localStorage.getItem('remember_me')) {
            const rememberMe = JSON.parse(localStorage.getItem('remember_me'));
            transform((data) => ({
@@ -48,6 +42,7 @@ function Layout({children}) {
             dispatch(close())
         }
     }
+
     return (
         <Fragment>
             <div onClick={closeProfileNavigation} className={`${navbar ? 'overflow-hidden fixed w-full' : ''} h-[56px] font-['Segoe_UI'] bg-white shadow-[0_1px_2px_0px_rgba(60,64,67,0.3),0px_1px_3px_1px_rgba(60,64,67,0.15)]`}>

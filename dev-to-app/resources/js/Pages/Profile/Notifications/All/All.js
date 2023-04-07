@@ -2,11 +2,10 @@ import Layout from "@/Pages/Layout/Layout";
 import NotificationsUser from "../NotificationsUser";
 import { useEffect } from "react";
 
-let urlPassing = '';
-function All({url}) {
+
+function All() {
 
     useEffect(() => {
-        urlPassing = url;
         // console.log(window.location.href);
         // console.log(url);
     });
@@ -20,7 +19,7 @@ function All({url}) {
 
 All.layout = page => (
     <Layout>
-        <NotificationsUser url={urlPassing} children={page} />
+        <NotificationsUser children={page} />
     </Layout>
 )
 

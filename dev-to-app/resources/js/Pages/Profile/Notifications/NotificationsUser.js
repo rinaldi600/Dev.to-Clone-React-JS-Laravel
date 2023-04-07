@@ -2,11 +2,12 @@ import { Head } from "@inertiajs/inertia-react";
 import { Link } from "@inertiajs/inertia-react";
 import { useEffect } from "react";
 
-function NotificationsUser({children, url}) {
-    const styleLink = `p-2 hover:bg-[#E2E3F3] ${url !== '' ? (url === window.location.href ? 'bg-white' : '') : ''} cursor-pointer h-fit rounded-lg hover:text-[#2F3ABC] text-[#404040] text-base hover:font-medium`
+function NotificationsUser({children}) {
+
+    let styleLink = `p-2 hover:bg-[#E2E3F3] cursor-pointer h-fit rounded-lg hover:text-[#2F3ABC] text-[#404040] text-base hover:font-medium`;
 
     useEffect(() => {
-        console.log(url);
+
     });
 
     return (
@@ -18,13 +19,13 @@ function NotificationsUser({children, url}) {
                     <div className="md:flex gap-0 flex-wrap pt-10 min-h-[200px]">
                         <div className="md:w-[25%] md:block flex justify-center font-['Segoe_UI'] w-full h-fit">
                             <ul className="flex md:block">
-                                <li className={styleLink}>
+                                <li className={`${styleLink} ${window.location.pathname === '/notifications' ? 'bg-white' : ''}`}>
                                     <Link className="w-full inline-block" href="/notifications">All</Link>
                                 </li>
-                                <li className={styleLink}>
+                                <li className={`${styleLink} ${window.location.pathname === '/notifications/comments' ? 'bg-white' : ''}`}>
                                     <Link className="w-full inline-block" href="/notifications/comments">Comments</Link>
                                 </li>
-                                <li className={styleLink}>
+                                <li className={`${styleLink} ${window.location.pathname === '/notifications/posts' ? 'bg-white' : ''}`}>
                                     <Link className="w-full inline-block" href="/notifications/posts">Posts</Link>
                                 </li>
                             </ul>
