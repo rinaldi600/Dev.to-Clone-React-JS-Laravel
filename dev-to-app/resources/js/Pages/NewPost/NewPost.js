@@ -1,9 +1,8 @@
 import { Head } from "@inertiajs/inertia-react";
 import { Link } from "@inertiajs/inertia-react";
 import { useForm } from "@inertiajs/inertia-react";
-import { useEffect, useState} from "react";
-import ReactQuill from "react-quill";
-import 'react-quill/dist/quill.snow.css';
+import { useState, useRef} from "react";
+import { Editor } from "@tinymce/tinymce-react";
 
 function NewPost() {
 
@@ -15,12 +14,17 @@ function NewPost() {
     });
 
     const [heightTextArea, setHeightTextArea] = useState(0);
-    const [value, setValue] =  useState("");
 
+    const editorRef = useRef(null);
+    const log = () => {
+      if (editorRef.current) {
+        return editorRef.current.getContent()
+      }
+    };
 
     const submit = (e) => {
         e.preventDefault();
-        data['body'] = value;
+        data['body'] = log();
         post('/get_data_post')
     }
 
@@ -29,24 +33,46 @@ function NewPost() {
         setHeightTextArea(e.target.scrollHeight);
     };
 
-    const imageHandler = () => {
-        console.log("WORK");
-    }
 
-    const modules  = {
-        toolbar: [
-            [{ font: [] }],
-            [{ header: [1, 2, 3, 4, 5, 6, false] }],
-            ["bold", "italic", "underline", "strike"],
-            [{ color: [] }, { background: [] }],
-            [{ script:  "sub" }, { script:  "super" }],
-            ["blockquote", "code-block"],
-            [{ list:  "ordered" }, { list:  "bullet" }],
-            [{ indent:  "-1" }, { indent:  "+1" }, { align: [] }],
-            ["link", "image", "video"],
-            ["clean"],
-        ],
-    };
+    const example_image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+        xhr.open('POST', '/handler_image');
+
+        xhr.upload.onprogress = (e) => {
+          progress(e.loaded / e.total * 100);
+        };
+
+        xhr.onload = () => {
+          if (xhr.status === 403) {
+            reject({ message: 'HTTP Error: ' + xhr.status, remove: true });
+            return;
+          }
+
+          if (xhr.status < 200 || xhr.status >= 300) {
+            reject('HTTP Error: ' + xhr.status);
+            return;
+          }
+
+          const json = JSON.parse(xhr.responseText);
+
+          if (!json || typeof json.location != 'string') {
+            reject('Invalid JSON: ' + xhr.responseText);
+            return;
+          }
+
+          resolve(json.location);
+        };
+
+        xhr.onerror = () => {
+          reject('Image upload failed due to a XHR Transport error. Code: ' + xhr.status);
+        };
+
+        const formData = new FormData();
+        formData.append('file', blobInfo.blob(), blobInfo.filename());
+
+        xhr.send(formData);
+    });
 
     return (
         <>
@@ -81,8 +107,30 @@ function NewPost() {
                             </div>
                             <div className="w-[95%] mx-auto">
                                 <div className="mb-6">
-                                    <ReactQuill
-                                        onChange={setValue} modules={modules}
+                                    <Editor
+                                        apiKey='2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c'
+                                        onInit={(evt, editor) => editorRef.current = editor}
+                                        initialValue="<p>This is the initial content of the editor.</p>"
+                                        init={{
+                                            // width: 600,
+                                            height: 500,
+                                            plugins: [
+                                              'advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak',
+                                              'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media',
+                                              'table', 'emoticons', 'template', 'help'
+                                            ],
+                                            toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' +
+                                              'bullist numlist outdent indent | link image | print preview media fullscreen | ' +
+                                              'forecolor backcolor emoticons | help',
+                                            menu: {
+                                              favs: { title: 'My Favorites', items: 'code visualaid | searchreplace | emoticons' }
+                                            },
+                                            menubar: 'favs file edit view insert format tools table help',
+                                            images_upload_handler: example_image_upload_handler,
+                                            // images_upload_url: 'handler_image',
+                                            // images_upload_base_path: '/handler_image',
+                                            content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+                                        }}
                                     />
                                 </div>
                             </div>

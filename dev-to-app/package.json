@@ -29,7 +29,7 @@
     },
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.1",
-        "react-quill": "^2.0.0",
+        "@tinymce/tinymce-react": "^4.3.0",
         "redux": "^4.2.0"
     }
 }
