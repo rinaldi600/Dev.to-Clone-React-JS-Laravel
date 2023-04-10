@@ -633,33 +633,6 @@ select {
   --tw-backdrop-saturate:  ;
   --tw-backdrop-sepia:  ;
 }
-.container {
-  width: 100%;
-}
-@media (min-width: 767.98px) {
-
-  .container {
-    max-width: 767.98px;
-  }
-}
-@media (min-width: 991.98px) {
-
-  .container {
-    max-width: 991.98px;
-  }
-}
-@media (min-width: 1199.98px) {
-
-  .container {
-    max-width: 1199.98px;
-  }
-}
-@media (min-width: 1399.98px) {
-
-  .container {
-    max-width: 1399.98px;
-  }
-}
 .sr-only {
   position: absolute;
   width: 1px;

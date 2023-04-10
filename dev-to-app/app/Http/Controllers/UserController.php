@@ -337,8 +337,11 @@ class UserController extends Controller
     }
 
     public function handlerImage(Request $request) {
+        // return response()->json([
+        //     'res' => $request->hasFile('file') ? Storage::disk('public')->put('profile/', $request->file('file')) : 'EMPTY',
+        // ]);
         return response()->json([
-            'res' => 'WORK'
+            'res' => $request->hasFile('file') ? 'WORK' : 'EMPTY',
         ]);
         /***************************************************
          * Only these origins are allowed to upload images *
