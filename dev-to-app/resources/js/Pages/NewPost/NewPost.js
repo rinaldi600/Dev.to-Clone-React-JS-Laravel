@@ -57,6 +57,7 @@ function NewPost() {
           const json = JSON.parse(xhr.responseText);
 
           if (!json || typeof json.location != 'string') {
+            console.log(xhr.responseText);
             reject('Invalid JSON: ' + xhr.responseText);
             return;
           }
@@ -109,7 +110,23 @@ function NewPost() {
                                 <div className="mb-6">
                                     <Editor
                                         apiKey='2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c'
-                                        onInit={(evt, editor) => editorRef.current = editor}
+                                        onInit={(evt, editor) => {
+                                            editorRef.current = editor;
+                                            // console.log(editorRef.current.selection.getNode());
+
+                                            editor.on('keydown', (e) => {
+                                                if ((e.key == "Backspace" || e.key == "Delete") && editor.selection) {
+                                                    var selectedNode = editor.selection.getNode();
+                                                    if (selectedNode && selectedNode.nodeName == 'IMG') {
+                                                       var imageSrc = selectedNode.src;
+                                                       console.log(imageSrc);
+                                                       console.log(editor.selection.getNode());
+                                                    }
+
+                                                }
+                                            })
+
+                                        }}
                                         initialValue="<p>This is the initial content of the editor.</p>"
                                         init={{
                                             // width: 600,

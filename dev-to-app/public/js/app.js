@@ -9151,6 +9151,7 @@ function NewPost() {
         }
         var json = JSON.parse(xhr.responseText);
         if (!json || typeof json.location != 'string') {
+          console.log(xhr.responseText);
           reject('Invalid JSON: ' + xhr.responseText);
           return;
         }
@@ -9231,7 +9232,19 @@ function NewPost() {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_tinymce_tinymce_react__WEBPACK_IMPORTED_MODULE_2__.Editor, {
                   apiKey: "2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c",
                   onInit: function onInit(evt, editor) {
-                    return editorRef.current = editor;
+                    editorRef.current = editor;
+                    // console.log(editorRef.current.selection.getNode());
+
+                    editor.on('keydown', function (e) {
+                      if ((e.key == "Backspace" || e.key == "Delete") && editor.selection) {
+                        var selectedNode = editor.selection.getNode();
+                        if (selectedNode && selectedNode.nodeName == 'IMG') {
+                          var imageSrc = selectedNode.src;
+                          console.log(imageSrc);
+                          console.log(editor.selection.getNode());
+                        }
+                      }
+                    });
                   },
                   initialValue: "<p>This is the initial content of the editor.</p>",
                   init: {
