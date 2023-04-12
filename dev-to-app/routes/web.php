@@ -52,6 +52,7 @@ Route::middleware('isValidLogin')->group(function () {
     Route::get('/new', [\App\Http\Controllers\UserController::class, 'new']);
     Route::post('/get_data_post', [\App\Http\Controllers\UserController::class, 'getDataPost']);
     Route::post('/handler_image', [\App\Http\Controllers\UserController::class, 'handlerImage']);
+    Route::post('/delete_image_post', [\App\Http\Controllers\UserController::class, 'deleteImagePost']);
     Route::get('/{user:username}', [\App\Http\Controllers\UserController::class, 'profileUser']);
 });
 

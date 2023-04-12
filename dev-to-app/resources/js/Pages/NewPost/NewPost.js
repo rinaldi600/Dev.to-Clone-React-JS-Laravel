@@ -3,6 +3,7 @@ import { Link } from "@inertiajs/inertia-react";
 import { useForm } from "@inertiajs/inertia-react";
 import { useState, useRef} from "react";
 import { Editor } from "@tinymce/tinymce-react";
+import { split } from "lodash";
 
 function NewPost() {
 
@@ -112,15 +113,30 @@ function NewPost() {
                                         apiKey='2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c'
                                         onInit={(evt, editor) => {
                                             editorRef.current = editor;
-                                            // console.log(editorRef.current.selection.getNode());
 
                                             editor.on('keydown', (e) => {
                                                 if ((e.key == "Backspace" || e.key == "Delete") && editor.selection) {
                                                     var selectedNode = editor.selection.getNode();
                                                     if (selectedNode && selectedNode.nodeName == 'IMG') {
-                                                       var imageSrc = selectedNode.src;
-                                                       console.log(imageSrc);
-                                                       console.log(editor.selection.getNode());
+                                                       const imageSrc = selectedNode.src;
+                                                       const pathName = split(new URL(imageSrc).pathname, '/');
+                                                       console.log(`${pathName[2]}/${pathName[4]}`)
+                                                        // const requestOptions = {
+                                                        //     method: 'POST',
+                                                        //     headers: {
+                                                        //         'Content-Type': 'application/json',
+                                                        //         "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content,
+                                                        //     },
+                                                        //     body: JSON.stringify({ nameImage: new URL(imageSrc).pathname })
+                                                        // };
+                                                        // fetch('/delete_image_post', requestOptions)
+                                                        //     .then((response) => response.json())
+                                                        //     .then((responseJson) => {
+                                                        //         console.log(responseJson);
+                                                        //     })
+                                                        //     .catch((error) => {
+                                                        //         console.error(error);
+                                                        //     });
                                                     }
 
                                                 }

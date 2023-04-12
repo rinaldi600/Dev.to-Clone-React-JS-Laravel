@@ -358,4 +358,12 @@ class UserController extends Controller
             };
         }
     }
+
+    public function deleteImagePost(Request $request) {
+        $deleteImage = Storage::disk('public')->delete($request->input('nameImage'));
+
+        // return response()->json([
+        //     'res' => ,
+        // ]);
+    }
 }
