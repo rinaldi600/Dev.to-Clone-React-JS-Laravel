@@ -120,23 +120,22 @@ function NewPost() {
                                                     if (selectedNode && selectedNode.nodeName == 'IMG') {
                                                        const imageSrc = selectedNode.src;
                                                        const pathName = split(new URL(imageSrc).pathname, '/');
-                                                       console.log(`${pathName[2]}/${pathName[4]}`)
-                                                        // const requestOptions = {
-                                                        //     method: 'POST',
-                                                        //     headers: {
-                                                        //         'Content-Type': 'application/json',
-                                                        //         "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content,
-                                                        //     },
-                                                        //     body: JSON.stringify({ nameImage: new URL(imageSrc).pathname })
-                                                        // };
-                                                        // fetch('/delete_image_post', requestOptions)
-                                                        //     .then((response) => response.json())
-                                                        //     .then((responseJson) => {
-                                                        //         console.log(responseJson);
-                                                        //     })
-                                                        //     .catch((error) => {
-                                                        //         console.error(error);
-                                                        //     });
+                                                        const requestOptions = {
+                                                            method: 'POST',
+                                                            headers: {
+                                                                'Content-Type': 'application/json',
+                                                                "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content,
+                                                            },
+                                                            body: JSON.stringify({ nameImage: `${pathName[2]}/${pathName[4]}` })
+                                                        };
+                                                        fetch('/delete_image_post', requestOptions)
+                                                            .then((response) => response.json())
+                                                            .then((responseJson) => {
+                                                                console.log(responseJson);
+                                                            })
+                                                            .catch((error) => {
+                                                                console.error(error);
+                                                            });
                                                     }
 
                                                 }

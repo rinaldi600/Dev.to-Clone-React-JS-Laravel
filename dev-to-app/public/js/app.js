@@ -9242,28 +9242,27 @@ function NewPost() {
                         if (selectedNode && selectedNode.nodeName == 'IMG') {
                           var imageSrc = selectedNode.src;
                           var pathName = (0,lodash__WEBPACK_IMPORTED_MODULE_3__.split)(new URL(imageSrc).pathname, '/');
-                          console.log("".concat(pathName[2], "/").concat(pathName[4]));
-                          // const requestOptions = {
-                          //     method: 'POST',
-                          //     headers: {
-                          //         'Content-Type': 'application/json',
-                          //         "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content,
-                          //     },
-                          //     body: JSON.stringify({ nameImage: new URL(imageSrc).pathname })
-                          // };
-                          // fetch('/delete_image_post', requestOptions)
-                          //     .then((response) => response.json())
-                          //     .then((responseJson) => {
-                          //         console.log(responseJson);
-                          //     })
-                          //     .catch((error) => {
-                          //         console.error(error);
-                          //     });
+                          var requestOptions = {
+                            method: 'POST',
+                            headers: {
+                              'Content-Type': 'application/json',
+                              "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content
+                            },
+                            body: JSON.stringify({
+                              nameImage: "".concat(pathName[2], "/").concat(pathName[4])
+                            })
+                          };
+                          fetch('/delete_image_post', requestOptions).then(function (response) {
+                            return response.json();
+                          }).then(function (responseJson) {
+                            console.log(responseJson);
+                          })["catch"](function (error) {
+                            console.error(error);
+                          });
                         }
                       }
                     });
                   },
-
                   initialValue: "<p>This is the initial content of the editor.</p>",
                   init: {
                     // width: 600,
