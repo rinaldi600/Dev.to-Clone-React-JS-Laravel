@@ -4,7 +4,7 @@ import { useForm } from "@inertiajs/inertia-react";
 import React, { useState, useRef, useEffect, Suspense} from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { split, values } from "lodash";
-import { AutoComplete } from 'primereact/autocomplete';
+import Turnstone from 'turnstone';
 
 const SuccessUpload = React.lazy(() => import('./successUpload/SuccessUpload'));
 const DeleteUpload = React.lazy(() => import('./deleteUpload/DeleteUpload'));
@@ -21,19 +21,8 @@ function NewPost() {
 
     const [successUpload, setSuccessUpload] = useState(false);
     const [successDelete, setSuccessDelete] = useState(false);
-    const tags = [
-        'web', 'javascript'
-    ];
-
     const [heightTextArea, setHeightTextArea] = useState(0);
-
     const editorRef = useRef(null);
-
-    const log = () => {
-      if (editorRef.current) {
-        return editorRef.current.getContent()
-      }
-    };
 
     const submit = (e) => {
         console.log(data);
@@ -110,6 +99,16 @@ function NewPost() {
         xhr.send(formData);
     });
 
+    const listbox = {
+        data: ['Peach', 'Pear', 'Pineapple', 'Plum', 'Pomegranate', 'Prune']
+    }
+
+    const styles = {
+        input: 'w-full h-12 border border-slate-300 py-2 pl-10',
+          listbox: 'w-full bg-white sm:border sm:border-blue-300 sm:rounded text-left sm:mt-2 p-2 sm:drop-shadow-xl',
+          groupHeading: 'cursor-default mt-2 mb-0.5 px-1.5 uppercase text-sm text-rose-300',
+    }
+
     return (
         <>
             <Head title="New Post - DEV Community" />
@@ -139,8 +138,8 @@ function NewPost() {
                                 </div>
 
                                 <div class="mb-6">
-                                    <AutoComplete value={'web'} suggestions={tags}  />
-                                    <input type="text" id="default-input" class={`text-base text-[#171717] border-transparent focus:border-transparent focus:ring-0 rounded-lg w-[90%]`} placeholder="Add up to 4 tags..."/>
+                                    <Turnstone listbox={listbox} styles={styles} typeahead={true} maxItems={20} noItemsMessage="We found no places that match your search" placeholder="Enter a city or airport" />
+                                    {/* <input type="text" id="default-input" class={`text-base text-[#171717] border-transparent focus:border-transparent focus:ring-0 rounded-lg w-[90%]`} placeholder="Add up to 4 tags..."/> */}
                                 </div>
                             </div>
                             <div className="w-[95%] mx-auto">
