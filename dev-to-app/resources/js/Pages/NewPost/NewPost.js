@@ -25,10 +25,9 @@ function NewPost() {
     const editorRef = useRef(null);
 
     const submit = (e) => {
+        e.preventDefault();
         console.log(data);
-        // e.preventDefault();
-        // data['body'] = log();
-        // post('/get_data_post')
+        post('/get_data_post');
     }
 
     const autoSize = (e) => {
@@ -104,9 +103,14 @@ function NewPost() {
     }
 
     const styles = {
-        input: 'w-full h-12 border border-slate-300 py-2 pl-10',
-          listbox: 'w-full bg-white sm:border sm:border-blue-300 sm:rounded text-left sm:mt-2 p-2 sm:drop-shadow-xl',
-          groupHeading: 'cursor-default mt-2 mb-0.5 px-1.5 uppercase text-sm text-rose-300',
+        input: 'w-[90%] border py-2 px-4 text-lg outline-none rounded-md',
+        listbox: 'bg-[#F5F5F5] w-[90%] p-2 text-[#3D3D3D] cursor-pointer rounded-lg',
+        highlightedItem: 'text-black',
+        query: 'cursor-pointer',
+        typeahead: 'text-slate-500 cursor-pointer',
+        noItems: 'cursor-default text-center my-20',
+        match: 'font-semibold cursor-pointer',
+        groupHeading: 'px-5 py-3 text-pink-500 cursor-pointer',
     }
 
     return (
@@ -127,7 +131,7 @@ function NewPost() {
                     </div>
                     <div className="max-w-[806px] mt-1.5 pb-5 bg-white min-h-screen mx-auto rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]">
                     {/* onSubmit={submit} */}
-                        <form>
+                        <form onSubmit={submit} onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault(); }}>
                             <div className="pt-8 pl-16 w-full">
                                 <div>
                                     <button className="h-[40px] p-2 w-[163.113px] text-[#3D3D3D] font-medium rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]">Add a cover image</button>
@@ -138,7 +142,7 @@ function NewPost() {
                                 </div>
 
                                 <div class="mb-6">
-                                    <Turnstone listbox={listbox} styles={styles} typeahead={true} maxItems={20} noItemsMessage="We found no places that match your search" placeholder="Enter a city or airport" />
+                                    <Turnstone listbox={listbox} styles={styles} autoFocus={true}typeahead={true} debounceWait={250} listboxIsImmutable={true} maxItems={6} noItemsMessage="We found no places that match your search" id='tags' name='tags' placeholder="Add up to 4 tags..." />
                                     {/* <input type="text" id="default-input" class={`text-base text-[#171717] border-transparent focus:border-transparent focus:ring-0 rounded-lg w-[90%]`} placeholder="Add up to 4 tags..."/> */}
                                 </div>
                             </div>
@@ -222,7 +226,7 @@ function NewPost() {
                                 </div>
                             </div>
                             <div className="mx-auto w-[95%]">
-                                <button className="w-[84.9px] h-[40px] bg-[#3B49DF] hover:bg-[#2F3AB2] text-base font-medium text-white rounded-lg" onClick={submit} type="button" disabled={processing}>Publish</button>
+                                <button className="w-[84.9px] h-[40px] bg-[#3B49DF] hover:bg-[#2F3AB2] text-base font-medium text-white rounded-lg" type="submit" disabled={processing}>Publish</button>
                             </div>
                         </form>
                     </div>

@@ -9146,12 +9146,10 @@ function NewPost() {
     setHeightTextArea = _useState6[1];
   var editorRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
   var submit = function submit(e) {
+    e.preventDefault();
     console.log(data);
-    // e.preventDefault();
-    // data['body'] = log();
-    // post('/get_data_post')
+    post('/get_data_post');
   };
-
   var autoSize = function autoSize(e) {
     console.log(e.target.scrollHeight);
     setHeightTextArea(e.target.scrollHeight);
@@ -9211,9 +9209,14 @@ function NewPost() {
     data: ['Peach', 'Pear', 'Pineapple', 'Plum', 'Pomegranate', 'Prune']
   };
   var styles = {
-    input: 'w-full h-12 border border-slate-300 py-2 pl-10',
-    listbox: 'w-full bg-white sm:border sm:border-blue-300 sm:rounded text-left sm:mt-2 p-2 sm:drop-shadow-xl',
-    groupHeading: 'cursor-default mt-2 mb-0.5 px-1.5 uppercase text-sm text-rose-300'
+    input: 'w-[90%] border py-2 px-4 text-lg outline-none rounded-md',
+    listbox: 'bg-[#F5F5F5] w-[90%] p-2 text-[#3D3D3D] cursor-pointer rounded-lg',
+    highlightedItem: 'text-black',
+    query: 'cursor-pointer',
+    typeahead: 'text-slate-500 cursor-pointer',
+    noItems: 'cursor-default text-center my-20',
+    match: 'font-semibold cursor-pointer',
+    groupHeading: 'px-5 py-3 text-pink-500 cursor-pointer'
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
@@ -9246,6 +9249,10 @@ function NewPost() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "max-w-[806px] mt-1.5 pb-5 bg-white min-h-screen mx-auto rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("form", {
+            onSubmit: submit,
+            onKeyDown: function onKeyDown(e) {
+              e.key === 'Enter' && e.preventDefault();
+            },
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "pt-8 pl-16 w-full",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -9270,10 +9277,15 @@ function NewPost() {
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(turnstone__WEBPACK_IMPORTED_MODULE_4__["default"], {
                   listbox: listbox,
                   styles: styles,
+                  autoFocus: true,
                   typeahead: true,
-                  maxItems: 20,
+                  debounceWait: 250,
+                  listboxIsImmutable: true,
+                  maxItems: 6,
                   noItemsMessage: "We found no places that match your search",
-                  placeholder: "Enter a city or airport"
+                  id: "tags",
+                  name: "tags",
+                  placeholder: "Add up to 4 tags..."
                 })
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
@@ -9296,8 +9308,7 @@ function NewPost() {
               className: "mx-auto w-[95%]",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
                 className: "w-[84.9px] h-[40px] bg-[#3B49DF] hover:bg-[#2F3AB2] text-base font-medium text-white rounded-lg",
-                onClick: submit,
-                type: "button",
+                type: "submit",
                 disabled: processing,
                 children: "Publish"
               })
