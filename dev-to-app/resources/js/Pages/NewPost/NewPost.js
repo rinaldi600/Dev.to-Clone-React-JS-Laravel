@@ -8,6 +8,7 @@ import Turnstone from 'turnstone';
 
 const SuccessUpload = React.lazy(() => import('./successUpload/SuccessUpload'));
 const DeleteUpload = React.lazy(() => import('./deleteUpload/DeleteUpload'));
+const TagPost = React.lazy(() => import('./tagPost/TagPost'));
 
 function NewPost() {
 
@@ -17,11 +18,16 @@ function NewPost() {
         remember: false,
         body : '',
         image_content : [],
+        tag_1 : '',
+        tag_2 : '',
+        tag_3 : '',
+        tag_4 : '',
     });
 
     const [successUpload, setSuccessUpload] = useState(false);
     const [successDelete, setSuccessDelete] = useState(false);
     const [heightTextArea, setHeightTextArea] = useState(0);
+    const [tagOne, setTagOne] = useState('');
     const editorRef = useRef(null);
 
     const submit = (e) => {
@@ -99,7 +105,17 @@ function NewPost() {
     });
 
     const listbox = {
-        data: ['Peach', 'Pear', 'Pineapple', 'Plum', 'Pomegranate', 'Prune']
+        data: ['webdev', 'javascript', 'programming', 'react', 'database', 'tutorial']
+    }
+
+    const getTagPost = (e) => {
+        if (e !== undefined) {
+            setTagOne(e);
+            // setData(values => ({
+            //     ...values,
+            //     ['tag_1']: e,
+            // }))
+        }
     }
 
     const styles = {
@@ -141,9 +157,19 @@ function NewPost() {
                                     <textarea style={{height : `${heightTextArea > 0 ? `${heightTextArea}px` : '64px'}`}} onKeyDown={(e) => autoSize(e)} class={`block w-[90%] text-5xl font-extrabold text-[#171717] mt-3 border-transparent focus:border-transparent focus:ring-0 resize-none overflow-hidden`} placeholder="New post title here..."></textarea>
                                 </div>
 
-                                <div class="mb-6">
-                                    <Turnstone listbox={listbox} styles={styles} autoFocus={true}typeahead={true} debounceWait={250} listboxIsImmutable={true} maxItems={6} noItemsMessage="We found no places that match your search" id='tags' name='tags' placeholder="Add up to 4 tags..." />
-                                    {/* <input type="text" id="default-input" class={`text-base text-[#171717] border-transparent focus:border-transparent focus:ring-0 rounded-lg w-[90%]`} placeholder="Add up to 4 tags..."/> */}
+                                <div class="mb-6 flex items-center gap-2">
+
+                                    <Suspense fallback={<div>Loading</div>}>
+                                        {
+                                            tagOne !== '' ?
+                                            <TagPost name={tagOne}/>
+                                            :
+                                            ''
+                                        }
+                                    </Suspense>
+                                    <div className="w-full">
+                                        <Turnstone listbox={listbox} styles={styles} autoFocus={true}typeahead={true} onSelect={(e) => getTagPost(e)} debounceWait={250} listboxIsImmutable={true} maxItems={6} noItemsMessage="We found no places that match your search" id='tags' name='tags' placeholder="Add up to 4 tags..." />
+                                    </div>
                                 </div>
                             </div>
                             <div className="w-[95%] mx-auto">

@@ -9119,13 +9119,20 @@ var SuccessUpload = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.lazy(functio
 var DeleteUpload = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.lazy(function () {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./deleteUpload/DeleteUpload */ "./resources/js/Pages/NewPost/deleteUpload/DeleteUpload.js"));
 });
+var TagPost = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.lazy(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./tagPost/TagPost */ "./resources/js/Pages/NewPost/tagPost/TagPost.js"));
+});
 function NewPost() {
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)({
       email: '',
       password: '',
       remember: false,
       body: '',
-      image_content: []
+      image_content: [],
+      tag_1: '',
+      tag_2: '',
+      tag_3: '',
+      tag_4: ''
     }),
     data = _useForm.data,
     setData = _useForm.setData,
@@ -9144,6 +9151,10 @@ function NewPost() {
     _useState6 = _slicedToArray(_useState5, 2),
     heightTextArea = _useState6[0],
     setHeightTextArea = _useState6[1];
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+    _useState8 = _slicedToArray(_useState7, 2),
+    tagOne = _useState8[0],
+    setTagOne = _useState8[1];
   var editorRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
   var submit = function submit(e) {
     e.preventDefault();
@@ -9206,8 +9217,18 @@ function NewPost() {
     });
   };
   var listbox = {
-    data: ['Peach', 'Pear', 'Pineapple', 'Plum', 'Pomegranate', 'Prune']
+    data: ['webdev', 'javascript', 'programming', 'react', 'database', 'tutorial']
   };
+  var getTagPost = function getTagPost(e) {
+    if (e !== undefined) {
+      setTagOne(e);
+      // setData(values => ({
+      //     ...values,
+      //     ['tag_1']: e,
+      // }))
+    }
+  };
+
   var styles = {
     input: 'w-[90%] border py-2 px-4 text-lg outline-none rounded-md',
     listbox: 'bg-[#F5F5F5] w-[90%] p-2 text-[#3D3D3D] cursor-pointer rounded-lg',
@@ -9272,21 +9293,34 @@ function NewPost() {
                   "class": "block w-[90%] text-5xl font-extrabold text-[#171717] mt-3 border-transparent focus:border-transparent focus:ring-0 resize-none overflow-hidden",
                   placeholder: "New post title here..."
                 })
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-                "class": "mb-6",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(turnstone__WEBPACK_IMPORTED_MODULE_4__["default"], {
-                  listbox: listbox,
-                  styles: styles,
-                  autoFocus: true,
-                  typeahead: true,
-                  debounceWait: 250,
-                  listboxIsImmutable: true,
-                  maxItems: 6,
-                  noItemsMessage: "We found no places that match your search",
-                  id: "tags",
-                  name: "tags",
-                  placeholder: "Add up to 4 tags..."
-                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
+                "class": "mb-6 flex items-center gap-2",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
+                  fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                    children: "Loading"
+                  }),
+                  children: tagOne !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TagPost, {
+                    name: tagOne
+                  }) : ''
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+                  className: "w-full",
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(turnstone__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                    listbox: listbox,
+                    styles: styles,
+                    autoFocus: true,
+                    typeahead: true,
+                    onSelect: function onSelect(e) {
+                      return getTagPost(e);
+                    },
+                    debounceWait: 250,
+                    listboxIsImmutable: true,
+                    maxItems: 6,
+                    noItemsMessage: "We found no places that match your search",
+                    id: "tags",
+                    name: "tags",
+                    placeholder: "Add up to 4 tags..."
+                  })
+                })]
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "w-[95%] mx-auto",
@@ -9408,6 +9442,32 @@ function SuccessUpload() {
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (SuccessUpload);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/NewPost/tagPost/TagPost.js":
+/*!*******************************************************!*\
+  !*** ./resources/js/Pages/NewPost/tagPost/TagPost.js ***!
+  \*******************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+function TagPost(_ref) {
+  var name = _ref.name;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    className: "bg-[#EEE9EF] ".concat(name !== '' ? 'flex h-[32px]' : 'hidden', " p-2 items-center rounded-lg"),
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
+      children: name
+    })
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TagPost);
 
 /***/ }),
 
@@ -71136,6 +71196,8 @@ var map = {
 	"./NewPost/deleteUpload/DeleteUpload.js": "./resources/js/Pages/NewPost/deleteUpload/DeleteUpload.js",
 	"./NewPost/successUpload/SuccessUpload": "./resources/js/Pages/NewPost/successUpload/SuccessUpload.js",
 	"./NewPost/successUpload/SuccessUpload.js": "./resources/js/Pages/NewPost/successUpload/SuccessUpload.js",
+	"./NewPost/tagPost/TagPost": "./resources/js/Pages/NewPost/tagPost/TagPost.js",
+	"./NewPost/tagPost/TagPost.js": "./resources/js/Pages/NewPost/tagPost/TagPost.js",
 	"./Profile/Notifications/All/All": "./resources/js/Pages/Profile/Notifications/All/All.js",
 	"./Profile/Notifications/All/All.js": "./resources/js/Pages/Profile/Notifications/All/All.js",
 	"./Profile/Notifications/Comments/Comments": "./resources/js/Pages/Profile/Notifications/Comments/Comments.js",
