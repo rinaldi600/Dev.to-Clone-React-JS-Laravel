@@ -1,7 +1,7 @@
 import { Head } from "@inertiajs/inertia-react";
 import { Link } from "@inertiajs/inertia-react";
 import { useForm } from "@inertiajs/inertia-react";
-import React, { useState, useRef, useEffect, Suspense} from "react";
+import React, { useState, useRef, useEffect, Suspense } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { split, values } from "lodash";
 import Turnstone from 'turnstone';
@@ -9,6 +9,7 @@ import Turnstone from 'turnstone';
 const SuccessUpload = React.lazy(() => import('./successUpload/SuccessUpload'));
 const DeleteUpload = React.lazy(() => import('./deleteUpload/DeleteUpload'));
 const TagPost = React.lazy(() => import('./tagPost/TagPost'));
+
 
 function NewPost() {
 
@@ -28,7 +29,12 @@ function NewPost() {
     const [successDelete, setSuccessDelete] = useState(false);
     const [heightTextArea, setHeightTextArea] = useState(0);
     const [tagOne, setTagOne] = useState('');
+    const [tagTwo, setTagTwo] = useState('');
+    const [tagThree, setTagThree] = useState('');
+    const [tagFour, setTagFour] = useState('');
+    const [countTag, setCountTag] = useState(4);
     const editorRef = useRef(null);
+    const tagRef = useRef(null);
 
     const submit = (e) => {
         e.preventDefault();
@@ -108,14 +114,19 @@ function NewPost() {
         data: ['webdev', 'javascript', 'programming', 'react', 'database', 'tutorial']
     }
 
+    const test = (e) => {
+        // setCountTag(countTag - 1);
+    }
+
     const getTagPost = (e) => {
         if (e !== undefined) {
             setTagOne(e);
-            // setData(values => ({
-            //     ...values,
-            //     ['tag_1']: e,
-            // }))
+            setTagTwo(e);
+            setTagThree(e);
+            setTagFour(e);
+
         }
+        tagRef.current?.clear();
     }
 
     const styles = {
@@ -166,9 +177,28 @@ function NewPost() {
                                             :
                                             ''
                                         }
+                                        {
+                                            tagTwo !== '' ?
+                                            <TagPost name={tagTwo}/>
+                                            :
+                                            ''
+                                        }
+                                        {
+                                            tagThree !== '' ?
+                                            <TagPost name={tagThree}/>
+                                            :
+                                            ''
+                                        }
+                                        {
+                                            tagFour !== '' ?
+                                            <TagPost name={tagFour}/>
+                                            :
+                                            ''
+                                        }
+
                                     </Suspense>
                                     <div className="w-full">
-                                        <Turnstone listbox={listbox} styles={styles} autoFocus={true}typeahead={true} onSelect={(e) => getTagPost(e)} debounceWait={250} listboxIsImmutable={true} maxItems={6} noItemsMessage="We found no places that match your search" id='tags' name='tags' placeholder="Add up to 4 tags..." />
+                                        <Turnstone ref={tagRef} listbox={listbox} styles={styles} typeahead={true} cancelButton={true} onChange={(e) => test(e)} autoFocus={false} onSelect={(e) => getTagPost(e)} disabled={countTag < 1 ? true : false} listboxIsImmutable={true} maxItems={6} id='tags' name='tags' placeholder={`Add up to ${countTag} tags...`} />
                                     </div>
                                 </div>
                             </div>

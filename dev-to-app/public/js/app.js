@@ -9155,7 +9155,24 @@ function NewPost() {
     _useState8 = _slicedToArray(_useState7, 2),
     tagOne = _useState8[0],
     setTagOne = _useState8[1];
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+    _useState10 = _slicedToArray(_useState9, 2),
+    tagTwo = _useState10[0],
+    setTagTwo = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+    _useState12 = _slicedToArray(_useState11, 2),
+    tagThree = _useState12[0],
+    setTagThree = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+    _useState14 = _slicedToArray(_useState13, 2),
+    tagFour = _useState14[0],
+    setTagFour = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(4),
+    _useState16 = _slicedToArray(_useState15, 2),
+    countTag = _useState16[0],
+    setCountTag = _useState16[1];
   var editorRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+  var tagRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
   var submit = function submit(e) {
     e.preventDefault();
     console.log(data);
@@ -9219,16 +9236,19 @@ function NewPost() {
   var listbox = {
     data: ['webdev', 'javascript', 'programming', 'react', 'database', 'tutorial']
   };
+  var test = function test(e) {
+    // setCountTag(countTag - 1);
+  };
   var getTagPost = function getTagPost(e) {
+    var _tagRef$current;
     if (e !== undefined) {
       setTagOne(e);
-      // setData(values => ({
-      //     ...values,
-      //     ['tag_1']: e,
-      // }))
+      setTagTwo(e);
+      setTagThree(e);
+      setTagFour(e);
     }
+    (_tagRef$current = tagRef.current) === null || _tagRef$current === void 0 ? void 0 : _tagRef$current.clear();
   };
-
   var styles = {
     input: 'w-[90%] border py-2 px-4 text-lg outline-none rounded-md',
     listbox: 'bg-[#F5F5F5] w-[90%] p-2 text-[#3D3D3D] cursor-pointer rounded-lg',
@@ -9295,30 +9315,40 @@ function NewPost() {
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                 "class": "mb-6 flex items-center gap-2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
                   fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     children: "Loading"
                   }),
-                  children: tagOne !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TagPost, {
+                  children: [tagOne !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TagPost, {
                     name: tagOne
-                  }) : ''
+                  }) : '', tagTwo !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TagPost, {
+                    name: tagTwo
+                  }) : '', tagThree !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TagPost, {
+                    name: tagThree
+                  }) : '', tagFour !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TagPost, {
+                    name: tagFour
+                  }) : '']
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "w-full",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(turnstone__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                    ref: tagRef,
                     listbox: listbox,
                     styles: styles,
-                    autoFocus: true,
                     typeahead: true,
+                    cancelButton: true,
+                    onChange: function onChange(e) {
+                      return test(e);
+                    },
+                    autoFocus: false,
                     onSelect: function onSelect(e) {
                       return getTagPost(e);
                     },
-                    debounceWait: 250,
+                    disabled: countTag < 1 ? true : false,
                     listboxIsImmutable: true,
                     maxItems: 6,
-                    noItemsMessage: "We found no places that match your search",
                     id: "tags",
                     name: "tags",
-                    placeholder: "Add up to 4 tags..."
+                    placeholder: "Add up to ".concat(countTag, " tags...")
                   })
                 })]
               })]
@@ -9458,13 +9488,28 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
+
 function TagPost(_ref) {
   var name = _ref.name;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
-    className: "bg-[#EEE9EF] ".concat(name !== '' ? 'flex h-[32px]' : 'hidden', " p-2 items-center rounded-lg"),
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("span", {
-      children: name
-    })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    className: "bg-[#EEE9EF] ".concat(name !== '' ? 'flex h-[32px] items-center gap-1 justify-center' : 'hidden', " p-2 rounded-lg"),
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+        children: name
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        width: "16",
+        height: "16",
+        fill: "currentColor",
+        "class": "bi bi-x-lg cursor-pointer hover:fill-[#dc2626] font-bold",
+        viewBox: "0 0 16 16",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("path", {
+          d: "M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8 2.146 2.854Z"
+        })
+      })
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TagPost);

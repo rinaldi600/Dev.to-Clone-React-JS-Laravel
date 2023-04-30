@@ -659,6 +659,10 @@ select {
   bottom: 0px;
   left: 0px;
 }
+.inset-y-0 {
+  top: 0px;
+  bottom: 0px;
+}
 .top-0 {
   top: 0px;
 }
@@ -697,6 +701,9 @@ select {
 }
 .z-\[9999999\] {
   z-index: 9999999;
+}
+.z-10 {
+  z-index: 10;
 }
 .m-0 {
   margin: 0px;
@@ -899,8 +906,8 @@ select {
 .h-\[29px\] {
   height: 29px;
 }
-.h-\[\] {
-  height: ;
+.h-12 {
+  height: 3rem;
 }
 .max-h-\[42vh\] {
   max-height: 42vh;
@@ -1108,6 +1115,9 @@ select {
 }
 .w-\[48px\] {
   width: 48px;
+}
+.w-10 {
+  width: 2.5rem;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -1460,6 +1470,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(254 242 242 / var(--tw-bg-opacity));
 }
+.bg-\[\#EEE9EF\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(238 233 239 / var(--tw-bg-opacity));
+}
 .bg-gray-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(249 250 251 / var(--tw-bg-opacity));
@@ -1467,13 +1481,6 @@ select {
 .bg-yellow-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(234 179 8 / var(--tw-bg-opacity));
-}
-.bg-\[\] {
-  background-color: ;
-}
-.bg-\[\#EEE9EF\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(238 233 239 / var(--tw-bg-opacity));
 }
 .fill-current {
   fill: currentColor;
@@ -1489,6 +1496,24 @@ select {
 }
 .fill-\[\#66757F\] {
   fill: #66757F;
+}
+.fill-\[\#243c5a\] {
+  fill: #243c5a;
+}
+.fill-red-300 {
+  fill: #fca5a5;
+}
+.fill-\[\#DC2626\] {
+  fill: #DC2626;
+}
+.fill-\[\] {
+  fill: ;
+}
+.fill-\[\#dc2626\] {
+  fill: #dc2626;
+}
+.stroke-2 {
+  stroke-width: 2;
 }
 .p-6 {
   padding: 1.5rem;
@@ -1865,6 +1890,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(82 82 82 / var(--tw-text-opacity));
 }
+.text-blue-400 {
+  --tw-text-opacity: 1;
+  color: rgb(96 165 250 / var(--tw-text-opacity));
+}
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -2102,8 +2131,24 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(229 229 229 / var(--tw-bg-opacity));
 }
+.hover\:bg-\[\]:hover {
+  background-color: ;
+}
+.hover\:bg-\[\#\#DC2626\]:hover {
+  background-color: ##DC2626;
+}
+.hover\:bg-\[\#DC2626\]:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
 .hover\:fill-\[\#2F3AB2\]:hover {
   fill: #2F3AB2;
+}
+.hover\:fill-\[\#DC2626\]:hover {
+  fill: #DC2626;
+}
+.hover\:fill-\[\#dc2626\]:hover {
+  fill: #dc2626;
 }
 .hover\:font-medium:hover {
   font-weight: 500;
