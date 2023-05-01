@@ -13,33 +13,26 @@ const TagPost = React.lazy(() => import('./tagPost/TagPost'));
 
 function NewPost() {
 
-    const { data, setData, post, processing, errors } = useForm({
+    const { data, setData, post, processing, errors, transform} = useForm({
         email: '',
         password: '',
         remember: false,
         body : '',
         image_content : [],
-        tag_1 : '',
-        tag_2 : '',
-        tag_3 : '',
-        tag_4 : '',
+        tags : [],
     });
 
     const [successUpload, setSuccessUpload] = useState(false);
     const [successDelete, setSuccessDelete] = useState(false);
     const [heightTextArea, setHeightTextArea] = useState(0);
     const [tagList, setTagList] = useState([]);
-    const [tagOne, setTagOne] = useState('');
-    const [tagTwo, setTagTwo] = useState('');
-    const [tagThree, setTagThree] = useState('');
-    const [tagFour, setTagFour] = useState('');
     const [countTag, setCountTag] = useState(4);
     const editorRef = useRef(null);
     const tagRef = useRef(null);
 
     const submit = (e) => {
         e.preventDefault();
-        console.log(data);
+        data.tags = tagList;
         post('/get_data_post');
     }
 
@@ -117,34 +110,21 @@ function NewPost() {
 
     const removeTag = (detailTag) => {
         console.log(detailTag);
-        // if (detailTag.position === 1) {
-        //     setTagOne('');
-        // } else if (detailTag.position === 2) {
-        //     setTagTwo('');
-        // } else if (detailTag.position === 3) {
-        //     setTagThree('');
-        // } else if (detailTag.position === 4) {
-        //     setTagFour('');
-        // }
-        // setCurrentDeleteNumber(oldArray => [...oldArray, detailTag?.position]);
-        // console.log(currentDeleteNumber);
-        // if (countTag < 5 && countTag > -1) {
-        //     setCountTag(countTag + 1);
-        // }
+        const temp = [...tagList];
+
+        temp.splice(detailTag.position, 1);
+
+        setTagList(temp);
+        if (countTag < 5 && countTag > -1) {
+            setCountTag(countTag + 1);
+        }
     };
 
     const getTagPost = (e) => {
         if (e !== undefined) {
-            setTagList(prevList => [...prevList, e]);
-            // if (countTag === 1) {
-            //     setTagOne(e);
-            // } else if (countTag === 2) {
-            //     setTagTwo(e);
-            // } else if (countTag === 3) {
-            //     setTagThree(e);
-            // } else if (countTag === 4) {
-            //     setTagFour(e);
-            // }
+            if (tagList.length < 4) {
+                setTagList(prevList => [...prevList, e]);
+            }
             setCountTag(countTag - 1);
         }
         tagRef.current?.clear();
@@ -178,7 +158,6 @@ function NewPost() {
                         </div>
                     </div>
                     <div className="max-w-[806px] mt-1.5 pb-5 bg-white min-h-screen mx-auto rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]">
-                    {/* onSubmit={submit} */}
                         <form onSubmit={submit} onKeyDown={(e) => { e.key === 'Enter' && e.preventDefault(); }}>
                             <div className="pt-8 pl-16 w-full">
                                 <div>
@@ -200,52 +179,15 @@ function NewPost() {
                                                 }}/>
                                             ))
                                         }
-                                        {/* {
-                                            tagOne !== '' ?
-                                            <TagPost removeTag={removeTag} name={{
-                                                nameTag : tagOne,
-                                                position : 1,
-                                            }}/>
-                                            :
-                                            ''
-                                        }
-                                        {
-                                            tagTwo !== '' ?
-                                            <TagPost removeTag={removeTag} name={{
-                                                nameTag : tagTwo,
-                                                position : 2,
-                                            }}/>
-                                            :
-                                            ''
-                                        }
-                                        {
-                                            tagThree !== '' ?
-                                            <TagPost removeTag={removeTag} name={{
-                                                nameTag : tagThree,
-                                                position : 3,
-                                            }}/>
-                                            :
-                                            ''
-                                        }
-                                        {
-                                            tagFour !== '' ?
-                                            <TagPost removeTag={removeTag} name={{
-                                                nameTag : tagFour,
-                                                position : 4,
-                                            }}/>
-                                            :
-                                            ''
-                                        } */}
 
                                     </Suspense>
                                     <div className="w-full">
-                                        <Turnstone ref={tagRef} listbox={listbox} styles={styles} typeahead={true} autoFocus={false} onSelect={(e) => getTagPost(e)} disabled={countTag < 1 ? true : false} listboxIsImmutable={true} maxItems={6} id='tags' name='tags' placeholder={`Add up to ${countTag} tags...`} />
-                                        {/* {
+                                        {
                                             countTag === 0 ?
                                             ''
                                             :
                                             <Turnstone ref={tagRef} listbox={listbox} styles={styles} typeahead={true} autoFocus={false} onSelect={(e) => getTagPost(e)} disabled={countTag < 1 ? true : false} listboxIsImmutable={true} maxItems={6} id='tags' name='tags' placeholder={`Add up to ${countTag} tags...`} />
-                                        } */}
+                                        }
                                     </div>
                                 </div>
                             </div>

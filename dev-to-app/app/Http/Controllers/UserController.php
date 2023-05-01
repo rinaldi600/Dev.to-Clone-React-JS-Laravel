@@ -334,6 +334,9 @@ class UserController extends Controller
 
     public function getDataPost(Request $request) {
         dd($request->input());
+        return response()->json([
+            'test' => $request->input(),
+        ]);
     }
 
     public function handlerImage(Request $request) {

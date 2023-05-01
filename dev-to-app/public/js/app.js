@@ -9129,16 +9129,14 @@ function NewPost() {
       remember: false,
       body: '',
       image_content: [],
-      tag_1: '',
-      tag_2: '',
-      tag_3: '',
-      tag_4: ''
+      tags: []
     }),
     data = _useForm.data,
     setData = _useForm.setData,
     post = _useForm.post,
     processing = _useForm.processing,
-    errors = _useForm.errors;
+    errors = _useForm.errors,
+    transform = _useForm.transform;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     successUpload = _useState2[0],
@@ -9155,31 +9153,15 @@ function NewPost() {
     _useState8 = _slicedToArray(_useState7, 2),
     tagList = _useState8[0],
     setTagList = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(4),
     _useState10 = _slicedToArray(_useState9, 2),
-    tagOne = _useState10[0],
-    setTagOne = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
-    _useState12 = _slicedToArray(_useState11, 2),
-    tagTwo = _useState12[0],
-    setTagTwo = _useState12[1];
-  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
-    _useState14 = _slicedToArray(_useState13, 2),
-    tagThree = _useState14[0],
-    setTagThree = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
-    _useState16 = _slicedToArray(_useState15, 2),
-    tagFour = _useState16[0],
-    setTagFour = _useState16[1];
-  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(4),
-    _useState18 = _slicedToArray(_useState17, 2),
-    countTag = _useState18[0],
-    setCountTag = _useState18[1];
+    countTag = _useState10[0],
+    setCountTag = _useState10[1];
   var editorRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
   var tagRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
   var submit = function submit(e) {
     e.preventDefault();
-    console.log(data);
+    data.tags = tagList;
     post('/get_data_post');
   };
   var autoSize = function autoSize(e) {
@@ -9242,37 +9224,21 @@ function NewPost() {
   };
   var removeTag = function removeTag(detailTag) {
     console.log(detailTag);
-    // if (detailTag.position === 1) {
-    //     setTagOne('');
-    // } else if (detailTag.position === 2) {
-    //     setTagTwo('');
-    // } else if (detailTag.position === 3) {
-    //     setTagThree('');
-    // } else if (detailTag.position === 4) {
-    //     setTagFour('');
-    // }
-    // setCurrentDeleteNumber(oldArray => [...oldArray, detailTag?.position]);
-    // console.log(currentDeleteNumber);
-    // if (countTag < 5 && countTag > -1) {
-    //     setCountTag(countTag + 1);
-    // }
+    var temp = _toConsumableArray(tagList);
+    temp.splice(detailTag.position, 1);
+    setTagList(temp);
+    if (countTag < 5 && countTag > -1) {
+      setCountTag(countTag + 1);
+    }
   };
-
   var getTagPost = function getTagPost(e) {
     var _tagRef$current;
     if (e !== undefined) {
-      setTagList(function (prevList) {
-        return [].concat(_toConsumableArray(prevList), [e]);
-      });
-      // if (countTag === 1) {
-      //     setTagOne(e);
-      // } else if (countTag === 2) {
-      //     setTagTwo(e);
-      // } else if (countTag === 3) {
-      //     setTagThree(e);
-      // } else if (countTag === 4) {
-      //     setTagFour(e);
-      // }
+      if (tagList.length < 4) {
+        setTagList(function (prevList) {
+          return [].concat(_toConsumableArray(prevList), [e]);
+        });
+      }
       setCountTag(countTag - 1);
     }
     (_tagRef$current = tagRef.current) === null || _tagRef$current === void 0 ? void 0 : _tagRef$current.clear();
@@ -9358,7 +9324,7 @@ function NewPost() {
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "w-full",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(turnstone__WEBPACK_IMPORTED_MODULE_4__["default"], {
+                  children: countTag === 0 ? '' : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(turnstone__WEBPACK_IMPORTED_MODULE_4__["default"], {
                     ref: tagRef,
                     listbox: listbox,
                     styles: styles,
