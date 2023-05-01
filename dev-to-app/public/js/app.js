@@ -9151,26 +9151,30 @@ function NewPost() {
     _useState6 = _slicedToArray(_useState5, 2),
     heightTextArea = _useState6[0],
     setHeightTextArea = _useState6[1];
-  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+  var _useState7 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
     _useState8 = _slicedToArray(_useState7, 2),
-    tagOne = _useState8[0],
-    setTagOne = _useState8[1];
+    tagList = _useState8[0],
+    setTagList = _useState8[1];
   var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
     _useState10 = _slicedToArray(_useState9, 2),
-    tagTwo = _useState10[0],
-    setTagTwo = _useState10[1];
+    tagOne = _useState10[0],
+    setTagOne = _useState10[1];
   var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
     _useState12 = _slicedToArray(_useState11, 2),
-    tagThree = _useState12[0],
-    setTagThree = _useState12[1];
+    tagTwo = _useState12[0],
+    setTagTwo = _useState12[1];
   var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
     _useState14 = _slicedToArray(_useState13, 2),
-    tagFour = _useState14[0],
-    setTagFour = _useState14[1];
-  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(4),
+    tagThree = _useState14[0],
+    setTagThree = _useState14[1];
+  var _useState15 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
     _useState16 = _slicedToArray(_useState15, 2),
-    countTag = _useState16[0],
-    setCountTag = _useState16[1];
+    tagFour = _useState16[0],
+    setTagFour = _useState16[1];
+  var _useState17 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(4),
+    _useState18 = _slicedToArray(_useState17, 2),
+    countTag = _useState18[0],
+    setCountTag = _useState18[1];
   var editorRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
   var tagRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
   var submit = function submit(e) {
@@ -9236,16 +9240,40 @@ function NewPost() {
   var listbox = {
     data: ['webdev', 'javascript', 'programming', 'react', 'database', 'tutorial']
   };
-  var test = function test(e) {
-    // setCountTag(countTag - 1);
+  var removeTag = function removeTag(detailTag) {
+    console.log(detailTag);
+    // if (detailTag.position === 1) {
+    //     setTagOne('');
+    // } else if (detailTag.position === 2) {
+    //     setTagTwo('');
+    // } else if (detailTag.position === 3) {
+    //     setTagThree('');
+    // } else if (detailTag.position === 4) {
+    //     setTagFour('');
+    // }
+    // setCurrentDeleteNumber(oldArray => [...oldArray, detailTag?.position]);
+    // console.log(currentDeleteNumber);
+    // if (countTag < 5 && countTag > -1) {
+    //     setCountTag(countTag + 1);
+    // }
   };
+
   var getTagPost = function getTagPost(e) {
     var _tagRef$current;
     if (e !== undefined) {
-      setTagOne(e);
-      setTagTwo(e);
-      setTagThree(e);
-      setTagFour(e);
+      setTagList(function (prevList) {
+        return [].concat(_toConsumableArray(prevList), [e]);
+      });
+      // if (countTag === 1) {
+      //     setTagOne(e);
+      // } else if (countTag === 2) {
+      //     setTagTwo(e);
+      // } else if (countTag === 3) {
+      //     setTagThree(e);
+      // } else if (countTag === 4) {
+      //     setTagFour(e);
+      // }
+      setCountTag(countTag - 1);
     }
     (_tagRef$current = tagRef.current) === null || _tagRef$current === void 0 ? void 0 : _tagRef$current.clear();
   };
@@ -9315,19 +9343,19 @@ function NewPost() {
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                 "class": "mb-6 flex items-center gap-2",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
                   fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     children: "Loading"
                   }),
-                  children: [tagOne !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TagPost, {
-                    name: tagOne
-                  }) : '', tagTwo !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TagPost, {
-                    name: tagTwo
-                  }) : '', tagThree !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TagPost, {
-                    name: tagThree
-                  }) : '', tagFour !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TagPost, {
-                    name: tagFour
-                  }) : '']
+                  children: tagList.map(function (list, index) {
+                    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(TagPost, {
+                      removeTag: removeTag,
+                      name: {
+                        nameTag: list,
+                        position: index
+                      }
+                    });
+                  })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                   className: "w-full",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(turnstone__WEBPACK_IMPORTED_MODULE_4__["default"], {
@@ -9335,10 +9363,6 @@ function NewPost() {
                     listbox: listbox,
                     styles: styles,
                     typeahead: true,
-                    cancelButton: true,
-                    onChange: function onChange(e) {
-                      return test(e);
-                    },
                     autoFocus: false,
                     onSelect: function onSelect(e) {
                       return getTagPost(e);
@@ -9490,15 +9514,19 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function TagPost(_ref) {
-  var name = _ref.name;
+  var name = _ref.name,
+    removeTag = _ref.removeTag;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-    className: "bg-[#EEE9EF] ".concat(name !== '' ? 'flex h-[32px] items-center gap-1 justify-center' : 'hidden', " p-2 rounded-lg"),
+    className: "bg-[#EEE9EF] ".concat(name.nameTag !== '' ? 'flex h-[32px] items-center gap-1 justify-center' : 'hidden', " p-2 rounded-lg"),
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
-        children: name
+        children: name.nameTag
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("svg", {
+        onClick: function onClick() {
+          return removeTag(name);
+        },
         xmlns: "http://www.w3.org/2000/svg",
         width: "16",
         height: "16",

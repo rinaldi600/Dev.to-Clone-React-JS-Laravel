@@ -28,6 +28,7 @@ function NewPost() {
     const [successUpload, setSuccessUpload] = useState(false);
     const [successDelete, setSuccessDelete] = useState(false);
     const [heightTextArea, setHeightTextArea] = useState(0);
+    const [tagList, setTagList] = useState([]);
     const [tagOne, setTagOne] = useState('');
     const [tagTwo, setTagTwo] = useState('');
     const [tagThree, setTagThree] = useState('');
@@ -114,17 +115,37 @@ function NewPost() {
         data: ['webdev', 'javascript', 'programming', 'react', 'database', 'tutorial']
     }
 
-    const test = (e) => {
-        // setCountTag(countTag - 1);
-    }
+    const removeTag = (detailTag) => {
+        console.log(detailTag);
+        // if (detailTag.position === 1) {
+        //     setTagOne('');
+        // } else if (detailTag.position === 2) {
+        //     setTagTwo('');
+        // } else if (detailTag.position === 3) {
+        //     setTagThree('');
+        // } else if (detailTag.position === 4) {
+        //     setTagFour('');
+        // }
+        // setCurrentDeleteNumber(oldArray => [...oldArray, detailTag?.position]);
+        // console.log(currentDeleteNumber);
+        // if (countTag < 5 && countTag > -1) {
+        //     setCountTag(countTag + 1);
+        // }
+    };
 
     const getTagPost = (e) => {
         if (e !== undefined) {
-            setTagOne(e);
-            setTagTwo(e);
-            setTagThree(e);
-            setTagFour(e);
-
+            setTagList(prevList => [...prevList, e]);
+            // if (countTag === 1) {
+            //     setTagOne(e);
+            // } else if (countTag === 2) {
+            //     setTagTwo(e);
+            // } else if (countTag === 3) {
+            //     setTagThree(e);
+            // } else if (countTag === 4) {
+            //     setTagFour(e);
+            // }
+            setCountTag(countTag - 1);
         }
         tagRef.current?.clear();
     }
@@ -172,33 +193,59 @@ function NewPost() {
 
                                     <Suspense fallback={<div>Loading</div>}>
                                         {
+                                            tagList.map((list, index) => (
+                                                <TagPost removeTag={removeTag} name={{
+                                                    nameTag : list,
+                                                    position : index,
+                                                }}/>
+                                            ))
+                                        }
+                                        {/* {
                                             tagOne !== '' ?
-                                            <TagPost name={tagOne}/>
+                                            <TagPost removeTag={removeTag} name={{
+                                                nameTag : tagOne,
+                                                position : 1,
+                                            }}/>
                                             :
                                             ''
                                         }
                                         {
                                             tagTwo !== '' ?
-                                            <TagPost name={tagTwo}/>
+                                            <TagPost removeTag={removeTag} name={{
+                                                nameTag : tagTwo,
+                                                position : 2,
+                                            }}/>
                                             :
                                             ''
                                         }
                                         {
                                             tagThree !== '' ?
-                                            <TagPost name={tagThree}/>
+                                            <TagPost removeTag={removeTag} name={{
+                                                nameTag : tagThree,
+                                                position : 3,
+                                            }}/>
                                             :
                                             ''
                                         }
                                         {
                                             tagFour !== '' ?
-                                            <TagPost name={tagFour}/>
+                                            <TagPost removeTag={removeTag} name={{
+                                                nameTag : tagFour,
+                                                position : 4,
+                                            }}/>
                                             :
                                             ''
-                                        }
+                                        } */}
 
                                     </Suspense>
                                     <div className="w-full">
-                                        <Turnstone ref={tagRef} listbox={listbox} styles={styles} typeahead={true} cancelButton={true} onChange={(e) => test(e)} autoFocus={false} onSelect={(e) => getTagPost(e)} disabled={countTag < 1 ? true : false} listboxIsImmutable={true} maxItems={6} id='tags' name='tags' placeholder={`Add up to ${countTag} tags...`} />
+                                        <Turnstone ref={tagRef} listbox={listbox} styles={styles} typeahead={true} autoFocus={false} onSelect={(e) => getTagPost(e)} disabled={countTag < 1 ? true : false} listboxIsImmutable={true} maxItems={6} id='tags' name='tags' placeholder={`Add up to ${countTag} tags...`} />
+                                        {/* {
+                                            countTag === 0 ?
+                                            ''
+                                            :
+                                            <Turnstone ref={tagRef} listbox={listbox} styles={styles} typeahead={true} autoFocus={false} onSelect={(e) => getTagPost(e)} disabled={countTag < 1 ? true : false} listboxIsImmutable={true} maxItems={6} id='tags' name='tags' placeholder={`Add up to ${countTag} tags...`} />
+                                        } */}
                                     </div>
                                 </div>
                             </div>
