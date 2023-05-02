@@ -9162,6 +9162,7 @@ function NewPost() {
   var submit = function submit(e) {
     e.preventDefault();
     data.tags = tagList;
+    // data.body = editorRef.current.getContent();
     post('/get_data_post');
   };
   var autoSize = function autoSize(e) {

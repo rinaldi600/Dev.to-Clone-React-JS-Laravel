@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Remember_Me;
 use App\Models\User;
+use App\Models\Post;
+use DateTime;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
@@ -333,9 +335,17 @@ class UserController extends Controller
     }
 
     public function getDataPost(Request $request) {
-        dd($request->input());
+
+        // $post = Post::create([
+        //     'id_post' =>
+        // ]);
+
+        // dd(json_encode($request->input('tags')));
+        dd('POST - ' . date('dmYHis', time()) . substr((string)microtime(), 1, 8));
+        dd(\DateTime::createFromFormat('U.u', microtime(true)));
         return response()->json([
             'test' => $request->input(),
+            'user' => Auth::user()->id_user,
         ]);
     }
 
