@@ -899,6 +899,12 @@ select {
 .h-\[29px\] {
   height: 29px;
 }
+.h-\[\] {
+  height: ;
+}
+.h-\[50\%\] {
+  height: 50%;
+}
 .max-h-\[42vh\] {
   max-height: 42vh;
 }
@@ -1105,6 +1111,15 @@ select {
 }
 .w-\[48px\] {
   width: 48px;
+}
+.w-\[\] {
+  width: ;
+}
+.w-\[70\] {
+  width: 70;
+}
+.w-\[70\%\] {
+  width: 70%;
 }
 .max-w-xl {
   max-width: 36rem;

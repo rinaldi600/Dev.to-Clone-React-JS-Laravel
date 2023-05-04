@@ -341,6 +341,7 @@ class UserController extends Controller
         // ]);
 
         // dd(json_encode($request->input('tags')));
+        dd($request->input());
         dd('POST - ' . date('dmYHis', time()) . substr((string)microtime(), 1, 8));
         dd(\DateTime::createFromFormat('U.u', microtime(true)));
         return response()->json([
