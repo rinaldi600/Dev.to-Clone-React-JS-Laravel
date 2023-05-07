@@ -336,18 +336,30 @@ class UserController extends Controller
 
     public function getDataPost(Request $request) {
 
-        // $post = Post::create([
-        //     'id_post' =>
-        // ]);
-
-        // dd(json_encode($request->input('tags')));
-        dd($request->input());
-        dd('POST - ' . date('dmYHis', time()) . substr((string)microtime(), 1, 8));
-        dd(\DateTime::createFromFormat('U.u', microtime(true)));
-        return response()->json([
-            'test' => $request->input(),
-            'user' => Auth::user()->id_user,
+        $validator = Validator::make($request->all(), [
+            'title' => 'required|unique:posts|max:255',
+            'body' => 'required',
         ]);
+
+        if ($validator->fails()) {
+
+        } else {
+            // $post = Post::create([
+            //     'id_post' =>
+            // ]);
+
+            // dd(json_encode($request->input('tags')));
+            dd(array(
+                'file' => $request->file('cover'),
+                'text' => $request->input()
+            ));
+            // dd('POST - ' . date('dmYHis', time()) . substr((string)microtime(), 1, 8));
+            // dd(\DateTime::createFromFormat('U.u', microtime(true)));
+            return response()->json([
+                'test' => $request->input(),
+                'user' => Auth::user()->id_user,
+            ]);
+        }
     }
 
     public function handlerImage(Request $request) {

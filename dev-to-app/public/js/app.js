@@ -9162,13 +9162,17 @@ function NewPost() {
     _useState12 = _slicedToArray(_useState11, 2),
     countTag = _useState12[0],
     setCountTag = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
+    _useState14 = _slicedToArray(_useState13, 2),
+    previewImage = _useState14[0],
+    setPreview = _useState14[1];
   var editorRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
   var inputFileCoverImage = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
   var tagRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
   var submit = function submit(e) {
     e.preventDefault();
     data.tags = tagList;
-    // data.body = editorRef.current.getContent();
+    data.body = editorRef.current.getContent();
     post('/get_data_post');
   };
   var autoSize = function autoSize(e) {
@@ -9178,17 +9182,13 @@ function NewPost() {
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     window.addEventListener('click', function (e) {
       if (e.target.id =  true && e.target.tagName === 'INPUT') {
-        console.log(e.target);
-        // console.log("WORK")
-        // console.log(activeEventOnSelect);
-        // setActiveEventOnSelect(true);
+        setActiveEventOnSelect(true);
       } else {
         console.log("WORK");
+        setActiveEventOnSelect(false);
       }
-      // setActiveEventOnSelect(false);
     });
   });
-
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     setTimeout(function () {
       if (successUpload) {
@@ -9198,6 +9198,7 @@ function NewPost() {
         setSuccessDelete(false);
       }
     }, 2000);
+    console.log(errors);
   });
   var example_image_upload_handler = function example_image_upload_handler(blobInfo, progress) {
     return new Promise(function (resolve, reject) {
@@ -9261,7 +9262,11 @@ function NewPost() {
         });
       }
       setCountTag(countTag - 1);
+      // if (activeEventOnSelect) {
+      //     setActiveEventOnSelect(false);
+      // }
     }
+
     (_tagRef$current = tagRef.current) === null || _tagRef$current === void 0 ? void 0 : _tagRef$current.clear();
   };
   var uploadCoverImage = function uploadCoverImage() {
@@ -9317,15 +9322,20 @@ function NewPost() {
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                   className: "mb-3 w-[70%]",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
+                  children: previewImage.length > 0 && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("img", {
                     className: "w-full h-full rounded-lg",
-                    src: _img_gillian_putri_x4xOsrbvVAk_unsplash_jpg__WEBPACK_IMPORTED_MODULE_5__["default"],
+                    src: previewImage,
                     alt: "Cover Image"
                   })
                 }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("input", {
                   className: "hidden",
                   onChange: function onChange(e) {
-                    return setData('cover', e.target.files[0]);
+                    setData('cover', e.target.files[0]);
+                    try {
+                      setPreview(URL.createObjectURL(e.target.files[0]));
+                    } catch (error) {
+                      setPreview([]);
+                    }
                   },
                   ref: inputFileCoverImage,
                   type: "file",
@@ -9335,10 +9345,17 @@ function NewPost() {
                   type: "button",
                   className: "h-[40px] p-2 w-[163.113px] text-[#3D3D3D] font-medium rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]",
                   children: "Add a cover image"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                  id: "outlined_error_help",
+                  "class": "mt-2 text-xs text-red-600 dark:text-red-400",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    "class": "font-medium",
+                    children: "Oh, snapp!"
+                  }), " Some error message."]
                 })]
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                 className: "mb-6",
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("textarea", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("textarea", {
                   autoFocus: true,
                   onKeyUp: function onKeyUp(e) {
                     return setData('title', e.target.value);
@@ -9351,7 +9368,14 @@ function NewPost() {
                   },
                   "class": "block w-[90%] text-5xl font-extrabold text-[#171717] mt-3 border-transparent focus:border-transparent focus:ring-0 resize-none overflow-hidden",
                   placeholder: "New post title here..."
-                })
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("p", {
+                  id: "outlined_error_help",
+                  "class": "mt-2 text-xs text-red-600 dark:text-red-400",
+                  children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("span", {
+                    "class": "font-medium",
+                    children: "Oh, snapp!"
+                  }), " Some error message."]
+                })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                 "class": "mb-6 flex items-center gap-2",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
@@ -9388,61 +9412,7 @@ function NewPost() {
               className: "w-[95%] mx-auto",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)("div", {
                 className: "mb-6",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_tinymce_tinymce_react__WEBPACK_IMPORTED_MODULE_2__.Editor, {
-                  apiKey: "2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c",
-                  onInit: function onInit(evt, editor) {
-                    editorRef.current = editor;
-                    editor.on('keydown', function (e) {
-                      if ((e.key == "Backspace" || e.key == "Delete") && editor.selection) {
-                        var selectedNode = editor.selection.getNode();
-                        if (selectedNode && selectedNode.nodeName == 'IMG') {
-                          var imageSrc = selectedNode.src;
-                          var pathName = (0,lodash__WEBPACK_IMPORTED_MODULE_3__.split)(new URL(imageSrc).pathname, '/');
-                          var requestOptions = {
-                            method: 'POST',
-                            headers: {
-                              'Content-Type': 'application/json',
-                              "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content
-                            },
-                            body: JSON.stringify({
-                              nameImage: "".concat(pathName[2], "/").concat(pathName[4])
-                            })
-                          };
-                          fetch('/delete_image_post', requestOptions).then(function (response) {
-                            return response.json();
-                          }).then(function (responseJson) {
-                            setData(function (values) {
-                              return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, 'image_content', values.image_content.filter(function (item) {
-                                return item !== "".concat(pathName[2], "/").concat(pathName[4]);
-                              })));
-                            });
-                            setSuccessDelete(true);
-                            console.log(responseJson);
-                          })["catch"](function (error) {
-                            console.error(error);
-                          });
-                        }
-                      }
-                    });
-                  },
-                  initialValue: "<p>This is the initial content of the editor.</p>",
-                  init: {
-                    // width: 600,
-                    height: 500,
-                    plugins: ['advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak', 'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media', 'table', 'emoticons', 'template', 'help'],
-                    toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' + 'bullist numlist outdent indent | link image | print preview media fullscreen | ' + 'forecolor backcolor emoticons | help',
-                    menu: {
-                      favs: {
-                        title: 'My Favorites',
-                        items: 'code visualaid | searchreplace | emoticons'
-                      }
-                    },
-                    menubar: 'favs file edit view insert format tools table help',
-                    images_upload_handler: example_image_upload_handler,
-                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
-                    placeholder: "Write your post content here..."
-                  }
-                }), successUpload ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
+                children: [successUpload ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
                   fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)("div", {
                     children: "Loading"
                   }),

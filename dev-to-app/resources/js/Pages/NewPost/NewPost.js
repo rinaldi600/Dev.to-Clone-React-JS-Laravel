@@ -29,14 +29,16 @@ function NewPost() {
     const [activeEventOnSelect, setActiveEventOnSelect] = useState(false);
     const [tagList, setTagList] = useState([]);
     const [countTag, setCountTag] = useState(4);
+    const [previewImage, setPreview] = useState([]);
     const editorRef = useRef(null);
     const inputFileCoverImage = useRef();
     const tagRef = useRef(null);
 
+
     const submit = (e) => {
         e.preventDefault();
         data.tags = tagList;
-        // data.body = editorRef.current.getContent();
+        data.body = editorRef.current.getContent();
         post('/get_data_post');
     }
 
@@ -48,14 +50,11 @@ function NewPost() {
     useEffect(() => {
         window.addEventListener('click', (e) => {
             if (e.target.id = 'tags' && e.target.tagName === 'INPUT') {
-                console.log(e.target);
-                // console.log("WORK")
-                // console.log(activeEventOnSelect);
-                // setActiveEventOnSelect(true);
+                setActiveEventOnSelect(true);
             } else {
                 console.log("WORK");
+                setActiveEventOnSelect(false);
             }
-            // setActiveEventOnSelect(false);
         })
     });
 
@@ -68,6 +67,7 @@ function NewPost() {
                 setSuccessDelete(false);
             }
         }, 2000);
+        console.log(errors);
     })
 
     const example_image_upload_handler = (blobInfo, progress) => new Promise((resolve, reject) => {
@@ -145,6 +145,9 @@ function NewPost() {
                 setTagList(prevList => [...prevList, e]);
             }
             setCountTag(countTag - 1);
+            // if (activeEventOnSelect) {
+            //     setActiveEventOnSelect(false);
+            // }
         }
         tagRef.current?.clear();
     }
@@ -152,7 +155,6 @@ function NewPost() {
     const uploadCoverImage = () => {
         inputFileCoverImage.current.click();
     };
-
 
     const styles = {
         input: 'w-[90%] border py-2 px-4 text-lg outline-none rounded-md',
@@ -186,14 +188,27 @@ function NewPost() {
                             <div className="pt-8 pl-16 w-full">
                                 <div>
                                     <div className="mb-3 w-[70%]">
-                                        <img className="w-full h-full rounded-lg" src={ImageJapan} alt="Cover Image" />
+                                        {
+                                            previewImage.length > 0 &&
+                                            <img className="w-full h-full rounded-lg"
+                                            src={ previewImage } alt="Cover Image" />
+                                        }
                                     </div>
-                                    <input className="hidden" onChange={(e) => setData('cover', e.target.files[0])} ref={inputFileCoverImage} type="file" name="cover_image"/>
+                                    <input className="hidden" onChange={(e) => {
+                                        setData('cover', e.target.files[0]);
+                                        try {
+                                            setPreview(URL.createObjectURL(e.target.files[0]));
+                                        } catch (error) {
+                                            setPreview([]);
+                                        }
+                                    }} ref={inputFileCoverImage} type="file" name="cover_image"/>
                                     <button onClick={uploadCoverImage} type="button" className="h-[40px] p-2 w-[163.113px] text-[#3D3D3D] font-medium rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]">Add a cover image</button>
+                                    <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">Oh, snapp!</span> Some error message.</p>
                                 </div>
 
                                 <div className="mb-6">
                                     <textarea autoFocus={true} onKeyUp={(e) => setData('title', e.target.value)} style={{height : `${heightTextArea > 0 ? `${heightTextArea}px` : '64px'}`}} onKeyDown={(e) => autoSize(e)} class={`block w-[90%] text-5xl font-extrabold text-[#171717] mt-3 border-transparent focus:border-transparent focus:ring-0 resize-none overflow-hidden`} placeholder="New post title here..."></textarea>
+                                    <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">Oh, snapp!</span> Some error message.</p>
                                 </div>
 
                                 <div class="mb-6 flex items-center gap-2">
@@ -221,7 +236,7 @@ function NewPost() {
                             </div>
                             <div className="w-[95%] mx-auto">
                                 <div className="mb-6">
-                                    <Editor
+                                    {/* <Editor
                                         apiKey='2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c'
                                         onInit={(evt, editor) => {
                                             editorRef.current = editor;
@@ -279,7 +294,7 @@ function NewPost() {
                                             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
                                             placeholder : "Write your post content here..."
                                         }}
-                                    />
+                                    /> */}
                                     {
                                         successUpload ?
                                         <Suspense fallback={<div>Loading</div>}>
