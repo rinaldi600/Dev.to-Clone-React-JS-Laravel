@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -337,13 +338,27 @@ class UserController extends Controller
     public function getDataPost(Request $request) {
 
         $validator = Validator::make($request->all(), [
-            'title' => 'required|unique:posts|max:255',
-            'body' => 'required',
+            'title' => 'required|string|max:255',
+            'cover' => 'required|file|image|max:1000|mimes:jpg,bmp,png',
+        ], [
+            'required' => ':attribute wajib diisi.',
+            'cover.file' => ':attribute wajib diisi.',
+            'cover.image' => ':attribute harus wajib berupa gambar.',
+            'cover.max' => ':attribute ukuran maksimal 1 MB.',
+            'cover.mimes' => ':attribute format gambar harus jpg,bmp dan png.',
+            'title.max' => ':attribute maksimal 255 karakter.',
         ]);
 
         if ($validator->fails()) {
-
+            return redirect()->back()->withErrors($validator)->withInput();
         } else {
+            $data = [
+                'id_post' => 'POST - ' . date('dmYHis', time()) . substr((string)microtime(), 1, 8),
+                'cover' => Storage::url(Storage::disk('public')->put('cover_post', $request->file('cover'))),
+                'title' => $request->input('title'),
+                'content' => $request->input('body'),
+            ];
+
             // $post = Post::create([
             //     'id_post' =>
             // ]);
@@ -351,7 +366,7 @@ class UserController extends Controller
             // dd(json_encode($request->input('tags')));
             dd(array(
                 'file' => $request->file('cover'),
-                'text' => $request->input()
+                'text' => $request->input(),
             ));
             // dd('POST - ' . date('dmYHis', time()) . substr((string)microtime(), 1, 8));
             // dd(\DateTime::createFromFormat('U.u', microtime(true)));

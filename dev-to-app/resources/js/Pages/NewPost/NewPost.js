@@ -5,8 +5,6 @@ import React, { useState, useRef, useEffect, Suspense } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { split, values } from "lodash";
 import Turnstone from 'turnstone';
-import ImageJapan from '../../../img/gillian-putri-x4xOsrbvVAk-unsplash.jpg';
-
 
 const SuccessUpload = React.lazy(() => import('./successUpload/SuccessUpload'));
 const DeleteUpload = React.lazy(() => import('./deleteUpload/DeleteUpload'));
@@ -38,7 +36,7 @@ function NewPost() {
     const submit = (e) => {
         e.preventDefault();
         data.tags = tagList;
-        data.body = editorRef.current.getContent();
+        // data.body = editorRef.current.getContent();
         post('/get_data_post');
     }
 
@@ -203,12 +201,18 @@ function NewPost() {
                                         }
                                     }} ref={inputFileCoverImage} type="file" name="cover_image"/>
                                     <button onClick={uploadCoverImage} type="button" className="h-[40px] p-2 w-[163.113px] text-[#3D3D3D] font-medium rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]">Add a cover image</button>
-                                    <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">Oh, snapp!</span> Some error message.</p>
+                                    {
+                                        errors?.cover &&
+                                        <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">Oh, snapp!</span> {errors?.cover}</p>
+                                    }
                                 </div>
 
                                 <div className="mb-6">
                                     <textarea autoFocus={true} onKeyUp={(e) => setData('title', e.target.value)} style={{height : `${heightTextArea > 0 ? `${heightTextArea}px` : '64px'}`}} onKeyDown={(e) => autoSize(e)} class={`block w-[90%] text-5xl font-extrabold text-[#171717] mt-3 border-transparent focus:border-transparent focus:ring-0 resize-none overflow-hidden`} placeholder="New post title here..."></textarea>
-                                    <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">Oh, snapp!</span> Some error message.</p>
+                                    {
+                                        errors?.title &&
+                                        <p id="outlined_error_help" class="mt-2 text-xs text-red-600 dark:text-red-400"><span class="font-medium">Oh, snapp!</span> {errors?.title}</p>
+                                    }
                                 </div>
 
                                 <div class="mb-6 flex items-center gap-2">
