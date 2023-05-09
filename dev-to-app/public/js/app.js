@@ -9136,6 +9136,7 @@ function NewPost() {
     processing = _useForm.processing,
     errors = _useForm.errors,
     transform = _useForm.transform;
+  var test_res = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     successUpload = _useState2[0],
@@ -9170,9 +9171,13 @@ function NewPost() {
   var submit = function submit(e) {
     e.preventDefault();
     data.tags = tagList;
-    // data.body = editorRef.current.getContent();
+    data.body = editorRef.current.getContent();
     post('/get_data_post');
   };
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    var _test_res$flash;
+    console.log(JSON.parse(test_res === null || test_res === void 0 ? void 0 : (_test_res$flash = test_res.flash) === null || _test_res$flash === void 0 ? void 0 : _test_res$flash.test_res));
+  });
   var autoSize = function autoSize(e) {
     console.log(e.target.scrollHeight);
     setHeightTextArea(e.target.scrollHeight);
@@ -9410,7 +9415,61 @@ function NewPost() {
               className: "w-[95%] mx-auto",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                 className: "mb-6",
-                children: [successUpload ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_tinymce_tinymce_react__WEBPACK_IMPORTED_MODULE_2__.Editor, {
+                  apiKey: "2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c",
+                  onInit: function onInit(evt, editor) {
+                    editorRef.current = editor;
+                    editor.on('keydown', function (e) {
+                      if ((e.key == "Backspace" || e.key == "Delete") && editor.selection) {
+                        var selectedNode = editor.selection.getNode();
+                        if (selectedNode && selectedNode.nodeName == 'IMG') {
+                          var imageSrc = selectedNode.src;
+                          var pathName = (0,lodash__WEBPACK_IMPORTED_MODULE_3__.split)(new URL(imageSrc).pathname, '/');
+                          var requestOptions = {
+                            method: 'POST',
+                            headers: {
+                              'Content-Type': 'application/json',
+                              "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content
+                            },
+                            body: JSON.stringify({
+                              nameImage: "".concat(pathName[2], "/").concat(pathName[4])
+                            })
+                          };
+                          fetch('/delete_image_post', requestOptions).then(function (response) {
+                            return response.json();
+                          }).then(function (responseJson) {
+                            setData(function (values) {
+                              return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, 'image_content', values.image_content.filter(function (item) {
+                                return item !== "".concat(pathName[2], "/").concat(pathName[4]);
+                              })));
+                            });
+                            setSuccessDelete(true);
+                            console.log(responseJson);
+                          })["catch"](function (error) {
+                            console.error(error);
+                          });
+                        }
+                      }
+                    });
+                  },
+                  initialValue: "<p>This is the initial content of the editor.</p>",
+                  init: {
+                    // width: 600,
+                    height: 500,
+                    plugins: ['advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak', 'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media', 'table', 'emoticons', 'template', 'help'],
+                    toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' + 'bullist numlist outdent indent | link image | print preview media fullscreen | ' + 'forecolor backcolor emoticons | help',
+                    menu: {
+                      favs: {
+                        title: 'My Favorites',
+                        items: 'code visualaid | searchreplace | emoticons'
+                      }
+                    },
+                    menubar: 'favs file edit view insert format tools table help',
+                    images_upload_handler: example_image_upload_handler,
+                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+                    placeholder: "Write your post content here..."
+                  }
+                }), successUpload ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
                   fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     children: "Loading"
                   }),

@@ -357,23 +357,17 @@ class UserController extends Controller
                 'cover' => Storage::url(Storage::disk('public')->put('cover_post', $request->file('cover'))),
                 'title' => $request->input('title'),
                 'content' => $request->input('body'),
+                'image_content' => json_encode($request->input('image_content')),
+                'tags' => json_encode($request->input('tags')),
+                'id_user' => Auth::user()->id_user,
             ];
 
-            // $post = Post::create([
-            //     'id_post' =>
-            // ]);
+            $post = Post::create($data);
 
             // dd(json_encode($request->input('tags')));
-            dd(array(
-                'file' => $request->file('cover'),
-                'text' => $request->input(),
-            ));
             // dd('POST - ' . date('dmYHis', time()) . substr((string)microtime(), 1, 8));
             // dd(\DateTime::createFromFormat('U.u', microtime(true)));
-            return response()->json([
-                'test' => $request->input(),
-                'user' => Auth::user()->id_user,
-            ]);
+            return redirect()->back()->withInput()->with('test_res', json_encode($request->input('image_content')));
         }
     }
 

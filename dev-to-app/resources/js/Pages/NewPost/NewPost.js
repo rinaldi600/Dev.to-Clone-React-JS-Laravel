@@ -1,4 +1,4 @@
-import { Head } from "@inertiajs/inertia-react";
+import { Head, usePage } from "@inertiajs/inertia-react";
 import { Link } from "@inertiajs/inertia-react";
 import { useForm } from "@inertiajs/inertia-react";
 import React, { useState, useRef, useEffect, Suspense } from "react";
@@ -10,7 +10,6 @@ const SuccessUpload = React.lazy(() => import('./successUpload/SuccessUpload'));
 const DeleteUpload = React.lazy(() => import('./deleteUpload/DeleteUpload'));
 const TagPost = React.lazy(() => import('./tagPost/TagPost'));
 
-
 function NewPost() {
 
     const { data, setData, post, processing, errors, transform} = useForm({
@@ -20,6 +19,8 @@ function NewPost() {
         image_content : [],
         tags : [],
     });
+
+    const test_res = usePage().props;
 
     const [successUpload, setSuccessUpload] = useState(false);
     const [successDelete, setSuccessDelete] = useState(false);
@@ -36,9 +37,13 @@ function NewPost() {
     const submit = (e) => {
         e.preventDefault();
         data.tags = tagList;
-        // data.body = editorRef.current.getContent();
+        data.body = editorRef.current.getContent();
         post('/get_data_post');
     }
+
+    useEffect(() => {
+        console.log(JSON.parse(test_res?.flash?.test_res));
+    });
 
     const autoSize = (e) => {
         console.log(e.target.scrollHeight)
@@ -240,7 +245,7 @@ function NewPost() {
                             </div>
                             <div className="w-[95%] mx-auto">
                                 <div className="mb-6">
-                                    {/* <Editor
+                                    <Editor
                                         apiKey='2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c'
                                         onInit={(evt, editor) => {
                                             editorRef.current = editor;
@@ -298,7 +303,7 @@ function NewPost() {
                                             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
                                             placeholder : "Write your post content here..."
                                         }}
-                                    /> */}
+                                    />
                                     {
                                         successUpload ?
                                         <Suspense fallback={<div>Loading</div>}>
