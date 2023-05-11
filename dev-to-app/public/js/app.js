@@ -9136,7 +9136,6 @@ function NewPost() {
     processing = _useForm.processing,
     errors = _useForm.errors,
     transform = _useForm.transform;
-  var test_res = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     successUpload = _useState2[0],
@@ -9174,10 +9173,7 @@ function NewPost() {
     data.body = editorRef.current.getContent();
     post('/get_data_post');
   };
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    var _test_res$flash;
-    console.log(JSON.parse(test_res === null || test_res === void 0 ? void 0 : (_test_res$flash = test_res.flash) === null || _test_res$flash === void 0 ? void 0 : _test_res$flash.test_res));
-  });
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {});
   var autoSize = function autoSize(e) {
     console.log(e.target.scrollHeight);
     setHeightTextArea(e.target.scrollHeight);
@@ -9630,6 +9626,98 @@ function TagPost(_ref) {
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (TagPost);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Profile/Dashboard/Dashboard.js":
+/*!***********************************************************!*\
+  !*** ./resources/js/Pages/Profile/Dashboard/Dashboard.js ***!
+  \***********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
+/* harmony import */ var _DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DetailBoxStatistic/DetailBoxStatistic */ "./resources/js/Pages/Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function Dashboard() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    className: "min-h-screen bg-[#F5F5F5]",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "min-h-fit font-['Segoe_UI'] max-w-[1280px] pt-9 mx-auto",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+        className: "font-bold text-3xl text-[#090909] p-2",
+        children: "Dashboard"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "flex w-full flex-wrap gap-4 pt-6 justify-center",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          count: 0,
+          desc: 'Total post reactions'
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          count: '< 500',
+          desc: 'Total post views'
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          count: 5,
+          desc: 'Credits available'
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          count: 0,
+          desc: 'Listings created'
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        className: "w-full p-2 bg-yellow-400",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+          children: "WORK"
+        })
+      })]
+    })
+  });
+}
+Dashboard.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: page,
+    title: "Welcome"
+  });
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Dashboard);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js":
+/*!***************************************************************************************!*\
+  !*** ./resources/js/Pages/Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function DetailBoxStatistic(_ref) {
+  var count = _ref.count,
+    desc = _ref.desc;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+    className: "w-[300px] font-['Segoe_UI'] h-[109.5px] bg-white rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] flex flex-col justify-center items-center",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
+      className: "font-bold text-3xl text-[#090909]",
+      children: count
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("p", {
+      className: "text-base text-[#717171]",
+      children: desc
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DetailBoxStatistic);
 
 /***/ }),
 
@@ -71360,6 +71448,10 @@ var map = {
 	"./NewPost/successUpload/SuccessUpload.js": "./resources/js/Pages/NewPost/successUpload/SuccessUpload.js",
 	"./NewPost/tagPost/TagPost": "./resources/js/Pages/NewPost/tagPost/TagPost.js",
 	"./NewPost/tagPost/TagPost.js": "./resources/js/Pages/NewPost/tagPost/TagPost.js",
+	"./Profile/Dashboard/Dashboard": "./resources/js/Pages/Profile/Dashboard/Dashboard.js",
+	"./Profile/Dashboard/Dashboard.js": "./resources/js/Pages/Profile/Dashboard/Dashboard.js",
+	"./Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic": "./resources/js/Pages/Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js",
+	"./Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js": "./resources/js/Pages/Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js",
 	"./Profile/Notifications/All/All": "./resources/js/Pages/Profile/Notifications/All/All.js",
 	"./Profile/Notifications/All/All.js": "./resources/js/Pages/Profile/Notifications/All/All.js",
 	"./Profile/Notifications/Comments/Comments": "./resources/js/Pages/Profile/Notifications/Comments/Comments.js",

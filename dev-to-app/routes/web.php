@@ -50,14 +50,15 @@ Route::middleware('isValidLogin')->group(function () {
         Route::get('/posts', [\App\Http\Controllers\UserController::class, 'notificationsPost']);
     });
     Route::get('/new', [\App\Http\Controllers\UserController::class, 'new']);
+    Route::get('/dashboard', [\App\Http\Controllers\UserController::class, 'dashboard']);
     Route::post('/get_data_post', [\App\Http\Controllers\UserController::class, 'getDataPost']);
     Route::post('/handler_image', [\App\Http\Controllers\UserController::class, 'handlerImage']);
     Route::post('/delete_image_post', [\App\Http\Controllers\UserController::class, 'deleteImagePost']);
     Route::get('/{user:username}', [\App\Http\Controllers\UserController::class, 'profileUser']);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 require __DIR__.'/auth.php';

@@ -1,9 +1,9 @@
-import { Head, usePage } from "@inertiajs/inertia-react";
+import { Head } from "@inertiajs/inertia-react";
 import { Link } from "@inertiajs/inertia-react";
 import { useForm } from "@inertiajs/inertia-react";
 import React, { useState, useRef, useEffect, Suspense } from "react";
 import { Editor } from "@tinymce/tinymce-react";
-import { split, values } from "lodash";
+import { split } from "lodash";
 import Turnstone from 'turnstone';
 
 const SuccessUpload = React.lazy(() => import('./successUpload/SuccessUpload'));
@@ -19,8 +19,6 @@ function NewPost() {
         image_content : [],
         tags : [],
     });
-
-    const test_res = usePage().props;
 
     const [successUpload, setSuccessUpload] = useState(false);
     const [successDelete, setSuccessDelete] = useState(false);
@@ -42,7 +40,7 @@ function NewPost() {
     }
 
     useEffect(() => {
-        console.log(JSON.parse(test_res?.flash?.test_res));
+
     });
 
     const autoSize = (e) => {

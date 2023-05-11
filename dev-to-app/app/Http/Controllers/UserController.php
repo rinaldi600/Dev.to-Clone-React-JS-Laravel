@@ -371,6 +371,10 @@ class UserController extends Controller
         }
     }
 
+    public function dashboard() {
+        return Inertia::render('Profile/Dashboard/Dashboard');
+    }
+
     public function handlerImage(Request $request) {
         $validator = Validator::make($request->all(), [
             'file' => 'image|mimes:jpg,png|max:512',
