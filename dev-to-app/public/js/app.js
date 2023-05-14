@@ -9642,45 +9642,57 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
 /* harmony import */ var _DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DetailBoxStatistic/DetailBoxStatistic */ "./resources/js/Pages/Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _LinkDashboard_LinkDashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LinkDashboard/LinkDashboard */ "./resources/js/Pages/Profile/Dashboard/LinkDashboard/LinkDashboard.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
 
 
 
 
 function Dashboard() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "min-h-screen bg-[#F5F5F5]",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      className: "min-h-fit font-['Segoe_UI'] max-w-[1280px] pt-9 mx-auto",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-        className: "font-bold text-3xl text-[#090909] p-2",
-        children: "Dashboard"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        className: "flex w-full flex-wrap gap-4 pt-6 justify-center",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          count: 0,
-          desc: 'Total post reactions'
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          count: '< 500',
-          desc: 'Total post views'
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          count: 5,
-          desc: 'Credits available'
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
-          count: 0,
-          desc: 'Listings created'
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
+      title: "Dashboard - DEV Community"
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "min-h-screen bg-[#F5F5F5]",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        className: "min-h-fit font-['Segoe_UI'] max-w-[1280px] pt-9 mx-auto",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+          className: "font-bold text-3xl text-[#090909] p-2",
+          children: "Dashboard"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "flex w-full flex-wrap gap-4 pt-6 justify-center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            count: 0,
+            desc: 'Total post reactions'
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            count: '< 500',
+            desc: 'Total post views'
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            count: 5,
+            desc: 'Credits available'
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            count: 0,
+            desc: 'Listings created'
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          className: "w-full flex mt-4 p-2 flex-wrap min-h-[416px]",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "min-h-full w-[20%]",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LinkDashboard_LinkDashboard__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            className: "bg-green-300 min-h-full w-[80%]"
+          })]
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        className: "w-full p-2 bg-yellow-400",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-          children: "WORK"
-        })
-      })]
-    })
+      })
+    })]
   });
 }
 Dashboard.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
     children: page,
     title: "Welcome"
   });
@@ -9718,6 +9730,71 @@ function DetailBoxStatistic(_ref) {
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DetailBoxStatistic);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Profile/Dashboard/LinkDashboard/LinkDashboard.js":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/Pages/Profile/Dashboard/LinkDashboard/LinkDashboard.js ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function LinkDashboard() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+      className: "w-full h-[40px] bg-white rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+        className: "w-[100%] hover:text-[#2F72CD] text-[#090909] text-base font-medium",
+        href: "#",
+        children: "Posts"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "bg-[#D4D4D4] text-sm font-medium rounded-lg p-1 text-[#404040]",
+        children: "1"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+      className: "w-full h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+        className: "w-[100%] text-[#090909] text-base",
+        href: "#",
+        children: "Series"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "bg-[#D4D4D4] text-sm font-medium rounded-lg p-1 text-[#404040]",
+        children: "0"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+      className: "w-full h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+        className: "w-[100%] text-[#090909] text-base",
+        href: "#",
+        children: "Followers"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "bg-[#D4D4D4] text-sm font-medium rounded-lg p-1 text-[#404040]",
+        children: "1"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+      className: "w-full h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+        className: "w-[100%] text-[#090909] text-base",
+        href: "#",
+        children: "Following tags"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "bg-[#D4D4D4] text-sm font-medium rounded-lg p-1 text-[#404040]",
+        children: "0"
+      })]
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LinkDashboard);
 
 /***/ }),
 
@@ -71452,6 +71529,8 @@ var map = {
 	"./Profile/Dashboard/Dashboard.js": "./resources/js/Pages/Profile/Dashboard/Dashboard.js",
 	"./Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic": "./resources/js/Pages/Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js",
 	"./Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js": "./resources/js/Pages/Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js",
+	"./Profile/Dashboard/LinkDashboard/LinkDashboard": "./resources/js/Pages/Profile/Dashboard/LinkDashboard/LinkDashboard.js",
+	"./Profile/Dashboard/LinkDashboard/LinkDashboard.js": "./resources/js/Pages/Profile/Dashboard/LinkDashboard/LinkDashboard.js",
 	"./Profile/Notifications/All/All": "./resources/js/Pages/Profile/Notifications/All/All.js",
 	"./Profile/Notifications/All/All.js": "./resources/js/Pages/Profile/Notifications/All/All.js",
 	"./Profile/Notifications/Comments/Comments": "./resources/js/Pages/Profile/Notifications/Comments/Comments.js",
