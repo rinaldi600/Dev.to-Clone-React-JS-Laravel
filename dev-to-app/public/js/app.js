@@ -9679,12 +9679,44 @@ function Dashboard() {
             desc: 'Listings created'
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: "w-full flex mt-4 p-2 flex-wrap min-h-[416px]",
+          className: "w-full flex gap-2 mt-4 p-2 flex-wrap min-h-[416px]",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: "min-h-full w-[20%]",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LinkDashboard_LinkDashboard__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-            className: "bg-green-300 min-h-full w-[80%]"
+            className: "min-h-full w-full lg:w-[18%] relative",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "sticky top-0",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LinkDashboard_LinkDashboard__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            className: "p-2 w-full min-h-full lg:w-[80%] relative",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "h-[38.6px] flex justify-between sticky top-0 items-center w-full",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+                className: "font-bold text-xl",
+                children: "Posts"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+                className: "w-[174.4px] rounded-md border-1 border-[#D4D4D4]",
+                name: "filter",
+                id: "filter",
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "creation-desc",
+                  children: "Recently Created"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "published-desc",
+                  children: "Recently Published"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "views-desc",
+                  children: "Most Views"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "reactions-desc",
+                  children: "Most Reactions"
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                  value: "comments-desc",
+                  children: "Most Comments"
+                })]
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+              className: "min-h-[650px] mt-3"
+            })]
           })]
         })]
       })
@@ -9749,48 +9781,113 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
 function LinkDashboard() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-      className: "w-full h-[40px] bg-white rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
-        className: "w-[100%] hover:text-[#2F72CD] text-[#090909] text-base font-medium",
-        href: "#",
-        children: "Posts"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        className: "bg-[#D4D4D4] text-sm font-medium rounded-lg p-1 text-[#404040]",
-        children: "1"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        className: "w-full min-h-[40px] bg-white rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "w-[100%] hover:text-[#2F72CD] text-[#090909] text-base font-medium",
+          href: "#",
+          children: "Posts"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "bg-[#D4D4D4] text-sm w-[15.5px] flex justify-center items-center h-[22px] font-medium rounded-lg p-1 text-[#404040]",
+          children: "1"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        className: "w-full min-h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "w-[100%] text-[#090909] text-base",
+          href: "#",
+          children: "Series"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "bg-[#D4D4D4] flex justify-center items-center text-sm font-medium w-[15.5px] h-[22px] rounded-lg p-1 text-[#404040]",
+          children: "0"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        className: "w-full min-h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "w-[100%] text-[#090909] text-base",
+          href: "#",
+          children: "Followers"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "bg-[#D4D4D4] text-sm w-[15.5px] flex justify-center items-center h-[22px] font-medium rounded-lg p-1 text-[#404040]",
+          children: "1"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        className: "w-full min-h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "w-[100%] text-[#090909] text-base",
+          href: "#",
+          children: "Following tags"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "bg-[#D4D4D4] text-sm w-[15.5px] h-[22px] flex justify-center items-center font-medium rounded-lg p-1 text-[#404040]",
+          children: "0"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        className: "w-full min-h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "w-[100%] text-[#090909] text-base",
+          href: "#",
+          children: "Following users"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "bg-[#D4D4D4] text-sm w-[15.5px] h-[22px] flex justify-center items-center font-medium rounded-lg p-1 text-[#404040]",
+          children: "0"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        className: "w-full min-h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "w-[100%] text-[#090909] text-base",
+          href: "#",
+          children: "Following organizations"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "bg-[#D4D4D4] text-sm w-[15.5px] h-[22px] flex justify-center items-center font-medium rounded-lg p-1 text-[#404040]",
+          children: "0"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        className: "w-full min-h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "w-[100%] text-[#090909] text-base",
+          href: "#",
+          children: "Following podcasts"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "bg-[#D4D4D4] text-sm w-[15.5px] h-[22px] flex justify-center items-center font-medium rounded-lg p-1 text-[#404040]",
+          children: "0"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("li", {
+        className: "w-full min-h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-start pr-2",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "w-[100%] text-[#090909] flex gap-2 items-center text-base",
+          href: "#",
+          children: ["Listings", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+            xmlns: "http://www.w3.org/2000/svg",
+            fill: "none",
+            viewBox: "0 0 24 24",
+            "stroke-width": "1.5",
+            stroke: "currentColor",
+            "class": "w-[16px] h-[16px] fill-[#404040]text-[#404040]",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+              "stroke-linecap": "round",
+              "stroke-linejoin": "round",
+              d: "M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+            })
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
+        className: "w-full min-h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "w-[100%] text-[#090909] text-base",
+          href: "#",
+          children: "Analytics"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "bg-[#D4D4D4] text-sm w-[15.5px] h-[22px] flex justify-center items-center font-medium rounded-lg p-1 text-[#404040]",
+          children: "0"
+        })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-      className: "w-full h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
-        className: "w-[100%] text-[#090909] text-base",
-        href: "#",
-        children: "Series"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        className: "bg-[#D4D4D4] text-sm font-medium rounded-lg p-1 text-[#404040]",
-        children: "0"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-      className: "w-full h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
-        className: "w-[100%] text-[#090909] text-base",
-        href: "#",
-        children: "Followers"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        className: "bg-[#D4D4D4] text-sm font-medium rounded-lg p-1 text-[#404040]",
-        children: "1"
-      })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
-      className: "w-full h-[40px] hover:bg-[#E2E3F3] rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
-        className: "w-[100%] text-[#090909] text-base",
-        href: "#",
-        children: "Following tags"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-        className: "bg-[#D4D4D4] text-sm font-medium rounded-lg p-1 text-[#404040]",
-        children: "0"
-      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+      className: "h-[40px] mt-3 rounded-lg w-full bg-[#D6D6D7]",
+      children: "Upload a video"
     })]
   });
 }

@@ -16,12 +16,26 @@ function Dashboard() {
                         <DetailBoxStatistic count={5} desc={'Credits available'}/>
                         <DetailBoxStatistic count={0} desc={'Listings created'}/>
                     </div>
-                    <div className="w-full flex mt-4 p-2 flex-wrap min-h-[416px]">
-                        <div className="min-h-full w-[20%]">
-                            <LinkDashboard/>
+                    <div className="w-full flex gap-2 mt-4 p-2 flex-wrap min-h-[416px]">
+                        <div className="min-h-full w-full lg:w-[18%] relative">
+                            <div className="sticky top-0">
+                                <LinkDashboard/>
+                            </div>
                         </div>
-                        <div className="bg-green-300 min-h-full w-[80%]">
+                        <div className="p-2 w-full min-h-full lg:w-[80%] relative">
+                            <div className="h-[38.6px] flex justify-between sticky top-0 items-center w-full">
+                                <h2 className="font-bold text-xl">Posts</h2>
+                                <select className="w-[174.4px] rounded-md border-1 border-[#D4D4D4]" name="filter" id="filter">
+                                    <option value="creation-desc">Recently Created</option>
+                                    <option value="published-desc">Recently Published</option>
+                                    <option value="views-desc">Most Views</option>
+                                    <option value="reactions-desc">Most Reactions</option>
+                                    <option value="comments-desc">Most Comments</option>
+                                </select>
+                            </div>
+                            <div className="min-h-[650px] mt-3">
 
+                            </div>
                         </div>
                     </div>
                 </div>
