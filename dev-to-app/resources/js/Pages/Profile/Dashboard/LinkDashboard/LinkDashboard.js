@@ -3,7 +3,7 @@ import { Link } from "@inertiajs/inertia-react";
 function LinkDashboard() {
     return (
         <>
-            <ul>
+            <ul className="font-['Segoe_UI']">
                 <li className="w-full min-h-[40px] bg-white rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2">
                     <Link className="w-[100%] hover:text-[#2F72CD] text-[#090909] text-base font-medium" href="#">Posts</Link>
                     <p className="bg-[#D4D4D4] text-sm w-[15.5px] flex justify-center items-center h-[22px] font-medium rounded-lg p-1 text-[#404040]">1</p>

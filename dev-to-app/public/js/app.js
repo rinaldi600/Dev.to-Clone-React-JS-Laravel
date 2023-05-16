@@ -9644,7 +9644,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DetailBoxStatistic/DetailBoxStatistic */ "./resources/js/Pages/Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _LinkDashboard_LinkDashboard__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./LinkDashboard/LinkDashboard */ "./resources/js/Pages/Profile/Dashboard/LinkDashboard/LinkDashboard.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _PostBox_PostBox__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./PostBox/PostBox */ "./resources/js/Pages/Profile/Dashboard/PostBox/PostBox.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
 
 
 
@@ -9653,69 +9655,70 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function Dashboard() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
       title: "Dashboard - DEV Community"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "min-h-screen bg-[#F5F5F5]",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         className: "min-h-fit font-['Segoe_UI'] max-w-[1280px] pt-9 mx-auto",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h1", {
           className: "font-bold text-3xl text-[#090909] p-2",
           children: "Dashboard"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "flex w-full flex-wrap gap-4 pt-6 justify-center",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
             count: 0,
             desc: 'Total post reactions'
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
             count: '< 500',
             desc: 'Total post views'
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
             count: 5,
             desc: 'Credits available'
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_DetailBoxStatistic_DetailBoxStatistic__WEBPACK_IMPORTED_MODULE_1__["default"], {
             count: 0,
             desc: 'Listings created'
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
           className: "w-full flex gap-2 mt-4 p-2 flex-wrap min-h-[416px]",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
             className: "min-h-full w-full lg:w-[18%] relative",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
               className: "sticky top-0",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_LinkDashboard_LinkDashboard__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_LinkDashboard_LinkDashboard__WEBPACK_IMPORTED_MODULE_3__["default"], {})
             })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "p-2 w-full min-h-full lg:w-[80%] relative",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
               className: "h-[38.6px] flex justify-between sticky top-0 items-center w-full",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h2", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
                 className: "font-bold text-xl",
                 children: "Posts"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("select", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("select", {
                 className: "w-[174.4px] rounded-md border-1 border-[#D4D4D4]",
                 name: "filter",
                 id: "filter",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                   value: "creation-desc",
                   children: "Recently Created"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                   value: "published-desc",
                   children: "Recently Published"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                   value: "views-desc",
                   children: "Most Views"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                   value: "reactions-desc",
                   children: "Most Reactions"
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("option", {
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
                   value: "comments-desc",
                   children: "Most Comments"
                 })]
               })]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-              className: "min-h-[650px] mt-3"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
+              className: "min-h-[650px] shadow-[0_1px_3px_0px_rgba(0,0,0,0.02),0_0px_0px_1px_rgba(27,31,35,0.15)] mt-3 rounded-md overflow-hidden",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_PostBox_PostBox__WEBPACK_IMPORTED_MODULE_4__["default"], {})
             })]
           })]
         })]
@@ -9724,7 +9727,7 @@ function Dashboard() {
   });
 }
 Dashboard.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
     children: page,
     title: "Welcome"
   });
@@ -9785,6 +9788,7 @@ __webpack_require__.r(__webpack_exports__);
 function LinkDashboard() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("ul", {
+      className: "font-['Segoe_UI']",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("li", {
         className: "w-full min-h-[40px] bg-white rounded-md grid items-center pl-2 grid-flow-col justify-between pr-2",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
@@ -9892,6 +9896,75 @@ function LinkDashboard() {
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (LinkDashboard);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Profile/Dashboard/PostBox/PostBox.js":
+/*!*****************************************************************!*\
+  !*** ./resources/js/Pages/Profile/Dashboard/PostBox/PostBox.js ***!
+  \*****************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function PostBox() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+    className: "w-full p-4 hover:bg-[#F9F9F9] flex justify-between items-center min-h-[64px] border-b-2 border-[#EFEFEF] bg-white",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+        href: "/",
+        className: "text-[#3B49DF] font-bold text-lg",
+        children: "Test 1"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+        className: "text-sm text-[#717171]",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "font-medium",
+          children: "Published:"
+        }), " May 15"]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "flex items-center gap-2 flex-wrap",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("svg", {
+        xmlns: "http://www.w3.org/2000/svg",
+        fill: "none",
+        viewBox: "0 0 24 24",
+        "stroke-width": "1.5",
+        stroke: "currentColor",
+        "class": "w-[16px] h-[16px] text-[#717171] font-bold",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("path", {
+          "stroke-linecap": "round",
+          "stroke-linejoin": "round",
+          d: "M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "text-sm text-[#717171]",
+        children: "0"
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("form", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "flex items-center flex-wrap",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+          type: "button",
+          className: "text-sm w-[63px] rounded-lg hover:bg-[#F0F0F0] h-[32px]",
+          children: "Edit"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("button", {
+          type: "button",
+          className: "text-sm text-[#DC2626] rounded-lg w-[63px] h-[32px] hover:bg-[#F0F0F0]",
+          children: "Delete"
+        })]
+      })
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (PostBox);
 
 /***/ }),
 
@@ -71628,6 +71701,8 @@ var map = {
 	"./Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js": "./resources/js/Pages/Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js",
 	"./Profile/Dashboard/LinkDashboard/LinkDashboard": "./resources/js/Pages/Profile/Dashboard/LinkDashboard/LinkDashboard.js",
 	"./Profile/Dashboard/LinkDashboard/LinkDashboard.js": "./resources/js/Pages/Profile/Dashboard/LinkDashboard/LinkDashboard.js",
+	"./Profile/Dashboard/PostBox/PostBox": "./resources/js/Pages/Profile/Dashboard/PostBox/PostBox.js",
+	"./Profile/Dashboard/PostBox/PostBox.js": "./resources/js/Pages/Profile/Dashboard/PostBox/PostBox.js",
 	"./Profile/Notifications/All/All": "./resources/js/Pages/Profile/Notifications/All/All.js",
 	"./Profile/Notifications/All/All.js": "./resources/js/Pages/Profile/Notifications/All/All.js",
 	"./Profile/Notifications/Comments/Comments": "./resources/js/Pages/Profile/Notifications/Comments/Comments.js",
