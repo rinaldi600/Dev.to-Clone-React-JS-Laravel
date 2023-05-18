@@ -30,6 +30,7 @@
     "dependencies": {
         "@reduxjs/toolkit": "^1.9.1",
         "@tinymce/tinymce-react": "^4.3.0",
+        "moment": "^2.29.4",
         "redux": "^4.2.0",
         "turnstone": "^2.2.0"
     }

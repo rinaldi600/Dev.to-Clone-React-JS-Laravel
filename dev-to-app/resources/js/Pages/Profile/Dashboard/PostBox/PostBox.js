@@ -1,11 +1,28 @@
-import { Link, useForm } from "@inertiajs/inertia-react";
+import { Link, useForm, usePage } from "@inertiajs/inertia-react";
+import moment from 'moment';
+import { useEffect } from "react";
+import 'moment/locale/id';
 
-function PostBox() {
+function PostBox({key, detail = Object}) {
+    const { auth } = usePage().props
+    const { data, post, processing } = useForm({
+        idPosts: detail?.id_post,
+    })
+
+    useEffect(() => {
+        console.log(auth)
+    })
+
+    const submit = (e) => {
+        e.preventDefault()
+        post('/delete_post')
+    }
+
     return (
-        <div className="w-full p-4 hover:bg-[#F9F9F9] flex justify-between items-center min-h-[64px] border-b-2 border-[#EFEFEF] bg-white">
+        <div key={key} className="w-full p-4 hover:bg-[#F9F9F9] flex justify-between items-center min-h-[64px] border-b-2 border-[#EFEFEF] bg-white">
             <div>
-                <Link href="/" className="text-[#3B49DF] font-bold text-lg">Test 1</Link>
-                <p className="text-sm text-[#717171]"><span className="font-medium">Published:</span> May 15</p>
+                <Link href={`/${auth?.user?.username}/${detail['slug']}`} className="text-[#3B49DF] font-bold text-lg">{detail?.title}</Link>
+                <p className="text-sm text-[#717171]"><span className="font-medium">Published:</span> {moment(detail?.created_at).format('MMMM Do YYYY, h:mm:ss a')}</p>
             </div>
             <div className="flex items-center gap-2 flex-wrap">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[16px] h-[16px] text-[#717171] font-bold">
@@ -13,12 +30,12 @@ function PostBox() {
                 </svg>
                 <p className="text-sm text-[#717171]">0</p>
             </div>
-            <form>
-                <div className="flex items-center flex-wrap">
-                    <button type="button" className="text-sm w-[63px] rounded-lg hover:bg-[#F0F0F0] h-[32px]">Edit</button>
-                    <button type="button" className="text-sm text-[#DC2626] rounded-lg w-[63px] h-[32px] hover:bg-[#F0F0F0]">Delete</button>
-                </div>
-            </form>
+            <div className="flex items-center flex-wrap">
+                <Link href={`${detail?.slug}/edit`} className="text-sm w-[63px] flex items-center justify-center rounded-lg hover:bg-[#F0F0F0] h-[32px]">Edit</Link>
+                <form onSubmit={submit}>
+                    <button type="submit" className="text-sm text-[#DC2626] rounded-lg w-[63px] h-[32px] hover:bg-[#F0F0F0]">Delete</button>
+                </form>
+            </div>
         </div>
     )
 }

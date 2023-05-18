@@ -364,15 +364,31 @@ class UserController extends Controller
 
             $post = Post::create($data);
 
-            // dd(json_encode($request->input('tags')));
-            // dd('POST - ' . date('dmYHis', time()) . substr((string)microtime(), 1, 8));
-            // dd(\DateTime::createFromFormat('U.u', microtime(true)));
             return redirect()->back()->withInput()->with('test_res', json_encode($request->input('image_content')));
         }
     }
 
     public function dashboard() {
-        return Inertia::render('Profile/Dashboard/Dashboard');
+        return Inertia::render('Profile/Dashboard/Dashboard', [
+            'dataPost' => Post::where('id_user', Auth::user()->id_user)->get()
+        ]);
+    }
+
+    public function editPost(Post $post) {
+        dd($post);
+    }
+
+    public function deletePost(Request $request) {
+        return response()->json([
+            'res' => $request->input(),
+        ]);
+    }
+
+    public function seePost(User $user, Post $post) {
+        return response()->json([
+            'ress' => $user->email,
+            'res' => $post->title,
+        ]);
     }
 
     public function handlerImage(Request $request) {

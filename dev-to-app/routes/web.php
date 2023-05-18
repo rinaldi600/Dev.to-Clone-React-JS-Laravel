@@ -50,6 +50,9 @@ Route::middleware('isValidLogin')->group(function () {
         Route::get('/posts', [\App\Http\Controllers\UserController::class, 'notificationsPost']);
     });
     Route::get('/new', [\App\Http\Controllers\UserController::class, 'new']);
+    Route::get('/{post:slug}/edit', [\App\Http\Controllers\UserController::class, 'editPost']);
+    Route::post('/delete_post', [\App\Http\Controllers\UserController::class, 'deletePost']);
+    Route::get('/{user:username}/{post:slug}', [\App\Http\Controllers\UserController::class, 'seePost']);
     Route::get('/dashboard', [\App\Http\Controllers\UserController::class, 'dashboard']);
     Route::post('/get_data_post', [\App\Http\Controllers\UserController::class, 'getDataPost']);
     Route::post('/handler_image', [\App\Http\Controllers\UserController::class, 'handlerImage']);

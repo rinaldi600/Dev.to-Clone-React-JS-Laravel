@@ -686,8 +686,11 @@ select {
 .bottom-0 {
   bottom: 0px;
 }
-.top-2 {
-  top: 0.5rem;
+.top-3 {
+  top: 0.75rem;
+}
+.top-32 {
+  top: 8rem;
 }
 .z-0 {
   z-index: 0;
@@ -917,8 +920,8 @@ select {
 .h-\[16px\] {
   height: 16px;
 }
-.h-\[\] {
-  height: ;
+.h-\[650px\] {
+  height: 650px;
 }
 .max-h-\[42vh\] {
   max-height: 42vh;
@@ -1020,9 +1023,6 @@ select {
 }
 .min-h-\[81px\] {
   min-height: 81px;
-}
-.min-h-\[\] {
-  min-height: ;
 }
 .min-h-\[64px\] {
   min-height: 64px;
@@ -1160,9 +1160,6 @@ select {
 }
 .w-\[16px\] {
   width: 16px;
-}
-.w-\[\] {
-  width: ;
 }
 .w-\[63px\] {
   width: 63px;
@@ -1312,9 +1309,6 @@ select {
 .gap-0 {
   gap: 0px;
 }
-.gap-7 {
-  gap: 1.75rem;
-}
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -1341,6 +1335,12 @@ select {
 }
 .overflow-hidden {
   overflow: hidden;
+}
+.overflow-scroll {
+  overflow: scroll;
+}
+.overflow-x-scroll {
+  overflow-x: scroll;
 }
 .overflow-y-scroll {
   overflow-y: scroll;
@@ -1385,9 +1385,6 @@ select {
 }
 .border-l-4 {
   border-left-width: 4px;
-}
-.border-b-\[1px\] {
-  border-bottom-width: 1px;
 }
 .border-gray-300 {
   --tw-border-opacity: 1;
@@ -1451,9 +1448,6 @@ select {
 .border-\[\#B4B4B4\] {
   --tw-border-opacity: 1;
   border-color: rgb(180 180 180 / var(--tw-border-opacity));
-}
-.border-\[\] {
-  border-color: ;
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -1548,25 +1542,6 @@ select {
 .bg-\[\#D4D4D4\] {
   --tw-bg-opacity: 1;
   background-color: rgb(212 212 212 / var(--tw-bg-opacity));
-}
-.bg-red-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-}
-.bg-yellow-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(253 224 71 / var(--tw-bg-opacity));
-}
-.bg-yellow-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
-}
-.bg-\[\] {
-  background-color: ;
-}
-.bg-\[\#F0F0F0\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(240 240 240 / var(--tw-bg-opacity));
 }
 .fill-current {
   fill: currentColor;
@@ -1970,9 +1945,6 @@ select {
   --tw-text-opacity: 1;
   color: rgb(82 82 82 / var(--tw-text-opacity));
 }
-.text-\[\] {
-  color: ;
-}
 .text-\[\#DC2626\] {
   --tw-text-opacity: 1;
   color: rgb(220 38 38 / var(--tw-text-opacity));
@@ -2049,98 +2021,10 @@ select {
   --tw-shadow-colored: 0px 4px 12px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
-.shadow-\[0_35px_60px_-15px_rgba\(0\2c 0\2c 0\2c 0\.3\)\] {
-  --tw-shadow: 0 35px 60px -15px rgba(0,0,0,0.3);
-  --tw-shadow-colored: 0 35px 60px -15px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_0px_60px_-15px_rgba\(0\2c 0\2c 0\2c 0\.3\)\] {
-  --tw-shadow: 0 0px 60px -15px rgba(0,0,0,0.3);
-  --tw-shadow-colored: 0 0px 60px -15px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_0px_0px_-15px_rgba\(0\2c 0\2c 0\2c 0\.3\)\] {
-  --tw-shadow: 0 0px 0px -15px rgba(0,0,0,0.3);
-  --tw-shadow-colored: 0 0px 0px -15px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_0px_0px_0\.px_rgba\(0\2c 0\2c 0\2c 0\.3\)\] {
-  --tw-shadow: 0 0px 0px 0.px rgba(0,0,0,0.3);
-  --tw-shadow-colored: 0 0px 0px 0.px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_0px_0px_0\.02px_rgba\(0\2c 0\2c 0\2c 0\.3\)\] {
-  --tw-shadow: 0 0px 0px 0.02px rgba(0,0,0,0.3);
-  --tw-shadow-colored: 0 0px 0px 0.02px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_0px_0px_px_rgba\(0\2c 0\2c 0\2c 0\.3\)\] {
-  --tw-shadow: 0 0px 0px px rgba(0,0,0,0.3);
-  --tw-shadow-colored: 0 0px 0px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_0px_0px_0px_rgba\(0\2c 0\2c 0\2c 0\.3\)\] {
-  --tw-shadow: 0 0px 0px 0px rgba(0,0,0,0.3);
-  --tw-shadow-colored: 0 0px 0px 0px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_0px_px_0px_rgba\(0\2c 0\2c 0\2c 0\.3\)\] {
-  --tw-shadow: 0 0px px 0px rgba(0,0,0,0.3);
-  --tw-shadow-colored: 0 0px 0px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_0px_3px_0px_rgba\(0\2c 0\2c 0\2c 0\.3\)\] {
-  --tw-shadow: 0 0px 3px 0px rgba(0,0,0,0.3);
-  --tw-shadow-colored: 0 0px 3px 0px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_1px_3px_0px_rgba\(0\2c 0\2c 0\2c 0\.3\)\] {
-  --tw-shadow: 0 1px 3px 0px rgba(0,0,0,0.3);
-  --tw-shadow-colored: 0 1px 3px 0px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_1px_3px_0px_rgba\(0\2c 0\2c 0\2c 0\.02\)\] {
-  --tw-shadow: 0 1px 3px 0px rgba(0,0,0,0.02);
-  --tw-shadow-colored: 0 1px 3px 0px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_1px_3px_0px_rgba\(0\2c 0\2c 0\2c 0\.02\)_\] {
-  --tw-shadow: 0 1px 3px 0px rgba(0,0,0,0.02);
-  --tw-shadow-colored: 0 1px 3px 0px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_1px_3px_0px_rgba\(0\2c 0\2c 0\2c 0\.02\)\2c 0_0px_0px_1px_\] {
-  --tw-shadow: 0 1px 3px 0px rgba(0,0,0,0.02),0 0px 0px 1px;
-  --tw-shadow-colored: 0 1px 3px 0px var(--tw-shadow-color), 0 0px 0px 1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_1px_3px_0px_rgba\(0\2c 0\2c 0\2c 0\.02\)\2c 0_0px_0px_1px_rgba\(\)\] {
-  --tw-shadow: 0 1px 3px 0px rgba(0,0,0,0.02),0 0px 0px 1px rgba();
-  --tw-shadow-colored: 0 1px 3px 0px var(--tw-shadow-color), 0 0px 0px 1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_1px_3px_0px_rgba\(0\2c 0\2c 0\2c 0\.02\)\2c 0_0px_0px_1px_rgba\(27\2c 31\2c 3\)\] {
-  --tw-shadow: 0 1px 3px 0px rgba(0,0,0,0.02),0 0px 0px 1px rgba(27,31,3);
-  --tw-shadow-colored: 0 1px 3px 0px var(--tw-shadow-color), 0 0px 0px 1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_1px_3px_0px_rgba\(0\2c 0\2c 0\2c 0\.02\)\2c 0_0px_0px_1px_rgba\(27\2c 31\2c 35\)\] {
-  --tw-shadow: 0 1px 3px 0px rgba(0,0,0,0.02),0 0px 0px 1px rgba(27,31,35);
-  --tw-shadow-colored: 0 1px 3px 0px var(--tw-shadow-color), 0 0px 0px 1px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
 .shadow-\[0_1px_3px_0px_rgba\(0\2c 0\2c 0\2c 0\.02\)\2c 0_0px_0px_1px_rgba\(27\2c 31\2c 35\2c 0\.15\)\] {
   --tw-shadow: 0 1px 3px 0px rgba(0,0,0,0.02),0 0px 0px 1px rgba(27,31,35,0.15);
   --tw-shadow-colored: 0 1px 3px 0px var(--tw-shadow-color), 0 0px 0px 1px var(--tw-shadow-color);
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.shadow-\[0_1px_3px_0px_rgba\(0\2c 0\2c 0\2c 0\.02\)\2c \] {
-  --tw-shadow-color: 0 1px 3px 0px rgba(0,0,0,0.02),;
-  --tw-shadow: var(--tw-shadow-colored);
-}
-.shadow-\[0_1px_3px_0px_rgba\(0\2c 0\2c 0\2c 0\.02\)\2c 0\] {
-  --tw-shadow-color: 0 1px 3px 0px rgba(0,0,0,0.02),0;
-  --tw-shadow: var(--tw-shadow-colored);
 }
 .outline-none {
   outline: 2px solid transparent;
@@ -2306,12 +2190,6 @@ select {
 .hover\:bg-\[\#E5E5E5\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(229 229 229 / var(--tw-bg-opacity));
-}
-.hover\:bg-\[\]:hover {
-  background-color: ;
-}
-.hover\:bg-\[\#\#F9F9F9\]:hover {
-  background-color: ##F9F9F9;
 }
 .hover\:bg-\[\#F9F9F9\]:hover {
   --tw-bg-opacity: 1;

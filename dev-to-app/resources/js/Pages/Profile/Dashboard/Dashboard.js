@@ -1,10 +1,13 @@
 import Layout from "@/Pages/Layout/Layout";
 import DetailBoxStatistic from "./DetailBoxStatistic/DetailBoxStatistic";
-import { Head, Link } from "@inertiajs/inertia-react";
+import { Head } from "@inertiajs/inertia-react";
 import LinkDashboard from "./LinkDashboard/LinkDashboard";
 import PostBox from "./PostBox/PostBox";
+import { useEffect } from "react";
 
-function Dashboard() {
+function Dashboard({dataPost}) {
+
+
     return (
         <>
             <Head title="Dashboard - DEV Community" />
@@ -34,8 +37,12 @@ function Dashboard() {
                                     <option value="comments-desc">Most Comments</option>
                                 </select>
                             </div>
-                            <div className="min-h-[650px] shadow-[0_1px_3px_0px_rgba(0,0,0,0.02),0_0px_0px_1px_rgba(27,31,35,0.15)] mt-3 rounded-md overflow-hidden">
-                                <PostBox/>
+                            <div className="h-[650px] overflow-y-scroll shadow-[0_1px_3px_0px_rgba(0,0,0,0.02),0_0px_0px_1px_rgba(27,31,35,0.15)] mt-3 rounded-md">
+                                {
+                                    dataPost.map((item, index) =>
+                                        <PostBox key={index} detail={item}/>
+                                    )
+                                }
                             </div>
                         </div>
                     </div>
