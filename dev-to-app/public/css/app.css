@@ -686,12 +686,6 @@ select {
 .bottom-0 {
   bottom: 0px;
 }
-.top-3 {
-  top: 0.75rem;
-}
-.top-32 {
-  top: 8rem;
-}
 .z-0 {
   z-index: 0;
 }
@@ -898,6 +892,9 @@ select {
 .h-\[38\.6px\] {
   height: 38.6px;
 }
+.h-\[650px\] {
+  height: 650px;
+}
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
@@ -919,9 +916,6 @@ select {
 }
 .h-\[16px\] {
   height: 16px;
-}
-.h-\[650px\] {
-  height: 650px;
 }
 .max-h-\[42vh\] {
   max-height: 42vh;
@@ -994,9 +988,6 @@ select {
 .min-h-full {
   min-height: 100%;
 }
-.min-h-\[650px\] {
-  min-height: 650px;
-}
 .min-h-\[144px\] {
   min-height: 144px;
 }
@@ -1026,6 +1017,10 @@ select {
 }
 .min-h-\[64px\] {
   min-height: 64px;
+}
+.min-h-min {
+  min-height: -moz-min-content;
+  min-height: min-content;
 }
 .w-5 {
   width: 1.25rem;
@@ -1336,12 +1331,6 @@ select {
 .overflow-hidden {
   overflow: hidden;
 }
-.overflow-scroll {
-  overflow: scroll;
-}
-.overflow-x-scroll {
-  overflow-x: scroll;
-}
 .overflow-y-scroll {
   overflow-y: scroll;
 }
@@ -1542,6 +1531,13 @@ select {
 .bg-\[\#D4D4D4\] {
   --tw-bg-opacity: 1;
   background-color: rgb(212 212 212 / var(--tw-bg-opacity));
+}
+.bg-\[\] {
+  background-color: ;
+}
+.bg-red-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
 }
 .fill-current {
   fill: currentColor;

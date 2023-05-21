@@ -33,4 +33,8 @@ class Post extends Model
             ]
         ];
     }
+
+    public function users() {
+        return $this->hasMany(User::class,'id_user', 'id_user');
+    }
 }

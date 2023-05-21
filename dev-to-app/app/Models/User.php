@@ -50,4 +50,8 @@ class User extends  Authenticatable
     public function rememberMe() {
         return $this->belongsTo(Remember_Me::class, 'id_user', 'id_user');
     }
+
+    public function posts() {
+        return $this->hasMany(Post::class,'id_user', 'id_user');
+    }
 }

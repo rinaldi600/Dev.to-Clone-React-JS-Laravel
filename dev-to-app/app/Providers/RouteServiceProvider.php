@@ -2,11 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Database\Eloquent\Builder;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -42,6 +44,16 @@ class RouteServiceProvider extends ServiceProvider
                 ->middleware('api')
                 ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
+
+            Route::bind('username', function($username) {
+                $slug = request()->route()->hasParameter('slug');
+                if ($slug) {
+                    return User::where('username', $username)->whereHas('posts', function($query) {
+                        $query->where('slug', request()->route('slug'));
+                    })->firstOrFail();
+                }
+                abort(403);
+            });
 
             Route::middleware('web')
                 ->namespace($this->namespace)

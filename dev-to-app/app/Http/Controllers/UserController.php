@@ -384,11 +384,14 @@ class UserController extends Controller
         ]);
     }
 
-    public function seePost(User $user, Post $post) {
-        return response()->json([
-            'ress' => $user->email,
-            'res' => $post->title,
-        ]);
+    public function seePost($username, $slug) {
+
+        return Inertia::render('SeePost/SeePost', [
+            'detailPost' => array(
+                'username' => $username,
+                'dPost' => $username->posts[0],
+            )
+          ]);
     }
 
     public function handlerImage(Request $request) {
