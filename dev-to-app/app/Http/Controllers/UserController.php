@@ -387,10 +387,7 @@ class UserController extends Controller
     public function seePost($username, $slug) {
 
         return Inertia::render('SeePost/SeePost', [
-            'detailPost' => array(
-                'username' => $username,
-                'dPost' => $username->posts[0],
-            )
+            'detailPost' => Post::with('users')->where('slug', $slug)->first(),
           ]);
     }
 
