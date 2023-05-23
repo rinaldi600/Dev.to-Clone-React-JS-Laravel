@@ -37,6 +37,8 @@ Route::middleware('validLogin')->group(function () {
     Route::get('/enter', [\App\Http\Controllers\UserController::class, 'index']);
 });
 
+Route::get('/{username}/{slug}', [\App\Http\Controllers\UserController::class, 'seePost']);
+
 Route::middleware('isValidLogin')->group(function () {
     Route::post('/logout_user', [\App\Http\Controllers\UserController::class, 'LogOutUser']);
     Route::post('/set_new_password', [\App\Http\Controllers\UserController::class, 'setNewPassword']);
@@ -52,7 +54,6 @@ Route::middleware('isValidLogin')->group(function () {
     Route::get('/new', [\App\Http\Controllers\UserController::class, 'new']);
     Route::get('/{post:slug}/edit', [\App\Http\Controllers\UserController::class, 'editPost']);
     Route::post('/delete_post', [\App\Http\Controllers\UserController::class, 'deletePost']);
-    Route::get('/{username}/{slug}', [\App\Http\Controllers\UserController::class, 'seePost']);
     Route::get('/dashboard', [\App\Http\Controllers\UserController::class, 'dashboard']);
     Route::post('/get_data_post', [\App\Http\Controllers\UserController::class, 'getDataPost']);
     Route::post('/handler_image', [\App\Http\Controllers\UserController::class, 'handlerImage']);

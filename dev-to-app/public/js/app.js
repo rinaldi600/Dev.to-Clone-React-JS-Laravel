@@ -11241,13 +11241,46 @@ function SeePost(_ref) {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "min-h-screen bg-[#F5F5F5]",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "max-w-[1280px] min-h-[100px] bg-red-300 mx-auto",
+        className: "max-w-[1280px] min-h-[100px] mx-auto",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "w-full flex flex-wrap justify-center gap-2 min-h-[400px]",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "md:w-[9%] bg-blue-500"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "lg:w-[59%] w-[89%] bg-green-500"
+            className: "md:w-[9%] hidden md:grid justify-center items-center",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+              className: "w-[64px] h-[63px] grid justify-center items-center cursor-pointer",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("svg", {
+                xmlns: "http://www.w3.org/2000/svg",
+                width: "24",
+                height: "24",
+                viewBox: "0 0 24 24",
+                role: "img",
+                "aria-hidden": "true",
+                "class": "crayons-icon fill-[#3D3D3D]",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("path", {
+                  d: "M10 3h4a8 8 0 010 16v3.5c-5-2-12-5-12-11.5a8 8 0 018-8zm2 14h2a6 6 0 000-12h-4a6 6 0 00-6 6c0 3.61 2.462 5.966 8 8.48V17z"
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
+                className: "text-[#575757] text-center",
+                children: "1"
+              })]
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "lg:w-[59%] w-[89%] bg-green-500",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "bg-yellow-300 min-h-[100px]",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "w-[100%] h-[500px] overflow-hidden",
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("img", {
+                  className: "w-[100%] object-cover",
+                  src: detailPost.cover,
+                  alt: "Cover Post Content"
+                })
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "lg:hidden w-full min-h-[100px] bg-red-700"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+              className: "w-full min-h-[100px] bg-green-700"
+            })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "lg:w-[29%] bg-pink-400"
           })]
