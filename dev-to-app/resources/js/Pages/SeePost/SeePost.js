@@ -1,17 +1,23 @@
 import { useEffect } from "react";
 import Layout from "../Layout/Layout";
 import { Head } from "@inertiajs/inertia-react";
+import moment from 'moment';
+import 'moment/locale/id';
 
 function SeePost({detailPost}) {
 
     useEffect(() => {
+        const imgContent = document.getElementsByTagName("img");
+        for (const img of imgContent) {
+            console.log(img.src);
+          }
         console.log(detailPost);
     })
 
     return (
         <>
             <Head title={`${detailPost.title} - DEV Community`} />
-            <div className="min-h-screen bg-[#F5F5F5]">
+            <div className="min-h-screen bg-[#F5F5F5] font-['Segoe_UI']">
                 <div className="max-w-[1280px] min-h-[100px] mx-auto">
                     <div className="w-full flex flex-wrap justify-center gap-2 min-h-[400px]">
                         <div className="md:w-[9%] hidden md:grid justify-center items-center">
@@ -22,16 +28,34 @@ function SeePost({detailPost}) {
                                 <span className="text-[#575757] text-center">1</span>
                             </div>
                         </div>
-                        <div className="lg:w-[59%] w-[89%] bg-green-500">
+                        <div className="lg:w-[59%] bg-white shadow-[0_1px_3px_0px_rgba(0,0,0,0.02),0_0px_0px_1px_rgba(27,31,35,0.15)] rounded-lg overflow-hidden w-[89%]">
 
-                            <div className="bg-yellow-300 min-h-[100px]">
-                                <div className="w-[100%] h-[500px] overflow-hidden">
-                                    <img className="w-[100%] object-cover" src={detailPost.cover} alt="Cover Post Content" />
+                            <div className="min-h-fit">
+                                <div className="overflow-hidden">
+                                    <img className="w-[100%] max-h-[400px] object-cover" src={detailPost.cover} alt="Cover Post Content" />
+                                </div>
+                                <div className="p-6">
+                                    <div className="flex pl-8 items-center gap-2">
+                                        <div>
+                                            <img className="rounded-full w-[40px] h-[40px]" src={detailPost.users[0].profile_image} alt="Profile Image" />
+                                        </div>
+                                        <div>
+                                            <p className="text-[#404040] font-bold text-base">{detailPost.users[0].name}</p>
+                                            <p className="text-xs text-[#717171]">{moment(detailPost?.created_at).format('MMMM Do YYYY, h:mm:ss a')}</p>
+                                        </div>
+                                    </div>
+                                    <div className="content p-6 pl-8 pt-12">
+                                        <h1 className="text-[#171717] text-5xl font-extrabold">{detailPost.title}</h1>
+                                        <div dangerouslySetInnerHTML={{__html: detailPost.content}}>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
                             {/* Profile */}
-                            <div className="lg:hidden w-full min-h-[100px] bg-red-700"></div>
+                            <div className="lg:hidden w-full min-h-[100px] bg-red-700">
+
+                            </div>
                             {/* Comment */}
                             <div className="w-full min-h-[100px] bg-green-700"></div>
                         </div>

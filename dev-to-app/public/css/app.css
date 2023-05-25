@@ -865,6 +865,12 @@ select {
 .h-\[48px\] {
   height: 48px;
 }
+.h-\[63px\] {
+  height: 63px;
+}
+.h-\[500px\] {
+  height: 500px;
+}
 .h-\[43px\] {
   height: 43px;
 }
@@ -917,32 +923,11 @@ select {
 .h-\[16px\] {
   height: 16px;
 }
+.h-\[400px\] {
+  height: 400px;
+}
 .h-\[\] {
   height: ;
-}
-.h-\[63px\] {
-  height: 63px;
-}
-.h-\[50\%\] {
-  height: 50%;
-}
-.h-\[5\%\] {
-  height: 5%;
-}
-.h-\[5px\] {
-  height: 5px;
-}
-.h-\[50px\] {
-  height: 50px;
-}
-.h-\[10\%\] {
-  height: 10%;
-}
-.h-\[100px\] {
-  height: 100px;
-}
-.h-\[500px\] {
-  height: 500px;
 }
 .max-h-\[42vh\] {
   max-height: 42vh;
@@ -950,11 +935,11 @@ select {
 .max-h-\[273\.235px\] {
   max-height: 273.235px;
 }
-.max-h-\[5\%\] {
-  max-height: 5%;
+.max-h-\[\] {
+  max-height: ;
 }
-.max-h-\[100px\] {
-  max-height: 100px;
+.max-h-\[400px\] {
+  max-height: 400px;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -1051,9 +1036,6 @@ select {
 .min-h-\[64px\] {
   min-height: 64px;
 }
-.min-h-\[\] {
-  min-height: ;
-}
 .w-5 {
   width: 1.25rem;
 }
@@ -1130,6 +1112,9 @@ select {
 .w-\[992px\] {
   width: 992px;
 }
+.w-\[64px\] {
+  width: 64px;
+}
 .w-\[89\%\] {
   width: 89%;
 }
@@ -1194,17 +1179,11 @@ select {
 .w-\[63px\] {
   width: 63px;
 }
-.w-\[\] {
-  width: ;
+.w-\[100px\] {
+  width: 100px;
 }
-.w-\[64px\] {
-  width: 64px;
-}
-.w-\[0\%\] {
-  width: 0%;
-}
-.w-\[100\] {
-  width: 100;
+.w-\[1000px\] {
+  width: 1000px;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -1239,6 +1218,12 @@ select {
 }
 .max-w-\[992px\] {
   max-width: 992px;
+}
+.max-w-\[100px\] {
+  max-width: 100px;
+}
+.max-w-\[1000px\] {
+  max-width: 1000px;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1525,17 +1510,21 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(21 32 42 / var(--tw-bg-opacity));
 }
-.bg-red-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
-}
-.bg-blue-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(59 130 246 / var(--tw-bg-opacity));
-}
 .bg-green-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(34 197 94 / var(--tw-bg-opacity));
+}
+.bg-yellow-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 224 71 / var(--tw-bg-opacity));
+}
+.bg-red-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
+}
+.bg-green-700 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
 }
 .bg-pink-400 {
   --tw-bg-opacity: 1;
@@ -1595,42 +1584,18 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(212 212 212 / var(--tw-bg-opacity));
 }
-.bg-red-400 {
+.bg-red-300 {
   --tw-bg-opacity: 1;
-  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
-}
-.bg-green-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(21 128 61 / var(--tw-bg-opacity));
-}
-.bg-red-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(185 28 28 / var(--tw-bg-opacity));
-}
-.bg-blue-700 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(29 78 216 / var(--tw-bg-opacity));
-}
-.bg-\[\] {
-  background-color: ;
-}
-.bg-\[\#3D3D3D\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(61 61 61 / var(--tw-bg-opacity));
-}
-.bg-blue-800 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(30 64 175 / var(--tw-bg-opacity));
-}
-.bg-yellow-300 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(253 224 71 / var(--tw-bg-opacity));
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
 }
 .fill-current {
   fill: currentColor;
 }
 .fill-\[\#404040\] {
   fill: #404040;
+}
+.fill-\[\#3D3D3D\] {
+  fill: #3D3D3D;
 }
 .fill-white {
   fill: #fff;
@@ -1640,9 +1605,6 @@ select {
 }
 .fill-\[\#66757F\] {
   fill: #66757F;
-}
-.fill-\[\#3D3D3D\] {
-  fill: #3D3D3D;
 }
 .object-cover {
   -o-object-fit: cover;
@@ -1674,6 +1636,12 @@ select {
 }
 .p-1 {
   padding: 0.25rem;
+}
+.p-11 {
+  padding: 2.75rem;
+}
+.p-8 {
+  padding: 2rem;
 }
 .px-4 {
   padding-left: 1rem;
@@ -1800,6 +1768,15 @@ select {
 }
 .pr-2 {
   padding-right: 0.5rem;
+}
+.pl-12 {
+  padding-left: 3rem;
+}
+.pl-8 {
+  padding-left: 2rem;
+}
+.pt-12 {
+  padding-top: 3rem;
 }
 .text-left {
   text-align: left;
@@ -2041,6 +2018,9 @@ select {
 }
 .text-\[\] {
   color: ;
+}
+.text-\[\#\#171717\] {
+  color: ##171717;
 }
 .underline {
   -webkit-text-decoration-line: underline;
