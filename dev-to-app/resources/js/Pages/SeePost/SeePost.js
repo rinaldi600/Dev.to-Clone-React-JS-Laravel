@@ -1,23 +1,31 @@
 import { useEffect } from "react";
 import Layout from "../Layout/Layout";
-import { Head } from "@inertiajs/inertia-react";
+import { Head, Link } from "@inertiajs/inertia-react";
 import moment from 'moment';
 import 'moment/locale/id';
+import ProfileCreator from "./ProfileCreator/ProfileCreator";
 
 function SeePost({detailPost}) {
 
+    const tagsPost = JSON.parse(detailPost.tags);
+
     useEffect(() => {
-        const imgContent = document.getElementsByTagName("img");
+        const imgContent =  [].slice.call(document.getElementsByTagName("img")).splice(4);
+        const usernamePost = detailPost.users[0]?.username;
         for (const img of imgContent) {
-            console.log(img.src);
-          }
+            if (img.src.includes(usernamePost, 0)) {
+                img.src = img.src.replace(usernamePost, '/');
+            } else {
+                console.log("TEST");
+            }
+        }
         console.log(detailPost);
     })
 
     return (
         <>
             <Head title={`${detailPost.title} - DEV Community`} />
-            <div className="min-h-screen bg-[#F5F5F5] font-['Segoe_UI']">
+            <div className="min-h-screen p-2 bg-[#F5F5F5] font-['Segoe_UI']">
                 <div className="max-w-[1280px] min-h-[100px] mx-auto">
                     <div className="w-full flex flex-wrap justify-center gap-2 min-h-[400px]">
                         <div className="md:w-[9%] hidden md:grid justify-center items-center">
@@ -45,7 +53,14 @@ function SeePost({detailPost}) {
                                         </div>
                                     </div>
                                     <div className="content p-6 pl-8 pt-12">
-                                        <h1 className="text-[#171717] text-5xl font-extrabold">{detailPost.title}</h1>
+                                        <h1 className="text-[#171717] pb-4 text-5xl font-extrabold break-words">{detailPost.title}</h1>
+                                        <div className="flex pb-8 flex-wrap">
+                                            {
+                                                tagsPost.map((tag) => (
+                                                    <Link href={`/t/${tag}`} className="min-h-[32px] hover:bg-[#EBECFC] p-2 cursor-pointer rounded-lg hover:border hover:border-[#DFE0F9]">#{tag}</Link>
+                                                ))
+                                            }
+                                        </div>
                                         <div dangerouslySetInnerHTML={{__html: detailPost.content}}>
                                         </div>
                                     </div>
@@ -54,13 +69,13 @@ function SeePost({detailPost}) {
 
                             {/* Profile */}
                             <div className="lg:hidden w-full min-h-[100px] bg-red-700">
-
+                                <ProfileCreator />
                             </div>
                             {/* Comment */}
                             <div className="w-full min-h-[100px] bg-green-700"></div>
                         </div>
-                        <div className="lg:w-[29%] bg-pink-400">
-
+                        <div className="lg:w-[29%] w-[0%] rounded-lg overflow-hidden bg-pink-400">
+                            <ProfileCreator/>
                         </div>
                     </div>
                 </div>
