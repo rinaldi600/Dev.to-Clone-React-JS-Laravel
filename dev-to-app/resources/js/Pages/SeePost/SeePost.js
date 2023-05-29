@@ -68,14 +68,14 @@ function SeePost({detailPost}) {
                             </div>
 
                             {/* Profile */}
-                            <div className="lg:hidden w-full min-h-[100px] bg-red-700">
-                                <ProfileCreator />
+                            <div className="lg:hidden w-full pt-3 min-h-[100px] bg-red-700">
+                                <ProfileCreator detailUser={detailPost.users[0]} />
                             </div>
                             {/* Comment */}
                             <div className="w-full min-h-[100px] bg-green-700"></div>
                         </div>
-                        <div className="lg:w-[29%] w-[0%] rounded-lg overflow-hidden bg-pink-400">
-                            <ProfileCreator/>
+                        <div className="lg:w-[29%] w-[0%] rounded-lg overflow-hidden">
+                            <ProfileCreator detailUser={detailPost.users[0]}/>
                         </div>
                     </div>
                 </div>
