@@ -1,13 +1,15 @@
 import { useEffect } from "react";
 import Layout from "../Layout/Layout";
-import { Head, Link } from "@inertiajs/inertia-react";
+import { Head, Link, usePage } from "@inertiajs/inertia-react";
 import moment from 'moment';
 import 'moment/locale/id';
 import ProfileCreator from "./ProfileCreator/ProfileCreator";
+import CommentBox from "./CommentBox/CommentBox";
 
 function SeePost({detailPost}) {
 
     const tagsPost = JSON.parse(detailPost.tags);
+    const { auth } = usePage().props;
 
     useEffect(() => {
         const imgContent =  [].slice.call(document.getElementsByTagName("img")).splice(4);
@@ -19,7 +21,6 @@ function SeePost({detailPost}) {
                 console.log("TEST");
             }
         }
-        console.log(detailPost);
     })
 
     return (
@@ -36,9 +37,9 @@ function SeePost({detailPost}) {
                                 <span className="text-[#575757] text-center">1</span>
                             </div>
                         </div>
-                        <div className="lg:w-[59%] bg-white shadow-[0_1px_3px_0px_rgba(0,0,0,0.02),0_0px_0px_1px_rgba(27,31,35,0.15)] rounded-lg overflow-hidden w-[89%]">
+                        <div className="lg:w-[59%] bg-white rounded-lg overflow-hidden w-[89%]">
 
-                            <div className="min-h-fit">
+                            <div className="min-h-fit border border-[#EAEAEA]">
                                 <div className="overflow-hidden">
                                     <img className="w-[100%] max-h-[400px] object-cover" src={detailPost.cover} alt="Cover Post Content" />
                                 </div>
@@ -67,12 +68,25 @@ function SeePost({detailPost}) {
                                 </div>
                             </div>
 
+                            {/* Comment */}
+                            <div className="mx-auto pt-8 min-h-[100px] lg:w-[85%] w-[89%]">
+                                <h2 className="text-[#242424] font-bold text-2xl">Top comments (1)</h2>
+                                <div className="w-full pt-8">
+                                    <div className="flex gap-2">
+                                        <div className="w-[32px] h-[32px] rounded-full bg-yellow-900 overflow-hidden">
+                                            <img className="w-full h-full" src={auth?.user?.profile_image ?? `https://res.cloudinary.com/practicaldev/image/fetch/s--RmY55OKL--/c_limit,f_auto,fl_progressive,q_auto,w_256/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/devlogo-pwa-512.png`} alt="Profile User" />
+                                        </div>
+                                        <div className="w-[90%]">
+                                            <CommentBox />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             {/* Profile */}
-                            <div className="lg:hidden w-full pt-3 min-h-[100px] bg-red-700">
+                            <div className="lg:hidden w-full pt-3 min-h-[100px]">
                                 <ProfileCreator detailUser={detailPost.users[0]} />
                             </div>
-                            {/* Comment */}
-                            <div className="w-full min-h-[100px] bg-green-700"></div>
                         </div>
                         <div className="lg:w-[29%] w-[0%] rounded-lg overflow-hidden">
                             <ProfileCreator detailUser={detailPost.users[0]}/>
