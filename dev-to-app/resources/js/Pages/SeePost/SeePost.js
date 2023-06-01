@@ -12,13 +12,11 @@ function SeePost({detailPost}) {
     const { auth } = usePage().props;
 
     useEffect(() => {
-        const imgContent =  [].slice.call(document.getElementsByTagName("img")).splice(4);
+        const imgContent =  [].slice.call(document.getElementsByTagName("img")).splice(3);
         const usernamePost = detailPost.users[0]?.username;
         for (const img of imgContent) {
             if (img.src.includes(usernamePost, 0)) {
                 img.src = img.src.replace(usernamePost, '/');
-            } else {
-                console.log("TEST");
             }
         }
     })
@@ -46,7 +44,14 @@ function SeePost({detailPost}) {
                                 <div className="p-6">
                                     <div className="flex pl-8 items-center gap-2">
                                         <div>
-                                            <img className="rounded-full w-[40px] h-[40px]" src={detailPost.users[0].profile_image} alt="Profile Image" />
+                                            {
+                                                detailPost.users[0].profile_image === '' ?
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                </svg>
+                                                :
+                                                <img className="rounded-full w-[40px] h-[40px]" src={detailPost.users[0].profile_image} alt="Profile Image" />
+                                            }
                                         </div>
                                         <div>
                                             <p className="text-[#404040] font-bold text-base">{detailPost.users[0].name}</p>
@@ -73,8 +78,15 @@ function SeePost({detailPost}) {
                                 <h2 className="text-[#242424] font-bold text-2xl">Top comments (1)</h2>
                                 <div className="w-full pt-8">
                                     <div className="flex gap-2">
-                                        <div className="w-[32px] h-[32px] rounded-full bg-yellow-900 overflow-hidden">
-                                            <img className="w-full h-full" src={auth?.user?.profile_image ?? `https://res.cloudinary.com/practicaldev/image/fetch/s--RmY55OKL--/c_limit,f_auto,fl_progressive,q_auto,w_256/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/devlogo-pwa-512.png`} alt="Profile User" />
+                                        <div className={`${auth?.user?.profile_image === '' ? 'flex items-center justify-center' : ''} w-[32px] h-[32px] rounded-full overflow-hidden`}>
+                                            {
+                                                auth?.user?.profile_image === '' ?
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                                                </svg>
+                                                :
+                                                <img className="w-full h-full" src={auth?.user?.profile_image ?? `https://res.cloudinary.com/practicaldev/image/fetch/s--RmY55OKL--/c_limit,f_auto,fl_progressive,q_auto,w_256/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/devlogo-pwa-512.png`} alt="Profile User" />
+                                            }
                                         </div>
                                         <div className="w-[90%]">
                                             <CommentBox />

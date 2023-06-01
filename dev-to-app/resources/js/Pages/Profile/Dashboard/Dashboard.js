@@ -3,10 +3,8 @@ import DetailBoxStatistic from "./DetailBoxStatistic/DetailBoxStatistic";
 import { Head } from "@inertiajs/inertia-react";
 import LinkDashboard from "./LinkDashboard/LinkDashboard";
 import PostBox from "./PostBox/PostBox";
-import { useEffect } from "react";
 
 function Dashboard({dataPost}) {
-
 
     return (
         <>

@@ -6,7 +6,7 @@ function CommentBox() {
     const [login, isLogin] = useState(false);
 
     useEffect(() => {
-        console.log(auth);
+
     });
 
     return (

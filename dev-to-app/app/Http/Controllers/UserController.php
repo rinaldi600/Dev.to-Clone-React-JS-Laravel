@@ -370,12 +370,15 @@ class UserController extends Controller
 
     public function dashboard() {
         return Inertia::render('Profile/Dashboard/Dashboard', [
-            'dataPost' => Post::where('id_user', Auth::user()->id_user)->get()
+            'dataPost' => Post::with('users')->where('id_user', Auth::user()->id_user)->get()
         ]);
     }
 
-    public function editPost(Post $post) {
-        dd($post);
+    public function editPost(User $user,Post $post) {
+        return Inertia::render('EditPost/EditPost', [
+            'detailPost' => $post,
+            'user' => $user,
+        ]);
     }
 
     public function deletePost(Request $request) {

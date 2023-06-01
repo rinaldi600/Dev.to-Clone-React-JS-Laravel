@@ -10,7 +10,7 @@ function PostBox({key, detail = Object}) {
     })
 
     useEffect(() => {
-        console.log(auth)
+        console.log(detail)
     })
 
     const submit = (e) => {
@@ -31,7 +31,7 @@ function PostBox({key, detail = Object}) {
                 <p className="text-sm text-[#717171]">0</p>
             </div>
             <div className="flex items-center flex-wrap">
-                <Link href={`${detail?.slug}/edit`} className="text-sm w-[63px] flex items-center justify-center rounded-lg hover:bg-[#F0F0F0] h-[32px]">Edit</Link>
+                <Link href={`${detail?.users[0]?.username}/${detail?.slug}/edit`} className="text-sm w-[63px] flex items-center justify-center rounded-lg hover:bg-[#F0F0F0] h-[32px]">Edit</Link>
                 <form onSubmit={submit}>
                     <button type="submit" className="text-sm text-[#DC2626] rounded-lg w-[63px] h-[32px] hover:bg-[#F0F0F0]">Delete</button>
                 </form>
