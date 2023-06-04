@@ -1,6 +1,4 @@
-import { Head } from "@inertiajs/inertia-react";
-import { Link } from "@inertiajs/inertia-react";
-import { useForm } from "@inertiajs/inertia-react";
+import { Head, Link, useForm, usePage } from "@inertiajs/inertia-react";
 import React, { useState, useRef, useEffect, Suspense } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { split } from "lodash";
@@ -25,12 +23,12 @@ function EditPost({detailPost, user}) {
     const [heightTextArea, setHeightTextArea] = useState(0);
     const [activeEventOnSelect, setActiveEventOnSelect] = useState(false);
     const [tagList, setTagList] = useState(JSON.parse(detailPost.tags).length > 0 ? JSON.parse(detailPost.tags) : []);
-    const [countTag, setCountTag] = useState(0);
+    const [countTag, setCountTag] = useState(4 - tagList.length);
     const [previewImage, setPreview] = useState([]);
     const editorRef = useRef(null);
     const inputFileCoverImage = useRef();
     const tagRef = useRef(null);
-
+    const { auth } = usePage().props;
 
     const submit = (e) => {
         e.preventDefault();
@@ -40,6 +38,8 @@ function EditPost({detailPost, user}) {
     }
 
     useEffect(() => {
+        // console.log(countTag);
+        // console.log(auth);
         // console.log(detailPost.content);
     });
 
@@ -239,7 +239,6 @@ function EditPost({detailPost, user}) {
                                         apiKey='2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c'
                                         onInit={(evt, editor) => {
                                             editorRef.current = editor;
-                                            console.log(editor.selection.getNode().getElementsByTagName('img'));
                                             editor.on('keydown', (e) => {
                                                 if ((e.key == "Backspace" || e.key == "Delete") && editor.selection) {
                                                     var selectedNode = editor.selection.getNode();

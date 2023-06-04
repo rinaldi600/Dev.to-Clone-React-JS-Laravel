@@ -25,9 +25,9 @@ function Dashboard({dataPost}) {
                             </div>
                         </div>
                         <div className="p-2 w-full min-h-full lg:w-[80%] relative">
-                            <div className="h-[38.6px] flex justify-between sticky top-0 items-center w-full">
+                            <div className="h-[38.6px] sm:mb-10 flex flex-wrap justify-between sticky top-0 items-center w-full">
                                 <h2 className="font-bold text-xl">Posts</h2>
-                                <select className="w-[174.4px] rounded-md border-1 border-[#D4D4D4]" name="filter" id="filter">
+                                <select className="sm:w-full w-[174.4px] rounded-md border-1 border-[#D4D4D4]" name="filter" id="filter">
                                     <option value="creation-desc">Recently Created</option>
                                     <option value="published-desc">Recently Published</option>
                                     <option value="views-desc">Most Views</option>

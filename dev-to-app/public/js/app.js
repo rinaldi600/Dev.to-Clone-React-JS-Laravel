@@ -6151,8 +6151,6 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-
-
 var SuccessUpload = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.lazy(function () {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../NewPost/successUpload/SuccessUpload */ "./resources/js/Pages/NewPost/successUpload/SuccessUpload.js"));
 });
@@ -6199,7 +6197,7 @@ function EditPost(_ref) {
     _useState10 = _slicedToArray(_useState9, 2),
     tagList = _useState10[0],
     setTagList = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(0),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(4 - tagList.length),
     _useState12 = _slicedToArray(_useState11, 2),
     countTag = _useState12[0],
     setCountTag = _useState12[1];
@@ -6210,6 +6208,7 @@ function EditPost(_ref) {
   var editorRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
   var inputFileCoverImage = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
   var tagRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)(null);
+  var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
   var submit = function submit(e) {
     e.preventDefault();
     data.tags = tagList;
@@ -6217,6 +6216,8 @@ function EditPost(_ref) {
     post('/get_data_post');
   };
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    // console.log(countTag);
+    // console.log(auth);
     // console.log(detailPost.content);
   });
   var autoSize = function autoSize(e) {
@@ -6455,7 +6456,6 @@ function EditPost(_ref) {
                   apiKey: "2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c",
                   onInit: function onInit(evt, editor) {
                     editorRef.current = editor;
-                    console.log(editor.selection.getNode().getElementsByTagName('img'));
                     editor.on('keydown', function (e) {
                       if ((e.key == "Backspace" || e.key == "Delete") && editor.selection) {
                         var selectedNode = editor.selection.getNode();
@@ -9598,7 +9598,9 @@ function NewPost() {
   var submit = function submit(e) {
     e.preventDefault();
     data.tags = tagList;
-    data.body = editorRef.current.getContent();
+    data.body = editorRef.current.getContent({
+      format: 'raw'
+    });
     post('/get_data_post');
   };
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {});
@@ -9653,6 +9655,7 @@ function NewPost() {
           reject('Invalid JSON: ' + xhr.responseText);
           return;
         }
+        console.log(json.location);
         resolve(json.location);
         var pathName = (0,lodash__WEBPACK_IMPORTED_MODULE_3__.split)(json.location, '/');
         setData(function (values) {
@@ -10144,12 +10147,12 @@ function Dashboard(_ref) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
             className: "p-2 w-full min-h-full lg:w-[80%] relative",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-              className: "h-[38.6px] flex justify-between sticky top-0 items-center w-full",
+              className: "h-[38.6px] sm:mb-10 flex flex-wrap justify-between sticky top-0 items-center w-full",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("h2", {
                 className: "font-bold text-xl",
                 children: "Posts"
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("select", {
-                className: "w-[174.4px] rounded-md border-1 border-[#D4D4D4]",
+                className: "sm:w-full w-[174.4px] rounded-md border-1 border-[#D4D4D4]",
                 name: "filter",
                 id: "filter",
                 children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("option", {
@@ -10392,29 +10395,30 @@ function PostBox(_ref) {
     data = _useForm.data,
     post = _useForm.post,
     processing = _useForm.processing;
-  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
-    console.log(detail);
-  });
+  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {});
   var submit = function submit(e) {
-    e.preventDefault();
-    post('/delete_post');
+    if (confirm('Are you sure?')) {
+      e.preventDefault();
+      post('/delete_post');
+    }
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "w-full p-4 hover:bg-[#F9F9F9] flex justify-between items-center min-h-[64px] border-b-2 border-[#EFEFEF] bg-white",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+      className: "w-[50%]",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
         href: "/".concat(auth === null || auth === void 0 ? void 0 : (_auth$user = auth.user) === null || _auth$user === void 0 ? void 0 : _auth$user.username, "/").concat(detail['slug']),
         className: "text-[#3B49DF] font-bold text-lg",
         children: detail === null || detail === void 0 ? void 0 : detail.title
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("p", {
-        className: "text-sm text-[#717171]",
+        className: "text-sm break-words text-[#717171]",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
           className: "font-medium",
           children: "Published:"
         }), " ", moment__WEBPACK_IMPORTED_MODULE_1___default()(detail === null || detail === void 0 ? void 0 : detail.created_at).format('MMMM Do YYYY, h:mm:ss a')]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "flex items-center gap-2 flex-wrap",
+      className: "flex items-center justify-center gap-2 w-[25%] flex-wrap",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         fill: "none",
@@ -10432,7 +10436,7 @@ function PostBox(_ref) {
         children: "0"
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-      className: "flex items-center flex-wrap",
+      className: "flex items-center justify-end w-[25%] flex-wrap",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
         href: "".concat(detail === null || detail === void 0 ? void 0 : (_detail$users$ = detail.users[0]) === null || _detail$users$ === void 0 ? void 0 : _detail$users$.username, "/").concat(detail === null || detail === void 0 ? void 0 : detail.slug, "/edit"),
         className: "text-sm w-[63px] flex items-center justify-center rounded-lg hover:bg-[#F0F0F0] h-[32px]",
@@ -11731,10 +11735,8 @@ function ProfileCreator(_ref) {
     bgColor = _useState2[0],
     setBgColor = _useState2[1];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    console.log(divBackgroundColor.current);
     divBackgroundColor.current.style.backgroundColor = "#".concat(bgColor);
   });
-  var changeBgColor = function changeBgColor(e) {};
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "min-h-fit border border-[#EAEAEA] rounded-lg bg-white w-full overflow-hidden",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
@@ -11767,7 +11769,6 @@ function ProfileCreator(_ref) {
             alt: "Profile Image Creator"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-          onClick: changeBgColor,
           className: "font-bold text-xl",
           children: detailUser.name
         })]
@@ -11940,13 +11941,13 @@ function SeePost(_ref) {
                     children: detailPost.title
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                     className: "flex pb-8 flex-wrap",
-                    children: tagsPost.map(function (tag) {
+                    children: tagsPost !== null ? tagsPost.map(function (tag) {
                       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
                         href: "/t/".concat(tag),
                         className: "min-h-[32px] hover:bg-[#EBECFC] p-2 cursor-pointer rounded-lg hover:border hover:border-[#DFE0F9]",
                         children: ["#", tag]
                       });
-                    })
+                    }) : ''
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                     dangerouslySetInnerHTML: {
                       __html: detailPost.content

@@ -362,9 +362,11 @@ class UserController extends Controller
                 'id_user' => Auth::user()->id_user,
             ];
 
-            $post = Post::create($data);
+            Post::create($data);
 
-            return redirect()->back()->withInput()->with('test_res', json_encode($request->input('image_content')));
+            // return redirect()->back()->withInput()->with('test_res', json_encode($request->input('image_content')));
+
+            return redirect()->to('/dashboard');
         }
     }
 
@@ -382,6 +384,7 @@ class UserController extends Controller
     }
 
     public function deletePost(Request $request) {
+        dd(Post::where('id_post', $request->input('idPosts'))->delete());
         return response()->json([
             'res' => $request->input(),
         ]);

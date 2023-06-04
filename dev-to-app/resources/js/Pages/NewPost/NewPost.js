@@ -35,7 +35,7 @@ function NewPost() {
     const submit = (e) => {
         e.preventDefault();
         data.tags = tagList;
-        data.body = editorRef.current.getContent();
+        data.body = editorRef.current.getContent({format : 'raw'});
         post('/get_data_post');
     }
 
@@ -98,6 +98,8 @@ function NewPost() {
             reject('Invalid JSON: ' + xhr.responseText);
             return;
           }
+
+          console.log(json.location);
 
           resolve(json.location);
 
@@ -247,7 +249,6 @@ function NewPost() {
                                         apiKey='2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c'
                                         onInit={(evt, editor) => {
                                             editorRef.current = editor;
-
                                             editor.on('keydown', (e) => {
                                                 if ((e.key == "Backspace" || e.key == "Delete") && editor.selection) {
                                                     var selectedNode = editor.selection.getNode();

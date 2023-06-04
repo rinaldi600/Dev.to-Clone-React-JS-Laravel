@@ -7,13 +7,8 @@ function ProfileCreator({detailUser}) {
     const [bgColor, setBgColor] = useState(Math.floor(Math.random()*16777215).toString(16))
 
     useEffect(() => {
-        console.log(divBackgroundColor.current);
         divBackgroundColor.current.style.backgroundColor = `#${bgColor}`;
     });
-
-    const changeBgColor = (e) => {
-
-    };
 
     return (
         <div className="min-h-fit border border-[#EAEAEA] rounded-lg bg-white w-full overflow-hidden">
@@ -34,7 +29,7 @@ function ProfileCreator({detailUser}) {
                             <img className="w-full h-full" src={`${detailUser.profile_image}`} alt="Profile Image Creator" />
                         }
                     </div>
-                    <p onClick={changeBgColor} className="font-bold text-xl">{detailUser.name}</p>
+                    <p className="font-bold text-xl">{detailUser.name}</p>
                 </div>
                 <div className="pt-3 p-2">
                     <button type="button" className="min-h-[40px] w-full bg-[#3B49DF] hover:bg-[#2F3AB2] rounded-lg text-[#F9F9F9] font-medium text-base">Follow</button>

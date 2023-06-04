@@ -62,9 +62,13 @@ function SeePost({detailPost}) {
                                         <h1 className="text-[#171717] pb-4 text-5xl font-extrabold break-words">{detailPost.title}</h1>
                                         <div className="flex pb-8 flex-wrap">
                                             {
-                                                tagsPost.map((tag) => (
-                                                    <Link href={`/t/${tag}`} className="min-h-[32px] hover:bg-[#EBECFC] p-2 cursor-pointer rounded-lg hover:border hover:border-[#DFE0F9]">#{tag}</Link>
-                                                ))
+                                                tagsPost !== null ?
+                                                    tagsPost.map((tag) => (
+                                                        <Link href={`/t/${tag}`} className="min-h-[32px] hover:bg-[#EBECFC] p-2 cursor-pointer rounded-lg hover:border hover:border-[#DFE0F9]">#{tag}</Link>
+                                                    ))
+                                                    :
+                                                    ''
+
                                             }
                                         </div>
                                         <div dangerouslySetInnerHTML={{__html: detailPost.content}}>
