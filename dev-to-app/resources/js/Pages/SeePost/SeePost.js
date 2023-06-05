@@ -12,13 +12,7 @@ function SeePost({detailPost}) {
     const { auth } = usePage().props;
 
     useEffect(() => {
-        const imgContent =  [].slice.call(document.getElementsByTagName("img")).splice(3);
-        const usernamePost = detailPost.users[0]?.username;
-        for (const img of imgContent) {
-            if (img.src.includes(usernamePost, 0)) {
-                img.src = img.src.replace(usernamePost, '/');
-            }
-        }
+
     })
 
     return (

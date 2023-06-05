@@ -11,7 +11,8 @@ const TagPost = React.lazy(() => import('../NewPost/tagPost/TagPost'));
 function EditPost({detailPost, user}) {
 
     const { data, setData, post, processing, errors, transform} = useForm({
-        title : '',
+        idPost : detailPost.id_post,
+        title : detailPost.title,
         cover : detailPost.cover ?? {},
         body : '',
         image_content : [],
@@ -22,8 +23,9 @@ function EditPost({detailPost, user}) {
     const [successDelete, setSuccessDelete] = useState(false);
     const [heightTextArea, setHeightTextArea] = useState(0);
     const [activeEventOnSelect, setActiveEventOnSelect] = useState(false);
-    const [tagList, setTagList] = useState(JSON.parse(detailPost.tags).length > 0 ? JSON.parse(detailPost.tags) : []);
-    const [countTag, setCountTag] = useState(4 - tagList.length);
+    const [tagList, setTagList] = useState( detailPost.tags !== null ?
+        (JSON.parse(detailPost.tags)?.length > 0 ? JSON.parse(detailPost.tags) : []) : []);
+    const [countTag, setCountTag] = useState( detailPost.tags !== null ? (4 - tagList.length) : 4);
     const [previewImage, setPreview] = useState([]);
     const editorRef = useRef(null);
     const inputFileCoverImage = useRef();
@@ -33,14 +35,14 @@ function EditPost({detailPost, user}) {
     const submit = (e) => {
         e.preventDefault();
         data.tags = tagList;
-        data.body = editorRef.current.getContent();
-        post('/get_data_post');
+        // data.body = editorRef.current.getContent({format : 'raw'});
+        post('/edit_data');
     }
 
     useEffect(() => {
         // console.log(countTag);
         // console.log(auth);
-        // console.log(detailPost.content);
+        console.log(detailPost);
     });
 
     const autoSize = (e) => {
@@ -165,7 +167,7 @@ function EditPost({detailPost, user}) {
 
     return (
         <>
-            <Head title="New Post - DEV Community" />
+            <Head title="Edit Post - DEV Community" />
             <div className="min-h-screen p-2 pb-8 font-['Segoe_UI'] bg-[#F5F5F5]">
                 <div className="max-w-[886.4px] mx-auto min-h-screen">
                     <div className="min-h-[56px] flex justify-between items-center">
@@ -235,7 +237,7 @@ function EditPost({detailPost, user}) {
                             </div>
                             <div className="w-[95%] mx-auto">
                                 <div className="mb-6">
-                                    <Editor
+                                    {/* <Editor
                                         apiKey='2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c'
                                         onInit={(evt, editor) => {
                                             editorRef.current = editor;
@@ -292,7 +294,7 @@ function EditPost({detailPost, user}) {
                                             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
                                             placeholder : "Write your post content here...",
                                         }}
-                                    />
+                                    /> */}
                                     {
                                         successUpload ?
                                         <Suspense fallback={<div>Loading</div>}>

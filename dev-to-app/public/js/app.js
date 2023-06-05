@@ -6161,11 +6161,12 @@ var TagPost = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1__.lazy(function () {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../NewPost/tagPost/TagPost */ "./resources/js/Pages/NewPost/tagPost/TagPost.js"));
 });
 function EditPost(_ref) {
-  var _detailPost$cover;
+  var _detailPost$cover, _JSON$parse;
   var detailPost = _ref.detailPost,
     user = _ref.user;
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)({
-      title: '',
+      idPost: detailPost.id_post,
+      title: detailPost.title,
       cover: (_detailPost$cover = detailPost.cover) !== null && _detailPost$cover !== void 0 ? _detailPost$cover : {},
       body: '',
       image_content: [],
@@ -6193,11 +6194,11 @@ function EditPost(_ref) {
     _useState8 = _slicedToArray(_useState7, 2),
     activeEventOnSelect = _useState8[0],
     setActiveEventOnSelect = _useState8[1];
-  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(JSON.parse(detailPost.tags).length > 0 ? JSON.parse(detailPost.tags) : []),
+  var _useState9 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(detailPost.tags !== null ? ((_JSON$parse = JSON.parse(detailPost.tags)) === null || _JSON$parse === void 0 ? void 0 : _JSON$parse.length) > 0 ? JSON.parse(detailPost.tags) : [] : []),
     _useState10 = _slicedToArray(_useState9, 2),
     tagList = _useState10[0],
     setTagList = _useState10[1];
-  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(4 - tagList.length),
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(detailPost.tags !== null ? 4 - tagList.length : 4),
     _useState12 = _slicedToArray(_useState11, 2),
     countTag = _useState12[0],
     setCountTag = _useState12[1];
@@ -6212,13 +6213,13 @@ function EditPost(_ref) {
   var submit = function submit(e) {
     e.preventDefault();
     data.tags = tagList;
-    data.body = editorRef.current.getContent();
-    post('/get_data_post');
+    // data.body = editorRef.current.getContent({format : 'raw'});
+    post('/edit_data');
   };
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     // console.log(countTag);
     // console.log(auth);
-    // console.log(detailPost.content);
+    console.log(detailPost);
   });
   var autoSize = function autoSize(e) {
     setHeightTextArea(e.target.scrollHeight);
@@ -6323,7 +6324,7 @@ function EditPost(_ref) {
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Head, {
-      title: "New Post - DEV Community"
+      title: "Edit Post - DEV Community"
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       className: "min-h-screen p-2 pb-8 font-['Segoe_UI'] bg-[#F5F5F5]",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
@@ -6452,61 +6453,7 @@ function EditPost(_ref) {
               className: "w-[95%] mx-auto",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                 className: "mb-6",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_tinymce_tinymce_react__WEBPACK_IMPORTED_MODULE_2__.Editor, {
-                  apiKey: "2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c",
-                  onInit: function onInit(evt, editor) {
-                    editorRef.current = editor;
-                    editor.on('keydown', function (e) {
-                      if ((e.key == "Backspace" || e.key == "Delete") && editor.selection) {
-                        var selectedNode = editor.selection.getNode();
-                        if (selectedNode && selectedNode.nodeName == 'IMG') {
-                          var imageSrc = selectedNode.src;
-                          var pathName = (0,lodash__WEBPACK_IMPORTED_MODULE_3__.split)(new URL(imageSrc).pathname, '/');
-                          var requestOptions = {
-                            method: 'POST',
-                            headers: {
-                              'Content-Type': 'application/json',
-                              "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content
-                            },
-                            body: JSON.stringify({
-                              nameImage: "".concat(pathName[2], "/").concat(pathName[4])
-                            })
-                          };
-                          fetch('/delete_image_post', requestOptions).then(function (response) {
-                            return response.json();
-                          }).then(function (responseJson) {
-                            setData(function (values) {
-                              return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, 'image_content', values.image_content.filter(function (item) {
-                                return item !== "".concat(pathName[2], "/").concat(pathName[4]);
-                              })));
-                            });
-                            setSuccessDelete(true);
-                            console.log(responseJson);
-                          })["catch"](function (error) {
-                            console.error(error);
-                          });
-                        }
-                      }
-                    });
-                  },
-                  initialValue: detailPost.content,
-                  init: {
-                    // width: 600,
-                    height: 500,
-                    plugins: ['advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak', 'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media', 'table', 'emoticons', 'template', 'help'],
-                    toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' + 'bullist numlist outdent indent | link image | print preview media fullscreen | ' + 'forecolor backcolor emoticons | help',
-                    menu: {
-                      favs: {
-                        title: 'My Favorites',
-                        items: 'code visualaid | searchreplace | emoticons'
-                      }
-                    },
-                    menubar: 'favs file edit view insert format tools table help',
-                    images_upload_handler: example_image_upload_handler,
-                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
-                    placeholder: "Write your post content here..."
-                  }
-                }), successUpload ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
+                children: [successUpload ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
                   fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     children: "Loading"
                   }),
@@ -10397,8 +10344,8 @@ function PostBox(_ref) {
     processing = _useForm.processing;
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {});
   var submit = function submit(e) {
-    if (confirm('Are you sure?')) {
-      e.preventDefault();
+    e.preventDefault();
+    if (window.confirm('Are you sure?')) {
       post('/delete_post');
     }
   };
@@ -11826,9 +11773,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ProfileCreator_ProfileCreator__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./ProfileCreator/ProfileCreator */ "./resources/js/Pages/SeePost/ProfileCreator/ProfileCreator.js");
 /* harmony import */ var _CommentBox_CommentBox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./CommentBox/CommentBox */ "./resources/js/Pages/SeePost/CommentBox/CommentBox.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _createForOfIteratorHelper(o, allowArrayLike) { var it = typeof Symbol !== "undefined" && o[Symbol.iterator] || o["@@iterator"]; if (!it) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = it.call(o); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 
 
 
@@ -11844,25 +11788,7 @@ function SeePost(_ref) {
   var detailPost = _ref.detailPost;
   var tagsPost = JSON.parse(detailPost.tags);
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.auth;
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    var _detailPost$users$;
-    var imgContent = [].slice.call(document.getElementsByTagName("img")).splice(3);
-    var usernamePost = (_detailPost$users$ = detailPost.users[0]) === null || _detailPost$users$ === void 0 ? void 0 : _detailPost$users$.username;
-    var _iterator = _createForOfIteratorHelper(imgContent),
-      _step;
-    try {
-      for (_iterator.s(); !(_step = _iterator.n()).done;) {
-        var img = _step.value;
-        if (img.src.includes(usernamePost, 0)) {
-          img.src = img.src.replace(usernamePost, '/');
-        }
-      }
-    } catch (err) {
-      _iterator.e(err);
-    } finally {
-      _iterator.f();
-    }
-  });
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
       title: "".concat(detailPost.title, " - DEV Community")

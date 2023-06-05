@@ -384,10 +384,50 @@ class UserController extends Controller
     }
 
     public function deletePost(Request $request) {
-        dd(Post::where('id_post', $request->input('idPosts'))->delete());
-        return response()->json([
-            'res' => $request->input(),
+        Post::where('id_post', $request->input('idPosts'))->delete();
+        return redirect()->back();
+    }
+
+    public function editDataPost(Request $request) {
+
+        $validation = [
+            'title' => 'required|string|max:255',
+        ];
+
+        $validation['cover'] = $request->hasFile('cover') ? 'required|file|image|max:1000|mimes:jpg,bmp,png' : '';
+
+        $validator = Validator::make($request->all(), $validation, [
+            'required' => ':attribute wajib diisi.',
+            'cover.file' => ':attribute wajib diisi.',
+            'cover.image' => ':attribute harus wajib berupa gambar.',
+            'cover.max' => ':attribute ukuran maksimal 1 MB.',
+            'cover.mimes' => ':attribute format gambar harus jpg,bmp dan png.',
+            'title.max' => ':attribute maksimal 255 karakter.',
         ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        } else {
+            dump($request->file('cover'));
+
+            $data = [
+                'cover' => $request->hasFile('cover') ? (Storage::url(Storage::disk('public')->put('cover_post', $request->file('cover')))) : $request->input('cover'),
+                'title' => $request->input('title'),
+                'content' => $request->input('body'),
+                'image_content' => json_encode($request->input('image_content')),
+                'tags' => json_encode($request->input('tags')),
+                'id_user' => Auth::user()->id_user,
+            ];
+
+            dd($data);
+            // Post::create($data);
+
+            // return redirect()->back()->withInput()->with('test_res', json_encode($request->input('image_content')));
+
+            // return redirect()->to('/dashboard');
+        }
+        // dump($request->file('cover'));
+        // dd($request->input());
     }
 
     public function seePost($username, $slug) {

@@ -14,8 +14,8 @@ function PostBox({key, detail = Object}) {
     })
 
     const submit = (e) => {
-        if (confirm('Are you sure?')) {
-            e.preventDefault();
+        e.preventDefault();
+        if (window.confirm('Are you sure?')) {
             post('/delete_post');
         }
     }
