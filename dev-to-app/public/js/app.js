@@ -6169,7 +6169,7 @@ function EditPost(_ref) {
       title: detailPost.title,
       cover: (_detailPost$cover = detailPost.cover) !== null && _detailPost$cover !== void 0 ? _detailPost$cover : {},
       body: '',
-      image_content: [],
+      image_content: detailPost.image_content !== null ? JSON.parse(detailPost.image_content) : [],
       tags: []
     }),
     data = _useForm.data,

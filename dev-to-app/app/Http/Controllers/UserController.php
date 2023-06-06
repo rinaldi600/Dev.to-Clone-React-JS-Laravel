@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 class UserController extends Controller
 {
@@ -408,26 +409,20 @@ class UserController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
-            dump($request->file('cover'));
 
             $data = [
                 'cover' => $request->hasFile('cover') ? (Storage::url(Storage::disk('public')->put('cover_post', $request->file('cover')))) : $request->input('cover'),
                 'title' => $request->input('title'),
-                'content' => $request->input('body'),
+                'slug' => SlugService::createSlug(Post::class, 'slug', $request->input('title'), ['unique' => true]),
+                // 'content' => $request->input('body'),
                 'image_content' => json_encode($request->input('image_content')),
                 'tags' => json_encode($request->input('tags')),
-                'id_user' => Auth::user()->id_user,
             ];
-
-            dd($data);
-            // Post::create($data);
-
+            $post = Post::where('id_post', $request->input('idPost'))->update($data);
             // return redirect()->back()->withInput()->with('test_res', json_encode($request->input('image_content')));
 
-            // return redirect()->to('/dashboard');
+            return redirect()->to('/dashboard');
         }
-        // dump($request->file('cover'));
-        // dd($request->input());
     }
 
     public function seePost($username, $slug) {

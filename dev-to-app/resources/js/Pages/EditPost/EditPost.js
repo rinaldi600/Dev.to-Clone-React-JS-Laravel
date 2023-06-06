@@ -15,7 +15,7 @@ function EditPost({detailPost, user}) {
         title : detailPost.title,
         cover : detailPost.cover ?? {},
         body : '',
-        image_content : [],
+        image_content : detailPost.image_content !== null ? JSON.parse(detailPost.image_content) : [],
         tags : [],
     });
 
