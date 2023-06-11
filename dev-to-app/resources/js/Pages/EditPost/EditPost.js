@@ -15,6 +15,7 @@ function EditPost({detailPost, user}) {
         title : detailPost.title,
         cover : detailPost.cover ?? {},
         body : '',
+        oldPath : detailPost.cover,
         image_content : detailPost.image_content !== null ? JSON.parse(detailPost.image_content) : [],
         tags : [],
     });
@@ -35,14 +36,11 @@ function EditPost({detailPost, user}) {
     const submit = (e) => {
         e.preventDefault();
         data.tags = tagList;
-        // data.body = editorRef.current.getContent({format : 'raw'});
+        data.body = editorRef.current.getContent({format : 'raw'});
         post('/edit_data');
     }
 
     useEffect(() => {
-        // console.log(countTag);
-        // console.log(auth);
-        console.log(detailPost);
     });
 
     const autoSize = (e) => {
@@ -237,7 +235,7 @@ function EditPost({detailPost, user}) {
                             </div>
                             <div className="w-[95%] mx-auto">
                                 <div className="mb-6">
-                                    {/* <Editor
+                                    <Editor
                                         apiKey='2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c'
                                         onInit={(evt, editor) => {
                                             editorRef.current = editor;
@@ -294,7 +292,7 @@ function EditPost({detailPost, user}) {
                                             content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
                                             placeholder : "Write your post content here...",
                                         }}
-                                    /> */}
+                                    />
                                     {
                                         successUpload ?
                                         <Suspense fallback={<div>Loading</div>}>

@@ -6169,6 +6169,7 @@ function EditPost(_ref) {
       title: detailPost.title,
       cover: (_detailPost$cover = detailPost.cover) !== null && _detailPost$cover !== void 0 ? _detailPost$cover : {},
       body: '',
+      oldPath: detailPost.cover,
       image_content: detailPost.image_content !== null ? JSON.parse(detailPost.image_content) : [],
       tags: []
     }),
@@ -6213,14 +6214,12 @@ function EditPost(_ref) {
   var submit = function submit(e) {
     e.preventDefault();
     data.tags = tagList;
-    // data.body = editorRef.current.getContent({format : 'raw'});
+    data.body = editorRef.current.getContent({
+      format: 'raw'
+    });
     post('/edit_data');
   };
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    // console.log(countTag);
-    // console.log(auth);
-    console.log(detailPost);
-  });
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {});
   var autoSize = function autoSize(e) {
     setHeightTextArea(e.target.scrollHeight);
   };
@@ -6453,7 +6452,61 @@ function EditPost(_ref) {
               className: "w-[95%] mx-auto",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
                 className: "mb-6",
-                children: [successUpload ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_tinymce_tinymce_react__WEBPACK_IMPORTED_MODULE_2__.Editor, {
+                  apiKey: "2f2dpdvg7yhphgmbfb3j1aao0ipm1rs22z57mubmiemdvq1c",
+                  onInit: function onInit(evt, editor) {
+                    editorRef.current = editor;
+                    editor.on('keydown', function (e) {
+                      if ((e.key == "Backspace" || e.key == "Delete") && editor.selection) {
+                        var selectedNode = editor.selection.getNode();
+                        if (selectedNode && selectedNode.nodeName == 'IMG') {
+                          var imageSrc = selectedNode.src;
+                          var pathName = (0,lodash__WEBPACK_IMPORTED_MODULE_3__.split)(new URL(imageSrc).pathname, '/');
+                          var requestOptions = {
+                            method: 'POST',
+                            headers: {
+                              'Content-Type': 'application/json',
+                              "X-CSRF-TOKEN": document.head.querySelector('meta[name="csrf-token"]').content
+                            },
+                            body: JSON.stringify({
+                              nameImage: "".concat(pathName[2], "/").concat(pathName[4])
+                            })
+                          };
+                          fetch('/delete_image_post', requestOptions).then(function (response) {
+                            return response.json();
+                          }).then(function (responseJson) {
+                            setData(function (values) {
+                              return _objectSpread(_objectSpread({}, values), {}, _defineProperty({}, 'image_content', values.image_content.filter(function (item) {
+                                return item !== "".concat(pathName[2], "/").concat(pathName[4]);
+                              })));
+                            });
+                            setSuccessDelete(true);
+                            console.log(responseJson);
+                          })["catch"](function (error) {
+                            console.error(error);
+                          });
+                        }
+                      }
+                    });
+                  },
+                  initialValue: detailPost.content,
+                  init: {
+                    // width: 600,
+                    height: 500,
+                    plugins: ['advlist', 'autolink', 'link', 'image', 'lists', 'charmap', 'preview', 'anchor', 'pagebreak', 'searchreplace', 'wordcount', 'visualblocks', 'code', 'fullscreen', 'insertdatetime', 'media', 'table', 'emoticons', 'template', 'help'],
+                    toolbar: 'undo redo | styles | bold italic | alignleft aligncenter alignright alignjustify | ' + 'bullist numlist outdent indent | link image | print preview media fullscreen | ' + 'forecolor backcolor emoticons | help',
+                    menu: {
+                      favs: {
+                        title: 'My Favorites',
+                        items: 'code visualaid | searchreplace | emoticons'
+                      }
+                    },
+                    menubar: 'favs file edit view insert format tools table help',
+                    images_upload_handler: example_image_upload_handler,
+                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+                    placeholder: "Write your post content here..."
+                  }
+                }), successUpload ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
                   fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
                     children: "Loading"
                   }),
@@ -11610,42 +11663,88 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+var NotAllowedComment = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.lazy)(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./NotAllowedComment/NotAllowedComment.js */ "./resources/js/Pages/SeePost/CommentBox/NotAllowedComment/NotAllowedComment.js"));
+});
 function CommentBox() {
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     login = _useState2[0],
     isLogin = _useState2[1];
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {});
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
-    className: "font-['Segoe_UI']",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-      "class": "w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-        "class": "px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
-          "for": "comment",
-          "class": "sr-only",
-          children: "Your comment"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
-          id: "comment",
-          rows: "4",
-          "class": "w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0",
-          placeholder: "Write a comment...",
-          required: true
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    if ((auth === null || auth === void 0 ? void 0 : auth.user) !== null) {
+      isLogin(true);
+    }
+    console.log(auth);
+  }, [login]);
+  var checkLogin = function checkLogin() {
+    console.log("WORK");
+  };
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
+      fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
+        children: "Loading"
+      }),
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(NotAllowedComment, {})
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+      className: "font-['Segoe_UI']",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        "class": "w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          "class": "px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
+            "for": "comment",
+            "class": "sr-only",
+            children: "Your comment"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+            onClick: checkLogin,
+            id: "comment",
+            rows: "4",
+            "class": "".concat(login ? '' : 'cursor-not-allowed', " w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0"),
+            placeholder: "Write a comment...",
+            required: true
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          "class": "flex items-center justify-between px-3 py-2 border-t dark:border-gray-600",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            type: "submit",
+            "class": "inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800",
+            children: "Post comment"
+          })
         })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-        "class": "flex items-center justify-between px-3 py-2 border-t dark:border-gray-600",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-          type: "submit",
-          "class": "inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800",
-          children: "Post comment"
-        })
-      })]
-    })
+      })
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CommentBox);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SeePost/CommentBox/NotAllowedComment/NotAllowedComment.js":
+/*!**************************************************************************************!*\
+  !*** ./resources/js/Pages/SeePost/CommentBox/NotAllowedComment/NotAllowedComment.js ***!
+  \**************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+function NotAllowedComment() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+    className: "fixed inset-0 flex justify-center items-center w-full overflow-hidden bg-red-100",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("h1", {
+      className: "bg-blue-500",
+      children: "WORK"
+    })
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (NotAllowedComment);
 
 /***/ }),
 
@@ -94110,6 +94209,8 @@ var map = {
 	"./Profile/profileUser.js": "./resources/js/Pages/Profile/profileUser.js",
 	"./SeePost/CommentBox/CommentBox": "./resources/js/Pages/SeePost/CommentBox/CommentBox.js",
 	"./SeePost/CommentBox/CommentBox.js": "./resources/js/Pages/SeePost/CommentBox/CommentBox.js",
+	"./SeePost/CommentBox/NotAllowedComment/NotAllowedComment": "./resources/js/Pages/SeePost/CommentBox/NotAllowedComment/NotAllowedComment.js",
+	"./SeePost/CommentBox/NotAllowedComment/NotAllowedComment.js": "./resources/js/Pages/SeePost/CommentBox/NotAllowedComment/NotAllowedComment.js",
 	"./SeePost/ProfileCreator/ProfileCreator": "./resources/js/Pages/SeePost/ProfileCreator/ProfileCreator.js",
 	"./SeePost/ProfileCreator/ProfileCreator.js": "./resources/js/Pages/SeePost/ProfileCreator/ProfileCreator.js",
 	"./SeePost/SeePost": "./resources/js/Pages/SeePost/SeePost.js",

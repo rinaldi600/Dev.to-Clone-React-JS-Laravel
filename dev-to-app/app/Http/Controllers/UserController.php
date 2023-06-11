@@ -358,8 +358,8 @@ class UserController extends Controller
                 'cover' => Storage::url(Storage::disk('public')->put('cover_post', $request->file('cover'))),
                 'title' => $request->input('title'),
                 'content' => $request->input('body'),
-                'image_content' => json_encode($request->input('image_content')),
-                'tags' => json_encode($request->input('tags')),
+                'image_content' => $request->input('image_content') === null ? null : json_encode($request->input('image_content')),
+                'tags' => $request->input('tags') === null ? null : json_encode($request->input('tags')),
                 'id_user' => Auth::user()->id_user,
             ];
 
@@ -410,16 +410,19 @@ class UserController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         } else {
 
+            if ($request->hasFile('cover')) {
+                Storage::disk('public')->delete(str_replace("/storage/", "", $request->input('oldPath')));
+            };
+
             $data = [
                 'cover' => $request->hasFile('cover') ? (Storage::url(Storage::disk('public')->put('cover_post', $request->file('cover')))) : $request->input('cover'),
                 'title' => $request->input('title'),
-                'slug' => SlugService::createSlug(Post::class, 'slug', $request->input('title'), ['unique' => true]),
-                // 'content' => $request->input('body'),
-                'image_content' => json_encode($request->input('image_content')),
-                'tags' => json_encode($request->input('tags')),
+                'content' => $request->input('body'),
+                'image_content' => json_encode($request->input('image_content')) === '[]' ? null : json_encode($request->input('image_content')),
+                'tags' => json_encode($request->input('tags')) === '[]' ? null : json_encode($request->input('tags')),
             ];
-            $post = Post::where('id_post', $request->input('idPost'))->update($data);
-            // return redirect()->back()->withInput()->with('test_res', json_encode($request->input('image_content')));
+
+            Post::where('id_post', $request->input('idPost'))->update($data);
 
             return redirect()->to('/dashboard');
         }
