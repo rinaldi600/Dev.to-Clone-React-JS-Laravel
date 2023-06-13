@@ -3,7 +3,7 @@ import { useEffect, useState, lazy, Suspense } from "react";
 
 const NotAllowedComment = lazy(() => import('./NotAllowedComment/NotAllowedComment.js'));
 
-function CommentBox() {
+function CommentBox({idPost}) {
     const { auth } = usePage().props;
     const [login, isLogin] = useState(false);
     const [closeAlertComment, setCloseAlertComment] = useState(false);
@@ -12,11 +12,13 @@ function CommentBox() {
         if (auth?.user !== null) {
             isLogin(true);
         }
-
+        console.log(idPost);
     }, [login]);
 
     const checkLogin = () => {
-        setCloseAlertComment(true);
+        if (auth?.user === null) {
+            setCloseAlertComment(true);
+        }
     };
 
     let template;

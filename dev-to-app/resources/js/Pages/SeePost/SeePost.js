@@ -87,7 +87,7 @@ function SeePost({detailPost}) {
                                             }
                                         </div>
                                         <div className="w-[90%]">
-                                            <CommentBox />
+                                            <CommentBox idPost={detailPost?.id_post} />
                                         </div>
                                     </div>
                                 </div>

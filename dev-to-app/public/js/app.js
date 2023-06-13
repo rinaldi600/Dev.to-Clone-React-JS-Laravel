@@ -11667,7 +11667,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var NotAllowedComment = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.lazy)(function () {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./NotAllowedComment/NotAllowedComment.js */ "./resources/js/Pages/SeePost/CommentBox/NotAllowedComment/NotAllowedComment.js"));
 });
-function CommentBox() {
+function CommentBox(_ref) {
+  var idPost = _ref.idPost;
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
@@ -11681,9 +11682,12 @@ function CommentBox() {
     if ((auth === null || auth === void 0 ? void 0 : auth.user) !== null) {
       isLogin(true);
     }
+    console.log(idPost);
   }, [login]);
   var checkLogin = function checkLogin() {
-    setCloseAlertComment(true);
+    if ((auth === null || auth === void 0 ? void 0 : auth.user) === null) {
+      setCloseAlertComment(true);
+    }
   };
   var template;
   if (closeAlertComment) {
@@ -11754,7 +11758,7 @@ function NotAllowedComment(_ref) {
   var closeAlertComment = _ref.closeAlertComment;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "fixed inset-0 flex justify-items-center items-center w-full overflow-hidden bg-black/60",
+    className: "fixed inset-0 p-2 flex justify-items-center items-center w-full overflow-hidden bg-black/60",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "w-full",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -11794,14 +11798,24 @@ function NotAllowedComment(_ref) {
               loading: "lazy"
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "pt-5",
+            className: "pt-5 p-4",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
               className: "text-base text-gray-700 break-words",
               children: "We're a place where coders share, stay up-to-date and grow their careers."
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-              href: "/",
-              className: "max-w-[480px] h-[40px] rounded-lg bg-[]",
-              children: "Log In"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "sm:w-full w-[480px] mx-auto flex flex-wrap cursor-pointer justify-center items-center h-[40px] rounded-lg bg-[#3B49DF] hover:bg-[#2F3AB2]",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                href: "/enter",
+                className: "w-[100%] flex items-center justify-center h-full text-center text-[#f9f9f9] font-medium text-base",
+                children: "Log In"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+              className: "sm:w-full w-[480px] mt-3 mx-auto flex flex-wrap cursor-pointer justify-center items-center h-[40px] rounded-lg hover:bg-[#F6F6F6]",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                href: "/enter?state=new-user",
+                className: "w-[100%] flex items-center justify-center h-full text-center text-[#3B49DF] font-medium text-base",
+                children: "Create account"
+              })
             })]
           })]
         })]
@@ -12075,7 +12089,9 @@ function SeePost(_ref) {
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
                     className: "w-[90%]",
-                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_CommentBox_CommentBox__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+                    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_CommentBox_CommentBox__WEBPACK_IMPORTED_MODULE_6__["default"], {
+                      idPost: detailPost === null || detailPost === void 0 ? void 0 : detailPost.id_post
+                    })
                   })]
                 })
               })]
