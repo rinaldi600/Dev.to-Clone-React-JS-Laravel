@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +21,7 @@ Route::get('/', function () {
     $data = [
         'title' => 'DEV Community 👩‍💻👨‍💻',
         'isRememberMe' => Auth::check() ? Remember_Me::where('id_user','=', Auth::user()['id_user'])->first() : '',
+        'listPost' => Post::with('users')->get(),
     ];
     return Inertia::render('Home/Home', $data);
 });

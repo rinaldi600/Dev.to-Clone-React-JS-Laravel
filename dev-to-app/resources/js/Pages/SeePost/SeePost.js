@@ -5,6 +5,7 @@ import moment from 'moment';
 import 'moment/locale/id';
 import ProfileCreator from "./ProfileCreator/ProfileCreator";
 import CommentBox from "./CommentBox/CommentBox";
+import CommentUser from "./CommentUser/CommentUser";
 
 function SeePost({detailPost}) {
 
@@ -90,6 +91,7 @@ function SeePost({detailPost}) {
                                             <CommentBox idPost={detailPost?.id_post} />
                                         </div>
                                     </div>
+                                    <CommentUser/>
                                 </div>
                             </div>
 

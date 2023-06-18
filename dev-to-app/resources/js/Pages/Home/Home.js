@@ -12,7 +12,7 @@ import {Head} from "@inertiajs/inertia-react";
 import {useSelector} from "react-redux";
 import {usePage} from "@inertiajs/inertia-react";
 
-function Home({title, isRememberMe}) {
+function Home({title, isRememberMe, listPost}) {
 
     const navbar = useSelector(state => state.navbar.value);
     const { auth } = usePage().props;
@@ -24,6 +24,10 @@ function Home({title, isRememberMe}) {
            }
        }
     });
+
+    useEffect(() => {
+
+    })
 
     return (
         <>
@@ -45,7 +49,7 @@ function Home({title, isRememberMe}) {
                         <Tags/>
                     </div>
                     <div className={`${navbar ? 'overflow-hidden h-screen' : 'min-h-max'} w-[650.662px]`}>
-                        <Contents/>
+                        <Contents listPost={listPost}/>
                     </div>
                     <div className={'hidden lg:block w-[325.337px] min-h-max'}>
                         <Listings/>

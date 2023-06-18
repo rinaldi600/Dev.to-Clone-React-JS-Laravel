@@ -6,7 +6,7 @@ import {useSelector} from "react-redux";
 const NextContent = React.lazy(() => import('@/Pages/Home/Contents/NextContent/NextContent'));
 const FirstContent = React.lazy(() => import('@/Pages/Home/Contents/FirstContent/FirstContent'));
 
-function Contents() {
+function Contents({listPost}) {
 
     const navbar = useSelector(state => state.navbar.value);
     const [randomPeople, setRandomPeople] = useState([]);
@@ -20,6 +20,10 @@ function Contents() {
                 console.log(error)
             })
     },[]);
+
+    useEffect(() => {
+
+    })
 
     return (
         <div>
@@ -37,13 +41,13 @@ function Contents() {
 
             <div className={`${navbar ? 'h-screen fixed overflow-hidden' : ''} mt-2 w-full p-2`}>
                 <Suspense fallback={<div>Loading</div>}>
-                    <FirstContent detailUserCreate={randomPeople.length >= 1 ? randomPeople[0] : {}} text={'20 Killer JavaScript One-Liners That’ll Save You Hours of Coding 🤯🔥'}/>
+                    <FirstContent detailUserCreate={randomPeople.length >= 1 ? listPost[0].users[0] : {}} text={listPost[0]?.title} detailPost={listPost[0]}/>
                 </Suspense>
                 {
-                    randomPeople.length >= 1 ?
-                        randomPeople.slice(1, randomPeople.length-1).map((people) => (
+                    listPost.length >= 1 ?
+                        listPost.slice(1, listPost.length - 1).map((post) => (
                             <Suspense fallback={<div>Loading</div>}>
-                                <NextContent detailUserCreate={people} text={'Defect life cycle in API testing ⚙'}/>
+                                <NextContent detailPost={post} detailUserCreate={post?.users[0]} text={post?.title}/>
                             </Suspense>
                         ))
                         : <h1>Loading</h1>
