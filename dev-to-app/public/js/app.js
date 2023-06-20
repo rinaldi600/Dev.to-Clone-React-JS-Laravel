@@ -11678,7 +11678,9 @@ var NotAllowedComment = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.lazy)
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ./NotAllowedComment/NotAllowedComment.js */ "./resources/js/Pages/SeePost/CommentBox/NotAllowedComment/NotAllowedComment.js"));
 });
 function CommentBox(_ref) {
-  var idPost = _ref.idPost;
+  var idPost = _ref.idPost,
+    cancel = _ref.cancel,
+    valueCancel = _ref.valueCancel;
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
@@ -11688,6 +11690,16 @@ function CommentBox(_ref) {
     _useState4 = _slicedToArray(_useState3, 2),
     closeAlertComment = _useState4[0],
     setCloseAlertComment = _useState4[1];
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)({
+      email: '',
+      password: '',
+      remember: false
+    }),
+    data = _useForm.data,
+    setData = _useForm.setData,
+    post = _useForm.post,
+    processing = _useForm.processing,
+    errors = _useForm.errors;
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
     if ((auth === null || auth === void 0 ? void 0 : auth.user) !== null) {
       isLogin(true);
@@ -11698,6 +11710,9 @@ function CommentBox(_ref) {
       setCloseAlertComment(true);
     }
   };
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    console.log(idPost);
+  });
   var template;
   if (closeAlertComment) {
     template = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
@@ -11709,8 +11724,13 @@ function CommentBox(_ref) {
       })
     });
   }
+  var submit = function submit(e) {
+    e.preventDefault();
+    post('/comment_post');
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: [template, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+      onSubmit: submit,
       className: "font-['Segoe_UI']",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         "class": "w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600",
@@ -11729,13 +11749,23 @@ function CommentBox(_ref) {
             placeholder: "Write a comment...",
             required: true
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-          "class": "flex items-center justify-between px-3 py-2 border-t dark:border-gray-600",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          "class": "flex items-center gap-2 px-3 py-2 border-t dark:border-gray-600",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
             type: "submit",
             "class": "inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800",
             children: "Post comment"
-          })
+          }), valueCancel ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            "class": "flex items-center justify-between",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+              onClick: function onClick() {
+                return cancel(false);
+              },
+              type: "button",
+              "class": "flex items-center justify-center text-sm font-normal text-[#090909] gap-2 hover:bg-[#F6F6F6] rounded-lg w-[81.6875px] h-[32px]",
+              children: "Dismiss"
+            })
+          }) : '']
         })]
       })
     })]
@@ -11847,20 +11877,32 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _CommentBox_CommentBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../CommentBox/CommentBox */ "./resources/js/Pages/SeePost/CommentBox/CommentBox.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
+var CommentBox = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../CommentBox/CommentBox */ "./resources/js/Pages/SeePost/CommentBox/CommentBox.js"));
+});
 function CommentUser() {
-  var commentBox;
-  var showComment = function showComment() {
-    commentBox = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_CommentBox_CommentBox__WEBPACK_IMPORTED_MODULE_0__["default"], {});
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    isComment = _useState2[0],
+    showComment = _useState2[1];
+  var cancel = function cancel(param) {
+    showComment(param);
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      className: "flex w-full gap-2 font-['Segoe_UI']",
+      className: "flex w-full gap-2  font-['Segoe_UI']",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "flex items-center justify-center w-[32px] h-[32px] rounded-full overflow-hidden",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
@@ -11871,17 +11913,19 @@ function CommentUser() {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "w-[90%]",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-          "class": "w-full mb-4 rounded-lg",
+          "class": "w-full mb-4",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            "class": "px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800",
+            "class": "px-4 py-2 rounded-lg border border-gray-200 bg-white rounded-t-lg dark:bg-gray-800",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
               className: "break-words",
               children: "Hey, I recently built a completely free AI chatbot powered by GPT-3. I'd really love to hear your feedback."
             })
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-            "class": "flex items-center justify-between px-3 py-2 border-t dark:border-gray-600",
+            "class": "flex items-center justify-between pt-2",
             children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("button", {
-              onClick: showComment,
+              onClick: function onClick() {
+                return showComment(true);
+              },
               type: "button",
               "class": "flex items-center justify-center text-sm font-normal text-[#090909] gap-2 hover:bg-[#F6F6F6] rounded-lg w-[81.6875px] h-[32px]",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
@@ -11903,7 +11947,15 @@ function CommentUser() {
           })]
         })
       })]
-    }), commentBox]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+      fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        children: "Loading..."
+      }),
+      children: isComment ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(CommentBox, {
+        cancel: cancel,
+        valueCancel: true
+      }) : ''
+    })]
   });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CommentUser);
@@ -12051,6 +12103,7 @@ function SeePost(_ref) {
   var detailPost = _ref.detailPost;
   var tagsPost = JSON.parse(detailPost.tags);
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.auth;
+  var names = ['James', 'Paul', 'John', 'George', 'Ringo'];
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
@@ -12178,7 +12231,9 @@ function SeePost(_ref) {
                       idPost: detailPost === null || detailPost === void 0 ? void 0 : detailPost.id_post
                     })
                   })]
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_CommentUser_CommentUser__WEBPACK_IMPORTED_MODULE_7__["default"], {})]
+                }), names.map(function (name) {
+                  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_CommentUser_CommentUser__WEBPACK_IMPORTED_MODULE_7__["default"], {});
+                })]
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
               className: "lg:hidden w-full pt-3 min-h-[100px]",

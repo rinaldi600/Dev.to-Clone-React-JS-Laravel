@@ -465,4 +465,8 @@ class UserController extends Controller
             'res' => $deleteImage,
         ]);
     }
+
+    public function commentPost() {
+        dd("WORK");
+    }
 }

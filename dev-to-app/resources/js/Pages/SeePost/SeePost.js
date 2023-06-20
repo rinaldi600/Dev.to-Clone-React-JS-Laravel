@@ -11,7 +11,7 @@ function SeePost({detailPost}) {
 
     const tagsPost = JSON.parse(detailPost.tags);
     const { auth } = usePage().props;
-
+    const names = ['James', 'Paul', 'John', 'George', 'Ringo'];
     useEffect(() => {
 
     })
@@ -91,7 +91,9 @@ function SeePost({detailPost}) {
                                             <CommentBox idPost={detailPost?.id_post} />
                                         </div>
                                     </div>
-                                    <CommentUser/>
+                                    {names.map(name => (
+                                        <CommentUser/>
+                                    ))}
                                 </div>
                             </div>
 

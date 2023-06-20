@@ -911,6 +911,9 @@ select {
 .h-\[30px\] {
   height: 30px;
 }
+.h-\[20px\] {
+  height: 20px;
+}
 .h-\[29px\] {
   height: 29px;
 }
@@ -925,12 +928,6 @@ select {
 }
 .h-\[80px\] {
   height: 80px;
-}
-.h-\[\] {
-  height: ;
-}
-.h-\[20px\] {
-  height: 20px;
 }
 .max-h-\[400px\] {
   max-height: 400px;
@@ -1179,6 +1176,12 @@ select {
 .w-\[48px\] {
   width: 48px;
 }
+.w-\[81\.6875px\] {
+  width: 81.6875px;
+}
+.w-\[20px\] {
+  width: 20px;
+}
 .w-\[300px\] {
   width: 300px;
 }
@@ -1202,18 +1205,6 @@ select {
 }
 .w-\[480px\] {
   width: 480px;
-}
-.w-\[\] {
-  width: ;
-}
-.w-\[81\] {
-  width: 81;
-}
-.w-\[81\.6875px\] {
-  width: 81.6875px;
-}
-.w-\[20px\] {
-  width: 20px;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -1721,6 +1712,10 @@ select {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
 }
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
 .pt-8 {
   padding-top: 2rem;
 }
@@ -2060,12 +2055,6 @@ select {
   --tw-text-opacity: 1;
   color: rgb(249 249 249 / var(--tw-text-opacity));
 }
-.text-\[\] {
-  color: ;
-}
-.text-\[\#\#090909\] {
-  color: ##090909;
-}
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -2323,9 +2312,6 @@ select {
 .hover\:bg-\[\#F0F0F0\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(240 240 240 / var(--tw-bg-opacity));
-}
-.hover\:bg-\[\]:hover {
-  background-color: ;
 }
 .hover\:fill-\[\#2F3AB2\]:hover {
   fill: #2F3AB2;
