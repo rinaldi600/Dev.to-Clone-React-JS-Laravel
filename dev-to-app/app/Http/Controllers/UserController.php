@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Remember_Me;
 use App\Models\User;
 use App\Models\Post;
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class UserController extends Controller
 {
@@ -466,7 +469,27 @@ class UserController extends Controller
         ]);
     }
 
-    public function commentPost() {
-        dd("WORK");
+    public function commentPost(Request $request) {
+        $validator = Validator::make($request->all(), [
+            'comment' => 'required|max:1000|string',
+        ], [
+            'comment.required' => 'Wajib diisi',
+            'comment.max' => 'Maksimal comment 1000 karakter',
+            'comment.string' => 'Comment wajib berupoa string',
+        ]);
+        if ($validator->fails()) {
+            return redirect()
+                        ->back()
+                        ->withErrors($validator)
+                        ->withInput();
+        } else {
+            dd(Carbon::now() . '_' . Carbon::now()->getPreciseTimestamp(10));
+            Comment::create([
+                'id_comment' => 'Comment - ' . Carbon::now()->getPreciseTimestamp(8),
+                'comment' => $request->input('comment'),
+                'id_post' => $request->input('idPost'),
+            ]);
+            return redirect()->back();
+        }
     }
 }

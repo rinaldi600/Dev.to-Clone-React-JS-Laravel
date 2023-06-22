@@ -2,7 +2,7 @@ import { useState, Suspense, lazy } from "react";
 
 const CommentBox = lazy(() => import('../CommentBox/CommentBox'));
 
-function CommentUser() {
+function CommentUser({idComment}) {
 
     const [isComment, showComment] = useState(false);
 

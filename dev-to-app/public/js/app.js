@@ -11680,7 +11680,9 @@ var NotAllowedComment = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_1__.lazy)
 function CommentBox(_ref) {
   var idPost = _ref.idPost,
     cancel = _ref.cancel,
-    valueCancel = _ref.valueCancel;
+    valueCancel = _ref.valueCancel,
+    _ref$idComment = _ref.idComment,
+    idComment = _ref$idComment === void 0 ? null : _ref$idComment;
   var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
@@ -11691,9 +11693,8 @@ function CommentBox(_ref) {
     closeAlertComment = _useState4[0],
     setCloseAlertComment = _useState4[1];
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)({
-      email: '',
-      password: '',
-      remember: false
+      idPost: idPost,
+      comment: ''
     }),
     data = _useForm.data,
     setData = _useForm.setData,
@@ -11711,7 +11712,7 @@ function CommentBox(_ref) {
     }
   };
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    console.log(idPost);
+    console.log(errors);
   });
   var template;
   if (closeAlertComment) {
@@ -11729,29 +11730,36 @@ function CommentBox(_ref) {
     post('/comment_post');
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [template, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("form", {
+    children: [template, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("form", {
       onSubmit: submit,
       className: "font-['Segoe_UI']",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         "class": "w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          "class": "px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800",
+          "class": "px-4 relative py-2 bg-white rounded-t-lg dark:bg-gray-800",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("label", {
             "for": "comment",
             "class": "sr-only",
             children: "Your comment"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("textarea", {
+            value: data.comment,
+            onChange: function onChange(e) {
+              return setData('comment', e.target.value);
+            },
+            "for": "outlined_error",
+            id: "outlined_error",
+            "aria-describedby": "outlined_error_help",
             disabled: closeAlertComment ? true : false,
             onClick: checkLogin,
-            id: "comment",
             rows: "4",
-            "class": "".concat(login ? '' : 'cursor-not-allowed', " w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0"),
+            "class": "".concat(login ? '' : 'cursor-not-allowed', " w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0 ").concat(errors !== null && errors !== void 0 && errors.comment ? 'block rounded-t-lg pb-2.5 pt-5 border-b-2 appearance-none  focus:outline-none border-red-600 focus:border-red-600 dark:focus-border-red-500 peer' : ''),
             placeholder: "Write a comment...",
             required: true
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           "class": "flex items-center gap-2 px-3 py-2 border-t dark:border-gray-600",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+            disabled: processing,
             type: "submit",
             "class": "inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800",
             children: "Post comment"
@@ -11767,7 +11775,14 @@ function CommentBox(_ref) {
             })
           }) : '']
         })]
-      })
+      }), errors !== null && errors !== void 0 && errors.comment ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("p", {
+        id: "outlined_error_help",
+        "class": "text-xs mb-4 text-red-600 dark:text-red-400",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+          "class": "font-medium",
+          children: "Oh, snapp!"
+        }), " ", errors === null || errors === void 0 ? void 0 : errors.comment]
+      }) : '']
     })]
   });
 }
@@ -11892,7 +11907,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var CommentBox = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.lazy)(function () {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../CommentBox/CommentBox */ "./resources/js/Pages/SeePost/CommentBox/CommentBox.js"));
 });
-function CommentUser() {
+function CommentUser(_ref) {
+  var idComment = _ref.idComment;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     isComment = _useState2[0],

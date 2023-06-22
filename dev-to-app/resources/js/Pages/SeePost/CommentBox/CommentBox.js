@@ -3,15 +3,14 @@ import { useEffect, useState, lazy, Suspense } from "react";
 
 const NotAllowedComment = lazy(() => import('./NotAllowedComment/NotAllowedComment.js'));
 
-function CommentBox({idPost, cancel, valueCancel}) {
+function CommentBox({idPost, cancel, valueCancel, idComment = null}) {
     const { auth } = usePage().props;
     const [login, isLogin] = useState(false);
     const [closeAlertComment, setCloseAlertComment] = useState(false);
 
     const { data, setData, post, processing, errors } = useForm({
-        email: '',
-        password: '',
-        remember: false,
+        idPost : idPost,
+        comment: '',
     })
 
     useEffect(() => {
@@ -27,7 +26,7 @@ function CommentBox({idPost, cancel, valueCancel}) {
     };
 
     useEffect(() => {
-        console.log(idPost);
+        console.log(errors);
     })
 
     let template;
@@ -48,12 +47,12 @@ function CommentBox({idPost, cancel, valueCancel}) {
             {template}
             <form onSubmit={submit} className="font-['Segoe_UI']">
                 <div class="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50 dark:bg-gray-700 dark:border-gray-600">
-                    <div class="px-4 py-2 bg-white rounded-t-lg dark:bg-gray-800">
+                    <div class="px-4 relative py-2 bg-white rounded-t-lg dark:bg-gray-800">
                         <label for="comment" class="sr-only">Your comment</label>
-                        <textarea disabled={closeAlertComment ? true : false} onClick={checkLogin} id="comment" rows="4" class={`${login ? '' : 'cursor-not-allowed'} w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0`} placeholder="Write a comment..." required></textarea>
+                        <textarea value={data.comment} onChange={e => setData('comment', e.target.value)} for="outlined_error" id="outlined_error" aria-describedby="outlined_error_help" disabled={closeAlertComment ? true : false} onClick={checkLogin} rows="4" class={`${login ? '' : 'cursor-not-allowed'} w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0 ${errors?.comment ? 'block rounded-t-lg pb-2.5 pt-5 border-b-2 appearance-none  focus:outline-none border-red-600 focus:border-red-600 dark:focus-border-red-500 peer' : ''}`} placeholder="Write a comment..." required></textarea>
                     </div>
                     <div class="flex items-center gap-2 px-3 py-2 border-t dark:border-gray-600">
-                        <button type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
+                        <button disabled={processing} type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800">
                             Post comment
                         </button>
                         {
@@ -68,6 +67,12 @@ function CommentBox({idPost, cancel, valueCancel}) {
                         }
                     </div>
                 </div>
+                {
+                    errors?.comment ?
+                    <p id="outlined_error_help" class="text-xs mb-4 text-red-600 dark:text-red-400"><span class="font-medium">Oh, snapp!</span> {errors?.comment}</p>
+                    :
+                    ''
+                }
             </form>
         </>
     )
