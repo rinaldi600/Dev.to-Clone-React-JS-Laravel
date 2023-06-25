@@ -6837,9 +6837,7 @@ function TitleContent(_ref) {
     _ref$detailUserCreate = _ref.detailUserCreate,
     detailUserCreate = _ref$detailUserCreate === void 0 ? {} : _ref$detailUserCreate,
     detailPost = _ref.detailPost;
-  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
-    console.log(detailPost);
-  });
+  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {});
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)(react__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
       className: 'flex gap-2 items-center',
@@ -8424,6 +8422,7 @@ function Layout(_ref) {
       }),
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(MobileNavbarLazy, {})
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      onClick: closeProfileNavigation,
       className: "".concat(navbar ? 'overflow-hidden' : ''),
       children: children
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
@@ -11451,7 +11450,11 @@ var NextContent = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function 
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../Home/Contents/NextContent/NextContent */ "./resources/js/Pages/Home/Contents/NextContent/NextContent.js"));
 });
 function ProfileUser(_ref) {
-  var user = _ref.user;
+  var user = _ref.user,
+    dataPost = _ref.dataPost;
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log(dataPost);
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
       title: "".concat(user === null || user === void 0 ? void 0 : user.name, " - DEV Community")
@@ -11499,7 +11502,7 @@ function ProfileUser(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: 'min-h-[300px] w-full flex justify-center',
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-          className: 'w-[992px] flex sm:flex-wrap gap-4 justify-center',
+          className: 'w-[992px] p-2 flex sm:flex-wrap gap-4 justify-center',
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
             className: 'min-h-[100px] mt-2 lg:w-[35%] w-full',
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -11583,55 +11586,17 @@ function ProfileUser(_ref) {
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             className: 'min-h-[400px] lg:w-[65%] w-full mb-3',
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
-              fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
-                children: "Loading..."
-              }),
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NextContent, {
-                detailUserCreate: {
-                  name: {
-                    first: 'Rinaldi',
-                    last: 'Hendrawan'
-                  },
-                  picture: {
-                    medium: 'https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
-                  }
-                },
-                text: 'Daily Routine of a Texan Software Developer'
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NextContent, {
-                detailUserCreate: {
-                  name: {
-                    first: 'Rinaldi',
-                    last: 'Hendrawan'
-                  },
-                  picture: {
-                    medium: 'https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
-                  }
-                },
-                text: 'Daily Routine of a Texan Software Developer'
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NextContent, {
-                detailUserCreate: {
-                  name: {
-                    first: 'Rinaldi',
-                    last: 'Hendrawan'
-                  },
-                  picture: {
-                    medium: 'https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
-                  }
-                },
-                text: 'Daily Routine of a Texan Software Developer'
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NextContent, {
-                detailUserCreate: {
-                  name: {
-                    first: 'Rinaldi',
-                    last: 'Hendrawan'
-                  },
-                  picture: {
-                    medium: 'https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80'
-                  }
-                },
-                text: 'Daily Routine of a Texan Software Developer'
-              })]
+            children: dataPost.map(function (post) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+                fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                  children: "Loading"
+                }),
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(NextContent, {
+                  detailPost: post,
+                  detailUserCreate: post === null || post === void 0 ? void 0 : post.users[0],
+                  text: post === null || post === void 0 ? void 0 : post.title
+                })
+              });
             })
           })]
         })
@@ -11711,9 +11676,7 @@ function CommentBox(_ref) {
       setCloseAlertComment(true);
     }
   };
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    console.log(errors);
-  });
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {});
   var template;
   if (closeAlertComment) {
     template = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {

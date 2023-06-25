@@ -108,7 +108,7 @@ function Layout({children}) {
             <Suspense fallback={<h1>Still Loading…</h1>}>
                 <MobileNavbarLazy/>
             </Suspense>
-            <div className={`${navbar ? 'overflow-hidden' : ''}`}>
+            <div onClick={closeProfileNavigation} className={`${navbar ? 'overflow-hidden' : ''}`}>
                 {children}
             </div>
             <div className={`${navbar ? 'hidden overflow-hidden' : 'min-h-[233px]'} p-2 font-['Segoe_UI'] flex justify-center items-center bg-[#E5E5E5]`}>

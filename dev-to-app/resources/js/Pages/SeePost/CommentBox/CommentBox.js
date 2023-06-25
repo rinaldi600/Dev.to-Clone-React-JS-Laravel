@@ -26,7 +26,7 @@ function CommentBox({idPost, cancel, valueCancel, idComment = null}) {
     };
 
     useEffect(() => {
-        console.log(errors);
+
     })
 
     let template;

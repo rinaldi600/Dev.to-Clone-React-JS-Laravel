@@ -172,6 +172,7 @@ class UserController extends Controller
     public function profileUser(User $user) {
         return Inertia::render('Profile/profileUser', [
             'user' => $user,
+            'dataPost' => Post::with('users')->where('id_user', $user->id_user)->get(),
         ]);
     }
 

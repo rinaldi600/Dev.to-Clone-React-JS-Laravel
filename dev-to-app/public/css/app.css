@@ -1503,13 +1503,13 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
-.border-\[\#B4B4B4\] {
-  --tw-border-opacity: 1;
-  border-color: rgb(180 180 180 / var(--tw-border-opacity));
-}
 .border-red-600 {
   --tw-border-opacity: 1;
   border-color: rgb(220 38 38 / var(--tw-border-opacity));
+}
+.border-\[\#B4B4B4\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(180 180 180 / var(--tw-border-opacity));
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -1721,10 +1721,6 @@ select {
   padding-top: 0.625rem;
   padding-bottom: 0.625rem;
 }
-.px-2\.5 {
-  padding-left: 0.625rem;
-  padding-right: 0.625rem;
-}
 .pt-8 {
   padding-top: 2rem;
 }
@@ -1794,6 +1790,9 @@ select {
 .pt-5 {
   padding-top: 1.25rem;
 }
+.pb-2\.5 {
+  padding-bottom: 0.625rem;
+}
 .pr-9 {
   padding-right: 2.25rem;
 }
@@ -1817,9 +1816,6 @@ select {
 }
 .pr-5 {
   padding-right: 1.25rem;
-}
-.pb-2\.5 {
-  padding-bottom: 0.625rem;
 }
 .text-left {
   text-align: left;
@@ -2544,11 +2540,6 @@ select {
   .dark\:border-gray-600 {
     --tw-border-opacity: 1;
     border-color: rgb(75 85 99 / var(--tw-border-opacity));
-  }
-
-  .dark\:border-red-500 {
-    --tw-border-opacity: 1;
-    border-color: rgb(239 68 68 / var(--tw-border-opacity));
   }
 
   .dark\:bg-gray-900 {

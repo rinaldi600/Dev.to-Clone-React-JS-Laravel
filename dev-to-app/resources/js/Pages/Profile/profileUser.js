@@ -1,4 +1,4 @@
-import React, {Fragment, Suspense} from "react";
+import React, {Fragment, Suspense, useEffect} from "react";
 import Layout from "@/Pages/Layout/Layout";
 import {Head} from "@inertiajs/inertia-react";
 import BgProfileDemo from '../../../img/aiony-haust-3TLl_97HNJo-unsplash.jpg';
@@ -6,7 +6,11 @@ import BgProfileDemo from '../../../img/aiony-haust-3TLl_97HNJo-unsplash.jpg';
 const Organization = React.lazy(() => import('./Organization/Organization'));
 const NextContent = React.lazy(() => import('../Home/Contents/NextContent/NextContent'));
 
-function ProfileUser({user}) {
+function ProfileUser({user, dataPost}) {
+
+    useEffect(() => {
+        console.log(dataPost);
+    })
 
     return (
         <Fragment>
@@ -34,7 +38,7 @@ function ProfileUser({user}) {
                     </div>
                 </div>
                 <div className={'min-h-[300px] w-full flex justify-center'}>
-                    <div className={'w-[992px] flex sm:flex-wrap gap-4 justify-center'}>
+                    <div className={'w-[992px] p-2 flex sm:flex-wrap gap-4 justify-center'}>
                         <div className={'min-h-[100px] mt-2 lg:w-[35%] w-full'}>
                             <div className={'min-h-[240px] overflow-hidden bg-[#FAFAFA] rounded-lg shadow-[0_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)]'}>
                                 <div className={'h-[48px] p-2 border-b border-[#F5F5F5]'}>
@@ -77,44 +81,13 @@ function ProfileUser({user}) {
                             </div>
                         </div>
                         <div className={'min-h-[400px] lg:w-[65%] w-full mb-3'}>
-                            <Suspense fallback={<div>Loading...</div>}>
-                                <NextContent detailUserCreate={{
-                                    name : {
-                                        first : 'Rinaldi',
-                                        last: 'Hendrawan'
-                                    },
-                                    picture : {
-                                        medium : 'https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
-                                    }
-                                }} text={'Daily Routine of a Texan Software Developer'}/>
-                                <NextContent detailUserCreate={{
-                                    name : {
-                                        first : 'Rinaldi',
-                                        last: 'Hendrawan'
-                                    },
-                                    picture : {
-                                        medium : 'https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
-                                    }
-                                }} text={'Daily Routine of a Texan Software Developer'}/>
-                                <NextContent detailUserCreate={{
-                                    name : {
-                                        first : 'Rinaldi',
-                                        last: 'Hendrawan'
-                                    },
-                                    picture : {
-                                        medium : 'https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
-                                    }
-                                }} text={'Daily Routine of a Texan Software Developer'}/>
-                                <NextContent detailUserCreate={{
-                                    name : {
-                                        first : 'Rinaldi',
-                                        last: 'Hendrawan'
-                                    },
-                                    picture : {
-                                        medium : 'https://images.unsplash.com/photo-1611485988300-b7530defb8e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
-                                    }
-                                }} text={'Daily Routine of a Texan Software Developer'}/>
-                            </Suspense>
+                                {
+                                    dataPost.map((post) => (
+                                        <Suspense fallback={<div>Loading</div>}>
+                                            <NextContent detailPost={post} detailUserCreate={post?.users[0]} text={post?.title}/>
+                                        </Suspense>
+                                    ))
+                                }
                         </div>
                     </div>
                 </div>

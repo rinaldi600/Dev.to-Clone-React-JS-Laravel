@@ -6,7 +6,7 @@ import BgProfile from '../../../../../img/aiony-haust-3TLl_97HNJo-unsplash.jpg'
 
 function TitleContent({slug = '', text, commentCount, detailUserCreate = {}, detailPost}) {
     useEffect(() => {
-        console.log(detailPost);
+
     })
 
     return (
