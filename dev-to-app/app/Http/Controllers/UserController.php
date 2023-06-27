@@ -482,11 +482,12 @@ class UserController extends Controller
             return redirect()
                         ->back()
                         ->withErrors($validator)
-                        ->withInput();
+                        ->withInput()
+                        ->with('back_comment', true);
         } else {
-            dd(Carbon::now() . '_' . Carbon::now()->getPreciseTimestamp(10));
+            dd($request->input());
             Comment::create([
-                'id_comment' => 'Comment - ' . Carbon::now()->getPreciseTimestamp(8),
+                'id_comment' => 'Comment - ' . Carbon::now() . '_' . Carbon::now()->getPreciseTimestamp(10),
                 'comment' => $request->input('comment'),
                 'id_post' => $request->input('idPost'),
             ]);

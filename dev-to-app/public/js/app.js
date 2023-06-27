@@ -11676,7 +11676,6 @@ function CommentBox(_ref) {
       setCloseAlertComment(true);
     }
   };
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {});
   var template;
   if (closeAlertComment) {
     template = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react__WEBPACK_IMPORTED_MODULE_1__.Suspense, {
@@ -11689,6 +11688,7 @@ function CommentBox(_ref) {
     });
   }
   var submit = function submit(e) {
+    localStorage.setItem('position', window.scrollY);
     e.preventDefault();
     post('/comment_post');
   };
@@ -11716,8 +11716,7 @@ function CommentBox(_ref) {
             onClick: checkLogin,
             rows: "4",
             "class": "".concat(login ? '' : 'cursor-not-allowed', " w-full px-0 text-sm text-gray-900 bg-white border-0 focus:ring-0 ").concat(errors !== null && errors !== void 0 && errors.comment ? 'block rounded-t-lg pb-2.5 pt-5 border-b-2 appearance-none  focus:outline-none border-red-600 focus:border-red-600 dark:focus-border-red-500 peer' : ''),
-            placeholder: "Write a comment...",
-            required: true
+            placeholder: "Write a comment..."
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           "class": "flex items-center gap-2 px-3 py-2 border-t dark:border-gray-600",
@@ -12081,9 +12080,16 @@ function SeePost(_ref) {
   var _auth$user, _auth$user2, _auth$user$profile_im, _auth$user3;
   var detailPost = _ref.detailPost;
   var tagsPost = JSON.parse(detailPost.tags);
-  var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props.auth;
+  var _usePage$props = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.usePage)().props,
+    auth = _usePage$props.auth,
+    flash = _usePage$props.flash;
   var names = ['James', 'Paul', 'John', 'George', 'Ringo'];
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    if (flash.back_comment) {
+      window.scrollTo(0, localStorage.getItem('position'));
+    }
+    localStorage.removeItem('position');
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
       title: "".concat(detailPost.title, " - DEV Community")
@@ -12205,6 +12211,7 @@ function SeePost(_ref) {
                       alt: "Profile User"
                     })
                   }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+                    id: "comment",
                     className: "w-[90%]",
                     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_CommentBox_CommentBox__WEBPACK_IMPORTED_MODULE_6__["default"], {
                       idPost: detailPost === null || detailPost === void 0 ? void 0 : detailPost.id_post

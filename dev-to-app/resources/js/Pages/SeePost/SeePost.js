@@ -10,10 +10,14 @@ import CommentUser from "./CommentUser/CommentUser";
 function SeePost({detailPost}) {
 
     const tagsPost = JSON.parse(detailPost.tags);
-    const { auth } = usePage().props;
+    const { auth, flash } = usePage().props;
     const names = ['James', 'Paul', 'John', 'George', 'Ringo'];
-    useEffect(() => {
 
+    useEffect(() => {
+        if (flash.back_comment) {
+            window.scrollTo(0, localStorage.getItem('position'));
+        }
+        localStorage.removeItem('position');
     })
 
     return (
@@ -87,7 +91,7 @@ function SeePost({detailPost}) {
                                                 <img className="w-full h-full" src={auth?.user?.profile_image ?? `https://res.cloudinary.com/practicaldev/image/fetch/s--RmY55OKL--/c_limit,f_auto,fl_progressive,q_auto,w_256/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/devlogo-pwa-512.png`} alt="Profile User" />
                                             }
                                         </div>
-                                        <div className="w-[90%]">
+                                        <div id="comment" className="w-[90%]">
                                             <CommentBox idPost={detailPost?.id_post} />
                                         </div>
                                     </div>
