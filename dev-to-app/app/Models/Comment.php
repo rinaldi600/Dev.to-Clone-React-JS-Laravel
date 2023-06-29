@@ -38,4 +38,8 @@ class Comment extends Model
     public function users() {
         return $this->belongsTo(User::class, 'id_user', 'id_user');
     }
+
+    public function replyComment() {
+        return $this->hasMany(Comment::class, 'parent_comment', 'id_comment')->with('replyComment');
+    }
 }

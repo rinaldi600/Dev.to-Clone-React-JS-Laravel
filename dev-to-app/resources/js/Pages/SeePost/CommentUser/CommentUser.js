@@ -2,7 +2,7 @@ import { useState, Suspense, lazy, useEffect } from "react";
 
 const CommentBox = lazy(() => import('../CommentBox/CommentBox'));
 
-function CommentUser({idComment, textComment, profileUser}) {
+function CommentUser({idComment, textComment, profileUser, idPost}) {
 
     const [isComment, showComment] = useState(false);
 
@@ -11,7 +11,7 @@ function CommentUser({idComment, textComment, profileUser}) {
     }
 
     useEffect(() => {
-
+        console.log(textComment)
     })
 
     return (
@@ -41,7 +41,7 @@ function CommentUser({idComment, textComment, profileUser}) {
             <Suspense fallback={<div>Loading...</div>}>
                 {
                     isComment ?
-                    <CommentBox cancel={cancel} valueCancel={true} />
+                    <CommentBox idPost={idPost} idComment={idComment} cancel={cancel} valueCancel={true} />
                     :
                     ''
                 }

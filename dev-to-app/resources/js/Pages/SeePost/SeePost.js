@@ -6,6 +6,7 @@ import 'moment/locale/id';
 import ProfileCreator from "./ProfileCreator/ProfileCreator";
 import CommentBox from "./CommentBox/CommentBox";
 import CommentUser from "./CommentUser/CommentUser";
+import RecursiveComment from "./RecursiveComment/RecursiveComment";
 
 function SeePost({detailPost}) {
 
@@ -20,7 +21,7 @@ function SeePost({detailPost}) {
     })
 
     useEffect(() => {
-
+        console.log(detailPost)
     })
 
     return (
@@ -100,7 +101,18 @@ function SeePost({detailPost}) {
                                     </div>
                                     {detailPost?.comments.length > 0 ?
                                         detailPost?.comments.map(comment => (
-                                            <CommentUser idComment={comment.id_comment} textComment={comment.comment} profileUser={comment?.users?.profile_image}/>
+                                            <>
+                                                <CommentUser idPost={detailPost?.id_post} idComment={comment.id_comment} nestedComment textComment={comment.comment} profileUser={comment?.users?.profile_image}/>
+                                                {
+                                                    <RecursiveComment/>
+                                                    // comment?.reply_comment?.length > 0 ?
+                                                    // comment?.reply_comment?.map(nested => (
+                                                    //     <div className="pl-2">
+                                                    //         <CommentUser idPost={nested?.id_post} idComment={nested.id_comment} nestedComment textComment={nested.comment} profileUser={nested?.users?.profile_image}/>
+                                                    //     </div>
+                                                    // ))
+                                                }
+                                            </>
                                         ))
                                         :
                                         ''

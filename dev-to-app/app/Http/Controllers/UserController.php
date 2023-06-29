@@ -430,7 +430,9 @@ class UserController extends Controller
     public function seePost($username, $slug) {
 
         return Inertia::render('SeePost/SeePost', [
-            'detailPost' => Post::with('users', 'comments', 'comments.users')->where('slug', $slug)->first(),
+            'detailPost' => Post::with(['users', 'comments' => function ($query) {
+                $query->where('parent_comment', null);
+            } , 'comments.users', 'comments.replyComment.users'])->where('slug', $slug)->first(),
           ]);
     }
 
@@ -482,6 +484,7 @@ class UserController extends Controller
             Comment::create([
                 'id_comment' => 'Comment - ' . Carbon::now() . '_' . Carbon::now()->getPreciseTimestamp(10),
                 'comment' => $request->input('comment'),
+                'parent_comment' => $request->input('idComment') !== null ? $request->input('idComment') : null,
                 'id_post' => $request->input('idPost'),
                 'id_user' => Auth::user()->id_user,
             ]);
