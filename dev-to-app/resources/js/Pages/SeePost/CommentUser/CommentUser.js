@@ -1,8 +1,8 @@
-import { useState, Suspense, lazy } from "react";
+import { useState, Suspense, lazy, useEffect } from "react";
 
 const CommentBox = lazy(() => import('../CommentBox/CommentBox'));
 
-function CommentUser({idComment}) {
+function CommentUser({idComment, textComment, profileUser}) {
 
     const [isComment, showComment] = useState(false);
 
@@ -10,16 +10,20 @@ function CommentUser({idComment}) {
         showComment(param);
     }
 
+    useEffect(() => {
+
+    })
+
     return (
         <>
             <div className="flex w-full gap-2  font-['Segoe_UI']">
                 <div className={`flex items-center justify-center w-[32px] h-[32px] rounded-full overflow-hidden`}>
-                    <img className="w-full h-full" src={`https://res.cloudinary.com/practicaldev/image/fetch/s--RmY55OKL--/c_limit,f_auto,fl_progressive,q_auto,w_256/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/devlogo-pwa-512.png`} alt="Profile User" />
+                    <img className="w-full h-full" src={(profileUser === '') || (profileUser === undefined) || (profileUser === null) ? `https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png` : profileUser} alt="Profile User" />
                 </div>
                 <div className="w-[90%]">
                     <div class="w-full mb-4">
                         <div class="px-4 py-2 rounded-lg border border-gray-200 bg-white rounded-t-lg dark:bg-gray-800">
-                            <p className="break-words">Hey, I recently built a completely free AI chatbot powered by GPT-3. I'd really love to hear your feedback.</p>
+                            <p className="break-words">{textComment}</p>
                         </div>
                         <div class="flex items-center justify-between pt-2">
                             <button onClick={() => showComment(true)} type="button" class="flex items-center justify-center text-sm font-normal text-[#090909] gap-2 hover:bg-[#F6F6F6] rounded-lg w-[81.6875px] h-[32px]">

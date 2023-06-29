@@ -40,4 +40,8 @@ class Post extends Model
     public function users() {
         return $this->hasMany(User::class,'id_user', 'id_user');
     }
+
+    public function comments() {
+        return $this->hasMany(Comment::class,'id_post', 'id_post');
+    }
 }

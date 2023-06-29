@@ -6,7 +6,6 @@ use App\Models\Comment;
 use App\Models\Remember_Me;
 use App\Models\User;
 use App\Models\Post;
-use DateTime;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Inertia\Inertia;
@@ -14,10 +13,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Facades\File;
-use Illuminate\Support\Str;
-use \Cviebrock\EloquentSluggable\Services\SlugService;
-use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 class UserController extends Controller
@@ -435,7 +430,7 @@ class UserController extends Controller
     public function seePost($username, $slug) {
 
         return Inertia::render('SeePost/SeePost', [
-            'detailPost' => Post::with('users')->where('slug', $slug)->first(),
+            'detailPost' => Post::with('users', 'comments', 'comments.users')->where('slug', $slug)->first(),
           ]);
     }
 
@@ -482,14 +477,13 @@ class UserController extends Controller
             return redirect()
                         ->back()
                         ->withErrors($validator)
-                        ->withInput()
-                        ->with('back_comment', true);
+                        ->withInput();
         } else {
-            dd($request->input());
             Comment::create([
                 'id_comment' => 'Comment - ' . Carbon::now() . '_' . Carbon::now()->getPreciseTimestamp(10),
                 'comment' => $request->input('comment'),
                 'id_post' => $request->input('idPost'),
+                'id_user' => Auth::user()->id_user,
             ]);
             return redirect()->back();
         }

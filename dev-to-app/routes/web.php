@@ -21,7 +21,7 @@ Route::get('/', function () {
     $data = [
         'title' => 'DEV Community 👩‍💻👨‍💻',
         'isRememberMe' => Auth::check() ? Remember_Me::where('id_user','=', Auth::user()['id_user'])->first() : '',
-        'listPost' => Post::with('users')->get(),
+        'listPost' => Post::with('users','comments')->get(),
     ];
     return Inertia::render('Home/Home', $data);
 });

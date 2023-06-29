@@ -10,14 +10,17 @@ import CommentUser from "./CommentUser/CommentUser";
 function SeePost({detailPost}) {
 
     const tagsPost = JSON.parse(detailPost.tags);
-    const { auth, flash } = usePage().props;
-    const names = ['James', 'Paul', 'John', 'George', 'Ringo'];
+    const { auth } = usePage().props;
 
     useEffect(() => {
-        if (flash.back_comment) {
+        if (localStorage.getItem('position')) {
             window.scrollTo(0, localStorage.getItem('position'));
         }
         localStorage.removeItem('position');
+    })
+
+    useEffect(() => {
+
     })
 
     return (
@@ -77,8 +80,8 @@ function SeePost({detailPost}) {
                             </div>
 
                             {/* Comment */}
-                            <div className="mx-auto pt-8 min-h-[100px] lg:w-[85%] w-[89%]">
-                                <h2 className="text-[#242424] font-bold text-2xl">Top comments (1)</h2>
+                            <div id="comment" className="mx-auto pt-8 min-h-[100px] lg:w-[85%] w-[89%]">
+                                <h2 className="text-[#242424] font-bold text-2xl">Top comments ({detailPost?.comments.length})</h2>
                                 <div className="w-full pt-8">
                                     <div className="flex gap-2">
                                         <div className={`${auth?.user?.profile_image === '' ? 'flex items-center justify-center' : ''} w-[32px] h-[32px] rounded-full overflow-hidden`}>
@@ -91,13 +94,17 @@ function SeePost({detailPost}) {
                                                 <img className="w-full h-full" src={auth?.user?.profile_image ?? `https://res.cloudinary.com/practicaldev/image/fetch/s--RmY55OKL--/c_limit,f_auto,fl_progressive,q_auto,w_256/https://practicaldev-herokuapp-com.freetls.fastly.net/assets/devlogo-pwa-512.png`} alt="Profile User" />
                                             }
                                         </div>
-                                        <div id="comment" className="w-[90%]">
+                                        <div className="w-[90%]">
                                             <CommentBox idPost={detailPost?.id_post} />
                                         </div>
                                     </div>
-                                    {names.map(name => (
-                                        <CommentUser/>
-                                    ))}
+                                    {detailPost?.comments.length > 0 ?
+                                        detailPost?.comments.map(comment => (
+                                            <CommentUser idComment={comment.id_comment} textComment={comment.comment} profileUser={comment?.users?.profile_image}/>
+                                        ))
+                                        :
+                                        ''
+                                    }
                                 </div>
                             </div>
 

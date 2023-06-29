@@ -8,7 +8,7 @@ function CommentBox({idPost, cancel, valueCancel, idComment = null}) {
     const [login, isLogin] = useState(false);
     const [closeAlertComment, setCloseAlertComment] = useState(false);
 
-    const { data, setData, post, processing, errors } = useForm({
+    const { data, setData, post, processing, errors, reset } = useForm({
         idPost : idPost,
         comment: '',
     })
@@ -36,7 +36,9 @@ function CommentBox({idPost, cancel, valueCancel, idComment = null}) {
     const submit = (e) => {
         localStorage.setItem('position', window.scrollY);
         e.preventDefault()
-        post('/comment_post');
+        post('/comment_post', {
+            onSuccess: () => reset('comment'),
+        });
       }
 
     return (

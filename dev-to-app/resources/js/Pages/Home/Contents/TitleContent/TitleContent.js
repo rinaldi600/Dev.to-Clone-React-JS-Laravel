@@ -41,7 +41,7 @@ function TitleContent({slug = '', text, commentCount, detailUserCreate = {}, det
                     </div>
                 }
                 <div className={'mt-2 flex justify-between items-center'}>
-                    <Comment href={'/'} countComment={commentCount}/>
+                    <Comment href={`${detailUserCreate?.username}/${detailPost?.slug}#comment`}  countComment={commentCount}/>
                     <p className={'text-[#525252] text-xs'}>
                         2 min read
                     </p>

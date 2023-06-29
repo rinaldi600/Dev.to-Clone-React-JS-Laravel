@@ -1,6 +1,5 @@
 import React, {useEffect, useState, Suspense} from "react";
 import {Link} from "@inertiajs/inertia-react";
-import axios from "axios";
 import {useSelector} from "react-redux";
 
 const NextContent = React.lazy(() => import('@/Pages/Home/Contents/NextContent/NextContent'));
@@ -9,20 +8,9 @@ const FirstContent = React.lazy(() => import('@/Pages/Home/Contents/FirstContent
 function Contents({listPost}) {
 
     const navbar = useSelector(state => state.navbar.value);
-    const [randomPeople, setRandomPeople] = useState([]);
 
     useEffect(() => {
-        axios.get('https://randomuser.me/api/?results=10&nat=AU')
-            .then((success) => {
-                setRandomPeople(success.data.results);
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    },[]);
-
-    useEffect(() => {
-
+        console.log(listPost);
     })
 
     return (
@@ -41,13 +29,13 @@ function Contents({listPost}) {
 
             <div className={`${navbar ? 'h-screen fixed overflow-hidden' : ''} mt-2 w-full p-2`}>
                 <Suspense fallback={<div>Loading</div>}>
-                    <FirstContent detailUserCreate={randomPeople.length >= 1 ? listPost[0].users[0] : {}} text={listPost[0]?.title} detailPost={listPost[0]}/>
+                    <FirstContent detailUserCreate={listPost.length >= 1 ? listPost[0].users[0] : {}} text={listPost[0]?.title} countComment={listPost[0]?.comments.length} detailPost={listPost[0]}/>
                 </Suspense>
                 {
                     listPost.length >= 1 ?
                         listPost.slice(1, listPost.length - 1).map((post) => (
                             <Suspense fallback={<div>Loading</div>}>
-                                <NextContent detailPost={post} detailUserCreate={post?.users[0]} text={post?.title}/>
+                                <NextContent countComment={post?.comments.length} detailPost={post} detailUserCreate={post?.users[0]} text={post?.title}/>
                             </Suspense>
                         ))
                         : <h1>Loading</h1>

@@ -22,7 +22,7 @@ class Comment extends Model
      *
      * @var array
      */
-    protected $fillable = ['id_comment','comment', 'id_post', 'id_user'];
+    protected $fillable = ['id_comment', 'comment', 'parent_comment' , 'id_post', 'id_user'];
 
     /**
      * The attributes that aren't mass assignable.
@@ -30,4 +30,12 @@ class Comment extends Model
      * @var array
      */
     protected $guarded = ['id'];
+
+    public function posts() {
+        return $this->belongsTo(Post::class, 'id_post', 'id_post');
+    }
+
+    public function users() {
+        return $this->belongsTo(User::class, 'id_user', 'id_user');
+    }
 }
