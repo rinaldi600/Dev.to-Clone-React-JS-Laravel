@@ -11,12 +11,12 @@ function CommentUser({idComment, textComment, profileUser, idPost}) {
     }
 
     useEffect(() => {
-        console.log(textComment)
+        console.log(profileUser + ' = ' + textComment)
     })
 
     return (
         <>
-            <div className="flex w-full gap-2  font-['Segoe_UI']">
+            <div className="flex w-full gap-2 font-['Segoe_UI']">
                 <div className={`flex items-center justify-center w-[32px] h-[32px] rounded-full overflow-hidden`}>
                     <img className="w-full h-full" src={(profileUser === '') || (profileUser === undefined) || (profileUser === null) ? `https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png` : profileUser} alt="Profile User" />
                 </div>

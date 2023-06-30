@@ -11874,11 +11874,11 @@ function CommentUser(_ref) {
     showComment(param);
   };
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    console.log(textComment);
+    console.log(profileUser + ' = ' + textComment);
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-      className: "flex w-full gap-2  font-['Segoe_UI']",
+      className: "flex w-full gap-2 font-['Segoe_UI']",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
         className: "flex items-center justify-center w-[32px] h-[32px] rounded-full overflow-hidden",
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
@@ -12054,12 +12054,40 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _CommentUser_CommentUser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../CommentUser/CommentUser */ "./resources/js/Pages/SeePost/CommentUser/CommentUser.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
 
 
 function RecursiveComment() {
+  var _nestedComment$nested, _nestedComment$nested2;
   var nestedComment = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {});
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+    children: (nestedComment === null || nestedComment === void 0 ? void 0 : (_nestedComment$nested = nestedComment.nestedComment) === null || _nestedComment$nested === void 0 ? void 0 : _nestedComment$nested.length) > 0 && (nestedComment === null || nestedComment === void 0 ? void 0 : (_nestedComment$nested2 = nestedComment.nestedComment) === null || _nestedComment$nested2 === void 0 ? void 0 : _nestedComment$nested2.map(function (comment) {
+      var _comment$users;
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "pl-3",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_CommentUser_CommentUser__WEBPACK_IMPORTED_MODULE_1__["default"], {
+            idPost: comment === null || comment === void 0 ? void 0 : comment.id_post,
+            idComment: comment.id_comment,
+            nestedComment: true,
+            textComment: comment.comment,
+            profileUser: comment === null || comment === void 0 ? void 0 : (_comment$users = comment.users) === null || _comment$users === void 0 ? void 0 : _comment$users.profile_image
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "pl-5",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(RecursiveComment, {
+            nestedComment: comment === null || comment === void 0 ? void 0 : comment.reply_comment
+          })
+        })]
+      });
+    }))
+  });
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RecursiveComment);
 
@@ -12250,14 +12278,9 @@ function SeePost(_ref) {
                       nestedComment: true,
                       textComment: comment.comment,
                       profileUser: comment === null || comment === void 0 ? void 0 : (_comment$users = comment.users) === null || _comment$users === void 0 ? void 0 : _comment$users.profile_image
-                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_RecursiveComment_RecursiveComment__WEBPACK_IMPORTED_MODULE_8__["default"], {})
-                    // comment?.reply_comment?.length > 0 ?
-                    // comment?.reply_comment?.map(nested => (
-                    //     <div className="pl-2">
-                    //         <CommentUser idPost={nested?.id_post} idComment={nested.id_comment} nestedComment textComment={nested.comment} profileUser={nested?.users?.profile_image}/>
-                    //     </div>
-                    // ))
-                    ]
+                    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_RecursiveComment_RecursiveComment__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                      nestedComment: comment === null || comment === void 0 ? void 0 : comment.reply_comment
+                    })]
                   });
                 }) : '']
               })]

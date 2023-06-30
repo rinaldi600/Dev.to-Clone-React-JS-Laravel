@@ -40,6 +40,6 @@ class Comment extends Model
     }
 
     public function replyComment() {
-        return $this->hasMany(Comment::class, 'parent_comment', 'id_comment')->with('replyComment');
+        return $this->hasMany(Comment::class, 'parent_comment', 'id_comment')->with('replyComment', 'replyComment.users');
     }
 }

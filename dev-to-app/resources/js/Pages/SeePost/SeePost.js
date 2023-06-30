@@ -103,15 +103,7 @@ function SeePost({detailPost}) {
                                         detailPost?.comments.map(comment => (
                                             <>
                                                 <CommentUser idPost={detailPost?.id_post} idComment={comment.id_comment} nestedComment textComment={comment.comment} profileUser={comment?.users?.profile_image}/>
-                                                {
-                                                    <RecursiveComment/>
-                                                    // comment?.reply_comment?.length > 0 ?
-                                                    // comment?.reply_comment?.map(nested => (
-                                                    //     <div className="pl-2">
-                                                    //         <CommentUser idPost={nested?.id_post} idComment={nested.id_comment} nestedComment textComment={nested.comment} profileUser={nested?.users?.profile_image}/>
-                                                    //     </div>
-                                                    // ))
-                                                }
+                                                <RecursiveComment nestedComment={comment?.reply_comment}/>
                                             </>
                                         ))
                                         :
