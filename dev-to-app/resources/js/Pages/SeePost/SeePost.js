@@ -8,7 +8,7 @@ import CommentBox from "./CommentBox/CommentBox";
 import CommentUser from "./CommentUser/CommentUser";
 import RecursiveComment from "./RecursiveComment/RecursiveComment";
 
-function SeePost({detailPost}) {
+function SeePost({detailPost, countComment}) {
 
     const tagsPost = JSON.parse(detailPost.tags);
     const { auth } = usePage().props;
@@ -21,7 +21,7 @@ function SeePost({detailPost}) {
     })
 
     useEffect(() => {
-        console.log(detailPost)
+        // console.log(countComment)
     })
 
     return (
@@ -82,7 +82,7 @@ function SeePost({detailPost}) {
 
                             {/* Comment */}
                             <div id="comment" className="mx-auto pt-8 min-h-[100px] lg:w-[85%] w-[89%]">
-                                <h2 className="text-[#242424] font-bold text-2xl">Top comments ({detailPost?.comments.length})</h2>
+                                <h2 className="text-[#242424] font-bold text-2xl">Top comments ({countComment})</h2>
                                 <div className="w-full pt-8">
                                     <div className="flex gap-2">
                                         <div className={`${auth?.user?.profile_image === '' ? 'flex items-center justify-center' : ''} w-[32px] h-[32px] rounded-full overflow-hidden`}>

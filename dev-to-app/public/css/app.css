@@ -1769,9 +1769,6 @@ select {
 .pb-4 {
   padding-bottom: 1rem;
 }
-.pl-2 {
-  padding-left: 0.5rem;
-}
 .pb-2 {
   padding-bottom: 0.5rem;
 }
@@ -1796,6 +1793,9 @@ select {
 .pb-2\.5 {
   padding-bottom: 0.625rem;
 }
+.pl-5 {
+  padding-left: 1.25rem;
+}
 .pr-9 {
   padding-right: 2.25rem;
 }
@@ -1808,11 +1808,11 @@ select {
 .pl-\[7px\] {
   padding-left: 7px;
 }
+.pl-2 {
+  padding-left: 0.5rem;
+}
 .pr-2 {
   padding-right: 0.5rem;
-}
-.pl-5 {
-  padding-left: 1.25rem;
 }
 .pr-5 {
   padding-right: 1.25rem;
@@ -2907,6 +2907,11 @@ select {
   .sm\:text-sm {
     font-size: 0.875rem;
     line-height: 1.25rem;
+  }
+
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 

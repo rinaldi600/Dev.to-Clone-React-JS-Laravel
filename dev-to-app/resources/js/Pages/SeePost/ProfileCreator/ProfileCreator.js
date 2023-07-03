@@ -29,7 +29,7 @@ function ProfileCreator({detailUser}) {
                             <img className="w-full h-full" src={`${detailUser.profile_image}`} alt="Profile Image Creator" />
                         }
                     </div>
-                    <p className="font-bold text-xl">{detailUser.name}</p>
+                    <p className="font-bold sm:text-base text-xl">{detailUser.name}</p>
                 </div>
                 <div className="pt-3 p-2">
                     <button type="button" className="min-h-[40px] w-full bg-[#3B49DF] hover:bg-[#2F3AB2] rounded-lg text-[#F9F9F9] font-medium text-base">Follow</button>

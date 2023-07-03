@@ -428,11 +428,12 @@ class UserController extends Controller
     }
 
     public function seePost($username, $slug) {
-
+        $idPost = Post::where('slug',$slug)->first()['id_post'];
         return Inertia::render('SeePost/SeePost', [
             'detailPost' => Post::with(['users', 'comments' => function ($query) {
                 $query->where('parent_comment', null);
             } , 'comments.users', 'comments.replyComment.users'])->where('slug', $slug)->first(),
+            'countComment' => Comment::where('id_post', $idPost)->count(),
           ]);
     }
 
@@ -488,7 +489,7 @@ class UserController extends Controller
                 'id_post' => $request->input('idPost'),
                 'id_user' => Auth::user()->id_user,
             ]);
-            return redirect()->back();
+            return redirect()->back()->with('close_comment_box', true);
         }
     }
 }
