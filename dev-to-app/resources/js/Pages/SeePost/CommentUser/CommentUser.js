@@ -16,8 +16,6 @@ function CommentUser({idComment, textComment, profileUser, idPost}) {
         if (flash.close_comment_box) {
             showComment(false);
         }
-        // console.log(isComment);
-        // console.log(profileUser + ' = ' + textComment)
     })
 
     return (

@@ -6618,9 +6618,7 @@ function Contents(_ref) {
   var navbar = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (state) {
     return state.navbar.value;
   });
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    // console.log(listPost);
-  });
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "".concat(navbar ? 'h-[43px]' : 'min-h-[43px]', " text-lg sm:justify-center flex flex-wrap items-center gap-2"),
@@ -11680,7 +11678,8 @@ function CommentBox(_ref) {
     e.preventDefault();
     post('/comment_post', {
       onSuccess: function onSuccess() {
-        return reset('comment');
+        reset('comment');
+        post('/remove_flash_data');
       }
     });
   };
@@ -11880,10 +11879,7 @@ function CommentUser(_ref) {
     if (flash.close_comment_box) {
       showComment(false);
     }
-    // console.log(isComment);
-    // console.log(profileUser + ' = ' + textComment)
   });
-
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "flex w-full gap-2 font-['Segoe_UI']",
@@ -12148,9 +12144,7 @@ function SeePost(_ref) {
     }
     localStorage.removeItem('position');
   });
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    // console.log(countComment)
-  });
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
       title: "".concat(detailPost.title, " - DEV Community")

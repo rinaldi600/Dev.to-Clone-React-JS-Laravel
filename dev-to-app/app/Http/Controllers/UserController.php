@@ -492,4 +492,9 @@ class UserController extends Controller
             return redirect()->back()->with('close_comment_box', true);
         }
     }
+
+    public function removeFlashData(Request $request) {
+        $request->session()->forget('close_comment_box');
+        return redirect()->back();
+    }
 }

@@ -39,8 +39,6 @@ Route::middleware('validLogin')->group(function () {
     Route::get('/enter', [\App\Http\Controllers\UserController::class, 'index']);
 });
 
-Route::get('/{username}/{slug}', [\App\Http\Controllers\UserController::class, 'seePost']);
-
 Route::middleware('isValidLogin')->group(function () {
     Route::post('/logout_user', [\App\Http\Controllers\UserController::class, 'LogOutUser']);
     Route::post('/set_new_password', [\App\Http\Controllers\UserController::class, 'setNewPassword']);
@@ -53,6 +51,7 @@ Route::middleware('isValidLogin')->group(function () {
         Route::get('/comments', [\App\Http\Controllers\UserController::class, 'notificationsComment']);
         Route::get('/posts', [\App\Http\Controllers\UserController::class, 'notificationsPost']);
     });
+    Route::post('/remove_flash_data', [\App\Http\Controllers\UserController::class, 'removeFlashData']);
     Route::post('/edit_data', [\App\Http\Controllers\UserController::class, 'editDataPost']);
     Route::post('/comment_post', [\App\Http\Controllers\UserController::class, 'commentPost']);
     Route::get('/new', [\App\Http\Controllers\UserController::class, 'new']);
@@ -64,6 +63,8 @@ Route::middleware('isValidLogin')->group(function () {
     Route::post('/delete_image_post', [\App\Http\Controllers\UserController::class, 'deleteImagePost']);
     Route::get('/{user:username}', [\App\Http\Controllers\UserController::class, 'profileUser']);
 });
+
+Route::get('/{username}/{slug}', [\App\Http\Controllers\UserController::class, 'seePost']);
 
 // Route::get('/dashboard', function () {
 //     return Inertia::render('Dashboard');

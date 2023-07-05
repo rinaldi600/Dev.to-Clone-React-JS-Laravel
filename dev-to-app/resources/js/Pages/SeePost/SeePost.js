@@ -21,7 +21,7 @@ function SeePost({detailPost, countComment}) {
     })
 
     useEffect(() => {
-        // console.log(countComment)
+
     })
 
     return (

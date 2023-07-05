@@ -38,7 +38,10 @@ function CommentBox({idPost, cancel, valueCancel, idComment = null}) {
         localStorage.setItem('position', window.scrollY);
         e.preventDefault();
         post('/comment_post', {
-            onSuccess: () => reset('comment'),
+            onSuccess: () => {
+                reset('comment');
+                post('/remove_flash_data');
+            },
         });
       }
 

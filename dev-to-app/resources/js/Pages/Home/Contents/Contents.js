@@ -10,7 +10,7 @@ function Contents({listPost}) {
     const navbar = useSelector(state => state.navbar.value);
 
     useEffect(() => {
-        // console.log(listPost);
+
     })
 
     return (
