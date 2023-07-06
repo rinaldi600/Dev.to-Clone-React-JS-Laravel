@@ -1,22 +1,22 @@
 import { useState, Suspense, lazy, useEffect } from "react";
-import { usePage } from "@inertiajs/inertia-react";
 
 const CommentBox = lazy(() => import('../CommentBox/CommentBox'));
 
 function CommentUser({idComment, textComment, profileUser, idPost}) {
 
     const [isComment, showComment] = useState(false);
-    const { flash } = usePage().props;
 
     const cancel = (param) => {
         showComment(param);
     }
 
     useEffect(() => {
-        if (flash.close_comment_box) {
-            showComment(false);
-        }
+
     })
+
+    const closeCommentBox = (e) => {
+        showComment(e);
+    }
 
     return (
         <>
@@ -45,7 +45,7 @@ function CommentUser({idComment, textComment, profileUser, idPost}) {
             <Suspense fallback={<div>Loading...</div>}>
                 {
                     isComment ?
-                    <CommentBox idPost={idPost} idComment={idComment} cancel={cancel} valueCancel={true} />
+                    <CommentBox closeCommentBox={closeCommentBox} idPost={idPost} idComment={idComment} cancel={cancel} valueCancel={true} />
                     :
                     ''
                 }

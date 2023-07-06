@@ -11,17 +11,17 @@ import RecursiveComment from "./RecursiveComment/RecursiveComment";
 function SeePost({detailPost, countComment}) {
 
     const tagsPost = JSON.parse(detailPost.tags);
-    const { auth } = usePage().props;
+    const { auth, flash } = usePage().props;
 
     useEffect(() => {
         if (localStorage.getItem('position')) {
             window.scrollTo(0, localStorage.getItem('position'));
         }
-        localStorage.removeItem('position');
-    })
-
-    useEffect(() => {
-
+        return () => {
+            if (flash.close_comment_box === true) {
+                localStorage.removeItem('position');
+            }
+        }
     })
 
     return (
