@@ -46,6 +46,7 @@ class HandleInertiaRequests extends Middleware
                 'back_comment' => session('back_comment'),
                 'close_comment_box' => session('close_comment_box'),
                 'position' => session('position'),
+                'jump_to_specific_element' => session('jump_to_specific_element'),
             ],
             'ziggy' => function () {
                 return (new Ziggy)->toArray();

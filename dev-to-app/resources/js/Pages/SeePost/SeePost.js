@@ -14,15 +14,22 @@ function SeePost({detailPost, countComment}) {
     const { auth, flash } = usePage().props;
 
     useEffect(() => {
-        if (localStorage.getItem('position')) {
-            window.scrollTo(0, localStorage.getItem('position'));
+        if (flash?.jump_to_specific_element !== null) {
+            document.getElementById(flash?.jump_to_specific_element).scrollIntoView();
         }
-        return () => {
-            if (flash.close_comment_box === true) {
-                localStorage.removeItem('position');
-            }
-        }
+        // if (localStorage.getItem('position')) {
+        //     window.scrollTo(0, localStorage.getItem('position'));
+        // }
+        // return () => {
+        //     if (flash.close_comment_box === true) {
+        //         localStorage.removeItem('position');
+        //     }
+        // }
     })
+
+    const closeCommentBox = () => {
+
+    }
 
     return (
         <>
@@ -96,13 +103,13 @@ function SeePost({detailPost, countComment}) {
                                             }
                                         </div>
                                         <div className="w-[90%]">
-                                            <CommentBox idPost={detailPost?.id_post} />
+                                            <CommentBox closeCommentBox={closeCommentBox} idPost={detailPost?.id_post} />
                                         </div>
                                     </div>
                                     {detailPost?.comments.length > 0 ?
                                         detailPost?.comments.map(comment => (
                                             <>
-                                                <CommentUser idPost={detailPost?.id_post} idComment={comment.id_comment} nestedComment textComment={comment.comment} profileUser={comment?.users?.profile_image}/>
+                                                <CommentUser id={comment?.id} idPost={detailPost?.id_post} idComment={comment.id_comment} nestedComment textComment={comment.comment} profileUser={comment?.users?.profile_image}/>
                                                 <RecursiveComment nestedComment={comment?.reply_comment}/>
                                             </>
                                         ))

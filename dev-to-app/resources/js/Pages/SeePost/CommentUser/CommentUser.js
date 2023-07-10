@@ -1,10 +1,12 @@
 import { useState, Suspense, lazy, useEffect } from "react";
+import { usePage } from "@inertiajs/inertia-react";
 
 const CommentBox = lazy(() => import('../CommentBox/CommentBox'));
 
-function CommentUser({idComment, textComment, profileUser, idPost}) {
+function CommentUser({idComment, textComment, profileUser, idPost, id}) {
 
     const [isComment, showComment] = useState(false);
+    const { flash } = usePage().props
 
     const cancel = (param) => {
         showComment(param);
@@ -26,8 +28,8 @@ function CommentUser({idComment, textComment, profileUser, idPost}) {
                 </div>
                 <div className="w-[90%]">
                     <div class="w-full mb-4">
-                        <div class="px-4 py-2 rounded-lg border border-gray-200 bg-white rounded-t-lg dark:bg-gray-800">
-                            <p className="break-words">{textComment}</p>
+                        <div class={`px-4 py-2 rounded-lg ${(flash?.jump_to_specific_element !== null & flash?.jump_to_specific_element === id) ? 'border border-[#057a55]' : 'border border-gray-200' } bg-white rounded-t-lg dark:bg-gray-800`}>
+                            <p id={id} className={`break-words`}>{textComment}</p>
                         </div>
                         <div class="flex items-center justify-between pt-2">
                             <button onClick={() => showComment(true)} type="button" class="flex items-center justify-center text-sm font-normal text-[#090909] gap-2 hover:bg-[#F6F6F6] rounded-lg w-[81.6875px] h-[32px]">

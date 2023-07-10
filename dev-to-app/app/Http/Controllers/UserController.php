@@ -482,14 +482,16 @@ class UserController extends Controller
                         ->withErrors($validator)
                         ->withInput();
         } else {
-            Comment::create([
+            $data = Comment::create([
                 'id_comment' => 'Comment - ' . Carbon::now() . '_' . Carbon::now()->getPreciseTimestamp(10),
                 'comment' => $request->input('comment'),
                 'parent_comment' => $request->input('idComment') !== null ? $request->input('idComment') : null,
                 'id_post' => $request->input('idPost'),
                 'id_user' => Auth::user()->id_user,
             ]);
-            return redirect()->back()->with('close_comment_box', true);
+
+            // return redirect()->back()->with('close_comment_box', true);
+            return redirect()->back()->with('jump_to_specific_element', $data->id);
         }
     }
 

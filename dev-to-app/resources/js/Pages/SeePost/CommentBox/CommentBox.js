@@ -3,7 +3,7 @@ import { useEffect, useState, lazy, Suspense } from "react";
 
 const NotAllowedComment = lazy(() => import('./NotAllowedComment/NotAllowedComment.js'));
 
-function CommentBox({idPost, cancel, valueCancel, idComment = null, closeCommentBox}) {
+function CommentBox({idPost, cancel, valueCancel, idComment = null, closeCommentBox = null}) {
     const { auth } = usePage().props;
     const [login, isLogin] = useState(false);
     const [closeAlertComment, setCloseAlertComment] = useState(false);
@@ -41,7 +41,6 @@ function CommentBox({idPost, cancel, valueCancel, idComment = null, closeComment
         post('/comment_post', {
             onSuccess: () => {
                 reset('comment');
-                // post('/remove_flash_data');
             },
         });
       }
