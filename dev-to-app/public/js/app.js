@@ -11849,13 +11849,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var moment_locale_id__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! moment/locale/id */ "./node_modules/moment/locale/id.js");
+/* harmony import */ var moment_locale_id__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(moment_locale_id__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
 function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
 
 
 
@@ -11869,7 +11875,9 @@ function CommentUser(_ref) {
     textComment = _ref.textComment,
     profileUser = _ref.profileUser,
     idPost = _ref.idPost,
-    id = _ref.id;
+    id = _ref.id,
+    name = _ref.name,
+    created_at = _ref.created_at;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     isComment = _useState2[0],
@@ -11882,44 +11890,57 @@ function CommentUser(_ref) {
   var closeCommentBox = function closeCommentBox(e) {
     showComment(e);
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "flex w-full gap-2 font-['Segoe_UI']",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "flex items-center justify-center w-[32px] h-[32px] rounded-full overflow-hidden",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
           className: "w-full h-full",
           src: profileUser === '' || profileUser === undefined || profileUser === null ? "https://dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" : profileUser,
           alt: "Profile User"
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "w-[90%]",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           "class": "w-full mb-4",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-            "class": "px-4 py-2 rounded-lg ".concat((flash === null || flash === void 0 ? void 0 : flash.jump_to_specific_element) !== null & (flash === null || flash === void 0 ? void 0 : flash.jump_to_specific_element) === id ? 'border border-[#057a55]' : 'border border-gray-200', " bg-white rounded-t-lg dark:bg-gray-800"),
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+            "class": "px-4 py-2 rounded-lg ".concat((flash === null || flash === void 0 ? void 0 : flash.jump_to_specific_element) !== null & (flash === null || flash === void 0 ? void 0 : flash.jump_to_specific_element) === id ? 'border-2 border-[#057a55]' : 'border border-gray-200', " bg-white rounded-t-lg dark:bg-gray-800"),
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "flex gap-2 pb-3 items-center min-h-fit",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                  className: "font-medium text-base break-words",
+                  children: name
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+                  className: "text-[#717171] text-xs",
+                  children: moment__WEBPACK_IMPORTED_MODULE_2___default()(created_at).format('MMMM Do YYYY, h:mm:ss a')
+                })
+              })]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
               id: id,
               className: "break-words",
               children: textComment
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+            })]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
             "class": "flex items-center justify-between pt-2",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
               onClick: function onClick() {
                 return showComment(true);
               },
               type: "button",
               "class": "flex items-center justify-center text-sm font-normal text-[#090909] gap-2 hover:bg-[#F6F6F6] rounded-lg w-[81.6875px] h-[32px]",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("svg", {
                   xmlns: "http://www.w3.org/2000/svg",
                   fill: "none",
                   viewBox: "0 0 24 24",
                   "stroke-width": "1.5",
                   stroke: "currentColor",
                   "class": "w-[20px] h-[20px] text-[#090909] font-medium",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                     "stroke-linecap": "round",
                     "stroke-linejoin": "round",
                     d: "M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 01-.923 1.785A5.969 5.969 0 006 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337z"
@@ -11930,11 +11951,11 @@ function CommentUser(_ref) {
           })]
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
-      fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+      fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         children: "Loading..."
       }),
-      children: isComment ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(CommentBox, {
+      children: isComment ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(CommentBox, {
         closeCommentBox: closeCommentBox,
         idPost: idPost,
         idComment: idComment,
@@ -12073,17 +12094,19 @@ function RecursiveComment() {
   var nestedComment = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
     children: (nestedComment === null || nestedComment === void 0 ? void 0 : (_nestedComment$nested = nestedComment.nestedComment) === null || _nestedComment$nested === void 0 ? void 0 : _nestedComment$nested.length) > 0 && (nestedComment === null || nestedComment === void 0 ? void 0 : (_nestedComment$nested2 = nestedComment.nestedComment) === null || _nestedComment$nested2 === void 0 ? void 0 : _nestedComment$nested2.map(function (comment) {
-      var _comment$users;
+      var _comment$users, _comment$users2;
       return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "pl-3",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_CommentUser_CommentUser__WEBPACK_IMPORTED_MODULE_0__["default"], {
+            created_at: comment.created_at,
+            name: comment === null || comment === void 0 ? void 0 : (_comment$users = comment.users) === null || _comment$users === void 0 ? void 0 : _comment$users.name,
             id: comment === null || comment === void 0 ? void 0 : comment.id,
             idPost: comment === null || comment === void 0 ? void 0 : comment.id_post,
             idComment: comment.id_comment,
             nestedComment: true,
             textComment: comment.comment,
-            profileUser: comment === null || comment === void 0 ? void 0 : (_comment$users = comment.users) === null || _comment$users === void 0 ? void 0 : _comment$users.profile_image
+            profileUser: comment === null || comment === void 0 ? void 0 : (_comment$users2 = comment.users) === null || _comment$users2 === void 0 ? void 0 : _comment$users2.profile_image
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
           className: "pl-5",
@@ -12146,16 +12169,8 @@ function SeePost(_ref) {
     if ((flash === null || flash === void 0 ? void 0 : flash.jump_to_specific_element) !== null) {
       document.getElementById(flash === null || flash === void 0 ? void 0 : flash.jump_to_specific_element).scrollIntoView();
     }
-    // if (localStorage.getItem('position')) {
-    //     window.scrollTo(0, localStorage.getItem('position'));
-    // }
-    // return () => {
-    //     if (flash.close_comment_box === true) {
-    //         localStorage.removeItem('position');
-    //     }
-    // }
+    console.log(detailPost);
   });
-
   var closeCommentBox = function closeCommentBox() {};
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
@@ -12286,15 +12301,17 @@ function SeePost(_ref) {
                     })
                   })]
                 }), (detailPost === null || detailPost === void 0 ? void 0 : detailPost.comments.length) > 0 ? detailPost === null || detailPost === void 0 ? void 0 : detailPost.comments.map(function (comment) {
-                  var _comment$users;
+                  var _comment$users, _comment$users2;
                   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.Fragment, {
                     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_CommentUser_CommentUser__WEBPACK_IMPORTED_MODULE_7__["default"], {
+                      created_at: comment.created_at,
+                      name: comment === null || comment === void 0 ? void 0 : (_comment$users = comment.users) === null || _comment$users === void 0 ? void 0 : _comment$users.name,
                       id: comment === null || comment === void 0 ? void 0 : comment.id,
                       idPost: detailPost === null || detailPost === void 0 ? void 0 : detailPost.id_post,
                       idComment: comment.id_comment,
                       nestedComment: true,
                       textComment: comment.comment,
-                      profileUser: comment === null || comment === void 0 ? void 0 : (_comment$users = comment.users) === null || _comment$users === void 0 ? void 0 : _comment$users.profile_image
+                      profileUser: comment === null || comment === void 0 ? void 0 : (_comment$users2 = comment.users) === null || _comment$users2 === void 0 ? void 0 : _comment$users2.profile_image
                     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_RecursiveComment_RecursiveComment__WEBPACK_IMPORTED_MODULE_8__["default"], {
                       nestedComment: comment === null || comment === void 0 ? void 0 : comment.reply_comment
                     })]

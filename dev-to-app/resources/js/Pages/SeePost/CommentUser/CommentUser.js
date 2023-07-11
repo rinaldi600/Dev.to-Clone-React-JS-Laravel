@@ -1,9 +1,11 @@
 import { useState, Suspense, lazy, useEffect } from "react";
 import { usePage } from "@inertiajs/inertia-react";
+import moment from 'moment';
+import 'moment/locale/id';
 
 const CommentBox = lazy(() => import('../CommentBox/CommentBox'));
 
-function CommentUser({idComment, textComment, profileUser, idPost, id}) {
+function CommentUser({idComment, textComment, profileUser, idPost, id, name, created_at}) {
 
     const [isComment, showComment] = useState(false);
     const { flash } = usePage().props
@@ -28,7 +30,15 @@ function CommentUser({idComment, textComment, profileUser, idPost, id}) {
                 </div>
                 <div className="w-[90%]">
                     <div class="w-full mb-4">
-                        <div class={`px-4 py-2 rounded-lg ${(flash?.jump_to_specific_element !== null & flash?.jump_to_specific_element === id) ? 'border border-[#057a55]' : 'border border-gray-200' } bg-white rounded-t-lg dark:bg-gray-800`}>
+                        <div class={`px-4 py-2 rounded-lg ${(flash?.jump_to_specific_element !== null & flash?.jump_to_specific_element === id) ? 'border-2 border-[#057a55]' : 'border border-gray-200' } bg-white rounded-t-lg dark:bg-gray-800`}>
+                            <div className="flex gap-2 pb-3 items-center min-h-fit">
+                                <div>
+                                    <p className="font-medium text-base break-words">{name}</p>
+                                </div>
+                                <div>
+                                    <p className="text-[#717171] text-xs">{moment(created_at).format('MMMM Do YYYY, h:mm:ss a')}</p>
+                                </div>
+                            </div>
                             <p id={id} className={`break-words`}>{textComment}</p>
                         </div>
                         <div class="flex items-center justify-between pt-2">

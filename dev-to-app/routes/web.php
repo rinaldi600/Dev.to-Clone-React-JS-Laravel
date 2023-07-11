@@ -26,8 +26,9 @@ Route::get('/', function () {
     return Inertia::render('Home/Home', $data);
 });
 
-Route::get('/search', function () {
-    return 'WORK';
+Route::get('/search?q={keyword}', function ($keyword) {
+    dd($keyword);
+    return $keyword;
 });
 
 Route::post('/new_user', [\App\Http\Controllers\UserController::class, 'newUser']);

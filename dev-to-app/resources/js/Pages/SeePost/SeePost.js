@@ -17,14 +17,7 @@ function SeePost({detailPost, countComment}) {
         if (flash?.jump_to_specific_element !== null) {
             document.getElementById(flash?.jump_to_specific_element).scrollIntoView();
         }
-        // if (localStorage.getItem('position')) {
-        //     window.scrollTo(0, localStorage.getItem('position'));
-        // }
-        // return () => {
-        //     if (flash.close_comment_box === true) {
-        //         localStorage.removeItem('position');
-        //     }
-        // }
+        console.log(detailPost);
     })
 
     const closeCommentBox = () => {
@@ -109,7 +102,7 @@ function SeePost({detailPost, countComment}) {
                                     {detailPost?.comments.length > 0 ?
                                         detailPost?.comments.map(comment => (
                                             <>
-                                                <CommentUser id={comment?.id} idPost={detailPost?.id_post} idComment={comment.id_comment} nestedComment textComment={comment.comment} profileUser={comment?.users?.profile_image}/>
+                                                <CommentUser created_at={comment.created_at} name={comment?.users?.name} id={comment?.id} idPost={detailPost?.id_post} idComment={comment.id_comment} nestedComment textComment={comment.comment} profileUser={comment?.users?.profile_image}/>
                                                 <RecursiveComment nestedComment={comment?.reply_comment}/>
                                             </>
                                         ))
