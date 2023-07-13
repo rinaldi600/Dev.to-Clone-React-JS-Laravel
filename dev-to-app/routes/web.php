@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Remember_Me;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,8 +27,14 @@ Route::get('/', function () {
     return Inertia::render('Home/Home', $data);
 });
 
+Route::get('/search', function (Request $request) {
+    if ($request->has('q')) {
+        return redirect('/search?q=' . $request->input('q'));
+    }
+    dd('FAILS');
+});
+
 Route::get('/search?q={keyword}', function ($keyword) {
-    dd($keyword);
     return $keyword;
 });
 
