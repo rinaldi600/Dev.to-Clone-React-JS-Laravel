@@ -28,15 +28,18 @@ Route::get('/', function () {
 });
 
 Route::get('/search', function (Request $request) {
-    if ($request->has('q')) {
-        return redirect('/search?q=' . $request->input('q'));
-    }
-    dd('FAILS');
+    return Inertia::render('Search/Search', [
+        'q' => $request->input('q'),
+    ]);
 });
-
-Route::get('/search?q={keyword}', function ($keyword) {
-    return $keyword;
-});
+// Route::prefix('search')->group(function () {
+//     Route::get('/', function () {
+//         dd("WORK");
+//     });
+//     Route::get('?q={keyword}', function ($keyword) {
+//         dd($keyword);
+//     });
+// });
 
 Route::post('/new_user', [\App\Http\Controllers\UserController::class, 'newUser']);
 Route::post('/login_user', [\App\Http\Controllers\UserController::class, 'handleLogin']);
