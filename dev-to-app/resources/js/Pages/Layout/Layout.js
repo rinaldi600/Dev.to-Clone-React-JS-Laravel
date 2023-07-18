@@ -67,7 +67,7 @@ function Layout({children}) {
                             </div>
 
                             <div>
-                                <SearchPost/>
+                                <SearchPost valueReset={'dd'}/>
                             </div>
 
                         </div>

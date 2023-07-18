@@ -8347,7 +8347,9 @@ function Layout(_ref) {
                 })
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_SearchPost_SearchPost__WEBPACK_IMPORTED_MODULE_8__["default"], {})
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_SearchPost_SearchPost__WEBPACK_IMPORTED_MODULE_8__["default"], {
+                valueReset: 'dd'
+              })
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             children: auth !== null && auth !== void 0 && (_auth$user = auth.user) !== null && _auth$user !== void 0 && _auth$user.name ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
@@ -8723,23 +8725,31 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
 
-function SearchPost() {
-  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)({
-      q: ''
-    }),
-    data = _useForm.data,
-    setData = _useForm.setData;
+function SearchPost(_ref) {
+  var valueReset = _ref.valueReset;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+    _useState2 = _slicedToArray(_useState, 2),
+    q = _useState2[0],
+    setQ = _useState2[1];
   var elementRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
+  var inputElementRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
   var urlParams = new URLSearchParams(window.location.search);
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    // console.log(urlParams.get('q'));
+    console.log(inputElementRef.current.value);
+    console.log(window.location.search);
   });
   var getValue = function getValue(e) {
-    setData('q', e.target.value);
+    setQ(e.target.value);
     if (e.keyCode === 13) {
       elementRef.current.click();
     }
@@ -8747,9 +8757,13 @@ function SearchPost() {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: 'h-[40px] m-0 lg:relative lg:w-[420px] lg:block flex items-center w-max overflow-hidden',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
-      defaultValue: urlParams.get('q') === null ? data.q : urlParams.get('q'),
+      ref: inputElementRef,
+      defaultValue: valueReset,
       onKeyDown: function onKeyDown(e) {
         return getValue(e);
+      },
+      onChange: function onChange(e) {
+        return setQ(e.target.value);
       },
       type: "text",
       className: 'w-[100%] focus:border-2 lg:block hidden border-[#A3A3A3] h-full focus:z-50 border-transparent rounded-lg focus:border-[#3B49DF] focus:ring-0',
@@ -8773,7 +8787,7 @@ function SearchPost() {
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
       ref: elementRef,
       className: 'lg:absolute w-[40px] h-full lg:h-[32px] rounded-lg lg:top-1/2 lg:right-0 lg:translate-x-[-10%] hidden lg:translate-y-[-50%] hover:bg-[#EBECFC] lg:flex items-center justify-center cursor-pointer',
-      href: "/search?q=".concat(data === null || data === void 0 ? void 0 : data.q),
+      href: "/search?q=".concat(q),
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         fill: "none",
@@ -11664,16 +11678,12 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function Search(_ref) {
-  var q = _ref.q;
+function Search() {
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     // console.log(q);
   });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "min-h-screen bg-[#F5F5F5]",
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h1", {
-      children: "WORK"
-    })
+    className: "min-h-screen bg-[#F5F5F5]"
   });
 }
 Search.layout = function (page) {

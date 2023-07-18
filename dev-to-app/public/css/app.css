@@ -1623,12 +1623,6 @@ select {
 .bg-black\/60 {
   background-color: rgb(0 0 0 / 0.6);
 }
-.bg-\[\] {
-  background-color: ;
-}
-.bg-\[F5F5F5\] {
-  background-color: F5F5F5;
-}
 .fill-current {
   fill: currentColor;
 }

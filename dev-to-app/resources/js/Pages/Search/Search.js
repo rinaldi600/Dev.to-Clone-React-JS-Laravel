@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import Layout from "../Layout/Layout";
 
-function Search({q}) {
+function Search() {
 
     useEffect(() => {
         // console.log(q);
@@ -9,7 +9,7 @@ function Search({q}) {
 
     return (
         <div className="min-h-screen bg-[#F5F5F5]">
-            <h1>WORK</h1>
+
         </div>
     )
 }
