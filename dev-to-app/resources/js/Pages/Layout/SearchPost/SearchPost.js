@@ -1,29 +1,45 @@
 import { useForm, Link } from "@inertiajs/inertia-react";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
-function SearchPost({valueReset}) {
+function SearchPost() {
 
-    const [q, setQ] = useState('');
+    const { data, setData, reset } = useForm({
+        q: '',
+    })
     const elementRef = useRef();
     const inputElementRef = useRef();
     const urlParams = new URLSearchParams(window.location.search);
-
+    const [urlPrev, setUrlPrev] = useState('');
 
     useEffect(() => {
-        console.log(inputElementRef.current.value);
-        console.log(window.location.search);
+        console.log(urlPrev);
+        // if ( urlParams.get('q') === null && inputElementRef.current.value !== '') {
+        //     inputElementRef.current.value = '';
+        // }
     })
+    // const getValue = useCallback((e) => {
+    //     setData('q', e.target.value);;
+    //     setUrlPrev(`/search/q=${e.target.value}`);
+    //     if (e.keyCode === 13) {
+    //         elementRef.current.click();
+    //     }
+    // }, [])
 
     const getValue = (e) => {
-        setQ(e.target.value);
+        setData('q', e.target.value);;
+        setUrlPrev(`/search/q=${e.target.value}`);
         if (e.keyCode === 13) {
             elementRef.current.click();
         }
     }
 
+    const goToLink = (e) => {
+        setUrlPrev(`/search/q=${inputElementRef.current.value}`);
+    }
+
     return (
         <div className={'h-[40px] m-0 lg:relative lg:w-[420px] lg:block flex items-center w-max overflow-hidden'}>
-            <input ref={inputElementRef} defaultValue={valueReset} onKeyDown={(e) => getValue(e)} onChange={(e) => setQ(e.target.value)} type="text" className={'w-[100%] focus:border-2 lg:block hidden border-[#A3A3A3] h-full focus:z-50 border-transparent rounded-lg focus:border-[#3B49DF] focus:ring-0'} placeholder={'Search...'}/>
+            <input ref={inputElementRef} defaultValue={data.q} onKeyDown={(e) => getValue(e)} onChange={e => setData('q', e.target.value)} type="text" className={'w-[100%] focus:border-2 lg:block hidden border-[#A3A3A3] h-full focus:z-50 border-transparent rounded-lg focus:border-[#3B49DF] focus:ring-0'} placeholder={'Search...'}/>
             <Link href={'/search'} className={'lg:absolute w-[40px] h-full lg:h-[32px] rounded-lg lg:top-1/2 lg:right-0 lg:translate-x-[-10%] lg:translate-y-[-50%] hover:bg-[#EBECFC] flex lg:hidden items-center justify-center cursor-pointer'}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" className="w-6 h-6 hover:text-[#2F3AB2]">
@@ -31,7 +47,7 @@ function SearchPost({valueReset}) {
                         d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/>
                 </svg>
             </Link>
-            <Link ref={elementRef} className={'lg:absolute w-[40px] h-full lg:h-[32px] rounded-lg lg:top-1/2 lg:right-0 lg:translate-x-[-10%] hidden lg:translate-y-[-50%] hover:bg-[#EBECFC] lg:flex items-center justify-center cursor-pointer'} href={`/search?q=${q}`} >
+            <Link href={`/search?q=${data.q}`} onClick={(e) => goToLink(e)} ref={elementRef} className={'lg:absolute w-[40px] h-full lg:h-[32px] rounded-lg lg:top-1/2 lg:right-0 lg:translate-x-[-10%] hidden lg:translate-y-[-50%] hover:bg-[#EBECFC] lg:flex items-center justify-center cursor-pointer'}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" className="w-6 h-6 hover:text-[#2F3AB2]">
                     <path stroke-linecap="round" stroke-linejoin="round"

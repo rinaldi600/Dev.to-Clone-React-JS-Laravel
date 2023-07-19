@@ -8347,9 +8347,7 @@ function Layout(_ref) {
                 })
               })]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_SearchPost_SearchPost__WEBPACK_IMPORTED_MODULE_8__["default"], {
-                valueReset: 'dd'
-              })
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_SearchPost_SearchPost__WEBPACK_IMPORTED_MODULE_8__["default"], {})
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
             children: auth !== null && auth !== void 0 && (_auth$user = auth.user) !== null && _auth$user !== void 0 && _auth$user.name ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
@@ -8735,35 +8733,55 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
-function SearchPost(_ref) {
-  var valueReset = _ref.valueReset;
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
-    _useState2 = _slicedToArray(_useState, 2),
-    q = _useState2[0],
-    setQ = _useState2[1];
+function SearchPost() {
+  var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.useForm)({
+      q: ''
+    }),
+    data = _useForm.data,
+    setData = _useForm.setData,
+    reset = _useForm.reset;
   var elementRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
   var inputElementRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
   var urlParams = new URLSearchParams(window.location.search);
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(''),
+    _useState2 = _slicedToArray(_useState, 2),
+    urlPrev = _useState2[0],
+    setUrlPrev = _useState2[1];
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    console.log(inputElementRef.current.value);
-    console.log(window.location.search);
+    console.log(urlPrev);
+    // if ( urlParams.get('q') === null && inputElementRef.current.value !== '') {
+    //     inputElementRef.current.value = '';
+    // }
   });
+  // const getValue = useCallback((e) => {
+  //     setData('q', e.target.value);;
+  //     setUrlPrev(`/search/q=${e.target.value}`);
+  //     if (e.keyCode === 13) {
+  //         elementRef.current.click();
+  //     }
+  // }, [])
+
   var getValue = function getValue(e) {
-    setQ(e.target.value);
+    setData('q', e.target.value);
+    ;
+    setUrlPrev("/search/q=".concat(e.target.value));
     if (e.keyCode === 13) {
       elementRef.current.click();
     }
+  };
+  var goToLink = function goToLink(e) {
+    setUrlPrev("/search/q=".concat(inputElementRef.current.value));
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: 'h-[40px] m-0 lg:relative lg:w-[420px] lg:block flex items-center w-max overflow-hidden',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
       ref: inputElementRef,
-      defaultValue: valueReset,
+      defaultValue: data.q,
       onKeyDown: function onKeyDown(e) {
         return getValue(e);
       },
       onChange: function onChange(e) {
-        return setQ(e.target.value);
+        return setData('q', e.target.value);
       },
       type: "text",
       className: 'w-[100%] focus:border-2 lg:block hidden border-[#A3A3A3] h-full focus:z-50 border-transparent rounded-lg focus:border-[#3B49DF] focus:ring-0',
@@ -8785,9 +8803,12 @@ function SearchPost(_ref) {
         })
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+      href: "/search?q=".concat(data.q),
+      onClick: function onClick(e) {
+        return goToLink(e);
+      },
       ref: elementRef,
       className: 'lg:absolute w-[40px] h-full lg:h-[32px] rounded-lg lg:top-1/2 lg:right-0 lg:translate-x-[-10%] hidden lg:translate-y-[-50%] hover:bg-[#EBECFC] lg:flex items-center justify-center cursor-pointer',
-      href: "/search?q=".concat(q),
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
         xmlns: "http://www.w3.org/2000/svg",
         fill: "none",
