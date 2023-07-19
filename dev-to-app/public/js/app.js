@@ -8747,24 +8747,18 @@ function SearchPost() {
     _useState2 = _slicedToArray(_useState, 2),
     urlPrev = _useState2[0],
     setUrlPrev = _useState2[1];
+  var regexURL = new RegExp('^\/[search\?q=*]+$', 'gmi');
+  var urlCurrent = window.location.pathname + window.location.search;
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    console.log(urlPrev);
+    console.log(urlCurrent);
+    console.log(regexURL);
+    console.log(regexURL.test('/search?q=hhhhh'));
     // if ( urlParams.get('q') === null && inputElementRef.current.value !== '') {
     //     inputElementRef.current.value = '';
     // }
   });
-  // const getValue = useCallback((e) => {
-  //     setData('q', e.target.value);;
-  //     setUrlPrev(`/search/q=${e.target.value}`);
-  //     if (e.keyCode === 13) {
-  //         elementRef.current.click();
-  //     }
-  // }, [])
 
   var getValue = function getValue(e) {
-    setData('q', e.target.value);
-    ;
-    setUrlPrev("/search/q=".concat(e.target.value));
     if (e.keyCode === 13) {
       elementRef.current.click();
     }
@@ -8777,8 +8771,9 @@ function SearchPost() {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
       ref: inputElementRef,
       defaultValue: data.q,
-      onKeyDown: function onKeyDown(e) {
-        return getValue(e);
+      onKeyUp: function onKeyUp(e) {
+        getValue(e);
+        setUrlPrev("/search/q=".concat(e.target.value));
       },
       onChange: function onChange(e) {
         return setData('q', e.target.value);
