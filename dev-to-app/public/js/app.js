@@ -8747,24 +8747,21 @@ function SearchPost() {
     _useState2 = _slicedToArray(_useState, 2),
     urlPrev = _useState2[0],
     setUrlPrev = _useState2[1];
-  var regexURL = new RegExp('^\/[search\?q=*]+$', 'gmi');
+  var regexURL = /^\/(search)(\?q=)+/gmi;
   var urlCurrent = window.location.pathname + window.location.search;
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    console.log(urlCurrent);
-    console.log(regexURL);
-    console.log(regexURL.test('/search?q=hhhhh'));
-    // if ( urlParams.get('q') === null && inputElementRef.current.value !== '') {
-    //     inputElementRef.current.value = '';
-    // }
+    if (urlCurrent.match(regexURL)) {
+      setUrlPrev(urlCurrent);
+    }
+    if (urlParams.get('q') === null && inputElementRef.current.value !== '' && urlPrev !== '') {
+      inputElementRef.current.value = '';
+      setUrlPrev('');
+    }
   });
-
   var getValue = function getValue(e) {
     if (e.keyCode === 13) {
       elementRef.current.click();
     }
-  };
-  var goToLink = function goToLink(e) {
-    setUrlPrev("/search/q=".concat(inputElementRef.current.value));
   };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: 'h-[40px] m-0 lg:relative lg:w-[420px] lg:block flex items-center w-max overflow-hidden',
@@ -8772,8 +8769,7 @@ function SearchPost() {
       ref: inputElementRef,
       defaultValue: data.q,
       onKeyUp: function onKeyUp(e) {
-        getValue(e);
-        setUrlPrev("/search/q=".concat(e.target.value));
+        return getValue(e);
       },
       onChange: function onChange(e) {
         return setData('q', e.target.value);
@@ -8799,9 +8795,6 @@ function SearchPost() {
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
       href: "/search?q=".concat(data.q),
-      onClick: function onClick(e) {
-        return goToLink(e);
-      },
       ref: elementRef,
       className: 'lg:absolute w-[40px] h-full lg:h-[32px] rounded-lg lg:top-1/2 lg:right-0 lg:translate-x-[-10%] hidden lg:translate-y-[-50%] hover:bg-[#EBECFC] lg:flex items-center justify-center cursor-pointer',
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("svg", {
