@@ -490,7 +490,6 @@ class UserController extends Controller
                 'id_user' => Auth::user()->id_user,
             ]);
 
-            // return redirect()->back()->with('close_comment_box', true);
             return redirect()->back()->with('jump_to_specific_element', $data->id);
         }
     }

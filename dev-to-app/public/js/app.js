@@ -8738,8 +8738,7 @@ function SearchPost() {
       q: ''
     }),
     data = _useForm.data,
-    setData = _useForm.setData,
-    reset = _useForm.reset;
+    setData = _useForm.setData;
   var elementRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
   var inputElementRef = (0,react__WEBPACK_IMPORTED_MODULE_1__.useRef)();
   var urlParams = new URLSearchParams(window.location.search);
@@ -8767,7 +8766,7 @@ function SearchPost() {
     className: 'h-[40px] m-0 lg:relative lg:w-[420px] lg:block flex items-center w-max overflow-hidden',
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("input", {
       ref: inputElementRef,
-      defaultValue: data.q,
+      defaultValue: urlParams.get('q') !== null ? urlParams.get('q') : data.q,
       onKeyUp: function onKeyUp(e) {
         return getValue(e);
       },
@@ -11683,20 +11682,62 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var _Layout_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
-function Search() {
+
+
+
+function Search(_ref) {
+  var q = _ref.q;
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    // console.log(q);
+    console.log(q);
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
-    className: "min-h-screen bg-[#F5F5F5]"
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
+      title: "Search Results for ".concat(q, " - DEV Community")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+      className: "min-h-screen bg-[#F5F5F5] pt-5 font-['Segoe_UI']",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "max-w-[1150px] min-h-[45px] mx-auto",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "w-full min-h-[45px] flex justify-between items-center",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+            className: "text-3xl font-bold text-[#090909]",
+            children: "Search results for web"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+            className: "flex items-center gap-2 text-base",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              className: "p-2 rounded-lg font-bold hover:bg-white hover:text-[#3B49DF]",
+              method: "get",
+              as: "button",
+              type: "button",
+              children: "Most Relevant"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              className: "p-2 rounded-lg text-[#575757] hover:text-[#3B49E1] hover:bg-white",
+              method: "get",
+              as: "button",
+              type: "button",
+              children: "Newest"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              className: "p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]",
+              method: "get",
+              as: "button",
+              type: "button",
+              children: "Oldest"
+            })]
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        className: "bg-yellow-400 max-w-[1150px] min-h-screen mx-auto"
+      })]
+    })]
   });
 }
 Search.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_Layout_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Layout_Layout__WEBPACK_IMPORTED_MODULE_1__["default"], {
     children: page,
     title: "Welcome"
   });

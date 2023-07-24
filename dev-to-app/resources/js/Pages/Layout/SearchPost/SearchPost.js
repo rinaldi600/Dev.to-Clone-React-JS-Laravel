@@ -1,9 +1,9 @@
 import { useForm, Link } from "@inertiajs/inertia-react";
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 function SearchPost() {
 
-    const { data, setData, reset } = useForm({
+    const { data, setData } = useForm({
         q: '',
     })
     const elementRef = useRef();
@@ -31,7 +31,7 @@ function SearchPost() {
 
     return (
         <div className={'h-[40px] m-0 lg:relative lg:w-[420px] lg:block flex items-center w-max overflow-hidden'}>
-            <input ref={inputElementRef} defaultValue={data.q} onKeyUp={(e) => getValue(e)}onChange={e => setData('q', e.target.value)} type="text" className={'w-[100%] focus:border-2 lg:block hidden border-[#A3A3A3] h-full focus:z-50 border-transparent rounded-lg focus:border-[#3B49DF] focus:ring-0'} placeholder={'Search...'}/>
+            <input ref={inputElementRef} defaultValue={urlParams.get('q') !== null ? urlParams.get('q') : data.q} onKeyUp={(e) => getValue(e)}onChange={e => setData('q', e.target.value)} type="text" className={'w-[100%] focus:border-2 lg:block hidden border-[#A3A3A3] h-full focus:z-50 border-transparent rounded-lg focus:border-[#3B49DF] focus:ring-0'} placeholder={'Search...'}/>
             <Link href={'/search'} className={'lg:absolute w-[40px] h-full lg:h-[32px] rounded-lg lg:top-1/2 lg:right-0 lg:translate-x-[-10%] lg:translate-y-[-50%] hover:bg-[#EBECFC] flex lg:hidden items-center justify-center cursor-pointer'}>
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                     stroke-width="1.5" stroke="currentColor" className="w-6 h-6 hover:text-[#2F3AB2]">

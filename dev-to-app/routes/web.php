@@ -32,14 +32,6 @@ Route::get('/search', function (Request $request) {
         'q' => $request->input('q'),
     ]);
 });
-// Route::prefix('search')->group(function () {
-//     Route::get('/', function () {
-//         dd("WORK");
-//     });
-//     Route::get('?q={keyword}', function ($keyword) {
-//         dd($keyword);
-//     });
-// });
 
 Route::post('/new_user', [\App\Http\Controllers\UserController::class, 'newUser']);
 Route::post('/login_user', [\App\Http\Controllers\UserController::class, 'handleLogin']);
