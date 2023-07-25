@@ -929,6 +929,15 @@ select {
 .h-\[80px\] {
   height: 80px;
 }
+.h-\[100px\] {
+  height: 100px;
+}
+.h-\[\] {
+  height: ;
+}
+.h-\[500px\] {
+  height: 500px;
+}
 .max-h-\[400px\] {
   max-height: 400px;
 }
@@ -937,6 +946,22 @@ select {
 }
 .max-h-\[273\.235px\] {
   max-height: 273.235px;
+}
+.max-h-\[100px\] {
+  max-height: 100px;
+}
+.max-h-\[1000px\] {
+  max-height: 1000px;
+}
+.max-h-\[500px\] {
+  max-height: 500px;
+}
+.max-h-fit {
+  max-height: -moz-fit-content;
+  max-height: fit-content;
+}
+.max-h-\[\] {
+  max-height: ;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -979,14 +1004,14 @@ select {
 .min-h-\[104px\] {
   min-height: 104px;
 }
+.min-h-\[45px\] {
+  min-height: 45px;
+}
 .min-h-\[32px\] {
   min-height: 32px;
 }
 .min-h-\[43px\] {
   min-height: 43px;
-}
-.min-h-\[45px\] {
-  min-height: 45px;
 }
 .min-h-\[200px\] {
   min-height: 200px;
@@ -1044,6 +1069,9 @@ select {
 }
 .min-h-\[\] {
   min-height: ;
+}
+.min-h-\[500px\] {
+  min-height: 500px;
 }
 .w-5 {
   width: 1.25rem;
@@ -1209,6 +1237,27 @@ select {
 .w-\[480px\] {
   width: 480px;
 }
+.w-\[\] {
+  width: ;
+}
+.w-\[250px\] {
+  width: 250px;
+}
+.w-\[7\] {
+  width: 7;
+}
+.w-\[745px\] {
+  width: 745px;
+}
+.w-\[845px\] {
+  width: 845px;
+}
+.w-\[270px\] {
+  width: 270px;
+}
+.w-\[90\] {
+  width: 90;
+}
 .max-w-xl {
   max-width: 36rem;
 }
@@ -1230,6 +1279,9 @@ select {
 .max-w-\[640px\] {
   max-width: 640px;
 }
+.max-w-\[1150px\] {
+  max-width: 1150px;
+}
 .max-w-\[282\.2px\] {
   max-width: 282.2px;
 }
@@ -1242,18 +1294,6 @@ select {
 }
 .max-w-\[992px\] {
   max-width: 992px;
-}
-.max-w-\[1080px\] {
-  max-width: 1080px;
-}
-.max-w-\[1200px\] {
-  max-width: 1200px;
-}
-.max-w-\[1100px\] {
-  max-width: 1100px;
-}
-.max-w-\[1150px\] {
-  max-width: 1150px;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1573,6 +1613,10 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(21 32 42 / var(--tw-bg-opacity));
 }
+.bg-yellow-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
+}
 .bg-\[\#848484\]\/75 {
   background-color: rgb(132 132 132 / 0.75);
 }
@@ -1637,14 +1681,6 @@ select {
 }
 .bg-black\/60 {
   background-color: rgb(0 0 0 / 0.6);
-}
-.bg-blue-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
-}
-.bg-yellow-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
 }
 .bg-green-400 {
   --tw-bg-opacity: 1;
@@ -1794,6 +1830,9 @@ select {
 .pt-3 {
   padding-top: 0.75rem;
 }
+.pt-5 {
+  padding-top: 1.25rem;
+}
 .pl-8 {
   padding-left: 2rem;
 }
@@ -1820,9 +1859,6 @@ select {
 }
 .pl-7 {
   padding-left: 1.75rem;
-}
-.pt-5 {
-  padding-top: 1.25rem;
 }
 .pb-2\.5 {
   padding-bottom: 0.625rem;
@@ -1856,6 +1892,9 @@ select {
 }
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 .text-justify {
   text-align: justify;
@@ -2314,11 +2353,11 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(235 236 252 / var(--tw-bg-opacity));
 }
-.hover\:bg-\[\#FFFFFF\]:hover {
+.hover\:bg-white:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
-.hover\:bg-white:hover {
+.hover\:bg-\[\#FFFFFF\]:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
@@ -2395,6 +2434,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(93 102 196 / var(--tw-text-opacity));
 }
+.hover\:text-\[\#3B49E1\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(59 73 225 / var(--tw-text-opacity));
+}
 .hover\:text-\[\#2F3AB2\]:hover {
   --tw-text-opacity: 1;
   color: rgb(47 58 178 / var(--tw-text-opacity));
@@ -2419,19 +2462,14 @@ select {
   --tw-text-opacity: 1;
   color: rgb(47 114 205 / var(--tw-text-opacity));
 }
+.hover\:text-\[href\=\"\/\"\]:hover {
+  color: href="/";
+}
 .hover\:text-\[\]:hover {
   color: ;
 }
-.hover\:text-\[\#F5F5F5\]:hover {
-  --tw-text-opacity: 1;
-  color: rgb(245 245 245 / var(--tw-text-opacity));
-}
-.hover\:text-\[\#\#3B49E1\]:hover {
-  color: ##3B49E1;
-}
-.hover\:text-\[\#3B49E1\]:hover {
-  --tw-text-opacity: 1;
-  color: rgb(59 73 225 / var(--tw-text-opacity));
+.hover\:text-\[3B49DF\]:hover {
+  color: 3B49DF;
 }
 .hover\:underline:hover {
   -webkit-text-decoration-line: underline;
@@ -2928,6 +2966,10 @@ select {
 
   .sm\:rounded-lg {
     border-radius: 0.5rem;
+  }
+
+  .sm\:p-2 {
+    padding: 0.5rem;
   }
 
   .sm\:px-6 {

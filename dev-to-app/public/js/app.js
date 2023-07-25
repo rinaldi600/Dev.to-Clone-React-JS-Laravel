@@ -11692,47 +11692,68 @@ __webpack_require__.r(__webpack_exports__);
 
 function Search(_ref) {
   var q = _ref.q;
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
-    console.log(q);
-  });
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
+  var getURL = function getURL(e) {
+    e.preventDefault();
+    console.log(e.target.href);
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
       title: "Search Results for ".concat(q, " - DEV Community")
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "min-h-screen bg-[#F5F5F5] pt-5 font-['Segoe_UI']",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "max-w-[1150px] min-h-[45px] mx-auto",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-          className: "w-full min-h-[45px] flex justify-between items-center",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        className: "max-w-[1150px] mx-auto",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "w-full min-h-[45px] sm:p-2 gap-2 flex justify-between items-center",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-            className: "text-3xl font-bold text-[#090909]",
+            className: "text-3xl sm:text-base break-words font-bold text-[#090909]",
             children: "Search results for web"
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "flex items-center gap-2 text-base",
+            className: "flex flex-wrap sm:justify-center items-center gap-2 text-base",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
-              className: "p-2 rounded-lg font-bold hover:bg-white hover:text-[#3B49DF]",
+              className: "sm:text-sm p-2 rounded-lg font-bold hover:bg-white hover:text-[#3B49DF]",
               method: "get",
               as: "button",
               type: "button",
               children: "Most Relevant"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
-              className: "p-2 rounded-lg text-[#575757] hover:text-[#3B49E1] hover:bg-white",
+              className: "sm:text-sm p-2 rounded-lg text-[#575757] hover:text-[#3B49E1] hover:bg-white",
               method: "get",
               as: "button",
               type: "button",
               children: "Newest"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
-              className: "p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]",
+              className: "sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]",
               method: "get",
               as: "button",
               type: "button",
               children: "Oldest"
             })]
           })]
-        })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "bg-yellow-400 max-w-[1150px] min-h-screen mx-auto"
-      })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+          className: "flex pt-6 max-w-[1150px] justify-center flex-wrap mx-auto",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "max-h-[500px] w-[300px]",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
+              href: "/",
+              className: "bg-white p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] font-bold text-left",
+              onClick: function onClick(e) {
+                return getURL(e);
+              },
+              method: "get",
+              as: "button",
+              type: "button",
+              children: "Posts"
+            })
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "bg-green-400 min-h-screen w-[845px]",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+              children: "Content Post"
+            })
+          })]
+        })]
+      })
     })]
   });
 }
