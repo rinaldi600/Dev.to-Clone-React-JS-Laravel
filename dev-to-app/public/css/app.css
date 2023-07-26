@@ -929,14 +929,8 @@ select {
 .h-\[80px\] {
   height: 80px;
 }
-.h-\[100px\] {
-  height: 100px;
-}
-.h-\[\] {
-  height: ;
-}
-.h-\[500px\] {
-  height: 500px;
+.max-h-\[500px\] {
+  max-height: 500px;
 }
 .max-h-\[400px\] {
   max-height: 400px;
@@ -946,22 +940,6 @@ select {
 }
 .max-h-\[273\.235px\] {
   max-height: 273.235px;
-}
-.max-h-\[100px\] {
-  max-height: 100px;
-}
-.max-h-\[1000px\] {
-  max-height: 1000px;
-}
-.max-h-\[500px\] {
-  max-height: 500px;
-}
-.max-h-fit {
-  max-height: -moz-fit-content;
-  max-height: fit-content;
-}
-.max-h-\[\] {
-  max-height: ;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -1067,12 +1045,6 @@ select {
 .min-h-\[56\.8px\] {
   min-height: 56.8px;
 }
-.min-h-\[\] {
-  min-height: ;
-}
-.min-h-\[500px\] {
-  min-height: 500px;
-}
 .w-5 {
   width: 1.25rem;
 }
@@ -1146,6 +1118,12 @@ select {
 .w-\[992px\] {
   width: 992px;
 }
+.w-\[300px\] {
+  width: 300px;
+}
+.w-\[845px\] {
+  width: 845px;
+}
 .w-\[64px\] {
   width: 64px;
 }
@@ -1213,9 +1191,6 @@ select {
 .w-\[20px\] {
   width: 20px;
 }
-.w-\[300px\] {
-  width: 300px;
-}
 .w-\[15\.5px\] {
   width: 15.5px;
 }
@@ -1236,27 +1211,6 @@ select {
 }
 .w-\[480px\] {
   width: 480px;
-}
-.w-\[\] {
-  width: ;
-}
-.w-\[250px\] {
-  width: 250px;
-}
-.w-\[7\] {
-  width: 7;
-}
-.w-\[745px\] {
-  width: 745px;
-}
-.w-\[845px\] {
-  width: 845px;
-}
-.w-\[270px\] {
-  width: 270px;
-}
-.w-\[90\] {
-  width: 90;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -1613,9 +1567,9 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(21 32 42 / var(--tw-bg-opacity));
 }
-.bg-yellow-400 {
+.bg-green-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
 }
 .bg-\[\#848484\]\/75 {
   background-color: rgb(132 132 132 / 0.75);
@@ -1681,10 +1635,6 @@ select {
 }
 .bg-black\/60 {
   background-color: rgb(0 0 0 / 0.6);
-}
-.bg-green-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
 }
 .fill-current {
   fill: currentColor;
@@ -1892,9 +1842,6 @@ select {
 }
 .text-center {
   text-align: center;
-}
-.text-right {
-  text-align: right;
 }
 .text-justify {
   text-align: justify;
@@ -2135,9 +2082,6 @@ select {
 .text-\[\#f9f9f9\] {
   --tw-text-opacity: 1;
   color: rgb(249 249 249 / var(--tw-text-opacity));
-}
-.text-\[\] {
-  color: ;
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -2461,15 +2405,6 @@ select {
 .hover\:text-\[\#2F72CD\]:hover {
   --tw-text-opacity: 1;
   color: rgb(47 114 205 / var(--tw-text-opacity));
-}
-.hover\:text-\[href\=\"\/\"\]:hover {
-  color: href="/";
-}
-.hover\:text-\[\]:hover {
-  color: ;
-}
-.hover\:text-\[3B49DF\]:hover {
-  color: 3B49DF;
 }
 .hover\:underline:hover {
   -webkit-text-decoration-line: underline;

@@ -1,16 +1,25 @@
-import { useEffect } from "react";
+import { useEffect, useState, useRef } from "react";
 import Layout from "../Layout/Layout";
 import { Head, Link } from "@inertiajs/inertia-react";
 
 function Search({q}) {
 
+    const {
+        pathname, search
+    } = window.location;
+
+    const [newURL, setNewURL] = useState('');
+    const elementRefLink = useRef();
+
     useEffect(() => {
+        if (newURL !== '') {
+            elementRefLink.current.click();
+        }
+        setNewURL('');
+    });
 
-    })
-
-    const getURL = (e) => {
-        e.preventDefault();
-        console.log(e.target.href);
+    const getURL = (e, urlInput) => {
+        setNewURL(`${pathname}${search}${urlInput}`);
     };
 
     return (
@@ -30,7 +39,14 @@ function Search({q}) {
                     </div>
                     <div className="flex pt-6 max-w-[1150px] justify-center flex-wrap mx-auto">
                         <div className="max-h-[500px] w-[300px]">
-                            <Link href="/" className="bg-white p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] font-bold text-left" onClick={(e) => getURL(e)} method="get" as="button" type="button">Posts</Link>
+                            <Link href={newURL} ref={elementRefLink}></Link>
+                            <button onClick={(e) => getURL(e, '&filters=class_name:Article')} className="bg-white p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] font-bold text-left" type="button">Post</button>
+                            <button onClick={(e) => getURL(e, '&filters=class_name:PodcastEpisode')} className="p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left" type="button">Podcast</button>
+                            <button onClick={(e) => getURL(e, '&filters=class_name:User')} className="p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left" type="button">People</button>
+                            <button onClick={(e) => getURL(e, '&filters=class_name:Organization')} className="p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left" type="button">Organizations</button>
+                            <button onClick={(e) => getURL(e, '&filters=class_name:Tag')} className="p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left" type="button">Tags</button>
+                            <button onClick={(e) => getURL(e, '&filters=class_name:Comment')} className="p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left" type="button">Comments</button>
+                            <button onClick={(e) => getURL(e, '&filters=MY_POSTS')} className="p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left" type="button">My Post Only</button>
                         </div>
                         <div className="bg-green-400 min-h-screen w-[845px]">
                             <h1>Content Post</h1>

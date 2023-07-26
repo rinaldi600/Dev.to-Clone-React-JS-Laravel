@@ -28,6 +28,9 @@ Route::get('/', function () {
 });
 
 Route::get('/search', function (Request $request) {
+    // if ($request->input('filters')) {
+    //     return 'WORK';
+    // }
     return Inertia::render('Search/Search', [
         'q' => $request->input('q'),
     ]);
