@@ -28,11 +28,9 @@ Route::get('/', function () {
 });
 
 Route::get('/search', function (Request $request) {
-    // if ($request->input('filters')) {
-    //     return $request->input('filters');
-    // }
     return Inertia::render('Search/Search', [
         'q' => $request->input('q'),
+        'dataFromQuery' => Post::with(['users','comments'])->where('title','like', '%'. $request->input('q') . '%')->orWhere('content', 'like', '%' . $request->input('q') . '%')->get(),
     ]);
 });
 

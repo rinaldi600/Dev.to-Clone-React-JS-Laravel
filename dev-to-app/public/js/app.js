@@ -11697,7 +11697,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Search(_ref) {
-  var q = _ref.q;
+  var q = _ref.q,
+    dataFromQuery = _ref.dataFromQuery;
   var _window$location = window.location,
     pathname = _window$location.pathname,
     search = _window$location.search;
@@ -11712,6 +11713,7 @@ function Search(_ref) {
   var elementRefLink = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
   var urlParams = new URLSearchParams(search);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    console.log(dataFromQuery);
     setPrevURL(window.location.search);
     if (newURL !== '') {
       elementRefLink.current.click();
@@ -11752,19 +11754,20 @@ function Search(_ref) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "flex flex-wrap sm:justify-center items-center gap-2 text-base",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
-              className: "sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]",
+              href: "/search?q=".concat(urlParams.get('q')).concat(urlParams.get('filters') !== null ? "&filters=".concat(urlParams.get('filters')) : ''),
+              className: "".concat(urlParams.get('q') !== null && urlParams.get('sort_direction') === null ? 'bg-white font-bold' : '', " sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]"),
               children: "Most Relevant"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               onClick: function onClick(e) {
                 return getURL(e, undefined, '&sort_by=published_at&sort_direction=desc');
               },
-              className: "sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]",
+              className: "".concat(urlParams.get('sort_direction') === 'desc' ? 'bg-white font-bold' : '', " sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]"),
               children: "Newest"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               onClick: function onClick(e) {
                 return getURL(e, undefined, '&sort_by=published_at&sort_direction=asc');
               },
-              className: "sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]",
+              className: "".concat(urlParams.get('sort_direction') === 'asc' ? 'bg-white font-bold' : '', " sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]"),
               children: "Oldest"
             })]
           })]
@@ -11779,49 +11782,49 @@ function Search(_ref) {
               onClick: function onClick(e) {
                 return getURL(e, '&filters=class_name:Article');
               },
-              className: "bg-white p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] font-bold text-left",
+              className: "".concat(urlParams.get('filters') === 'class_name:Article' || urlParams.get('q') !== null && urlParams.get('filters') === null ? 'bg-white font-bold' : '', " p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left"),
               type: "button",
               children: "Post"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               onClick: function onClick(e) {
                 return getURL(e, '&filters=class_name:PodcastEpisode');
               },
-              className: "p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left",
+              className: "".concat(urlParams.get('filters') === 'class_name:PodcastEpisode' ? 'bg-white font-bold' : '', " p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left"),
               type: "button",
               children: "Podcast"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               onClick: function onClick(e) {
                 return getURL(e, '&filters=class_name:User');
               },
-              className: "p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left",
+              className: "".concat(urlParams.get('filters') === 'class_name:User' ? 'bg-white font-bold' : '', " p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left"),
               type: "button",
               children: "People"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               onClick: function onClick(e) {
                 return getURL(e, '&filters=class_name:Organization');
               },
-              className: "p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left",
+              className: "".concat(urlParams.get('filters') === 'class_name:Organization' ? 'bg-white font-bold' : '', " p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left"),
               type: "button",
               children: "Organizations"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               onClick: function onClick(e) {
                 return getURL(e, '&filters=class_name:Tag');
               },
-              className: "p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left",
+              className: "".concat(urlParams.get('filters') === 'class_name:Tag' ? 'bg-white font-bold' : '', " p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left"),
               type: "button",
               children: "Tags"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               onClick: function onClick(e) {
                 return getURL(e, '&filters=class_name:Comment');
               },
-              className: "p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left",
+              className: "".concat(urlParams.get('filters') === 'class_name:Comment' ? 'bg-white font-bold' : '', " p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left"),
               type: "button",
               children: "Comments"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
               onClick: function onClick(e) {
                 return getURL(e, '&filters=MY_POSTS');
               },
-              className: "p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left",
+              className: "".concat(urlParams.get('MY_POSTS') === 'MY_POSTS' ? 'bg-white font-bold' : '', " p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left"),
               type: "button",
               children: "My Post Only"
             })]

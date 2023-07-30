@@ -2,7 +2,7 @@ import { useEffect, useState, useRef } from "react";
 import Layout from "../Layout/Layout";
 import { Head, Link } from "@inertiajs/inertia-react";
 
-function Search({q}) {
+function Search({q, dataFromQuery}) {
 
     const {
         pathname, search
@@ -14,6 +14,7 @@ function Search({q}) {
     const urlParams = new URLSearchParams(search);
 
     useEffect(() => {
+        console.log(dataFromQuery);
         setPrevURL(window.location.search);
         if (newURL !== '') {
             elementRefLink.current.click();
@@ -52,15 +53,15 @@ function Search({q}) {
                         </h1>
                         <div className="flex flex-wrap sm:justify-center items-center gap-2 text-base">
 
-                            <Link className="sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]">
+                            <Link href={`/search?q=${urlParams.get('q')}${urlParams.get('filters') !== null ? `&filters=${urlParams.get('filters')}` : ''}`} className={`${urlParams.get('q') !== null && urlParams.get('sort_direction') === null ? 'bg-white font-bold' : ''} sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]`}>
                                 Most Relevant
                             </Link>
 
-                            <button onClick={(e) => getURL(e, undefined,'&sort_by=published_at&sort_direction=desc')} className="sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]">
+                            <button onClick={(e) => getURL(e, undefined,'&sort_by=published_at&sort_direction=desc')} className={`${urlParams.get('sort_direction') === 'desc' ? 'bg-white font-bold' : ''} sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]`}>
                                 Newest
                             </button>
 
-                            <button onClick={(e) => getURL(e, undefined, '&sort_by=published_at&sort_direction=asc')} className="sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]">
+                            <button onClick={(e) => getURL(e, undefined, '&sort_by=published_at&sort_direction=asc')} className={`${urlParams.get('sort_direction') === 'asc' ? 'bg-white font-bold' : ''} sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]`}>
                                 Oldest
                             </button>
 
@@ -70,19 +71,19 @@ function Search({q}) {
                         <div className="max-h-[500px] w-[300px]">
                             <Link href={newURL} ref={elementRefLink}></Link>
 
-                            <button onClick={(e) => getURL(e, '&filters=class_name:Article')} className="bg-white p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] font-bold text-left" type="button">Post</button>
+                            <button onClick={(e) => getURL(e, '&filters=class_name:Article')} className={`${urlParams.get('filters') === 'class_name:Article' || (urlParams.get('q') !== null && urlParams.get('filters') === null) ? 'bg-white font-bold' : ''} p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left`} type="button">Post</button>
 
-                            <button onClick={(e) => getURL(e, '&filters=class_name:PodcastEpisode')} className="p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left" type="button">Podcast</button>
+                            <button onClick={(e) => getURL(e, '&filters=class_name:PodcastEpisode')} className={`${urlParams.get('filters') === 'class_name:PodcastEpisode' ? 'bg-white font-bold' : ''} p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left`} type="button">Podcast</button>
 
-                            <button onClick={(e) => getURL(e, '&filters=class_name:User')} className="p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left" type="button">People</button>
+                            <button onClick={(e) => getURL(e, '&filters=class_name:User')} className={`${urlParams.get('filters') === 'class_name:User' ? 'bg-white font-bold' : ''} p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left`} type="button">People</button>
 
-                            <button onClick={(e) => getURL(e, '&filters=class_name:Organization')} className="p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left" type="button">Organizations</button>
+                            <button onClick={(e) => getURL(e, '&filters=class_name:Organization')} className={`${urlParams.get('filters') === 'class_name:Organization' ? 'bg-white font-bold' : ''} p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left`} type="button">Organizations</button>
 
-                            <button onClick={(e) => getURL(e, '&filters=class_name:Tag')} className="p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left" type="button">Tags</button>
+                            <button onClick={(e) => getURL(e, '&filters=class_name:Tag')} className={`${urlParams.get('filters') === 'class_name:Tag' ? 'bg-white font-bold' : ''} p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left`} type="button">Tags</button>
 
-                            <button onClick={(e) => getURL(e, '&filters=class_name:Comment')} className="p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left" type="button">Comments</button>
+                            <button onClick={(e) => getURL(e, '&filters=class_name:Comment')} className={`${urlParams.get('filters') === 'class_name:Comment' ? 'bg-white font-bold' : ''} p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left`} type="button">Comments</button>
 
-                            <button onClick={(e) => getURL(e, '&filters=MY_POSTS')} className="p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left" type="button">My Post Only</button>
+                            <button onClick={(e) => getURL(e, '&filters=MY_POSTS')} className={`${urlParams.get('MY_POSTS') === 'MY_POSTS' ? 'bg-white font-bold' : ''} p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left`} type="button">My Post Only</button>
 
                         </div>
                         <div className="bg-green-400 min-h-screen w-[845px]">
