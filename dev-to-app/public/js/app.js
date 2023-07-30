@@ -11705,16 +11705,38 @@ function Search(_ref) {
     _useState2 = _slicedToArray(_useState, 2),
     newURL = _useState2[0],
     setNewURL = _useState2[1];
+  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(''),
+    _useState4 = _slicedToArray(_useState3, 2),
+    prevURL = _useState4[0],
+    setPrevURL = _useState4[1];
   var elementRefLink = (0,react__WEBPACK_IMPORTED_MODULE_0__.useRef)();
+  var urlParams = new URLSearchParams(search);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
+    setPrevURL(window.location.search);
     if (newURL !== '') {
       elementRefLink.current.click();
     }
     setNewURL('');
   });
-  var getURL = function getURL(e, urlInput) {
-    setNewURL("".concat(pathname).concat(search).concat(urlInput));
+  var getURL = function getURL(e, urlInput, urlInput2) {
+    if (prevURL !== '') {
+      var prevParams = new URLSearchParams(prevURL);
+      if ((prevParams.get('filters') === null || prevParams.get('filters') !== null) && urlInput !== undefined) {
+        setNewURL("".concat(pathname, "?q=").concat(urlParams.get('q')).concat(urlInput === undefined ? '' : urlInput));
+      }
+      if ((prevParams.get('sort_by') === null && prevParams.get('sort_direction') === null || prevParams.get('sort_by') !== null && prevParams.get('sort_direction') !== null) && urlInput2 !== undefined) {
+        setNewURL("".concat(pathname, "?q=").concat(urlParams.get('q')).concat(urlInput2 === undefined ? '' : urlInput2));
+      }
+      if (prevParams.get('filters') !== null && urlInput2 !== undefined) {
+        setNewURL("".concat(pathname, "?q=").concat(urlParams.get('q'), "&filters=").concat(prevParams.get('filters')).concat(urlInput2 === undefined ? '' : urlInput2));
+      }
+      if (prevParams.get('sort_by') !== null && prevParams.get('sort_direction') !== null && urlInput !== undefined) {
+        setNewURL("".concat(pathname, "?q=").concat(urlParams.get('q')).concat(urlInput === undefined ? '' : urlInput, "&sort_by=").concat(urlParams.get('sort_by'), "&sort_direction=").concat(urlParams.get('sort_direction')));
+      }
+    }
+    // setNewURL(`${pathname}?q=${urlParams.get('q')}${urlInput === undefined ? '' : urlInput}${urlInput2 === undefined ? '' : urlInput2}`);
   };
+
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
       title: "Search Results for ".concat(q, " - DEV Community")
@@ -11730,22 +11752,19 @@ function Search(_ref) {
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "flex flex-wrap sm:justify-center items-center gap-2 text-base",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
-              className: "sm:text-sm p-2 rounded-lg font-bold hover:bg-white hover:text-[#3B49DF]",
-              method: "get",
-              as: "button",
-              type: "button",
-              children: "Most Relevant"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
-              className: "sm:text-sm p-2 rounded-lg text-[#575757] hover:text-[#3B49E1] hover:bg-white",
-              method: "get",
-              as: "button",
-              type: "button",
-              children: "Newest"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
               className: "sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]",
-              method: "get",
-              as: "button",
-              type: "button",
+              children: "Most Relevant"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              onClick: function onClick(e) {
+                return getURL(e, undefined, '&sort_by=published_at&sort_direction=desc');
+              },
+              className: "sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]",
+              children: "Newest"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
+              onClick: function onClick(e) {
+                return getURL(e, undefined, '&sort_by=published_at&sort_direction=asc');
+              },
+              className: "sm:text-sm p-2 rounded-lg text-[#575757] hover:bg-white hover:text-[#3B49E1]",
               children: "Oldest"
             })]
           })]
