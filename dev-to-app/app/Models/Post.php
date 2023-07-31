@@ -6,12 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
     use HasFactory;
     use Sluggable;
     use SoftDeletes;
+    use Searchable;
 
     /**
      * The table associated with the model.
@@ -43,5 +45,15 @@ class Post extends Model
 
     public function comments() {
         return $this->hasMany(Comment::class,'id_post', 'id_post');
+    }
+
+        /**
+     * Get the name of the index associated with the model.
+     *
+     * @return string
+     */
+    public function searchableAs()
+    {
+        return 'posts_title_content_fulltext';
     }
 }

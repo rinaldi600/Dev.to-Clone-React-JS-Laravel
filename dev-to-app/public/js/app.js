@@ -6618,7 +6618,6 @@ function Contents(_ref) {
   var navbar = (0,react_redux__WEBPACK_IMPORTED_MODULE_2__.useSelector)(function (state) {
     return state.navbar.value;
   });
-  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {});
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "".concat(navbar ? 'h-[43px]' : 'min-h-[43px]', " text-lg sm:justify-center flex flex-wrap items-center gap-2"),
@@ -11696,9 +11695,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+var NextContent = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../Home/Contents/NextContent/NextContent */ "./resources/js/Pages/Home/Contents/NextContent/NextContent.js"));
+});
 function Search(_ref) {
   var q = _ref.q,
-    dataFromQuery = _ref.dataFromQuery;
+    _ref$dataFromQuery = _ref.dataFromQuery,
+    dataFromQuery = _ref$dataFromQuery === void 0 ? [] : _ref$dataFromQuery;
   var _window$location = window.location,
     pathname = _window$location.pathname,
     search = _window$location.search;
@@ -11736,9 +11739,7 @@ function Search(_ref) {
         setNewURL("".concat(pathname, "?q=").concat(urlParams.get('q')).concat(urlInput === undefined ? '' : urlInput, "&sort_by=").concat(urlParams.get('sort_by'), "&sort_direction=").concat(urlParams.get('sort_direction')));
       }
     }
-    // setNewURL(`${pathname}?q=${urlParams.get('q')}${urlInput === undefined ? '' : urlInput}${urlInput2 === undefined ? '' : urlInput2}`);
   };
-
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Head, {
       title: "Search Results for ".concat(q, " - DEV Community")
@@ -11748,9 +11749,9 @@ function Search(_ref) {
         className: "max-w-[1150px] mx-auto",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "w-full min-h-[45px] sm:p-2 gap-2 flex justify-between items-center",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("h1", {
             className: "text-3xl sm:text-base break-words font-bold text-[#090909]",
-            children: "Search results for web"
+            children: ["Search results for ", q]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
             className: "flex flex-wrap sm:justify-center items-center gap-2 text-base",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
@@ -11829,10 +11830,20 @@ function Search(_ref) {
               children: "My Post Only"
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-            className: "bg-green-400 min-h-screen w-[845px]",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-              children: "Content Post"
-            })
+            className: "min-h-screen w-[845px]",
+            children: dataFromQuery.length > 0 ? dataFromQuery.map(function (post) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+                fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                  children: "Loading"
+                }),
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(NextContent, {
+                  countComment: post === null || post === void 0 ? void 0 : post.comments.length,
+                  detailPost: post,
+                  detailUserCreate: post === null || post === void 0 ? void 0 : post.users[0],
+                  text: post === null || post === void 0 ? void 0 : post.title
+                })
+              });
+            }) : ''
           })]
         })]
       })

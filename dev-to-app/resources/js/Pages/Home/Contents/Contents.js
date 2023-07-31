@@ -1,4 +1,4 @@
-import React, {useEffect, useState, Suspense} from "react";
+import React, {Suspense} from "react";
 import {Link} from "@inertiajs/inertia-react";
 import {useSelector} from "react-redux";
 
@@ -8,10 +8,6 @@ const FirstContent = React.lazy(() => import('@/Pages/Home/Contents/FirstContent
 function Contents({listPost}) {
 
     const navbar = useSelector(state => state.navbar.value);
-
-    useEffect(() => {
-
-    })
 
     return (
         <div>

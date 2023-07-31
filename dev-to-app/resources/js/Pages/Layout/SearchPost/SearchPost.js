@@ -1,5 +1,5 @@
-import { useForm, Link } from "@inertiajs/inertia-react";
-import { useEffect, useRef, useState } from "react";
+import { useForm, Link} from "@inertiajs/inertia-react";
+import { useEffect, useRef, useState,  Suspense } from "react";
 
 function SearchPost() {
 

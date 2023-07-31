@@ -1,8 +1,10 @@
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, Suspense } from "react";
 import Layout from "../Layout/Layout";
 import { Head, Link } from "@inertiajs/inertia-react";
 
-function Search({q, dataFromQuery}) {
+const NextContent = React.lazy(() => import('../Home/Contents/NextContent/NextContent'));
+
+function Search({q, dataFromQuery = []}) {
 
     const {
         pathname, search
@@ -39,7 +41,6 @@ function Search({q, dataFromQuery}) {
 
             }
         }
-        // setNewURL(`${pathname}?q=${urlParams.get('q')}${urlInput === undefined ? '' : urlInput}${urlInput2 === undefined ? '' : urlInput2}`);
     };
 
     return (
@@ -49,7 +50,7 @@ function Search({q, dataFromQuery}) {
                 <div className="max-w-[1150px] mx-auto">
                     <div className="w-full min-h-[45px] sm:p-2 gap-2 flex justify-between items-center">
                         <h1 className="text-3xl sm:text-base break-words font-bold text-[#090909]">
-                            Search results for web
+                            Search results for {q}
                         </h1>
                         <div className="flex flex-wrap sm:justify-center items-center gap-2 text-base">
 
@@ -86,8 +87,17 @@ function Search({q, dataFromQuery}) {
                             <button onClick={(e) => getURL(e, '&filters=MY_POSTS')} className={`${urlParams.get('MY_POSTS') === 'MY_POSTS' ? 'bg-white font-bold' : ''} p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left`} type="button">My Post Only</button>
 
                         </div>
-                        <div className="bg-green-400 min-h-screen w-[845px]">
-                            <h1>Content Post</h1>
+                        <div className="min-h-screen w-[845px]">
+                            {
+                                dataFromQuery.length > 0 ?
+                                dataFromQuery.map((post) => (
+                                    <Suspense fallback={<div>Loading</div>}>
+                                        <NextContent countComment={post?.comments.length} detailPost={post} detailUserCreate={post?.users[0]} text={post?.title}/>
+                                    </Suspense>
+                                ))
+                                :
+                                ''
+                            }
                         </div>
                     </div>
                 </div>
