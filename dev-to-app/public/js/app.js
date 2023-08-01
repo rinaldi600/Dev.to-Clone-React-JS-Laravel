@@ -11683,6 +11683,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Layout_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -11700,8 +11701,7 @@ var NextContent = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.lazy(function 
 });
 function Search(_ref) {
   var q = _ref.q,
-    _ref$dataFromQuery = _ref.dataFromQuery,
-    dataFromQuery = _ref$dataFromQuery === void 0 ? [] : _ref$dataFromQuery;
+    dataFromQuery = _ref.dataFromQuery;
   var _window$location = window.location,
     pathname = _window$location.pathname,
     search = _window$location.search;
@@ -11717,6 +11717,7 @@ function Search(_ref) {
   var urlParams = new URLSearchParams(search);
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(function () {
     console.log(dataFromQuery);
+    console.log(_typeof(dataFromQuery));
     setPrevURL(window.location.search);
     if (newURL !== '') {
       elementRefLink.current.click();
@@ -11775,7 +11776,7 @@ function Search(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
           className: "flex pt-6 max-w-[1150px] justify-center flex-wrap mx-auto",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-            className: "max-h-[500px] w-[300px]",
+            className: "sm:flex sm:w-full sm:overflow-y-hidden sm:overflow-x-scroll max-h-[500px] w-[300px]",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_2__.Link, {
               href: newURL,
               ref: elementRefLink
@@ -11831,19 +11832,31 @@ function Search(_ref) {
             })]
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "min-h-screen w-[845px]",
-            children: dataFromQuery.length > 0 ? dataFromQuery.map(function (post) {
-              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
-                fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-                  children: "Loading"
-                }),
-                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(NextContent, {
-                  countComment: post === null || post === void 0 ? void 0 : post.comments.length,
-                  detailPost: post,
-                  detailUserCreate: post === null || post === void 0 ? void 0 : post.users[0],
-                  text: post === null || post === void 0 ? void 0 : post.title
+            children: _typeof(dataFromQuery) === 'object' && dataFromQuery.hasOwnProperty('result') ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                className: "rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] bg-white w-full min-h-[152px] flex justify-center items-center",
+                children: dataFromQuery.result
+              })
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+              children: dataFromQuery.length > 0 ? dataFromQuery.map(function (post) {
+                return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_0__.Suspense, {
+                  fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                    children: "Loading"
+                  }),
+                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(NextContent, {
+                    countComment: post === null || post === void 0 ? void 0 : post.comments.length,
+                    detailPost: post,
+                    detailUserCreate: post === null || post === void 0 ? void 0 : post.users[0],
+                    text: post === null || post === void 0 ? void 0 : post.title
+                  })
+                });
+              }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                  className: "rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] bg-white w-full min-h-[152px] flex justify-center items-center",
+                  children: "No results match that query"
                 })
-              });
-            }) : ''
+              })
+            })
           })]
         })]
       })

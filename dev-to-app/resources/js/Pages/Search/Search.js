@@ -4,7 +4,7 @@ import { Head, Link } from "@inertiajs/inertia-react";
 
 const NextContent = React.lazy(() => import('../Home/Contents/NextContent/NextContent'));
 
-function Search({q, dataFromQuery = []}) {
+function Search({q, dataFromQuery}) {
 
     const {
         pathname, search
@@ -17,6 +17,7 @@ function Search({q, dataFromQuery = []}) {
 
     useEffect(() => {
         console.log(dataFromQuery);
+        console.log(typeof dataFromQuery);
         setPrevURL(window.location.search);
         if (newURL !== '') {
             elementRefLink.current.click();
@@ -69,7 +70,7 @@ function Search({q, dataFromQuery = []}) {
                         </div>
                     </div>
                     <div className="flex pt-6 max-w-[1150px] justify-center flex-wrap mx-auto">
-                        <div className="max-h-[500px] w-[300px]">
+                        <div className="sm:flex sm:w-full sm:overflow-y-hidden sm:overflow-x-scroll max-h-[500px] w-[300px]">
                             <Link href={newURL} ref={elementRefLink}></Link>
 
                             <button onClick={(e) => getURL(e, '&filters=class_name:Article')} className={`${urlParams.get('filters') === 'class_name:Article' || (urlParams.get('q') !== null && urlParams.get('filters') === null) ? 'bg-white font-bold' : ''} p-2 rounded-lg w-[90%] hover:text-[#3B49DF] text-[#090909] text-left`} type="button">Post</button>
@@ -89,14 +90,30 @@ function Search({q, dataFromQuery = []}) {
                         </div>
                         <div className="min-h-screen w-[845px]">
                             {
-                                dataFromQuery.length > 0 ?
-                                dataFromQuery.map((post) => (
-                                    <Suspense fallback={<div>Loading</div>}>
-                                        <NextContent countComment={post?.comments.length} detailPost={post} detailUserCreate={post?.users[0]} text={post?.title}/>
-                                    </Suspense>
-                                ))
+
+                                typeof dataFromQuery === 'object' && dataFromQuery.hasOwnProperty('result') ?
+                                    <>
+                                        <div className="rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] bg-white w-full min-h-[152px] flex justify-center items-center">
+                                        {dataFromQuery.result}
+                                        </div>
+                                    </>
                                 :
-                                ''
+                                    <>
+                                    {
+                                        dataFromQuery.length > 0 ?
+                                        dataFromQuery.map((post) => (
+                                            <Suspense fallback={<div>Loading</div>}>
+                                                <NextContent countComment={post?.comments.length} detailPost={post} detailUserCreate={post?.users[0]} text={post?.title}/>
+                                            </Suspense>
+                                        ))
+                                        :
+                                        <>
+                                            <div className="rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] bg-white w-full min-h-[152px] flex justify-center items-center">
+                                                No results match that query
+                                            </div>
+                                        </>
+                                    }
+                                    </>
                             }
                         </div>
                     </div>

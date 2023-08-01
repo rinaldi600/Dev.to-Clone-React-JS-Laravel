@@ -31,7 +31,9 @@ Route::get('/search', function (Request $request) {
     $dataSearch = Post::with(['users','comments'])->where('title','like', '%'. $request->input('q') . '%')->orWhere('content', 'like', '%' . $request->input('q') . '%');
     return Inertia::render('Search/Search', [
         'q' => $request->input('q'),
-        'dataFromQuery' => ($request->has('sort_direction') ? $dataSearch->orderBy('title',$request->input('sort_direction')) : $dataSearch)->get(),
+        'dataFromQuery' => ($request->input('filters') === 'class_name:Article' || ($request->has('q') && $request->has('filters') === false)) ? ($request->has('sort_direction') ? $dataSearch->orderBy('title',$request->input('sort_direction')) : $dataSearch)->get() : array(
+            'result' => 'Coming Soon.....'
+        ),
     ]);
 });
 
