@@ -18,7 +18,7 @@ function NotificationsUser({children}) {
                     <h1 className="font-bold text-3xl text-[#090909]">Notifications</h1>
                     <div className="md:flex gap-0 flex-wrap pt-10 min-h-[200px]">
                         <div className="md:w-[25%] md:block flex justify-center font-['Segoe_UI'] w-full h-fit">
-                            <ul className="flex md:block">
+                            <ul className="flex md:block mb-2">
                                 <li className={`${styleLink} ${window.location.pathname === '/notifications' ? 'bg-white' : ''}`}>
                                     <Link className="w-full inline-block" href="/notifications">All</Link>
                                 </li>
@@ -30,7 +30,7 @@ function NotificationsUser({children}) {
                                 </li>
                             </ul>
                         </div>
-                        <div className="pl-4 md:w-[75%] w-full h-fit">
+                        <div className="pl-4 sm:p-2 md:w-[75%] w-full h-fit">
                             {children}
                         </div>
                     </div>
