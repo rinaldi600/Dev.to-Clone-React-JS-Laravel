@@ -1,6 +1,7 @@
 import Layout from "@/Pages/Layout/Layout";
 import NotificationsUser from "../NotificationsUser";
 import { useEffect } from "react";
+import CommentsNotification from "../../CommentsNotification/CommentsNotification";
 
 function Comments() {
 
@@ -10,7 +11,8 @@ function Comments() {
 
     return (
         <div>
-            <h1>Comments</h1>
+            <CommentsNotification/>
+            <CommentsNotification/>
         </div>
     )
 }

@@ -10147,6 +10147,109 @@ function TagPost(_ref) {
 
 /***/ }),
 
+/***/ "./resources/js/Pages/Profile/CommentsNotification/CommentsNotification.js":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Pages/Profile/CommentsNotification/CommentsNotification.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _img_aiony_haust_3TLl_97HNJo_unsplash_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../img/aiony-haust-3TLl_97HNJo-unsplash.jpg */ "./resources/img/aiony-haust-3TLl_97HNJo-unsplash.jpg");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+function CommentsNotification() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    className: "min-h-[196.8px] mb-3 p-5 rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] bg-white w-full",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      className: "flex flex-wrap gap-2 items-center",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+        src: _img_aiony_haust_3TLl_97HNJo_unsplash_jpg__WEBPACK_IMPORTED_MODULE_0__["default"],
+        className: "overflow-hidden sm:mx-auto rounded-full w-[48px] h-[48px]",
+        alt: ""
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "flex flex-col justify-start items-start",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h2", {
+          className: "text-[#171717] text-base",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+            className: "font-bold hover:text-[#2F3AB2]",
+            href: "/doni50",
+            children: "Rinaldi Hendrawan "
+          }), "commented on ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+            href: "/doni50/fushimi-inari-shrine",
+            className: "font-bold hover:text-[#2F3AB2]",
+            children: "TEST TRIAL"
+          })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          className: "text-sm text-[#717171]",
+          href: "/",
+          children: "about 24 hours ago"
+        })]
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+      className: "mt-3 flex justify-end w-full min-h-[88.5px]",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        className: "w-[92%] sm:w-full pl-2 pr-2 border border-[#EFEFEF] overflow-hidden rounded-lg min-h-fit",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+          className: "border-b border-[#EFEFEF] pl-3 flex items-center min-h-[52px]",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+            children: "Coba"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+          className: "flex items-center gap-3 min-h-[36.8px] p-1 justify-start",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
+            type: "button",
+            className: "flex text-[#090909] text-sm hover:bg-[#F6F6F6] rounded-lg p-1.5 items-center justify-center gap-1",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("svg", {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "24",
+              height: "24",
+              role: "img",
+              "aria-labelledby": "agrrtlkvjfq72dhuukky0d2dff02geh5",
+              "aria-hidden": "true",
+              "class": "crayons-icon fill-[#3D3D3D] reaction-icon not-reacted",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("title", {
+                id: "agrrtlkvjfq72dhuukky0d2dff02geh5",
+                children: "Comment button"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
+                d: "M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"
+              })]
+            }), "Reply"]
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
+            type: "button",
+            className: "flex text-[#090909] text-sm hover:bg-[#F6F6F6] rounded-lg p-1.5 items-center justify-center gap-1",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("svg", {
+              xmlns: "http://www.w3.org/2000/svg",
+              width: "24",
+              height: "24",
+              viewBox: "0 0 24 24",
+              role: "img",
+              "aria-labelledby": "aj4x1em88wbu92q19re43udgrybkxlws",
+              "class": "crayons-icon fill-[#3D3D3D]",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("title", {
+                id: "aj4x1em88wbu92q19re43udgrybkxlws",
+                children: "View button"
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
+                d: "M16.773 14.652l-1.06-1.062 1.06-1.06a3.751 3.751 0 10-5.303-5.304l-1.06 1.061-1.062-1.06 1.062-1.06a5.25 5.25 0 117.425 7.425l-1.061 1.06h-.001zm-2.121 2.121l-1.061 1.06a5.25 5.25 0 11-7.425-7.424l1.061-1.061 1.06 1.062-1.06 1.06a3.75 3.75 0 105.303 5.304l1.06-1.06 1.062 1.06v-.001zm-.531-7.955l1.061 1.061-5.303 5.303-1.061-1.061 5.303-5.303z"
+              })]
+            }), "View"]
+          })]
+        })]
+      })
+    })]
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (CommentsNotification);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/Profile/Dashboard/Dashboard.js":
 /*!***********************************************************!*\
   !*** ./resources/js/Pages/Profile/Dashboard/Dashboard.js ***!
@@ -10533,10 +10636,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
 /* harmony import */ var _NotificationsUser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationsUser */ "./resources/js/Pages/Profile/Notifications/NotificationsUser.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _img_aiony_haust_3TLl_97HNJo_unsplash_jpg__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../../../img/aiony-haust-3TLl_97HNJo-unsplash.jpg */ "./resources/img/aiony-haust-3TLl_97HNJo-unsplash.jpg");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _CommentsNotification_CommentsNotification__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../CommentsNotification/CommentsNotification */ "./resources/js/Pages/Profile/CommentsNotification/CommentsNotification.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -10545,52 +10646,13 @@ __webpack_require__.r(__webpack_exports__);
 
 function All() {
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {});
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-      className: "min-h-[196.8px] p-5 rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] bg-white w-full",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "flex flex-wrap gap-2 items-center",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-          src: _img_aiony_haust_3TLl_97HNJo_unsplash_jpg__WEBPACK_IMPORTED_MODULE_3__["default"],
-          className: "overflow-hidden sm:mx-auto rounded-full w-[48px] h-[48px]",
-          alt: ""
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "flex flex-col justify-start items-start",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h2", {
-            className: "text-[#171717] text-base",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.Link, {
-              className: "font-bold hover:text-[#2F3AB2]",
-              href: "/doni50",
-              children: "Rinaldi Hendrawan "
-            }), "commented on ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.Link, {
-              href: "/doni50/fushimi-inari-shrine",
-              className: "font-bold hover:text-[#2F3AB2]",
-              children: "TEST TRIAL"
-            })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.Link, {
-            className: "text-sm text-[#717171]",
-            href: "/",
-            children: "about 24 hours ago"
-          })]
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-        className: "mt-3 flex justify-end w-full min-h-[88.5px]",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "w-[92%] sm:w-full pl-2 pr-2 border border-[#EFEFEF] overflow-hidden rounded-lg min-h-fit",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            className: "border-b border-[#EFEFEF] flex items-center min-h-[52px]",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-              children: "Coba"
-            })
-          })
-        })
-      })]
-    })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CommentsNotification_CommentsNotification__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CommentsNotification_CommentsNotification__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
   });
 }
 All.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_NotificationsUser__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_NotificationsUser__WEBPACK_IMPORTED_MODULE_1__["default"], {
       children: page
     })
   });
@@ -10613,22 +10675,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
 /* harmony import */ var _NotificationsUser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationsUser */ "./resources/js/Pages/Profile/Notifications/NotificationsUser.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _CommentsNotification_CommentsNotification__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../CommentsNotification/CommentsNotification */ "./resources/js/Pages/Profile/CommentsNotification/CommentsNotification.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
 
 function Comments() {
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {});
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
-      children: "Comments"
-    })
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CommentsNotification_CommentsNotification__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CommentsNotification_CommentsNotification__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
   });
 }
 Comments.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_NotificationsUser__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_NotificationsUser__WEBPACK_IMPORTED_MODULE_1__["default"], {
       children: page
     })
   });
@@ -94799,6 +94862,8 @@ var map = {
 	"./NewPost/successUpload/SuccessUpload.js": "./resources/js/Pages/NewPost/successUpload/SuccessUpload.js",
 	"./NewPost/tagPost/TagPost": "./resources/js/Pages/NewPost/tagPost/TagPost.js",
 	"./NewPost/tagPost/TagPost.js": "./resources/js/Pages/NewPost/tagPost/TagPost.js",
+	"./Profile/CommentsNotification/CommentsNotification": "./resources/js/Pages/Profile/CommentsNotification/CommentsNotification.js",
+	"./Profile/CommentsNotification/CommentsNotification.js": "./resources/js/Pages/Profile/CommentsNotification/CommentsNotification.js",
 	"./Profile/Dashboard/Dashboard": "./resources/js/Pages/Profile/Dashboard/Dashboard.js",
 	"./Profile/Dashboard/Dashboard.js": "./resources/js/Pages/Profile/Dashboard/Dashboard.js",
 	"./Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic": "./resources/js/Pages/Profile/Dashboard/DetailBoxStatistic/DetailBoxStatistic.js",
