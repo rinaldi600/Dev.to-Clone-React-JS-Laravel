@@ -799,17 +799,11 @@ select {
 .mb-1 {
   margin-bottom: 0.25rem;
 }
-.mb-5 {
-  margin-bottom: 1.25rem;
-}
-.mb-8 {
-  margin-bottom: 2rem;
-}
 .mb-10 {
   margin-bottom: 2.5rem;
 }
-.mb-7 {
-  margin-bottom: 1.75rem;
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 .block {
   display: block;
@@ -944,15 +938,6 @@ select {
 .h-\[80px\] {
   height: 80px;
 }
-.h-\[\] {
-  height: ;
-}
-.h-\[359px\] {
-  height: 359px;
-}
-.h-\[329px\] {
-  height: 329px;
-}
 .max-h-\[500px\] {
   max-height: 500px;
 }
@@ -964,12 +949,6 @@ select {
 }
 .max-h-\[273\.235px\] {
   max-height: 273.235px;
-}
-.max-h-\[329px\] {
-  max-height: 329px;
-}
-.max-h-\[3px\] {
-  max-height: 3px;
 }
 .max-h-\[200\.025px\] {
   max-height: 200.025px;
@@ -1087,17 +1066,14 @@ select {
 .min-h-\[64px\] {
   min-height: 64px;
 }
+.min-h-\[688\.025px\] {
+  min-height: 688.025px;
+}
 .min-h-\[308px\] {
   min-height: 308px;
 }
 .min-h-\[56\.8px\] {
   min-height: 56.8px;
-}
-.min-h-\[\] {
-  min-height: ;
-}
-.min-h-\[688\.025px\] {
-  min-height: 688.025px;
 }
 .w-5 {
   width: 1.25rem;
@@ -1263,23 +1239,23 @@ select {
 .w-\[63px\] {
   width: 63px;
 }
+.w-\[320px\] {
+  width: 320px;
+}
 .w-\[80px\] {
   width: 80px;
 }
 .w-\[480px\] {
   width: 480px;
 }
-.w-\[\] {
-  width: ;
+.w-\[82\%\] {
+  width: 82%;
 }
-.w-\[250px\] {
-  width: 250px;
+.w-\[80\%\] {
+  width: 80%;
 }
-.w-\[420px\] {
-  width: 420px;
-}
-.w-\[320px\] {
-  width: 320px;
+.w-\[83\%\] {
+  width: 83%;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -1318,17 +1294,8 @@ select {
 .max-w-\[992px\] {
   max-width: 992px;
 }
-.max-w-\[250px\] {
-  max-width: 250px;
-}
 .max-w-\[152px\] {
   max-width: 152px;
-}
-.max-w-\[\] {
-  max-width: ;
-}
-.max-w-\[420px\] {
-  max-width: 420px;
 }
 .max-w-\[480px\] {
   max-width: 480px;
@@ -1419,9 +1386,6 @@ select {
 }
 .flex-wrap {
   flex-wrap: wrap;
-}
-.content-center {
-  align-content: center;
 }
 .items-start {
   align-items: flex-start;
@@ -1614,16 +1578,6 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(180 180 180 / var(--tw-border-opacity));
 }
-.border-indigo-600 {
-  --tw-border-opacity: 1;
-  border-color: rgb(79 70 229 / var(--tw-border-opacity));
-}
-.border-\[\] {
-  border-color: ;
-}
-.border-\[\#\] {
-  border-color: #;
-}
 .border-\[\#F3F3F3\] {
   --tw-border-opacity: 1;
   border-color: rgb(243 243 243 / var(--tw-border-opacity));
@@ -1733,9 +1687,6 @@ select {
 .bg-black\/60 {
   background-color: rgb(0 0 0 / 0.6);
 }
-.bg-\[\] {
-  background-color: ;
-}
 .fill-current {
   fill: currentColor;
 }
@@ -1790,9 +1741,6 @@ select {
 }
 .p-3 {
   padding: 0.75rem;
-}
-.p-10 {
-  padding: 2.5rem;
 }
 .p-14 {
   padding: 3.5rem;
@@ -2198,6 +2146,10 @@ select {
 .text-\[\] {
   color: ;
 }
+.text-\[\#9F9F9F\] {
+  --tw-text-opacity: 1;
+  color: rgb(159 159 159 / var(--tw-text-opacity));
+}
 .underline {
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -2456,9 +2408,6 @@ select {
   --tw-bg-opacity: 1;
   background-color: rgb(240 240 240 / var(--tw-bg-opacity));
 }
-.hover\:bg-\[\]:hover {
-  background-color: ;
-}
 .hover\:fill-\[\#2F3AB2\]:hover {
   fill: #2F3AB2;
 }
@@ -2523,6 +2472,10 @@ select {
 .hover\:text-\[\#2F72CD\]:hover {
   --tw-text-opacity: 1;
   color: rgb(47 114 205 / var(--tw-text-opacity));
+}
+.hover\:text-\[\#A3A8DD\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(163 168 221 / var(--tw-text-opacity));
 }
 .hover\:text-\[\]:hover {
   color: ;
@@ -2669,6 +2622,13 @@ select {
 }
 .disabled\:opacity-25:disabled {
   opacity: 0.25;
+}
+.group:hover .group-hover\:stroke-white {
+  stroke: #fff;
+}
+.group:hover .group-hover\:text-\[\#2F3AB2\] {
+  --tw-text-opacity: 1;
+  color: rgb(47 58 178 / var(--tw-text-opacity));
 }
 @media (prefers-color-scheme: dark) {
 
@@ -3001,6 +2961,10 @@ select {
     flex-wrap: wrap;
   }
 
+  .sm\:content-center {
+    align-content: center;
+  }
+
   .sm\:items-center {
     align-items: center;
   }
@@ -3060,6 +3024,10 @@ select {
 
   .sm\:text-left {
     text-align: left;
+  }
+
+  .sm\:text-center {
+    text-align: center;
   }
 
   .sm\:text-right {

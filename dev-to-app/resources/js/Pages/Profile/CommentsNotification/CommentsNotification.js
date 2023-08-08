@@ -3,8 +3,8 @@ import { Link } from "@inertiajs/inertia-react";
 
 function CommentsNotification() {
     return (
-        <div className="min-h-[196.8px] mb-3 p-5 rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] bg-white w-full">
-        <div className="flex flex-wrap gap-2 items-center">
+    <div className="min-h-[196.8px] mb-3 p-5 rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] bg-white w-full">
+        <div className="flex flex-wrap gap-2 items-center mb-5">
             <img src={TestBGProfile} className="overflow-hidden sm:mx-auto rounded-full w-[48px] h-[48px]" alt="" />
             <div className="flex flex-col justify-start items-start">
                 <h2 className="text-[#171717] text-base">
@@ -13,6 +13,12 @@ function CommentsNotification() {
                 </h2>
                 <Link className="text-sm text-[#717171]" href="/">about 24 hours ago</Link>
             </div>
+        </div>
+
+        <div className='w-[83%] pl-3 mx-auto sm:text-center justify-start'>
+            <Link className='group text-sm hover:text-[#A3A8DD] text-[#9F9F9F]'>
+                Re : <span className='font-medium hover:text-[#2F3AB2] group-hover:text-[#2F3AB2] text-[#404040]'>Coba</span>
+            </Link>
         </div>
 
         <div className="mt-3 flex justify-end w-full min-h-[88.5px]">

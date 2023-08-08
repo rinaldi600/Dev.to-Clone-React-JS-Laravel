@@ -4,12 +4,12 @@ import { useEffect, React } from "react";
 import CommentsNotification from "../../CommentsNotification/CommentsNotification";
 import { Link, usePage } from "@inertiajs/inertia-react";
 
-function All() {
+function All({commentUsers}) {
 
     const { auth } = usePage().props
 
     useEffect(() => {
-
+        console.log(commentUsers);
     });
 
     return (

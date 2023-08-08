@@ -65,6 +65,7 @@ Route::middleware('isValidLogin')->group(function () {
     Route::get('/{user:username}/{post:slug}/edit', [\App\Http\Controllers\UserController::class, 'editPost']);
     Route::post('/delete_post', [\App\Http\Controllers\UserController::class, 'deletePost']);
     Route::get('/dashboard', [\App\Http\Controllers\UserController::class, 'dashboard']);
+    Route::get('/comment/{comment:id_comment}', [\App\Http\Controllers\UserController::class, 'commentView']);
     Route::post('/get_data_post', [\App\Http\Controllers\UserController::class, 'getDataPost']);
     Route::post('/handler_image', [\App\Http\Controllers\UserController::class, 'handlerImage']);
     Route::post('/delete_image_post', [\App\Http\Controllers\UserController::class, 'deleteImagePost']);

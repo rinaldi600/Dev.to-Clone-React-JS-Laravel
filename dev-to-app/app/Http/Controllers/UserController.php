@@ -320,7 +320,9 @@ class UserController extends Controller
     }
 
     public function notifications() {
-        return Inertia::render('Profile/Notifications/All/All');
+        return Inertia::render('Profile/Notifications/All/All', [
+            'commentUsers' => Comment::with(['detailReply', 'detailReply.users'])->where('id_user',Auth::user()->id_user)->get(),
+        ]);
     }
 
     public function notificationsComment() {
@@ -497,5 +499,9 @@ class UserController extends Controller
     public function removeFlashData(Request $request) {
         $request->session()->forget('close_comment_box');
         return redirect()->back()->with('position', true);
+    }
+
+    public function commentView(Comment $comment) {
+        dd($comment);
     }
 }
