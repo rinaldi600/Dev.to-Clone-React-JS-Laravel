@@ -51,6 +51,7 @@ Route::middleware('isValidLogin')->group(function () {
     Route::post('/set_new_password', [\App\Http\Controllers\UserController::class, 'setNewPassword']);
     Route::post('/settings_value_user', [\App\Http\Controllers\UserController::class, 'settingsValueUser']);
     Route::get('/signout_confirm', [\App\Http\Controllers\UserController::class, 'handleLogOut']);
+    Route::get('/{user:username}/comment/{comment:id_comment}', [\App\Http\Controllers\UserController::class, 'detailComment']);
     Route::get('/settings/profile', [\App\Http\Controllers\UserController::class, 'settingProfileView']);
     Route::get('/settings/account', [\App\Http\Controllers\UserController::class, 'settingAccountView']);
     Route::prefix('notifications')->group(function () {

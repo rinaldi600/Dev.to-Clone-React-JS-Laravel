@@ -10165,27 +10165,35 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function CommentsNotification() {
+function CommentsNotification(_ref) {
+  var name = _ref.name,
+    profileImage = _ref.profileImage,
+    title = _ref.title,
+    linkPost = _ref.linkPost,
+    linkProfileComment = _ref.linkProfileComment,
+    detailComment = _ref.detailComment,
+    detailReply = _ref.detailReply,
+    commentText = _ref.commentText;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
     className: "min-h-[196.8px] mb-3 p-5 rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] bg-white w-full",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
       className: "flex flex-wrap gap-2 items-center mb-5",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
-        src: _img_aiony_haust_3TLl_97HNJo_unsplash_jpg__WEBPACK_IMPORTED_MODULE_0__["default"],
+        src: profileImage === '' ? _img_aiony_haust_3TLl_97HNJo_unsplash_jpg__WEBPACK_IMPORTED_MODULE_0__["default"] : profileImage,
         className: "overflow-hidden sm:mx-auto rounded-full w-[48px] h-[48px]",
         alt: ""
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
         className: "flex flex-col justify-start items-start",
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h2", {
           className: "text-[#171717] text-base",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
             className: "font-bold hover:text-[#2F3AB2]",
-            href: "/doni50",
-            children: "Rinaldi Hendrawan "
+            href: linkProfileComment,
+            children: [name, " "]
           }), "commented on ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-            href: "/doni50/fushimi-inari-shrine",
+            href: linkPost,
             className: "font-bold hover:text-[#2F3AB2]",
-            children: "TEST TRIAL"
+            children: title
           })]
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
           className: "text-sm text-[#717171]",
@@ -10195,13 +10203,14 @@ function CommentsNotification() {
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "w-[83%] pl-3 mx-auto sm:text-center justify-start",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      children: detailComment !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        href: detailComment,
         className: "group text-sm hover:text-[#A3A8DD] text-[#9F9F9F]",
         children: ["Re : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
           className: "font-medium hover:text-[#2F3AB2] group-hover:text-[#2F3AB2] text-[#404040]",
-          children: "Coba"
+          children: detailReply
         })]
-      })
+      }) : ''
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "mt-3 flex justify-end w-full min-h-[88.5px]",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -10209,7 +10218,7 @@ function CommentsNotification() {
         children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
           className: "border-b border-[#EFEFEF] pl-3 flex items-center min-h-[52px]",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
-            children: "Coba"
+            children: commentText
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
           className: "flex items-center gap-3 min-h-[36.8px] p-1 justify-start",
@@ -10645,9 +10654,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
 /* harmony import */ var _NotificationsUser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationsUser */ "./resources/js/Pages/Profile/Notifications/NotificationsUser.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _CommentsNotification_CommentsNotification__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../CommentsNotification/CommentsNotification */ "./resources/js/Pages/Profile/CommentsNotification/CommentsNotification.js");
-/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _Announcement_Announcement__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../Announcement/Announcement */ "./resources/js/Pages/Profile/Notifications/Announcement/Announcement.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 
 
@@ -10655,73 +10664,125 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var CommentsNotification = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_2__.lazy)(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../../CommentsNotification/CommentsNotification */ "./resources/js/Pages/Profile/CommentsNotification/CommentsNotification.js"));
+});
 function All(_ref) {
-  var _auth$user;
   var commentUsers = _ref.commentUsers;
-  var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.usePage)().props.auth;
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     console.log(commentUsers);
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CommentsNotification_CommentsNotification__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_CommentsNotification_CommentsNotification__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-      className: "w-full p-14 bg-white rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] min-h-[688.025px]",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-        className: "break-words",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("h3", {
-          className: "text-2xl text-center sm:text-lg text-[#171717] mb-1",
-          children: ["You received the ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("strong", {
-            children: "1 Week Community Wellness Streak"
-          }), " badge"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-          className: "text-center text-[#171717] text-lg mb-10",
-          children: "For posting at least 2 constructive comments in a single week."
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
-          className: "w-full border border-[#F3F3F3] rounded-lg p-3 grid justify-items-center items-center mb-4",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-            className: "max-w-[152px] max-h-[200.025px]",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("img", {
-              className: "w-full h-full",
-              src: "https://res.cloudinary.com/practicaldev/image/fetch/s--GZrcRJz1--/c_limit,f_auto,fl_progressive,q_80,w_250/https://dev-to-uploads.s3.amazonaws.com/uploads/badge/badge_image/160/community-wellness-level-1-badge.png",
-              alt: "1 Week Community Wellness Streak"
-            })
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("p", {
-            className: "text-center text-[#575757] text-base",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("em", {
-              children: "Thank you for participating in constructive conversation! You posted two or more comments this week. Keep it up to continue the streak!"
-            })
-          })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
-          className: "w-[320px] mb-4 grid justify-items-center mx-auto",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.Link, {
-            className: "w-full  min-h-[40px] flex items-center font-medium text-center justify-center text-base text-white bg-[#3B49DF] hover:bg-[#2F3AB2] rounded-lg",
-            href: "/".concat(auth === null || auth === void 0 ? void 0 : (_auth$user = auth.user) === null || _auth$user === void 0 ? void 0 : _auth$user.username),
-            children: "Visit your profile"
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("p", {
-          className: "text-center text-[#171717] max-w-[480px] mb-3 mx-auto break-words",
-          children: ["You also get ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.Link, {
-            className: "hover:text-[#2F3AB2] font-bold text-[#3B49DF]",
-            children: "5 new credits"
-          }), " to use for ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.Link, {
-            className: "text-[#3B49DF]",
-            children: "community listings"
-          }), " if you have anything you'd like to promote. \uD83C\uDF89"]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_4__.Link, {
-          className: "text-center text-[#717171] flex justify-center text-sm mx-auto",
-          children: "More information about listings"
-        })]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_2__.Suspense, {
+      fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+        children: "Loading..."
+      }),
+      children: _typeof(commentUsers) === 'object' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+        children: commentUsers.length > 0 ? commentUsers.map(function (comment) {
+          var _comment$comments;
+          return comment === null || comment === void 0 ? void 0 : (_comment$comments = comment.comments) === null || _comment$comments === void 0 ? void 0 : _comment$comments.map(function (c) {
+            var _c$users, _c$users2, _comment$users$, _c$users3, _c$detail_reply, _c$detail_reply$users, _c$detail_reply2, _c$detail_reply3;
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(CommentsNotification, {
+              name: c === null || c === void 0 ? void 0 : (_c$users = c.users) === null || _c$users === void 0 ? void 0 : _c$users.name,
+              profileImage: c === null || c === void 0 ? void 0 : (_c$users2 = c.users) === null || _c$users2 === void 0 ? void 0 : _c$users2.profile_image,
+              title: comment === null || comment === void 0 ? void 0 : comment.title,
+              linkPost: "/".concat(comment === null || comment === void 0 ? void 0 : (_comment$users$ = comment.users[0]) === null || _comment$users$ === void 0 ? void 0 : _comment$users$.username, "/").concat(comment === null || comment === void 0 ? void 0 : comment.slug),
+              linkProfileComment: "/".concat(c === null || c === void 0 ? void 0 : (_c$users3 = c.users) === null || _c$users3 === void 0 ? void 0 : _c$users3.username),
+              detailComment: (c === null || c === void 0 ? void 0 : c.parent_comment) !== null ? "/".concat(c === null || c === void 0 ? void 0 : (_c$detail_reply = c.detail_reply) === null || _c$detail_reply === void 0 ? void 0 : (_c$detail_reply$users = _c$detail_reply.users) === null || _c$detail_reply$users === void 0 ? void 0 : _c$detail_reply$users.username, "/comment/").concat(c === null || c === void 0 ? void 0 : (_c$detail_reply2 = c.detail_reply) === null || _c$detail_reply2 === void 0 ? void 0 : _c$detail_reply2.id_comment) : '',
+              detailReply: c === null || c === void 0 ? void 0 : (_c$detail_reply3 = c.detail_reply) === null || _c$detail_reply3 === void 0 ? void 0 : _c$detail_reply3.comment,
+              commentText: c === null || c === void 0 ? void 0 : c.comment
+            });
+          });
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
+          children: "Comment not found"
+        })
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
+        children: "Contact our teams"
       })
-    })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Announcement_Announcement__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
   });
 }
 All.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_NotificationsUser__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_NotificationsUser__WEBPACK_IMPORTED_MODULE_1__["default"], {
       children: page
     })
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (All);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Profile/Notifications/Announcement/Announcement.js":
+/*!*******************************************************************************!*\
+  !*** ./resources/js/Pages/Profile/Notifications/Announcement/Announcement.js ***!
+  \*******************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+function Announcement() {
+  var _auth$user;
+  var auth = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.usePage)().props.auth;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    className: "w-full p-14 bg-white rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] min-h-[688.025px]",
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "break-words",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("h3", {
+        className: "text-2xl text-center sm:text-lg text-[#171717] mb-1",
+        children: ["You received the ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("strong", {
+          children: "1 Week Community Wellness Streak"
+        }), " badge"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+        className: "text-center text-[#171717] text-lg mb-10",
+        children: "For posting at least 2 constructive comments in a single week."
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "w-full border border-[#F3F3F3] rounded-lg p-3 grid justify-items-center items-center mb-4",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+          className: "max-w-[152px] max-h-[200.025px]",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
+            className: "w-full h-full",
+            src: "https://res.cloudinary.com/practicaldev/image/fetch/s--GZrcRJz1--/c_limit,f_auto,fl_progressive,q_80,w_250/https://dev-to-uploads.s3.amazonaws.com/uploads/badge/badge_image/160/community-wellness-level-1-badge.png",
+            alt: "1 Week Community Wellness Streak"
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+          className: "text-center text-[#575757] text-base",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("em", {
+            children: "Thank you for participating in constructive conversation! You posted two or more comments this week. Keep it up to continue the streak!"
+          })
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "w-[320px] mb-4 grid justify-items-center mx-auto",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "w-full  min-h-[40px] flex items-center font-medium text-center justify-center text-base text-white bg-[#3B49DF] hover:bg-[#2F3AB2] rounded-lg",
+          href: "/".concat(auth === null || auth === void 0 ? void 0 : (_auth$user = auth.user) === null || _auth$user === void 0 ? void 0 : _auth$user.username),
+          children: "Visit your profile"
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("p", {
+        className: "text-center text-[#171717] max-w-[480px] mb-3 mx-auto break-words",
+        children: ["You also get ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "hover:text-[#2F3AB2] font-bold text-[#3B49DF]",
+          children: "5 new credits"
+        }), " to use for ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+          className: "text-[#3B49DF]",
+          children: "community listings"
+        }), " if you have anything you'd like to promote. \uD83C\uDF89"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_0__.Link, {
+        className: "text-center text-[#717171] flex justify-center text-sm mx-auto",
+        children: "More information about listings"
+      })]
+    })
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Announcement);
 
 /***/ }),
 
@@ -94938,6 +94999,8 @@ var map = {
 	"./Profile/Dashboard/PostBox/PostBox.js": "./resources/js/Pages/Profile/Dashboard/PostBox/PostBox.js",
 	"./Profile/Notifications/All/All": "./resources/js/Pages/Profile/Notifications/All/All.js",
 	"./Profile/Notifications/All/All.js": "./resources/js/Pages/Profile/Notifications/All/All.js",
+	"./Profile/Notifications/Announcement/Announcement": "./resources/js/Pages/Profile/Notifications/Announcement/Announcement.js",
+	"./Profile/Notifications/Announcement/Announcement.js": "./resources/js/Pages/Profile/Notifications/Announcement/Announcement.js",
 	"./Profile/Notifications/Comments/Comments": "./resources/js/Pages/Profile/Notifications/Comments/Comments.js",
 	"./Profile/Notifications/Comments/Comments.js": "./resources/js/Pages/Profile/Notifications/Comments/Comments.js",
 	"./Profile/Notifications/NotificationsUser": "./resources/js/Pages/Profile/Notifications/NotificationsUser.js",

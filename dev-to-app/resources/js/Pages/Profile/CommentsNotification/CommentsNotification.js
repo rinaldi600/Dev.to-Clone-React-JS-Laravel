@@ -1,30 +1,35 @@
 import TestBGProfile from '../../../../img/aiony-haust-3TLl_97HNJo-unsplash.jpg';
 import { Link } from "@inertiajs/inertia-react";
 
-function CommentsNotification() {
+function CommentsNotification({name, profileImage, title, linkPost, linkProfileComment, detailComment, detailReply, commentText}) {
     return (
     <div className="min-h-[196.8px] mb-3 p-5 rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] bg-white w-full">
         <div className="flex flex-wrap gap-2 items-center mb-5">
-            <img src={TestBGProfile} className="overflow-hidden sm:mx-auto rounded-full w-[48px] h-[48px]" alt="" />
+            <img src={profileImage === '' ? TestBGProfile : profileImage} className="overflow-hidden sm:mx-auto rounded-full w-[48px] h-[48px]" alt="" />
             <div className="flex flex-col justify-start items-start">
                 <h2 className="text-[#171717] text-base">
-                    <Link className="font-bold hover:text-[#2F3AB2]" href="/doni50">Rinaldi Hendrawan </Link>
-                    commented on <Link href="/doni50/fushimi-inari-shrine" className="font-bold hover:text-[#2F3AB2]">TEST TRIAL</Link>
+                    <Link className="font-bold hover:text-[#2F3AB2]" href={linkProfileComment}>{name} </Link>
+                    commented on <Link href={linkPost} className="font-bold hover:text-[#2F3AB2]">{title}</Link>
                 </h2>
                 <Link className="text-sm text-[#717171]" href="/">about 24 hours ago</Link>
             </div>
         </div>
 
         <div className='w-[83%] pl-3 mx-auto sm:text-center justify-start'>
-            <Link className='group text-sm hover:text-[#A3A8DD] text-[#9F9F9F]'>
-                Re : <span className='font-medium hover:text-[#2F3AB2] group-hover:text-[#2F3AB2] text-[#404040]'>Coba</span>
-            </Link>
+            {
+                detailComment !== '' ?
+                <Link href={detailComment} className='group text-sm hover:text-[#A3A8DD] text-[#9F9F9F]'>
+                    Re : <span className='font-medium hover:text-[#2F3AB2] group-hover:text-[#2F3AB2] text-[#404040]'>{detailReply}</span>
+                </Link>
+                :
+                ''
+            }
         </div>
 
         <div className="mt-3 flex justify-end w-full min-h-[88.5px]">
             <div className="w-[92%] sm:w-full pl-2 pr-2 border border-[#EFEFEF] overflow-hidden rounded-lg min-h-fit">
                 <div className="border-b border-[#EFEFEF] pl-3 flex items-center min-h-[52px]">
-                    <p>Coba</p>
+                    <p>{commentText}</p>
                 </div>
                 <div className="flex items-center gap-3 min-h-[36.8px] p-1 justify-start">
                     <button type="button" className="flex text-[#090909] text-sm hover:bg-[#F6F6F6] rounded-lg p-1.5 items-center justify-center gap-1">

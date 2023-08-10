@@ -46,7 +46,6 @@ class Post extends Model
     public function comments() {
         return $this->hasMany(Comment::class,'id_post', 'id_post');
     }
-
         /**
      * Get the name of the index associated with the model.
      *

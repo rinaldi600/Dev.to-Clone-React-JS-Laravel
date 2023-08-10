@@ -787,6 +787,9 @@ select {
 .mr-3 {
   margin-right: 0.75rem;
 }
+.mb-5 {
+  margin-bottom: 1.25rem;
+}
 .mb-2 {
   margin-bottom: 0.5rem;
 }
@@ -801,9 +804,6 @@ select {
 }
 .mb-10 {
   margin-bottom: 2.5rem;
-}
-.mb-5 {
-  margin-bottom: 1.25rem;
 }
 .block {
   display: block;
@@ -1206,6 +1206,9 @@ select {
 .w-\[48px\] {
   width: 48px;
 }
+.w-\[83\%\] {
+  width: 83%;
+}
 .w-\[92\%\] {
   width: 92%;
 }
@@ -1247,15 +1250,6 @@ select {
 }
 .w-\[480px\] {
   width: 480px;
-}
-.w-\[82\%\] {
-  width: 82%;
-}
-.w-\[80\%\] {
-  width: 80%;
-}
-.w-\[83\%\] {
-  width: 83%;
 }
 .max-w-xl {
   max-width: 36rem;
@@ -2123,6 +2117,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(153 27 27 / var(--tw-text-opacity));
 }
+.text-\[\#9F9F9F\] {
+  --tw-text-opacity: 1;
+  color: rgb(159 159 159 / var(--tw-text-opacity));
+}
 .text-\[\#3b49df\] {
   --tw-text-opacity: 1;
   color: rgb(59 73 223 / var(--tw-text-opacity));
@@ -2142,13 +2140,6 @@ select {
 .text-\[\#f9f9f9\] {
   --tw-text-opacity: 1;
   color: rgb(249 249 249 / var(--tw-text-opacity));
-}
-.text-\[\] {
-  color: ;
-}
-.text-\[\#9F9F9F\] {
-  --tw-text-opacity: 1;
-  color: rgb(159 159 159 / var(--tw-text-opacity));
 }
 .underline {
   -webkit-text-decoration-line: underline;
@@ -2461,6 +2452,10 @@ select {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
 }
+.hover\:text-\[\#A3A8DD\]:hover {
+  --tw-text-opacity: 1;
+  color: rgb(163 168 221 / var(--tw-text-opacity));
+}
 .hover\:text-\[\#2F3ABC\]:hover {
   --tw-text-opacity: 1;
   color: rgb(47 58 188 / var(--tw-text-opacity));
@@ -2472,13 +2467,6 @@ select {
 .hover\:text-\[\#2F72CD\]:hover {
   --tw-text-opacity: 1;
   color: rgb(47 114 205 / var(--tw-text-opacity));
-}
-.hover\:text-\[\#A3A8DD\]:hover {
-  --tw-text-opacity: 1;
-  color: rgb(163 168 221 / var(--tw-text-opacity));
-}
-.hover\:text-\[\]:hover {
-  color: ;
 }
 .hover\:underline:hover {
   -webkit-text-decoration-line: underline;
@@ -2622,9 +2610,6 @@ select {
 }
 .disabled\:opacity-25:disabled {
   opacity: 0.25;
-}
-.group:hover .group-hover\:stroke-white {
-  stroke: #fff;
 }
 .group:hover .group-hover\:text-\[\#2F3AB2\] {
   --tw-text-opacity: 1;
@@ -2959,10 +2944,6 @@ select {
 
   .sm\:flex-wrap {
     flex-wrap: wrap;
-  }
-
-  .sm\:content-center {
-    align-content: center;
   }
 
   .sm\:items-center {
