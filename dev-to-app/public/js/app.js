@@ -10160,11 +10160,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _img_aiony_haust_3TLl_97HNJo_unsplash_jpg__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../img/aiony-haust-3TLl_97HNJo-unsplash.jpg */ "./resources/img/aiony-haust-3TLl_97HNJo-unsplash.jpg");
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! moment */ "./node_modules/moment/moment.js");
+/* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
 
+
+
+moment__WEBPACK_IMPORTED_MODULE_2___default().locale('id');
 function CommentsNotification(_ref) {
   var name = _ref.name,
     profileImage = _ref.profileImage,
@@ -10173,59 +10179,63 @@ function CommentsNotification(_ref) {
     linkProfileComment = _ref.linkProfileComment,
     detailComment = _ref.detailComment,
     detailReply = _ref.detailReply,
-    commentText = _ref.commentText;
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    commentText = _ref.commentText,
+    createdAtComment = _ref.createdAtComment;
+  (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {
+    console.log(detailReply);
+  });
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "min-h-[196.8px] mb-3 p-5 rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] bg-white w-full",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
       className: "flex flex-wrap gap-2 items-center mb-5",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
         src: profileImage === '' ? _img_aiony_haust_3TLl_97HNJo_unsplash_jpg__WEBPACK_IMPORTED_MODULE_0__["default"] : profileImage,
         className: "overflow-hidden sm:mx-auto rounded-full w-[48px] h-[48px]",
         alt: ""
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "flex flex-col justify-start items-start",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("h2", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("h2", {
           className: "text-[#171717] text-base",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
             className: "font-bold hover:text-[#2F3AB2]",
             href: linkProfileComment,
             children: [name, " "]
-          }), "commented on ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+          }), "commented on ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
             href: linkPost,
             className: "font-bold hover:text-[#2F3AB2]",
             children: title
           })]
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
           className: "text-sm text-[#717171]",
-          href: "/",
-          children: "about 24 hours ago"
+          href: detailComment,
+          children: [moment__WEBPACK_IMPORTED_MODULE_2___default()(createdAtComment).startOf('day').fromNow(), " - ", moment__WEBPACK_IMPORTED_MODULE_2___default()(createdAtComment).format('LLLL', true)]
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "w-[83%] pl-3 mx-auto sm:text-center justify-start",
-      children: detailComment !== '' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+      children: detailReply !== undefined ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
         href: detailComment,
         className: "group text-sm hover:text-[#A3A8DD] text-[#9F9F9F]",
-        children: ["Re : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("span", {
+        children: ["Re : ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("span", {
           className: "font-medium hover:text-[#2F3AB2] group-hover:text-[#2F3AB2] text-[#404040]",
           children: detailReply
         })]
       }) : ''
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
       className: "mt-3 flex justify-end w-full min-h-[88.5px]",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
         className: "w-[92%] sm:w-full pl-2 pr-2 border border-[#EFEFEF] overflow-hidden rounded-lg min-h-fit",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
           className: "border-b border-[#EFEFEF] pl-3 flex items-center min-h-[52px]",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("p", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("p", {
             children: commentText
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "flex items-center gap-3 min-h-[36.8px] p-1 justify-start",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
             type: "button",
             className: "flex text-[#090909] text-sm hover:bg-[#F6F6F6] rounded-lg p-1.5 items-center justify-center gap-1",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("svg", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "24",
               height: "24",
@@ -10233,17 +10243,17 @@ function CommentsNotification(_ref) {
               "aria-labelledby": "agrrtlkvjfq72dhuukky0d2dff02geh5",
               "aria-hidden": "true",
               "class": "crayons-icon fill-[#3D3D3D] reaction-icon not-reacted",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("title", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("title", {
                 id: "agrrtlkvjfq72dhuukky0d2dff02geh5",
                 children: "Comment button"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                 d: "M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"
               })]
             }), "Reply"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("button", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
             type: "button",
             className: "flex text-[#090909] text-sm hover:bg-[#F6F6F6] rounded-lg p-1.5 items-center justify-center gap-1",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("svg", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
               width: "24",
               height: "24",
@@ -10251,10 +10261,10 @@ function CommentsNotification(_ref) {
               role: "img",
               "aria-labelledby": "aj4x1em88wbu92q19re43udgrybkxlws",
               "class": "crayons-icon fill-[#3D3D3D]",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("title", {
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("title", {
                 id: "aj4x1em88wbu92q19re43udgrybkxlws",
                 children: "View button"
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("path", {
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("path", {
                 d: "M16.773 14.652l-1.06-1.062 1.06-1.06a3.751 3.751 0 10-5.303-5.304l-1.06 1.061-1.062-1.06 1.062-1.06a5.25 5.25 0 117.425 7.425l-1.061 1.06h-.001zm-2.121 2.121l-1.061 1.06a5.25 5.25 0 11-7.425-7.424l1.061-1.061 1.06 1.062-1.06 1.06a3.75 3.75 0 105.303 5.304l1.06-1.06 1.062 1.06v-.001zm-.531-7.955l1.061 1.061-5.303 5.303-1.061-1.061 5.303-5.303z"
               })]
             }), "View"]
@@ -10681,16 +10691,17 @@ function All(_ref) {
         children: commentUsers.length > 0 ? commentUsers.map(function (comment) {
           var _comment$comments;
           return comment === null || comment === void 0 ? void 0 : (_comment$comments = comment.comments) === null || _comment$comments === void 0 ? void 0 : _comment$comments.map(function (c) {
-            var _c$users, _c$users2, _comment$users$, _c$users3, _c$detail_reply, _c$detail_reply$users, _c$detail_reply2, _c$detail_reply3;
+            var _c$users, _c$users2, _comment$users$, _c$users3, _c$detail_reply, _c$detail_reply$users, _c$detail_reply2, _c$users4, _c$detail_reply3;
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(CommentsNotification, {
               name: c === null || c === void 0 ? void 0 : (_c$users = c.users) === null || _c$users === void 0 ? void 0 : _c$users.name,
               profileImage: c === null || c === void 0 ? void 0 : (_c$users2 = c.users) === null || _c$users2 === void 0 ? void 0 : _c$users2.profile_image,
               title: comment === null || comment === void 0 ? void 0 : comment.title,
               linkPost: "/".concat(comment === null || comment === void 0 ? void 0 : (_comment$users$ = comment.users[0]) === null || _comment$users$ === void 0 ? void 0 : _comment$users$.username, "/").concat(comment === null || comment === void 0 ? void 0 : comment.slug),
               linkProfileComment: "/".concat(c === null || c === void 0 ? void 0 : (_c$users3 = c.users) === null || _c$users3 === void 0 ? void 0 : _c$users3.username),
-              detailComment: (c === null || c === void 0 ? void 0 : c.parent_comment) !== null ? "/".concat(c === null || c === void 0 ? void 0 : (_c$detail_reply = c.detail_reply) === null || _c$detail_reply === void 0 ? void 0 : (_c$detail_reply$users = _c$detail_reply.users) === null || _c$detail_reply$users === void 0 ? void 0 : _c$detail_reply$users.username, "/comment/").concat(c === null || c === void 0 ? void 0 : (_c$detail_reply2 = c.detail_reply) === null || _c$detail_reply2 === void 0 ? void 0 : _c$detail_reply2.id_comment) : '',
+              detailComment: (c === null || c === void 0 ? void 0 : c.parent_comment) !== null ? "/".concat(c === null || c === void 0 ? void 0 : (_c$detail_reply = c.detail_reply) === null || _c$detail_reply === void 0 ? void 0 : (_c$detail_reply$users = _c$detail_reply.users) === null || _c$detail_reply$users === void 0 ? void 0 : _c$detail_reply$users.username, "/comment/").concat(c === null || c === void 0 ? void 0 : (_c$detail_reply2 = c.detail_reply) === null || _c$detail_reply2 === void 0 ? void 0 : _c$detail_reply2.id_comment) : "/".concat(c === null || c === void 0 ? void 0 : (_c$users4 = c.users) === null || _c$users4 === void 0 ? void 0 : _c$users4.username, "/comment/").concat(c === null || c === void 0 ? void 0 : c.id_comment),
               detailReply: c === null || c === void 0 ? void 0 : (_c$detail_reply3 = c.detail_reply) === null || _c$detail_reply3 === void 0 ? void 0 : _c$detail_reply3.comment,
-              commentText: c === null || c === void 0 ? void 0 : c.comment
+              commentText: c === null || c === void 0 ? void 0 : c.comment,
+              createdAtComment: c === null || c === void 0 ? void 0 : c.created_at
             });
           });
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
@@ -10800,28 +10811,83 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @/Pages/Layout/Layout */ "./resources/js/Pages/Layout/Layout.js");
 /* harmony import */ var _NotificationsUser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../NotificationsUser */ "./resources/js/Pages/Profile/Notifications/NotificationsUser.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _CommentsNotification_CommentsNotification__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../CommentsNotification/CommentsNotification */ "./resources/js/Pages/Profile/CommentsNotification/CommentsNotification.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 
 
 
 
-
-function Comments() {
+var CommentsNotification = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_2__.lazy)(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../../CommentsNotification/CommentsNotification */ "./resources/js/Pages/Profile/CommentsNotification/CommentsNotification.js"));
+});
+function Comments(_ref) {
+  var commentUsers = _ref.commentUsers;
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {});
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CommentsNotification_CommentsNotification__WEBPACK_IMPORTED_MODULE_3__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CommentsNotification_CommentsNotification__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react__WEBPACK_IMPORTED_MODULE_2__.Suspense, {
+      fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+        children: "Loading..."
+      }),
+      children: _typeof(commentUsers) === 'object' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+        children: commentUsers.length > 0 ? commentUsers.map(function (comment) {
+          var _comment$comments;
+          return comment === null || comment === void 0 ? void 0 : (_comment$comments = comment.comments) === null || _comment$comments === void 0 ? void 0 : _comment$comments.map(function (c) {
+            var _c$users, _c$users2, _comment$users$, _c$users3, _c$detail_reply, _c$detail_reply$users, _c$detail_reply2, _c$detail_reply3;
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(CommentsNotification, {
+              name: c === null || c === void 0 ? void 0 : (_c$users = c.users) === null || _c$users === void 0 ? void 0 : _c$users.name,
+              profileImage: c === null || c === void 0 ? void 0 : (_c$users2 = c.users) === null || _c$users2 === void 0 ? void 0 : _c$users2.profile_image,
+              title: comment === null || comment === void 0 ? void 0 : comment.title,
+              linkPost: "/".concat(comment === null || comment === void 0 ? void 0 : (_comment$users$ = comment.users[0]) === null || _comment$users$ === void 0 ? void 0 : _comment$users$.username, "/").concat(comment === null || comment === void 0 ? void 0 : comment.slug),
+              linkProfileComment: "/".concat(c === null || c === void 0 ? void 0 : (_c$users3 = c.users) === null || _c$users3 === void 0 ? void 0 : _c$users3.username),
+              detailComment: (c === null || c === void 0 ? void 0 : c.parent_comment) !== null ? "/".concat(c === null || c === void 0 ? void 0 : (_c$detail_reply = c.detail_reply) === null || _c$detail_reply === void 0 ? void 0 : (_c$detail_reply$users = _c$detail_reply.users) === null || _c$detail_reply$users === void 0 ? void 0 : _c$detail_reply$users.username, "/comment/").concat(c === null || c === void 0 ? void 0 : (_c$detail_reply2 = c.detail_reply) === null || _c$detail_reply2 === void 0 ? void 0 : _c$detail_reply2.id_comment) : '',
+              detailReply: c === null || c === void 0 ? void 0 : (_c$detail_reply3 = c.detail_reply) === null || _c$detail_reply3 === void 0 ? void 0 : _c$detail_reply3.comment,
+              commentText: c === null || c === void 0 ? void 0 : c.comment,
+              createdAtComment: c === null || c === void 0 ? void 0 : c.created_at
+            });
+          });
+        }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {
+          children: "Comment not found"
+        })
+      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+        children: "Contact our teams"
+      })
+    })
   });
 }
 Comments.layout = function (page) {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_NotificationsUser__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_Pages_Layout_Layout__WEBPACK_IMPORTED_MODULE_0__["default"], {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_NotificationsUser__WEBPACK_IMPORTED_MODULE_1__["default"], {
       children: page
     })
   });
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Comments);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Profile/Notifications/DetailComment/DetailComment.js":
+/*!*********************************************************************************!*\
+  !*** ./resources/js/Pages/Profile/Notifications/DetailComment/DetailComment.js ***!
+  \*********************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function DetailComment() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx)("div", {
+      children: "WORK"
+    })
+  });
+}
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (DetailComment);
 
 /***/ }),
 
@@ -95003,6 +95069,8 @@ var map = {
 	"./Profile/Notifications/Announcement/Announcement.js": "./resources/js/Pages/Profile/Notifications/Announcement/Announcement.js",
 	"./Profile/Notifications/Comments/Comments": "./resources/js/Pages/Profile/Notifications/Comments/Comments.js",
 	"./Profile/Notifications/Comments/Comments.js": "./resources/js/Pages/Profile/Notifications/Comments/Comments.js",
+	"./Profile/Notifications/DetailComment/DetailComment": "./resources/js/Pages/Profile/Notifications/DetailComment/DetailComment.js",
+	"./Profile/Notifications/DetailComment/DetailComment.js": "./resources/js/Pages/Profile/Notifications/DetailComment/DetailComment.js",
 	"./Profile/Notifications/NotificationsUser": "./resources/js/Pages/Profile/Notifications/NotificationsUser.js",
 	"./Profile/Notifications/NotificationsUser.js": "./resources/js/Pages/Profile/Notifications/NotificationsUser.js",
 	"./Profile/Notifications/Posts/Posts": "./resources/js/Pages/Profile/Notifications/Posts/Posts.js",

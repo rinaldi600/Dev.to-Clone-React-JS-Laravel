@@ -326,11 +326,13 @@ class UserController extends Controller
     }
 
     public function detailComment(User $user, Comment $comment) {
-        dd($user);
+        return Inertia::render('Profile/Notifications/DetailComment/DetailComment');
     }
 
     public function notificationsComment() {
-        return Inertia::render('Profile/Notifications/Comments/Comments');
+        return Inertia::render('Profile/Notifications/Comments/Comments', [
+            'commentUsers' => Post::with(['users', 'comments', 'comments.users', 'comments.detailReply', 'comments.detailReply.users'])->where('id_user',Auth::user()->id_user)->get()
+        ]);
     }
 
     public function notificationsPost() {

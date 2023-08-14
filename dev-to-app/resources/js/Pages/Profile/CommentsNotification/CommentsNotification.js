@@ -1,7 +1,15 @@
 import TestBGProfile from '../../../../img/aiony-haust-3TLl_97HNJo-unsplash.jpg';
 import { Link } from "@inertiajs/inertia-react";
+import moment from 'moment';
+import { useEffect } from 'react';
+moment.locale('id');
 
-function CommentsNotification({name, profileImage, title, linkPost, linkProfileComment, detailComment, detailReply, commentText}) {
+function CommentsNotification({name, profileImage, title, linkPost, linkProfileComment, detailComment, detailReply, commentText, createdAtComment}) {
+
+    useEffect(() => {
+        console.log(detailReply);
+    })
+
     return (
     <div className="min-h-[196.8px] mb-3 p-5 rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] bg-white w-full">
         <div className="flex flex-wrap gap-2 items-center mb-5">
@@ -11,13 +19,13 @@ function CommentsNotification({name, profileImage, title, linkPost, linkProfileC
                     <Link className="font-bold hover:text-[#2F3AB2]" href={linkProfileComment}>{name} </Link>
                     commented on <Link href={linkPost} className="font-bold hover:text-[#2F3AB2]">{title}</Link>
                 </h2>
-                <Link className="text-sm text-[#717171]" href="/">about 24 hours ago</Link>
+                <Link className="text-sm text-[#717171]" href={detailComment}>{moment(createdAtComment).startOf('day').fromNow()} - {moment(createdAtComment).format('LLLL', true)}</Link>
             </div>
         </div>
 
         <div className='w-[83%] pl-3 mx-auto sm:text-center justify-start'>
             {
-                detailComment !== '' ?
+                detailReply !== undefined ?
                 <Link href={detailComment} className='group text-sm hover:text-[#A3A8DD] text-[#9F9F9F]'>
                     Re : <span className='font-medium hover:text-[#2F3AB2] group-hover:text-[#2F3AB2] text-[#404040]'>{detailReply}</span>
                 </Link>
