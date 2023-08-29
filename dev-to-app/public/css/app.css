@@ -1069,44 +1069,20 @@ select {
 .min-h-\[688\.025px\] {
   min-height: 688.025px;
 }
+.min-h-\[777\.2px\] {
+  min-height: 777.2px;
+}
+.min-h-\[139\.2px\] {
+  min-height: 139.2px;
+}
+.min-h-\[541px\] {
+  min-height: 541px;
+}
 .min-h-\[308px\] {
   min-height: 308px;
 }
 .min-h-\[56\.8px\] {
   min-height: 56.8px;
-}
-.min-h-\[\] {
-  min-height: ;
-}
-.min-h-\[777\.2px\] {
-  min-height: 777.2px;
-}
-.min-h-\[134\] {
-  min-height: 134;
-}
-.min-h-\[134px\] {
-  min-height: 134px;
-}
-.min-h-\[139\.2px\] {
-  min-height: 139.2px;
-}
-.min-h-\[\.2px\] {
-  min-height: .2px;
-}
-.min-h-\[541px\.2px\] {
-  min-height: 541px.2px;
-}
-.min-h-\[541px\] {
-  min-height: 541px;
-}
-.min-h-\[19\] {
-  min-height: 19;
-}
-.min-h-\[100\%\] {
-  min-height: 100%;
-}
-.min-h-\[1\] {
-  min-height: 1;
 }
 .w-5 {
   width: 1.25rem;
@@ -1330,14 +1306,8 @@ select {
 .max-w-\[1024px\] {
   max-width: 1024px;
 }
-.max-w-\[\] {
-  max-width: ;
-}
 .max-w-\[960px\] {
   max-width: 960px;
-}
-.max-w-\[9\] {
-  max-width: 9;
 }
 .flex-1 {
   flex: 1 1 0%;
@@ -1621,6 +1591,17 @@ select {
   --tw-border-opacity: 1;
   border-color: rgb(243 243 243 / var(--tw-border-opacity));
 }
+.border-indigo-600 {
+  --tw-border-opacity: 1;
+  border-color: rgb(79 70 229 / var(--tw-border-opacity));
+}
+.border-\[\] {
+  border-color: ;
+}
+.border-\[\#D6D6D7\] {
+  --tw-border-opacity: 1;
+  border-color: rgb(214 214 215 / var(--tw-border-opacity));
+}
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1725,13 +1706,6 @@ select {
 }
 .bg-black\/60 {
   background-color: rgb(0 0 0 / 0.6);
-}
-.bg-\[\] {
-  background-color: ;
-}
-.bg-blue-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(96 165 250 / var(--tw-bg-opacity));
 }
 .fill-current {
   fill: currentColor;
@@ -2192,12 +2166,6 @@ select {
 .text-\[\#f9f9f9\] {
   --tw-text-opacity: 1;
   color: rgb(249 249 249 / var(--tw-text-opacity));
-}
-.text-\[\] {
-  color: ;
-}
-.text-\[\#\#717171\] {
-  color: ##717171;
 }
 .underline {
   -webkit-text-decoration-line: underline;
