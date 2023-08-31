@@ -1,17 +1,19 @@
 import Layout from "@/Pages/Layout/Layout";
-import { Link } from "@inertiajs/inertia-react";
-import { useEffect } from "react";
+import { Link, Head } from "@inertiajs/inertia-react";
+import { useEffect, Suspense, React, lazy} from "react";
+
+const CommentUser = lazy(() => import('../../../SeePost/CommentUser/CommentUser'));
+const RecursiveUser = lazy(() => import('../../../SeePost/RecursiveComment/RecursiveComment'));
 
 function DetailComment({comment}) {
-
 
     useEffect(() => {
         console.log(comment);
     })
 
-
     return (
         <>
+            <Head title={`${comment?.comment} - DEV Community`} />
             <div className="min-h-screen pt-5 font-['Segoe_UI'] bg-[#F5F5F5]">
                 <div className="max-w-[1024px] mx-auto min-h-[777.2px]">
                     <div className="mx-auto bg-white min-h-[139.2px] grid items-center rounded-t-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] max-w-[960px] pl-5">

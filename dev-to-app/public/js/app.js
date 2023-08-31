@@ -10883,13 +10883,21 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+var CommentUser = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_2__.lazy)(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../../../SeePost/CommentUser/CommentUser */ "./resources/js/Pages/SeePost/CommentUser/CommentUser.js"));
+});
+var RecursiveUser = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_2__.lazy)(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../../../SeePost/RecursiveComment/RecursiveComment */ "./resources/js/Pages/SeePost/RecursiveComment/RecursiveComment.js"));
+});
 function DetailComment(_ref) {
   var comment = _ref.comment;
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     console.log(comment);
   });
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Head, {
+      title: "".concat(comment === null || comment === void 0 ? void 0 : comment.comment, " - DEV Community")
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
       className: "min-h-screen pt-5 font-['Segoe_UI'] bg-[#F5F5F5]",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
         className: "max-w-[1024px] mx-auto min-h-[777.2px]",
@@ -10915,7 +10923,7 @@ function DetailComment(_ref) {
           className: "mx-auto bg-white min-h-[541px] rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] max-w-[992px]"
         })]
       })
-    })
+    })]
   });
 }
 DetailComment.layout = function (page) {
