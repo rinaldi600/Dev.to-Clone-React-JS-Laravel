@@ -327,7 +327,8 @@ class UserController extends Controller
 
     public function detailComment(User $user, Comment $comment) {
         return Inertia::render('Profile/Notifications/DetailComment/DetailComment', [
-            'comment' => $comment->load('replyComment'),
+            'comment' => $comment->load('replyComment', 'replyComment.users'),
+            'detailPost' => Post::with('users')->where('id_post', $comment->id_post)->first(),
         ]);
     }
 

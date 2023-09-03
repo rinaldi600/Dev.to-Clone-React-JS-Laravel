@@ -10877,6 +10877,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 
 
 
@@ -10886,11 +10887,13 @@ __webpack_require__.r(__webpack_exports__);
 var CommentUser = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_2__.lazy)(function () {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../../../SeePost/CommentUser/CommentUser */ "./resources/js/Pages/SeePost/CommentUser/CommentUser.js"));
 });
-var RecursiveUser = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_2__.lazy)(function () {
+var RecursiveComment = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_2__.lazy)(function () {
   return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../../../SeePost/RecursiveComment/RecursiveComment */ "./resources/js/Pages/SeePost/RecursiveComment/RecursiveComment.js"));
 });
 function DetailComment(_ref) {
-  var comment = _ref.comment;
+  var _detailPost$users$, _comment$users, _comment$users2;
+  var comment = _ref.comment,
+    detailPost = _ref.detailPost;
   (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
     console.log(comment);
   });
@@ -10910,17 +10913,42 @@ function DetailComment(_ref) {
                 children: ["Discussion on: ", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
                   className: "font-bold text-[#242424]",
                   children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-                    children: "TEST TRIAL"
+                    children: detailPost === null || detailPost === void 0 ? void 0 : detailPost.title
                   })
                 })]
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+                href: "/".concat(detailPost === null || detailPost === void 0 ? void 0 : (_detailPost$users$ = detailPost.users[0]) === null || _detailPost$users$ === void 0 ? void 0 : _detailPost$users$.username, "/").concat(detailPost === null || detailPost === void 0 ? void 0 : detailPost.slug),
                 className: "border-2 border-[#D6D6D7] rounded-md font-medium text-base p-2",
                 children: "View post"
               })]
             })
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-          className: "mx-auto bg-white min-h-[541px] rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] max-w-[992px]"
+          className: "mx-auto bg-white min-h-[541px] pt-8 overflow-hidden rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] max-w-[992px]",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+            className: "w-[90%] mx-auto",
+            children: (comment === null || comment === void 0 ? void 0 : comment.reply_comment.length) > 0 && _typeof(comment === null || comment === void 0 ? void 0 : comment.reply_comment) === 'object' && _typeof(comment) === 'object' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react__WEBPACK_IMPORTED_MODULE_2__.Suspense, {
+                fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+                  children: "Loading..."
+                }),
+                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(CommentUser, {
+                  created_at: comment.created_at,
+                  name: comment === null || comment === void 0 ? void 0 : (_comment$users = comment.users) === null || _comment$users === void 0 ? void 0 : _comment$users.name,
+                  id: comment === null || comment === void 0 ? void 0 : comment.id,
+                  idPost: detailPost === null || detailPost === void 0 ? void 0 : detailPost.id_post,
+                  idComment: comment.id_comment,
+                  nestedComment: true,
+                  textComment: comment.comment,
+                  profileUser: comment === null || comment === void 0 ? void 0 : (_comment$users2 = comment.users) === null || _comment$users2 === void 0 ? void 0 : _comment$users2.profile_image
+                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(RecursiveComment, {
+                  nestedComment: comment === null || comment === void 0 ? void 0 : comment.reply_comment
+                })]
+              })
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("p", {
+              children: "Contact our developers..."
+            })
+          })
         })]
       })
     })]

@@ -7,7 +7,7 @@ moment.locale('id');
 function CommentsNotification({name, profileImage, title, linkPost, linkProfileComment, detailComment, detailReply, commentText, createdAtComment}) {
 
     useEffect(() => {
-        
+
     })
 
     return (
