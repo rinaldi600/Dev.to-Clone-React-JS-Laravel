@@ -10164,6 +10164,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var moment__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(moment__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(arr, i) { var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"]; if (null != _i) { var _s, _e, _x, _r, _arr = [], _n = !0, _d = !1; try { if (_x = (_i = _i.call(arr)).next, 0 === i) { if (Object(_i) !== _i) return; _n = !1; } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0); } catch (err) { _d = !0, _e = err; } finally { try { if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return; } finally { if (_d) throw _e; } } return _arr; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -10171,6 +10177,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 moment__WEBPACK_IMPORTED_MODULE_2___default().locale('id');
+var CommentBox = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_3__.lazy)(function () {
+  return Promise.resolve(/*! import() */).then(__webpack_require__.bind(__webpack_require__, /*! ../../SeePost/CommentBox/CommentBox */ "./resources/js/Pages/SeePost/CommentBox/CommentBox.js"));
+});
 function CommentsNotification(_ref) {
   var name = _ref.name,
     profileImage = _ref.profileImage,
@@ -10181,7 +10190,17 @@ function CommentsNotification(_ref) {
     detailReply = _ref.detailReply,
     commentText = _ref.commentText,
     createdAtComment = _ref.createdAtComment;
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false),
+    _useState2 = _slicedToArray(_useState, 2),
+    isComment = _useState2[0],
+    showComment = _useState2[1];
+  var cancel = function cancel(param) {
+    showComment(param);
+  };
   (0,react__WEBPACK_IMPORTED_MODULE_3__.useEffect)(function () {});
+  var closeCommentBox = function closeCommentBox(e) {
+    showComment(e);
+  };
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     className: "min-h-[196.8px] mb-3 p-5 rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] bg-white w-full",
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
@@ -10231,6 +10250,9 @@ function CommentsNotification(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "flex items-center gap-3 min-h-[36.8px] p-1 justify-start",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
+            onClick: function onClick() {
+              return showComment(true);
+            },
             type: "button",
             className: "flex text-[#090909] text-sm hover:bg-[#F6F6F6] rounded-lg p-1.5 items-center justify-center gap-1",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("svg", {
@@ -10248,8 +10270,8 @@ function CommentsNotification(_ref) {
                 d: "M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"
               })]
             }), "Reply"]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("button", {
-            type: "button",
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
+            href: detailComment,
             className: "flex text-[#090909] text-sm hover:bg-[#F6F6F6] rounded-lg p-1.5 items-center justify-center gap-1",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("svg", {
               xmlns: "http://www.w3.org/2000/svg",
@@ -10267,6 +10289,17 @@ function CommentsNotification(_ref) {
               })]
             }), "View"]
           })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_3__.Suspense, {
+          fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+            children: "Loading..."
+          }),
+          children: isComment ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(CommentBox, {
+            closeCommentBox: closeCommentBox,
+            idPost: 'TRIAL',
+            idComment: 'TRIAL',
+            cancel: cancel,
+            valueCancel: true
+          }) : ''
         })]
       })
     })]
@@ -10677,7 +10710,9 @@ var CommentsNotification = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_2__.la
 });
 function All(_ref) {
   var commentUsers = _ref.commentUsers;
-  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {});
+  (0,react__WEBPACK_IMPORTED_MODULE_2__.useEffect)(function () {
+    console.log(commentUsers);
+  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
     children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(react__WEBPACK_IMPORTED_MODULE_2__.Suspense, {
       fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -10927,7 +10962,7 @@ function DetailComment(_ref) {
           className: "mx-auto bg-white min-h-[541px] pt-8 overflow-hidden rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] max-w-[992px]",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
             className: "w-[90%] mx-auto",
-            children: (comment === null || comment === void 0 ? void 0 : comment.reply_comment.length) > 0 && _typeof(comment === null || comment === void 0 ? void 0 : comment.reply_comment) === 'object' && _typeof(comment) === 'object' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
+            children: _typeof(comment === null || comment === void 0 ? void 0 : comment.reply_comment) === 'object' && _typeof(comment) === 'object' ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react__WEBPACK_IMPORTED_MODULE_2__.Suspense, {
                 fallback: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
                   children: "Loading..."

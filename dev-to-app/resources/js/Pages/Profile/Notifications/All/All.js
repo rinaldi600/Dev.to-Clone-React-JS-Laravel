@@ -8,7 +8,7 @@ const CommentsNotification = lazy(() => import('../../CommentsNotification/Comme
 function All({commentUsers}) {
 
     useEffect(() => {
-
+        console.log(commentUsers);
     });
 
     return (

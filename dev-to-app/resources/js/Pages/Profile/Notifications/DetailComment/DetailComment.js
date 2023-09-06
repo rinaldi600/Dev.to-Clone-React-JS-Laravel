@@ -27,8 +27,6 @@ function DetailComment({comment, detailPost}) {
                     <div className="mx-auto bg-white min-h-[541px] pt-8 overflow-hidden rounded-lg shadow-[0px_1px_3px_0px_rgba(0,0,0,0.02),0px_0px_0px_1px_rgba(27,31,35,0.15)] max-w-[992px]">
                         <div className="w-[90%] mx-auto">
                             {
-                                comment?.reply_comment.length > 0
-                                &&
                                 typeof comment?.reply_comment === 'object'
                                 &&
                                 typeof comment === 'object'
