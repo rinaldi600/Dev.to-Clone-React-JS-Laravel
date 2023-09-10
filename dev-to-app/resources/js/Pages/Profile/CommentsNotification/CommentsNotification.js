@@ -6,7 +6,7 @@ moment.locale('id');
 
 const CommentBox = lazy(() => import('../../SeePost/CommentBox/CommentBox'));
 
-function CommentsNotification({name, profileImage, title, linkPost, linkProfileComment, detailComment, detailReply, commentText, createdAtComment}) {
+function CommentsNotification({name, profileImage, title, linkPost, linkProfileComment, detailComment, detailReply, commentText, createdAtComment, idPost, idComment}) {
 
     const [isComment, showComment] = useState(false);
 
@@ -31,7 +31,7 @@ function CommentsNotification({name, profileImage, title, linkPost, linkProfileC
                     <Link className="font-bold hover:text-[#2F3AB2]" href={linkProfileComment}>{name} </Link>
                     commented on <Link href={linkPost} className="font-bold hover:text-[#2F3AB2]">{title}</Link>
                 </h2>
-                <Link className="text-sm text-[#717171]" href={detailComment}>{moment(createdAtComment).startOf('day').fromNow()} - {moment(createdAtComment).format('LLLL', true)}</Link>
+                <Link className="text-sm text-[#717171]" href={detailComment}>{moment(createdAtComment).startOf('hour').fromNow()} - {moment(createdAtComment).format('LLLL', true)}</Link>
             </div>
         </div>
 
@@ -66,7 +66,7 @@ function CommentsNotification({name, profileImage, title, linkPost, linkProfileC
                 <Suspense fallback={<div>Loading...</div>}>
                     {
                         isComment ?
-                        <CommentBox closeCommentBox={closeCommentBox} idPost={'TRIAL'} idComment={'TRIAL'} cancel={cancel} valueCancel={true} />
+                        <CommentBox closeCommentBox={closeCommentBox} idPost={idPost} idComment={idComment} cancel={cancel} valueCancel={true} />
                         :
                         ''
                     }

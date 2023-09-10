@@ -10189,7 +10189,9 @@ function CommentsNotification(_ref) {
     detailComment = _ref.detailComment,
     detailReply = _ref.detailReply,
     commentText = _ref.commentText,
-    createdAtComment = _ref.createdAtComment;
+    createdAtComment = _ref.createdAtComment,
+    idPost = _ref.idPost,
+    idComment = _ref.idComment;
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_3__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     isComment = _useState2[0],
@@ -10225,7 +10227,7 @@ function CommentsNotification(_ref) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
           className: "text-sm text-[#717171]",
           href: detailComment,
-          children: [moment__WEBPACK_IMPORTED_MODULE_2___default()(createdAtComment).startOf('day').fromNow(), " - ", moment__WEBPACK_IMPORTED_MODULE_2___default()(createdAtComment).format('LLLL', true)]
+          children: [moment__WEBPACK_IMPORTED_MODULE_2___default()(createdAtComment).startOf('hour').fromNow(), " - ", moment__WEBPACK_IMPORTED_MODULE_2___default()(createdAtComment).format('LLLL', true)]
         })]
       })]
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
@@ -10295,8 +10297,8 @@ function CommentsNotification(_ref) {
           }),
           children: isComment ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(CommentBox, {
             closeCommentBox: closeCommentBox,
-            idPost: 'TRIAL',
-            idComment: 'TRIAL',
+            idPost: idPost,
+            idComment: idComment,
             cancel: cancel,
             valueCancel: true
           }) : ''
@@ -10732,7 +10734,9 @@ function All(_ref) {
               detailComment: (c === null || c === void 0 ? void 0 : c.parent_comment) !== null ? "/".concat(c === null || c === void 0 ? void 0 : (_c$detail_reply = c.detail_reply) === null || _c$detail_reply === void 0 ? void 0 : (_c$detail_reply$users = _c$detail_reply.users) === null || _c$detail_reply$users === void 0 ? void 0 : _c$detail_reply$users.username, "/comment/").concat(c === null || c === void 0 ? void 0 : (_c$detail_reply2 = c.detail_reply) === null || _c$detail_reply2 === void 0 ? void 0 : _c$detail_reply2.id_comment) : "/".concat(c === null || c === void 0 ? void 0 : (_c$users4 = c.users) === null || _c$users4 === void 0 ? void 0 : _c$users4.username, "/comment/").concat(c === null || c === void 0 ? void 0 : c.id_comment),
               detailReply: c === null || c === void 0 ? void 0 : (_c$detail_reply3 = c.detail_reply) === null || _c$detail_reply3 === void 0 ? void 0 : _c$detail_reply3.comment,
               commentText: c === null || c === void 0 ? void 0 : c.comment,
-              createdAtComment: c === null || c === void 0 ? void 0 : c.created_at
+              createdAtComment: c === null || c === void 0 ? void 0 : c.created_at,
+              idPost: comment === null || comment === void 0 ? void 0 : comment.id_post,
+              idComment: c === null || c === void 0 ? void 0 : c.id_comment
             });
           });
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("h1", {
@@ -10874,7 +10878,9 @@ function Comments(_ref) {
               detailComment: (c === null || c === void 0 ? void 0 : c.parent_comment) !== null ? "/".concat(c === null || c === void 0 ? void 0 : (_c$detail_reply = c.detail_reply) === null || _c$detail_reply === void 0 ? void 0 : (_c$detail_reply$users = _c$detail_reply.users) === null || _c$detail_reply$users === void 0 ? void 0 : _c$detail_reply$users.username, "/comment/").concat(c === null || c === void 0 ? void 0 : (_c$detail_reply2 = c.detail_reply) === null || _c$detail_reply2 === void 0 ? void 0 : _c$detail_reply2.id_comment) : '',
               detailReply: c === null || c === void 0 ? void 0 : (_c$detail_reply3 = c.detail_reply) === null || _c$detail_reply3 === void 0 ? void 0 : _c$detail_reply3.comment,
               commentText: c === null || c === void 0 ? void 0 : c.comment,
-              createdAtComment: c === null || c === void 0 ? void 0 : c.created_at
+              createdAtComment: c === null || c === void 0 ? void 0 : c.created_at,
+              idPost: comment === null || comment === void 0 ? void 0 : comment.id_post,
+              idComment: c === null || c === void 0 ? void 0 : c.id_comment
             });
           });
         }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("h1", {

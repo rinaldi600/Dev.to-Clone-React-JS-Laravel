@@ -20,7 +20,7 @@ function Comments({commentUsers}) {
                             commentUsers.length > 0 ?
                             commentUsers.map((comment) => (
                                 comment?.comments?.map((c) => (
-                                    <CommentsNotification name={c?.users?.name} profileImage={c?.users?.profile_image} title={comment?.title} linkPost={`/${comment?.users[0]?.username}/${comment?.slug}`} linkProfileComment={`/${c?.users?.username}`} detailComment={c?.parent_comment !== null ? `/${c?.detail_reply?.users?.username}/comment/${c?.detail_reply?.id_comment}` : ''} detailReply={c?.detail_reply?.comment} commentText={c?.comment} createdAtComment={c?.created_at}/>
+                                    <CommentsNotification name={c?.users?.name} profileImage={c?.users?.profile_image} title={comment?.title} linkPost={`/${comment?.users[0]?.username}/${comment?.slug}`} linkProfileComment={`/${c?.users?.username}`} detailComment={c?.parent_comment !== null ? `/${c?.detail_reply?.users?.username}/comment/${c?.detail_reply?.id_comment}` : ''} detailReply={c?.detail_reply?.comment} commentText={c?.comment} createdAtComment={c?.created_at} idPost={comment?.id_post} idComment={c?.id_comment}/>
                                 ))
                             ))
                             :
