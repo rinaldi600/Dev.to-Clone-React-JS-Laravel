@@ -6,14 +6,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Scout\Searchable;
+// use Laravel\Scout\Searchable;
 
 class Post extends Model
 {
     use HasFactory;
     use Sluggable;
     use SoftDeletes;
-    use Searchable;
+    // use Searchable;
 
     /**
      * The table associated with the model.
